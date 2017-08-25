@@ -1,0 +1,3 @@
+{
+    "extends": ["standard", "plugin:vue/recommended"]
+}

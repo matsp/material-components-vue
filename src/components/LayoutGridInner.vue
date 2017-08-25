@@ -1,0 +1,15 @@
+<template>
+    <div class="mdc-layout-grid__inner">
+        <slot />
+    </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style lang="scss">
+@import "@material/layout-grid/mdc-layout-grid";
+</style>
+
