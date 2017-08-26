@@ -5,7 +5,8 @@
             "targets": {
             "browsers": "last 2 versions"
             },
-            "loose": true
+            "loose": true,
+            "modules": false
         }], ["stage-0"]
     ]
 }

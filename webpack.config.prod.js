@@ -1,5 +1,4 @@
 const path = require('path')
-const glob = require('glob')
 const Webpack = require('webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -32,6 +31,8 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
+          preserveWhitespace: false,
+          cssSourceMap: false,
           loaders: {
             scss: ExtractTextPlugin.extract({
               fallback: 'style-loader',
@@ -108,6 +109,13 @@ module.exports.plugins = [
       discardComments: { removeAll: true }
     }
   }),
+  // new Webpack.optimize.AggressiveSplittingPlugin({
+  //  minSize: 30000,
+  //  maxSize: 50000,
+  //  chunkOverhead: 0,
+  //  entryChunkMultiplicator: 1,
+  // }),
+  new Webpack.optimize.ModuleConcatenationPlugin(),
   new Webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false,
