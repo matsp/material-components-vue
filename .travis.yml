@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- node
+deploy:
+  provider: npm
+  email: mats.pfeiffer@googlemail.com
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+cache:
+  directories:
+    - "node_modules"
+notifications:
+  email:
+    on_success: never
+    on_failure: always
