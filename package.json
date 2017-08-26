@@ -6,7 +6,6 @@
   "license": "MIT",
   "main": "./example/index.js",
   "scripts": {
-    "test": "mocha",
     "clean": "rm -rf ./dist/*",
     "lint": "eslint --fix ./",
     "build:dev": "yarn run clean && NODE_ENV=development && webpack -d --config ./webpack.config.dev.js",
