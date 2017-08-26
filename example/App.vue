@@ -20,7 +20,7 @@ $mdc-theme-accent: #ff1744;
 $mdc-theme-background: #f5f5f5;
 @import '@material/typography/mdc-typography';
 @import '@material/theme/mdc-theme';
-@import '../scss/material-icons';
-@import '../scss/roboto';
+@import '~scss/material-icons';
+@import '~scss/roboto';
 </style>
 

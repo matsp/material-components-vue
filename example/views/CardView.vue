@@ -1,6 +1,6 @@
 <template>
   <layout-grid-inner>
-    <layout-grid-cell span="[2, 4-desktop]">
+    <layout-grid-cell :span="['2', '4-desktop']">
       <card>
         <textfield slot="title" value="Example"/>
         <span slot="subtitle">Subtitle</span>

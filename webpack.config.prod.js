@@ -41,7 +41,7 @@ module.exports = {
               {
                 loader: 'sass-loader',
                 options: {
-                  includePaths: glob.sync('node_modules').map((d) => path.join(root, d))
+                  includePaths: [nodeModules, src]
                 }
               }
               ]
@@ -64,22 +64,6 @@ module.exports = {
           limit: 10000
         }
       }
-      // {
-      //  test: /\.scss($|\?)|\.css($|\?)/,
-      //  loader: ExtractTextPlugin.extract({
-      //    fallback: 'style-loader',
-      //    use: [{
-      //      loader: 'css-loader'
-      //    },
-      //    {
-      //      loader: 'sass-loader',
-      //      options: {
-      //        includePaths: glob.sync('node_modules').map((d) => path.join(root, d))
-      //      }
-      //    }
-      //    ]
-      //  })
-      // }
     ]
   },
   resolve: {
@@ -91,7 +75,8 @@ module.exports = {
       panels: path.resolve(example + '/panels/'),
       views: path.resolve(example + '/views/'),
       modules: path.resolve(example + '/store/modules/'),
-      routes: path.resolve(example + '/router/routes/')
+      routes: path.resolve(example + '/router/routes/'),
+      scss: path.resolve(src + '/scss/')
     },
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   }

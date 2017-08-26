@@ -9,20 +9,11 @@ const src = path.join(root + '/src/')
 const example = path.join(root + '/example/')
 const nodeModules = path.join(root, '/node_modules/')
 
-// const vueSCSS = [
-//  { loader: 'style-loader' },
-//  { loader: 'css-loader', options: {minimize: true} },
-//  { loader: 'sass-loader',
-//    options: {
-//      includePaths: glob.sync('node_modules').map((d) => path.join(root, d))
-//    }
-//  }
-// ]
-
 module.exports = {
   entry: {
     bundle: [path.resolve(example + '/index.js')],
     vendor: ['vue', 'vuex', 'vue-router']
+
   },
   output: {
     path: path.resolve(root + '/dist'),
@@ -49,7 +40,7 @@ module.exports = {
               {
                 loader: 'sass-loader',
                 options: {
-                  includePaths: glob.sync('node_modules').map((d) => path.join(root, d))
+                  includePaths: [nodeModules, src]
                 }
               }
               ]
@@ -79,11 +70,12 @@ module.exports = {
       'vue$': 'vue/dist/vue.runtime.esm.js',
       'vuex': 'vuex/dist/vuex.esm.js',
       'vue-router': 'vue-router/dist/vue-router.esm.js',
-      components: path.resolve(root + '/src/components/'),
+      components: path.resolve(src + '/components/'),
       panels: path.resolve(example + '/panels/'),
       views: path.resolve(example + '/views/'),
       modules: path.resolve(example + '/store/modules/'),
-      routes: path.resolve(example + '/router/routes/')
+      routes: path.resolve(example + '/router/routes/'),
+      scss: path.resolve(src + '/scss/')
     },
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   },
