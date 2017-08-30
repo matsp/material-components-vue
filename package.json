@@ -1,7 +1,7 @@
 {
   "name": "material-components-vue",
-  "version": "0.0.4",
-  "description": "",
+  "version": "0.0.5",
+  "description": "material-components-web with vuejs",
   "author": "Mats Pfeiffer",
   "license": "MIT",
   "main": "./example/index.js",
