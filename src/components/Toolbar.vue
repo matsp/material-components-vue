@@ -1,5 +1,5 @@
 <template>
-    <div class="mdc-toolbar" v-bind:class="classes">
+    <div v-bind:class="classes">
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
                 <a class="material-icons mdc-toolbar__icon--menu" @click="toggleDrawer()">menu</a>
@@ -21,13 +21,20 @@ import { MDCToolbar } from '@material/toolbar'
 
 export default {
     props: ['title', 'modifier'],
+    data() {
+        return {
+            class: ['mdc-toolbar']
+        }
+    },
     mounted() {
         const toolbar = new MDCToolbar(this.$el)
     },
     computed: {
         classes() {
-            return Array.from(this.modifier, (n) =>
-                'mdc-toolbar--' + n)
+            let tmpClass = this.class
+            String(this.modifier).split(' ').map((n) =>
+                tmpClass.push('mdc-toolbar--' + n))
+            return tmpClass
         }
     },
     methods: {

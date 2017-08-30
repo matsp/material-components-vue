@@ -2,7 +2,7 @@ const state = {
   drawerListItems: {
     home: {
       title: 'Home',
-      route: '/',
+      route: '/home',
       icon: 'home'
     },
     card: {

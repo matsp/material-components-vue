@@ -1,11 +1,13 @@
 <template>
   <header>
-    <toolbar title="Example" :modifier="['fixed', 'waterfall']" v-on:toggleDrawer="toggleDrawer" />
+    <toolbar title="Example" modifier="fixed waterfall" @toggleDrawer="toggleDrawer" />
     <aside>
-      <temporary-drawer :visible="drawerVisible" v-on:toggleDrawer="toggleDrawer">
+      <temporary-drawer :visible="drawerVisible" @toggleDrawer="toggleDrawer">
         <span slot="header">Example</span>
         <list slot="content">
-          <drawer-list-item v-for="item in listItems" :key="item.title" :item="item" v-on:toggleDrawer="toggleDrawer" />
+          <li slot="items" v-for="item in listItems" :key="item.title" @click="openRoute(item.route)">
+            <i class="mdc-list-item__start-detail material-icons">{{item.icon}}</i>{{item.title}}
+          </li>
         </list>
       </temporary-drawer>
     </aside>
@@ -16,11 +18,10 @@
 import Toolbar from 'components/Toolbar'
 import TemporaryDrawer from 'components/TemporaryDrawer'
 import List from 'components/List'
-import DrawerListItem from 'components/DrawerListItem'
 
 export default {
   name: 'top-panel',
-  components: { Toolbar, TemporaryDrawer, List, DrawerListItem },
+  components: { Toolbar, TemporaryDrawer, List },
   data() {
     return {
       drawerVisible: false
@@ -28,7 +29,11 @@ export default {
   },
   methods: {
     toggleDrawer() {
-      this.drawerVisible ? this.drawerVisible = false : this.drawerVisible = true
+      this.drawerVisible = !this.drawerVisible
+    },
+    openRoute(route) {
+      this.$router.push(route)
+      this.toggleDrawer()
     }
   },
   computed: {

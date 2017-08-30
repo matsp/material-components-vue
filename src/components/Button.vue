@@ -1,5 +1,5 @@
 <template>
-    <button class="mdc-button" v-bind:class="classes" data-mdc-auto-init="MDCRipple">
+    <button v-bind:class="classes" data-mdc-auto-init="MDCRipple">
         <slot />
     </button>
 </template>
@@ -8,9 +8,16 @@
 import { MDCRipple } from '@material/ripple';
 export default {
     props: ['modifier'],
+    data() {
+        return {
+            class: ['mdc-button']
+        }
+    },
     computed: {
         classes() {
-            return this.modifier ? 'mdc-button--' + this.modifier : ''
+            let tmpClass = this.class
+            tmpClass.push((this.modifier ? 'mdc-button--' + this.modifier : ''))
+            return tmpClass
         }
     },
     mounted() {

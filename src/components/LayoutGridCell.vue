@@ -1,16 +1,22 @@
 <template>
-    <div class="mdc-layout-grid__cell" v-bind:class="classes">
+    <div v-bind:class="classes">
         <slot />
     </div>
 </template>
 
 <script>
 export default {
-    props: ['span'],
+    props: ['modifier'],
+    data() {
+        return {
+            class: ['mdc-layout-grid__cell']
+        }
+    },
     computed: {
         classes() {
-            return Array.from(this.span, (n) =>
-                'mdc-layout-grid__cell--span-' + n)
+            String(this.modifier).split(' ').map( n =>
+                this.class.push('mdc-layout-grid__cell--span-' + n))
+            return this.class
         }
     }
 }
