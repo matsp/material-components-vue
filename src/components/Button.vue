@@ -7,7 +7,7 @@
 <script>
 import { MDCRipple } from '@material/ripple';
 export default {
-    props: ['modifier'],
+    props: ['modifier', 'disabled'],
     data() {
         return {
             class: ['mdc-button']

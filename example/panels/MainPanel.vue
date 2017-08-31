@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import LayoutGrid from 'components/LayoutGrid'
+import LayoutGrid from 'components/LayoutGrid/LayoutGrid'
 
 export default {
   name: 'main-panel',

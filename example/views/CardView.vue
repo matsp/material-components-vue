@@ -2,7 +2,7 @@
   <layout-grid-inner>
     <layout-grid-cell modifier="2 4-desktop">
       <card>
-        <textfield slot="title" value="Example"/>
+        <textfield slot="title" value="Example" />
         <span slot="subtitle">Subtitle</span>
         <span slot="supporting-text">Example text</span>
         <btn slot="actions" modifier="primary">TestPrimary</btn>
@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import LayoutGridInner from 'components/LayoutGridInner'
-import LayoutGridCell from 'components/LayoutGridCell'
+import LayoutGridInner from 'components/LayoutGrid/LayoutGridInner'
+import LayoutGridCell from 'components/LayoutGrid/LayoutGridCell'
 import Card from 'components/Card'
 import Btn from 'components/Button'
 import Fab from 'components/Fab'

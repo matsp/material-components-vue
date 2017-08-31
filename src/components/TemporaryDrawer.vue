@@ -1,13 +1,13 @@
 <template>
     <div class="mdc-temporary-drawer" @click="$emit('toggleDrawer')">
         <nav class="mdc-temporary-drawer__drawer">
-            <header class="mdc-temporary-drawer__header" v-if="$slots['header']">
+            <header class="mdc-temporary-drawer__header" v-if="$slots['drawerHeader']">
                 <div class="mdc-temporary-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary">
-                    <slot name="header" />
+                    <slot name="drawerHeader" />
                 </div>
             </header>
-            <nav class="mdc-temporary-drawer__content" v-if="$slots['content']">
-                <slot name="content" />
+            <nav class="mdc-temporary-drawer__content" v-if="$slots['drawerContent']">
+                <slot name="drawerContent" />
             </nav>
         </nav>
     </div>

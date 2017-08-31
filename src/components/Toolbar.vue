@@ -2,7 +2,8 @@
     <div v-bind:class="classes">
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-                <a class="material-icons mdc-toolbar__icon--menu" @click="toggleDrawer()">menu</a>
+                <!--<a class="material-icons mdc-toolbar__icon--menu" @click="toggleDrawer()">menu</a>-->
+                <icon icon="menu" modifier="mdc-toolbar__icon--menu" @click.native="toggleDrawer()" />
                 <span class="mdc-toolbar__title">{{title}}</span>
                 <slot name="start" />
             </section>
@@ -18,9 +19,11 @@
 
 <script>
 import { MDCToolbar } from '@material/toolbar'
+import Icon from 'components/Icon'
 
 export default {
     props: ['title', 'modifier'],
+    components: { Icon },
     data() {
         return {
             class: ['mdc-toolbar']
