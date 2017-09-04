@@ -1,6 +1,6 @@
 <template>
     <div class="mdc-checkbox">
-        <input type="checkbox" class="mdc-checkbox__native-control" />
+        <input type="checkbox" class="mdc-checkbox__native-control" :id="id" :disabled="disabled" v-model="model" />
         <div class="mdc-checkbox__background">
             <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
                 <path class="mdc-checkbox__checkmark__path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
@@ -16,16 +16,23 @@ export default {
     props: {
         checked: {
             default: false,
-            type: Boolean
+            type: [Boolean, String]
         },
         indeterminate: {
             default: false,
-            type: Boolean        
-        }, 
+            type: [Boolean, String]
+        },
         disabled: {
             default: false,
-            type: Boolean
+            type: [Boolean, String]
+        },
+        id: {
+            type: String
         }
+    },
+    model: {
+        prop: 'checked',
+        event: 'change'
     },
     data() {
         return {
@@ -35,18 +42,21 @@ export default {
     mounted() {
         this.checkbox = new MDCCheckbox(this.$el)
         this.checkbox.disabled = this.disabled
-        this.checkbox.checked = this.checked
         this.checkbox.indeterminate = this.indeterminate
     },
     watch: {
-        disabled() {
-            this.checkbox.disabled = this.disabled
-        },
         checked() {
-            this.checkbox.checked = this.checked            
-        },
-        indeterminate() {
-            this.checkbox.indeterminate = this.indeterminate
+            this.checkbox.indeterminate = false
+        }
+    },
+    computed: {
+        model: {
+            get() {
+                return this.checked
+            },
+            set(state) {
+                this.$emit('change', state)
+            }
         }
     }
 }

@@ -5,12 +5,36 @@
 
 Ready to use vue components with the styling and behavior of material design.
 
-WORK IN PROGRESS...
-
-
 ## component architecture principles
 
 * container components e.g. 'Card' have named slots to fill in other components
 * sub-components e.g. 'List' for optional content in other components
-* state is outside of components and will be passed in as props
+* state is outside of components and will be passed in as props - maybe modeled
 * components react on state changes with actions
+
+## TODO
+
+### Features
+* [] Refactor components
+* [] Import as vuejs plugin
+* [] Custom elements?
+* [] Extra repository for examples
+* [] Externalize components?
+
+### Components
+* [x] Checkbox
+* [x] FormField
+* [] Drawer (just got temporary now)
+* [] GridList
+* [] Snackbar
+* [] IconToggle
+* [] RadioButton
+* [] SelectMenu
+* [] Slider
+* [] Switch
+* [] Textfield 
+* [] Progress
+* [] Menus
+* [] Tabs
+
+

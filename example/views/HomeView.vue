@@ -9,11 +9,13 @@
             <btn slot="footerButton" modifier="primary"> Anything </btn>
         </dlg>
         <layout-grid-cell modifier="4">
-            <checkbox :checked="true" />
-            <form-field>
-                <checkbox slot="formFieldInput"/>
-                <label slot="formFieldLabel">Checkbox</label>
+            <form-field modifier="align-end">
+                <checkbox id="checkboxOne" v-model="checkboxOne" />
+                <label for="checkboxOne">Checkbox</label>
             </form-field>
+        </layout-grid-cell>
+        <layout-grid-cell modifier="12">
+            <icon-toggle icon="favorite"/>
         </layout-grid-cell>
     </layout-grid-inner>
 </template>
@@ -26,12 +28,14 @@ import Dlg from 'components/Dialog'
 import Btn from 'components/Button'
 import Checkbox from 'components/Checkbox'
 import FormField from 'components/FormField'
+import IconToggle from 'components/IconToggle'
 
 export default {
-    components: { Fab, LayoutGridCell, LayoutGridInner, Dlg, Btn, Checkbox, FormField },
+    components: { Fab, LayoutGridCell, LayoutGridInner, Dlg, Btn, Checkbox, FormField, IconToggle },
     data() {
         return {
-            dialogVisible: false
+            dialogVisible: false,
+            checkboxOne: false
         }
     },
     methods: {
@@ -49,6 +53,9 @@ export default {
             // do something
             this.closeDialog()
         }
+    },
+    computed: {
+
     }
 }
 </script>

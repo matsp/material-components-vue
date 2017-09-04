@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { MDCRipple } from '@material/ripple';
+import { MDCRipple } from '@material/ripple'
 export default {
     props: ['modifier', 'disabled'],
     data() {
