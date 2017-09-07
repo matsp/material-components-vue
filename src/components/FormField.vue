@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="classes">
+  <div class="mdc-form-field" :class="classes" :id="id">
     <slot />
   </div>
 </template>
@@ -10,14 +10,17 @@ import { MDCFormField } from '@material/form-field'
 
 export default {
   props: {
-    modifier: {
+    alignEnd: {
+      type: Boolean,
+      required: false
+    },
+    id: {
       type: String,
-      default: ''
+      required: false
     }
   },
   data() {
     return {
-      class: ['mdc-form-field'],
       formfield: null
     }
   },
@@ -26,9 +29,9 @@ export default {
   },
   computed: {
     classes() {
-      let tmpClass = this.class
-      tmpClass.push((this.modifier ? 'mdc-form-field--' + this.modifier : ''))
-      return tmpClass
+      return {
+        'mdc-form-field--align-end': this.alignEnd
+      }
     }
   }
 }

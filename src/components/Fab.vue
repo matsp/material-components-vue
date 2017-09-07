@@ -1,5 +1,5 @@
 <template>
-    <button v-bind:class="classes" data-mdc-auto-init="MDCRipple">
+    <button class="mdc-fab" :class="classes" :id="id" data-mdc-auto-init="MDCRipple">
         <span class="mdc-fab__icon">
             {{icon}}
         </span>
@@ -9,18 +9,31 @@
 <script>
 import { MDCRipple } from '@material/ripple';
 export default {
-    props: ['modifier', 'icon'],
-    data() {
-        return {
-            class: ['mdc-fab', 'material-icons']
+    props: {
+        mini: {
+            type: Boolean,
+            required: false
+        },
+        absoluteRight: {
+            type: Boolean,
+            required: false
+        },
+        id: {
+            type: String,
+            required: false
+        },
+        icon: {
+            type: String,
+            required: true
         }
     },
     computed: {
         classes() {
-            let tmpClass = this.class
-            String(this.modifier).split(' ').map((n) =>
-                tmpClass.push('mdc-fab--' + n))
-            return tmpClass
+            return {
+                'material-icons': true,
+                'mdc-fab--mini': this.mini,
+                'mdc-fab--absolute-right': this.absoluteRight
+            }  
         }
     },
     mounted() {
@@ -31,14 +44,14 @@ export default {
 
 <style lang="scss">
 @import "@material/fab/mdc-fab";
-.mdc-fab--absolute.mdc-fab--absolute {
+.mdc-fab--absolute-right.mdc-fab--absolute-right {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
 }
 
 @media(min-width: 1024px) {
-    .mdc-fab--absolute.mdc-fab--absolute {
+    .mdc-fab--absolute-right.mdc-fab--absolute-right {
         bottom: 1.5rem;
         right: 1.5rem;
     }

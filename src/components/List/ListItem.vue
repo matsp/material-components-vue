@@ -1,5 +1,5 @@
 <template>
-    <li class="mdc-list-item" data-mdc-auto-init="MDCRipple">
+    <li class="mdc-list-item" :id="id" data-mdc-auto-init="MDCRipple">
         <slot name="listItemStartDetail" />
         <slot name="listItemContent" />
         <slot name="listItemEndDetail" />
@@ -14,6 +14,12 @@
 import { MDCRipple } from '@material/ripple'
 
 export default {
+    props: {
+        id: {
+            type: String,
+            required: false
+        }
+    },
     mounted() {
         MDCRipple.attachTo(this.$el)
 

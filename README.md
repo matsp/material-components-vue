@@ -3,7 +3,8 @@
 [![Build Status](https://travis-ci.org/matsp/material-components-vue.svg?branch=master)](https://travis-ci.org/matsp/material-components-web) 
 [![npm version](https://badge.fury.io/js/material-components-vue.svg)](https://badge.fury.io/js/material-components-vue)
 
-Ready to use vue components with the styling and behavior of material design.
+Ready to use vue components with the styling and behavior of material design - including material-icons.
+Actual no deep foundation implementation.
 
 ## component architecture principles
 
@@ -11,30 +12,54 @@ Ready to use vue components with the styling and behavior of material design.
 * sub-components e.g. 'List' for optional content in other components
 * state is outside of components and will be passed in as props - maybe modeled
 * components react on state changes with actions
+* components without modifier have an addClass prop
+* a modifier prop can modify the main CSS class
+* components have a mainClass
+* CSS class props can be a String (with blanks) or StringArray (when reusing intern components)
+
+## component detail design
+* id on every component
+* just one type as prop e.g. Boolean instead of [Boolean, String]
+* v-if on tags if needed e.g. v-if="text" 
+* optional id prop on every component
+* v-bind="$attrs" to inherit parent non prop attributes in sub components & v-on="$listeners" to inherit their listeners
+
 
 ## TODO
 
-### Features
+### Common
 * [] Refactor components
 * [] Import as vuejs plugin
+* [] Documentation of components and their usage (props, events, ...)
 * [] Custom elements?
 * [] Extra repository for examples
 * [] Externalize components?
 
-### Components
-* [x] Checkbox
-* [x] FormField
-* [] Drawer (just got temporary now)
-* [] GridList
-* [] Snackbar
-* [] IconToggle
-* [] RadioButton
-* [] SelectMenu
-* [] Slider
-* [] Switch
-* [] Textfield 
-* [] Progress
-* [] Menus
-* [] Tabs
 
+### Missing components
+* Drawer
+* Toolbar
+* GridList
+* Snackbar
+* RadioButton
+* SelectMenu
+* Slider
+* Switch
+* Progress
+* Menus
+* Tabs
 
+### Ready to use components
+* Button
+* Checkbox
+* Dialog
+* Card
+* Fab
+* FormField
+* Icon
+* IconToggle
+* Drawer --> TemporaryDrawer
+* Toolbar --> Fixed & Waterfall
+* LayoutGrid
+* List
+* Textfield

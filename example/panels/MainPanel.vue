@@ -1,6 +1,6 @@
 <template>
   <main>
-    <layout-grid>
+    <layout-grid :toolbarAdjust="true">
         <router-view />
     </layout-grid>
   </main>

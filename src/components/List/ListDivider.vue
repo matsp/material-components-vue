@@ -1,20 +1,24 @@
 <template>
-    <li role="separator" v-bind:class="classes"></li>
+    <li role="separator" class="mdc-list-divider" :class="classes" :id="id" />
 </template>
 
 <script>
 export default {
-    props: ['modifier'],
-    data() {
-        return {
-            class: ['mdc-list-divider']
+    props: {
+        id: {
+            type: String,
+            required: false
+        },
+        isnet: {
+            type: Boolean,
+            required: false
         }
     },
     computed: {
         classes() {
-            let tmpClass = this.class
-            tmpClass.push((this.modifier ? 'mdc-list-divider--' + this.modifier : ''))
-            return tmpClass
+            return {
+                'mdc-list-divider--inset': this.inset
+            }
         }
     }
 }

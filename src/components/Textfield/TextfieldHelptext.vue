@@ -1,7 +1,5 @@
 <template>
-    <a class="material-icons" :class="classes" :id="id">
-        {{icon}}
-    </a>
+    <p class="mdc-textfield-helptext" :class="classes" :id="id"> {{text}} </p>
 </template>
 
 <script>
@@ -11,11 +9,15 @@ export default {
             type: String,
             required: false
         },
-        icon: {
+        text: {
             type: String,
             required: true
         },
-        toolbarIcon: {
+        persistent: {
+            type: Boolean,
+            required: false
+        },
+        validationMsg: {
             type: Boolean,
             required: false
         }
@@ -23,14 +25,14 @@ export default {
     computed: {
         classes() {
             return {
-                'mdc-toolbar__icon--menu': this.toolbarIcon
+                'mdc-textfield-helptext--persistent': this.persistent,
+                'mdc-textfield-helptext--validation-msg': this.validationMsg
             }
         }
     }
 }
 </script>
+
 <style lang="scss">
-@import '~scss/material-icons';
+@import "@material/textfield/mdc-textfield";
 </style>
-
-

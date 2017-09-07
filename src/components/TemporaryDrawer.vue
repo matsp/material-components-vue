@@ -1,5 +1,5 @@
 <template>
-    <div class="mdc-temporary-drawer" @click="$emit('toggleDrawer')">
+    <div class="mdc-temporary-drawer" :id="id" @click="$emit('toggleDrawer')">
         <nav class="mdc-temporary-drawer__drawer">
             <header class="mdc-temporary-drawer__header" v-if="$slots['drawerHeader']">
                 <div class="mdc-temporary-drawer__header-content mdc-theme--primary-bg mdc-theme--text-primary-on-primary">
@@ -16,9 +16,17 @@
 <script>
 import { MDCTemporaryDrawer } from '@material/drawer'
 
-
 export default {
-    props: ['visible'],
+    props: {
+        id: {
+            type: String,
+            required: false
+        },
+        visible: {
+            type: Boolean,
+            required: true
+        }
+    },
     data() {
         return {
             drawer: null

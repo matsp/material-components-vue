@@ -1,16 +1,16 @@
 <template>
   <header>
-    <toolbar title="Example" modifier="fixed waterfall" @toggleDrawer="toggleDrawer" />
+    <toolbar title="Example" :fixed="true" :waterfall="true" @toggleDrawer="toggleDrawer" />
     <aside>
       <temporary-drawer :visible="drawerVisible" @toggleDrawer="toggleDrawer">
         <span slot="drawerHeader">Example</span>
         <list-group slot="drawerContent">
-          <list slot="listGroupContent" modifier="">
-            <list-item slot="listContent" v-for="item in listItems" :key="item.text" @click.native="openRoute(item.route)">
+          <list :dense="true">
+            <list-item v-for="item in listItems" :key="item.text" @click.native="openRoute(item.route)">
               <icon slot="listItemStartDetail" :icon="item.icon" />
               <label slot="listItemContent"> {{item.text}} </label>
             </list-item>
-            <list-divider slot="listContent"></list-divider>
+            <list-divider />
           </list>
         </list-group>
       </temporary-drawer>

@@ -1,17 +1,16 @@
 <template>
-    <div v-bind:class="classes">
+    <div class="mdc-toolbar" :class="classes" :id="id">
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-                <!--<a class="material-icons mdc-toolbar__icon--menu" @click="toggleDrawer()">menu</a>-->
-                <icon icon="menu" modifier="mdc-toolbar__icon--menu" @click.native="toggleDrawer()" />
+                <icon icon="menu" :toolbarIcon="true" @click.native="toggleDrawer()" />
                 <span class="mdc-toolbar__title">{{title}}</span>
-                <slot name="start" />
+                <slot name="toolbarStart" />
             </section>
-            <section class="mdc-toolbar__section" v-if="$slots['center']">
-                <slot name="center" />
+            <section class="mdc-toolbar__section" v-if="$slots['toolbarCenter']">
+                <slot name="toolbarCenter" />
             </section>
-            <section class="mdc-toolbar__section mdc-toolbar__section--align-end" v-if="$slots['end']">
-                <slot name="end" />
+            <section class="mdc-toolbar__section mdc-toolbar__section--align-end" v-if="$slots['toolbarEnd']">
+                <slot name="toolbarEnd" />
             </section>
         </div>
     </div>
@@ -22,22 +21,36 @@ import { MDCToolbar } from '@material/toolbar'
 import Icon from 'components/Icon'
 
 export default {
-    props: ['title', 'modifier'],
-    components: { Icon },
-    data() {
-        return {
-            class: ['mdc-toolbar']
+    props: {
+        id: {
+            type: String,
+            required: false
+        },
+        title: {
+            type: String,
+            required: false
+        },
+        fixed: {
+            type: Boolean,
+            required: false
+        },
+        waterfall: {
+            type: Boolean,
+            required: false
         }
+    },
+    components: {
+        Icon
     },
     mounted() {
         const toolbar = new MDCToolbar(this.$el)
     },
     computed: {
         classes() {
-            let tmpClass = this.class
-            String(this.modifier).split(' ').map((n) =>
-                tmpClass.push('mdc-toolbar--' + n))
-            return tmpClass
+            return {
+                'mdc-toolbar--fixed': this.fixed,
+                'mdc-toolbar--waterfall': this.waterfall
+            }
         }
     },
     methods: {

@@ -1,18 +1,24 @@
 <template>
-    <aside class="mdc-dialog" role="alertdialog">
+    <aside class="mdc-dialog" role="alertdialog" :id="id">
         <div class="mdc-dialog__surface">
-            <header class="mdc-dialog__header" v-if="$slots['header']">
-                <h2 class="mdc-dialog__header__title">
-                    <slot name="header" />
+            <header class="mdc-dialog__header" v-if="$slots['dialogHeader']">                
+                <h1 v-if="heading === 1" class="mdc-dialog__header__title">
+                    <slot name="dialogHeader" />
+                </h1>
+                <h2 v-if="heading === 2" class="mdc-dialog__header__title">
+                    <slot name="dialogHeader" />
                 </h2>
+                <h3 v-if="heading === 3" class="mdc-dialog__header__title">
+                    <slot name="dialogHeader" />
+                </h3>
             </header>
-            <section class="mdc-dialog__body" v-if="$slots['body']">
-                <slot name="body" />
+            <section class="mdc-dialog__body" v-if="$slots['dialogBody']">
+                <slot name="dialogBody" />
             </section>
-            <footer class="mdc-dialog__footer" v-if="$slots['footerAcceptButton'] || $slots['footerCancelButton'] || $slots['footerButton']">
-                <slot name="footerAcceptButton" />
-                <slot name="footerCancelButton" />
-                <slot name="footerButton" />
+            <footer class="mdc-dialog__footer" v-if="$slots['dialogAcceptButton'] || $slots['dialogCancelButton'] || $slots['dialog Button']">
+                <slot name="dialogAcceptButton" />
+                <slot name="dialogCancelButton" />
+                <slot name="dialogButton" />
             </footer>
         </div>
         <div class="mdc-dialog__backdrop"></div>
@@ -23,7 +29,20 @@
 import { MDCDialog } from '@material/dialog';
 
 export default {
-    props: ['visible'],
+    props: {
+        visible: {
+            type: Boolean,
+            required: false
+        },
+        id: {
+            type: String,
+            required: false
+        },
+        heading: {
+            type: Number,
+            required: true
+        }
+    },
     data() {
         return {
             dialog: null
@@ -39,18 +58,18 @@ export default {
             vm.$emit('cancel')
         })
 
-        if (vm.$slots.footerAcceptButton)
-            vm.$slots.footerAcceptButton.map((n) => {
+        if (vm.$slots.dialogAcceptButton)
+            vm.$slots.dialogAcceptButton.map((n) => {
                 n.elm.classList.add('mdc-dialog__footer__button')
                 n.elm.classList.add('mdc-dialog__footer__button--accept')
             })
-        if (vm.$slots.footerCancelButton)
-            vm.$slots.footerCancelButton.map((n) => {
+        if (vm.$slots.dialogCancelButton)
+            vm.$slots.dialogCancelButton.map((n) => {
                 n.elm.classList.add('mdc-dialog__footer__button')
                 n.elm.classList.add('mdc-dialog__footer__button--cancel')
             })
-        if (vm.$slots.footerButton)
-            vm.$slots.footerCancelButton.map((n) => {
+        if (vm.$slots.dialogButton)
+            vm.$slots.dialogCancelButton.map((n) => {
                 n.elm.classList.add('mdc-dialog__footer__button')
             })
     },

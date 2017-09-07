@@ -1,21 +1,25 @@
 <template>
     <layout-grid-inner>
-        <fab modifier="absolute" icon="favorite" @click.native="openDialog" />
-        <dlg :visible="dialogVisible" @accept="dialogAccepted" @cancel="dialogCanceled">
-            <span slot="header"> Header </span>
-            <span slot="body"> Body </span>
-            <btn slot="footerAcceptButton" modifier="primary raised"> Accept </btn>
-            <btn slot="footerCancelButton" modifier="primary"> Cancel </btn>
-            <btn slot="footerButton" modifier="primary"> Anything </btn>
+        <fab :mini="true" :absoluteRight="true" icon="favorite" @click.native="openDialog" />
+        <dlg :visible="dialogVisible" :heading="3" @accept="dialogAccepted" @cancel="dialogCanceled">
+            <span slot="dialogHeader"> Header </span>
+            <span slot="dialogBody"> Body </span>
+            <btn slot="dialogAcceptButton" text="Accept" />
+            <btn slot="dialogCancelButton" text="Cancel" />
+            <btn slot="dialogButton" text="Anything" />
         </dlg>
-        <layout-grid-cell modifier="4">
-            <form-field modifier="align-end">
-                <checkbox id="checkboxOne" v-model="checkboxOne" />
+        <layout-grid-cell :span="4">
+            <form-field :alignEnd="true">
+                <checkbox id="checkboxOne" v-model="checkboxOne" :indeterminate="true" disabled/>
                 <label for="checkboxOne">Checkbox</label>
             </form-field>
+            <form-field :alignEnd="true">
+                <checkbox id="checkboxTwo" v-model="checkboxOne"/>
+                <label for="checkboxTwo">Checkbox</label>
+            </form-field>
         </layout-grid-cell>
-        <layout-grid-cell modifier="12">
-            <icon-toggle icon="favorite"/>
+        <layout-grid-cell :span="4">
+            <icon-toggle v-model="iconToggle" :accent="true" icon="favorite" />
         </layout-grid-cell>
     </layout-grid-inner>
 </template>
@@ -35,7 +39,8 @@ export default {
     data() {
         return {
             dialogVisible: false,
-            checkboxOne: false
+            checkboxOne: false,
+            iconToggle: false
         }
     },
     methods: {
