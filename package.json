@@ -1,13 +1,13 @@
 {
   "name": "material-components-vue",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "material-components-web with vuejs",
   "author": "Mats Pfeiffer",
   "license": "MIT",
   "main": "./src/index.js",
   "scripts": {
     "clean:dist": "rm -rf ./dist/*",
-    "clean:ouput": "rm -rf ./output/*",
+    "clean:output": "rm -rf ./output/*",
     "lint": "eslint --fix ./",
     "build:dev": "yarn run clean:output && NODE_ENV=development && webpack -d --config ./webpack.config.dev.js",
     "build:prod": "yarn run clean:output && NODE_ENV=production && webpack -p --config ./webpack.config.prod.js",
