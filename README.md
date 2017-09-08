@@ -18,36 +18,25 @@ Actual no deep foundation implementation.
 * CSS class props can be a String (with blanks) or StringArray (when reusing intern components)
 
 ## component detail design
-* id on every component
+* optional id on every component
 * just one type as prop e.g. Boolean instead of [Boolean, String]
 * v-if on tags if needed e.g. v-if="text" 
-* optional id prop on every component
 * v-bind="$attrs" to inherit parent non prop attributes in sub components & v-on="$listeners" to inherit their listeners
 
 
 ## TODO
 
 ### Common
-* [] Refactor components
-* [] Import as vuejs plugin
+* [x] Refactor components
+* [x] Import as vuejs plugin
+* [] ESM, CommonJS additional to UMD in Webpack build
+* [] MaterialIcons as asset inside css?
 * [] Documentation of components and their usage (props, events, ...)
 * [] Custom elements?
 * [] Extra repository for examples
 * [] Externalize components?
 
-
-### Missing components
-* Drawer
-* Toolbar
-* GridList
-* Snackbar
-* RadioButton
-* SelectMenu
-* Slider
-* Switch
-* Progress
-* Menus
-* Tabs
+## Components
 
 ### Ready to use components
 * Button
@@ -63,3 +52,16 @@ Actual no deep foundation implementation.
 * LayoutGrid
 * List
 * Textfield
+
+### Missing components
+* Drawer
+* Toolbar
+* GridList
+* Snackbar
+* RadioButton
+* SelectMenu
+* Slider
+* Switch
+* Progress
+* Menus
+* Tabs

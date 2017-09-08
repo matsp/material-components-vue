@@ -1,7 +1,9 @@
 const path = require('path')
 const Webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const root = path.join(__dirname)
 const src = path.join(root + '/src/')
@@ -10,26 +12,27 @@ const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
-    bundle: [path.resolve(example + '/index.js')],
-    vendor: ['vue', 'vuex', 'vue-router']
+    base: [path.resolve(src + '/index.js')]
   },
   output: {
-    path: path.resolve(root + '/ouput'),
-    filename: '[name].[hash].js',
-    chunkFilename: '[id].[name].[chunkhash].js'
+    path: path.resolve(root + '/dist'),
+    filename: 'material-components-vue.min.js',
+    library: 'material-components-vue',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [src, example, path.join(nodeModules, '@material')]
+        include: [src, path.join(nodeModules, '@material')]
       },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           preserveWhitespace: false,
+          cssSourceMap: false,
           loaders: {
             scss: ExtractTextPlugin.extract({
               fallback: 'style-loader',
@@ -66,10 +69,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.runtime.esm.js',
-      'vuex': 'vuex/dist/vuex.esm.js',
-      'vue-router': 'vue-router/dist/vue-router.esm.js',
-      components: path.resolve(src + '/components/'),
+      components: path.resolve(root + '/src/components/'),
       panels: path.resolve(example + '/panels/'),
       views: path.resolve(example + '/views/'),
       modules: path.resolve(example + '/store/modules/'),
@@ -77,32 +77,51 @@ module.exports = {
       scss: path.resolve(src + '/scss/')
     },
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
-  },
-  devServer: {
-    contentBase: path.resolve(root, 'output'),
-    compress: true,
-    hot: true,
-    port: 8080
   }
 }
 
 module.exports.plugins = [
   new Webpack.LoaderOptionsPlugin({
-    minimize: false,
-    debug: true
-  }),
-  new Webpack.HotModuleReplacementPlugin(),
-  new Webpack.NamedModulesPlugin(),
-  new Webpack.optimize.CommonsChunkPlugin({
-    names: ['vendor', 'manifest']
-  }),
-  new HtmlWebpackPlugin({
-    template: path.resolve(example + 'index.html'),
-    chunksSortMode: 'dependency'
-    // hash: true
+    minimize: true,
+    debug: false
   }),
   new ExtractTextPlugin({
-    filename: '[name].[chunkhash].css',
+    filename: 'material-components-vue.css',
     allChunks: true
+  }),
+  new OptimizeCssAssetsPlugin({
+    cssProcessor: require('cssnano'),
+    cssProcessorOptions: {
+      safe: true,
+      minimize: true,
+      discardComments: { removeAll: true }
+    }
+  }),
+  new Webpack.optimize.ModuleConcatenationPlugin(),
+  new Webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false,
+      dead_code: true,
+      unused: true,
+      keep_fnames: false
+    },
+    mangle: {
+      keep_fnames: false
+    },
+    output: {
+      beautify: false
+    }
+  }),
+  new CompressionPlugin({
+    asset: '[path].gz[query]',
+    algorithm: 'gzip',
+    test: /\.(js|html|css)$/,
+    threshold: 1024,
+    minRatio: 0.8
+  }),
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    openAnalyzer: false,
+    reportFilename: path.resolve(root, 'reports/bundle_analyse.html')
   })
 ]

@@ -16,7 +16,7 @@ module.exports = {
     vendor: ['vue', 'vuex', 'vue-router']
   },
   output: {
-    path: path.resolve(root + '/dist'),
+    path: path.resolve(root + '/output'),
     filename: '[name].[chunkhash].js',
     chunkFilename: '[id].[name].[chunkhash].js'
   },

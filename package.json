@@ -7,9 +7,11 @@
   "main": "./src/index.js",
   "scripts": {
     "clean:dist": "rm -rf ./dist/*",
+    "clean:ouput": "rm -rf ./output/*",
     "lint": "eslint --fix ./",
-    "build:dev": "yarn run clean:dist && NODE_ENV=development && webpack -d --config ./webpack.config.dev.js",
-    "build:prod": "yarn run clean:dist && NODE_ENV=production && webpack -p --config ./webpack.config.prod.js",
+    "build:dev": "yarn run clean:output && NODE_ENV=development && webpack -d --config ./webpack.config.dev.js",
+    "build:prod": "yarn run clean:output && NODE_ENV=production && webpack -p --config ./webpack.config.prod.js",
+    "build:lib": "yarn run clean:dist && NODE_ENV=production && webpack -p --config ./webpack.config.lib.js",
     "serve:dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js"
   },
   "dependencies": {
@@ -49,6 +51,7 @@
     "vue-loader": "^13.0.4",
     "vue-template-compiler": "^2.4.2",
     "webpack": "^3.5.6",
+    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.7.1"
   }
 }
