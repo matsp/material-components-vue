@@ -12,10 +12,7 @@ Actual no deep foundation implementation.
 * sub-components e.g. 'List' for optional content in other components
 * state is outside of components and will be passed in as props - maybe modeled
 * components react on state changes with actions
-* components without modifier have an addClass prop
-* a modifier prop can modify the main CSS class
-* components have a mainClass
-* CSS class props can be a String (with blanks) or StringArray (when reusing intern components)
+* components CSS classes can be modified by props
 
 ## component detail design
 * optional id on every component
