@@ -4,7 +4,9 @@
 [![npm version](https://badge.fury.io/js/material-components-vue.svg)](https://badge.fury.io/js/material-components-vue)
 
 Ready to use vue components with the styling and behavior of material design - including material-icons.
-Actual no deep foundation implementation.
+No deep foundation implementation, the components just use the CSS classes and minimal initialization code.
+Instead of fully implement the mdc adapters I try to realize as much as possible with vue features and keep the
+components compact if possible. There are only sub-components when they are needed because of optional other content.
 
 ## component architecture principles
 
@@ -26,6 +28,7 @@ Actual no deep foundation implementation.
 ### Common
 * [x] Refactor components
 * [x] Import as vuejs plugin
+* [ ] Export each component as plugin (and then as complete collection)
 * [ ] Usage description
 * [ ] Adding testframework to project
 * [ ] Use 'ref' inside components instead of IDs?
