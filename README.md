@@ -27,6 +27,7 @@ Actual no deep foundation implementation.
 * [x] Refactor components
 * [x] Import as vuejs plugin
 * [ ] Usage description
+* [ ] Adding testframework to project
 * [ ] Use 'ref' inside components instead of IDs?
 * [ ] MaterialIcons as asset inside css?
 * [ ] Documentation of components and their usage (props, events, ...)
