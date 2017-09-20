@@ -9,15 +9,15 @@ Actual no deep foundation implementation.
 ## component architecture principles
 
 * container components e.g. 'Card' have named slots to fill in other components
-* sub-components e.g. 'List' for optional content in other components
+* sub-components for components with optional content e.g. 'List'
 * state is outside of components and will be passed in as props - maybe modeled
 * components react on state changes with actions
-* components CSS classes can be modified by props
+* components CSS classes can be modified by props e.g. 'isPrimary'
 
 ## component detail design
 * optional id on every component
 * just one type as prop e.g. Boolean instead of [Boolean, String]
-* v-if on tags if needed e.g. v-if="text" 
+* v-if on tags inside components if needed e.g. v-if="text" 
 * v-bind="$attrs" to inherit parent non prop attributes in sub components & v-on="$listeners" to inherit their listeners
 
 
@@ -26,11 +26,11 @@ Actual no deep foundation implementation.
 ### Common
 * [x] Refactor components
 * [x] Import as vuejs plugin
-* [] ESM, CommonJS additional to UMD in Webpack build
+* [] Usage description
 * [] MaterialIcons as asset inside css?
 * [] Documentation of components and their usage (props, events, ...)
 * [] Custom elements?
-* [] Extra repository for examples
+* [] Extra repository for examples?
 * [] Externalize components?
 
 ## Components
