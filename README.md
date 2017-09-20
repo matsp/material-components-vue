@@ -26,12 +26,12 @@ Actual no deep foundation implementation.
 ### Common
 * [x] Refactor components
 * [x] Import as vuejs plugin
-* [] Usage description
-* [] MaterialIcons as asset inside css?
-* [] Documentation of components and their usage (props, events, ...)
-* [] Custom elements?
-* [] Extra repository for examples?
-* [] Externalize components?
+* [ ] Usage description
+* [ ] MaterialIcons as asset inside css?
+* [ ] Documentation of components and their usage (props, events, ...)
+* [ ] Custom elements?
+* [ ] Extra repository for examples?
+* [ ] Externalize components?
 
 ## Components
 
