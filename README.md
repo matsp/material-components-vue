@@ -27,6 +27,7 @@ Actual no deep foundation implementation.
 * [x] Refactor components
 * [x] Import as vuejs plugin
 * [ ] Usage description
+* [ ] Use 'ref' inside components instead of IDs?
 * [ ] MaterialIcons as asset inside css?
 * [ ] Documentation of components and their usage (props, events, ...)
 * [ ] Custom elements?
