@@ -28,6 +28,7 @@ components compact if possible. There are only sub-components when they are need
 ### Common
 * [x] Refactor components
 * [x] Import as vuejs plugin
+* [ ] Implement changes from mdc > 0.20.0
 * [ ] Export each component as plugin (and then as complete collection)
 * [ ] Usage description
 * [ ] Adding testframework to project
