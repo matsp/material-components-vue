@@ -31,6 +31,7 @@ components compact if possible. There are only sub-components when they are need
 * [ ] Implement changes from mdc > 0.20.0
 * [ ] Export each component as plugin (and then as complete collection)
 * [ ] Usage description
+* [ ] Implement all missing components
 * [ ] Adding testframework to project
 * [ ] Use 'ref' inside components instead of IDs?
 * [ ] MaterialIcons as asset inside css?
@@ -68,3 +69,4 @@ components compact if possible. There are only sub-components when they are need
 * Progress
 * Menus
 * Tabs
+* Typography
