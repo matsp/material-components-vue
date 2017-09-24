@@ -1,37 +1,37 @@
-import Button from 'components/Button'
+import Button from './components/Button'
 
-import Card from 'components/Card/Card'
-import CardMediaItem from 'components/Card/CardMediaItem'
+import Card from './components/Card/Card'
+import CardMediaItem from './components/Card/CardMediaItem'
 
-import Checkbox from 'components/Checkbox'
+import Checkbox from './components/Checkbox'
 
-import Dialog from 'components/Dialog'
+import Dialog from './components/Dialog'
 
-import Fab from 'components/Fab'
+import Fab from './components/Fab'
 
-import FormField from 'components/FormField'
+import FormField from './components/FormField'
 
-import Icon from 'components/Icon'
-import IconToggle from 'components/IconToggle'
+import Icon from './components/Icon'
+import IconToggle from './components/IconToggle'
 
-import LayoutGrid from 'components/LayoutGrid/LayoutGrid'
-import LayoutGridCell from 'components/LayoutGrid/LayoutGridCell'
-import LayoutGridInner from 'components/LayoutGrid/LayoutGridInner'
+import LayoutGrid from './components/LayoutGrid/LayoutGrid'
+import LayoutGridCell from './components/LayoutGrid/LayoutGridCell'
+import LayoutGridInner from './components/LayoutGrid/LayoutGridInner'
 
-import List from 'components/List/List'
-import ListDivider from 'components/List/ListDivider'
-import ListGroup from 'components/List/ListGroup'
-import ListGroupDivider from 'components/List/ListGroupDivider'
-import ListGroupSubheader from 'components/List/ListGroupSubheader'
-import ListItem from 'components/List/ListItem'
+import List from './components/List/List'
+import ListDivider from './components/List/ListDivider'
+import ListGroup from './components/List/ListGroup'
+import ListGroupDivider from './components/List/ListGroupDivider'
+import ListGroupSubheader from './components/List/ListGroupSubheader'
+import ListItem from './components/List/ListItem'
 
-import TemporaryDrawer from 'components/TemporaryDrawer'
+import TemporaryDrawer from './components/TemporaryDrawer'
 
-import Textfield from 'components/Textfield/Textfield'
-import TextfieldHelptext from 'components/Textfield/TextfieldHelptext'
-import TextfieldMultiline from 'components/Textfield/TextfieldMultiline'
+import Textfield from './components/Textfield/Textfield'
+import TextfieldHelptext from './components/Textfield/TextfieldHelptext'
+import TextfieldMultiline from './components/Textfield/TextfieldMultiline'
 
-import Toolbar from 'components/Toolbar'
+import Toolbar from './components/Toolbar'
 
 const components = {
   Button,
