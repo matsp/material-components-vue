@@ -59,11 +59,6 @@ const components = {
   Toolbar
 }
 
-// Install by default if using the script tag
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(plugin)
-}
-
 function plugin (Vue, opts = { prefix: 'MCV' }) {
   const { prefix } = opts
   const compNames = Object.keys(components)
@@ -71,6 +66,11 @@ function plugin (Vue, opts = { prefix: 'MCV' }) {
     const name = compNames[i]
     Vue.component(`${prefix}-${name}`, components[name])
   }
+}
+
+// Install by default if using the script tag
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(plugin)
 }
 
 export default plugin
