@@ -10,6 +10,7 @@ deploy:
   provider: npm
   email: mats.pfeiffer@googlemail.com
   api_key: $NPM_TOKEN
+  skip_cleanup: true
   on:
     tags: true
 cache:
