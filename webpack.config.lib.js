@@ -17,7 +17,7 @@ module.exports = {
   output: {
     path: path.resolve(root + '/dist'),
     filename: 'material-components-vue.min.js',
-    library: 'material-components-vue',
+    library: 'MaterialComponentsVue',
     libraryTarget: 'umd'
   },
   module: {
