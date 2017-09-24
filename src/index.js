@@ -59,7 +59,7 @@ const components = {
   Toolbar
 }
 
-function plugin (Vue, opts = { prefix: 'MCV' }) {
+function plugin (Vue, opts = { prefix: 'M' }) {
   const { prefix } = opts
   const compNames = Object.keys(components)
   for (let i = 0; i < compNames.length; i++) {
