@@ -4,7 +4,8 @@ node_js:
 install:
   yarn
 before_deploy:
-  yarn build:lib
+  - yarn build:lib
+  - rm -rf example/
 deploy:
   provider: npm
   email: mats.pfeiffer@googlemail.com
