@@ -70,10 +70,6 @@ module.exports = {
   resolve: {
     alias: {
       components: path.resolve(root + '/src/components/'),
-      panels: path.resolve(example + '/panels/'),
-      views: path.resolve(example + '/views/'),
-      modules: path.resolve(example + '/store/modules/'),
-      routes: path.resolve(example + '/router/routes/'),
       scss: path.resolve(src + '/scss/')
     },
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
@@ -112,13 +108,13 @@ module.exports.plugins = [
       beautify: false
     }
   }),
-  new CompressionPlugin({
+  /*new CompressionPlugin({
     asset: '[path].gz[query]',
     algorithm: 'gzip',
     test: /\.(js|html|css)$/,
     threshold: 1024,
     minRatio: 0.8
-  }),
+  }),*/
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,
