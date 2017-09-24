@@ -4,7 +4,7 @@
   "description": "material-components-web with vuejs",
   "author": "Mats Pfeiffer",
   "license": "MIT",
-  "main": "./src/index.js",
+  "main": "./dist/material-components-vue.min.js",
   "scripts": {
     "clean:dist": "rm -rf ./dist/*",
     "clean:output": "rm -rf ./output/*",
