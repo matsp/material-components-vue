@@ -28,17 +28,15 @@ components compact if possible. There are only sub-components when they are need
 ### Common
 * [x] Refactor components
 * [x] Import as vuejs plugin
-* [ ] Extra repository for example
+* [x] Extra repository for example
 * [ ] Implement changes from mdc > 0.20.0
 * [x] Export each component as plugin (and then as complete collection)
 * [ ] Usage description
 * [ ] Implement all missing components
 * [ ] Adding testframework to project
 * [ ] Use 'ref' inside components instead of IDs?
-* [ ] MaterialIcons as asset inside css?
+* [x] Buildin MaterialIcons
 * [ ] Documentation of components and their usage (props, events, ...)
-* [ ] Custom elements?
-* [ ] Externalize components?
 
 ## Components
 
