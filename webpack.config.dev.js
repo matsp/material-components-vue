@@ -12,6 +12,7 @@ module.exports = {
   entry: {
     bundle: [path.resolve(example + '/index.js')],
     vendor: ['vue', 'vuex', 'vue-router']
+    // , 'material-components-vue'
   },
   output: {
     path: path.resolve(root + '/ouput'),

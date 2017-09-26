@@ -2,7 +2,7 @@
     <div class="mdc-toolbar" :class="classes" :id="id">
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-                <icon icon="menu" :toolbarIcon="true" @click.native="toggleDrawer()" />
+                <m-icon icon="menu" :toolbarIcon="true" @click.native="toggleDrawer()" />
                 <span class="mdc-toolbar__title">{{title}}</span>
                 <slot name="toolbarStart" />
             </section>

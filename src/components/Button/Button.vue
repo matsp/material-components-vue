@@ -1,5 +1,5 @@
 <template>
-    <button class="mdc-button" :class="classes" :id="id" v-bind="$attrs" data-mdc-auto-init="MDCRipple">
+    <button class="mdc-button" :class="classes" :id="id" v-bind="$attrs" v-on="$listeners" data-mdc-auto-init="MDCRipple">
         {{text}}
     </button>
 </template>

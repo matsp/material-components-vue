@@ -1,18 +1,18 @@
 const path = require('path')
 const Webpack = require('webpack')
-const CompressionPlugin = require('compression-webpack-plugin')
+// const CompressionPlugin = require('compression-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const root = path.join(__dirname)
 const src = path.join(root + '/src/')
-const example = path.join(root + '/example/')
+const components = path.join(src + '/components/')
 const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
-    base: [path.resolve(src + '/index.js')]
+    base: [path.resolve(components + '/index.js')]
   },
   output: {
     path: path.resolve(root + '/dist'),
@@ -114,7 +114,7 @@ module.exports.plugins = [
     test: /\.(js|html|css)$/,
     threshold: 1024,
     minRatio: 0.8
-  }),*/
+  }), */
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,

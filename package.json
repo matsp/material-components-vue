@@ -9,9 +9,9 @@
     "clean:dist": "rm -rf ./dist/*",
     "clean:output": "rm -rf ./output/*",
     "lint": "eslint --fix ./",
-    "build:dev": "yarn run clean:output && NODE_ENV=development && webpack -d --config ./webpack.config.dev.js",
-    "build:prod": "yarn run clean:output && NODE_ENV=production && webpack -p --config ./webpack.config.prod.js",
-    "build:lib": "yarn run clean:dist && NODE_ENV=production && webpack -p --config ./webpack.config.lib.js",
+    "build:dev": "yarn run clean:output && NODE_ENV=development webpack -d --config ./webpack.config.dev.js",
+    "build:prod": "yarn run clean:output && NODE_ENV=production webpack -p --config ./webpack.config.prod.js",
+    "build:lib": "yarn run clean:dist && NODE_ENV=production webpack -p --config ./webpack.config.lib.js",
     "serve:dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js"
   },
   "dependencies": {
@@ -42,6 +42,7 @@
     "file-loader": "^0.11.2",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
+    "material-components-vue": "^0.0.14",
     "node-sass": "^4.5.3",
     "optimize-css-assets-webpack-plugin": "^3.1.1",
     "raw-loader": "^0.5.1",

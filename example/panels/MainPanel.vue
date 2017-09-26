@@ -1,17 +1,19 @@
 <template>
   <main>
-    <layout-grid :toolbarAdjust="true">
+    <m-layout-grid :toolbarAdjust="true">
+      <keep-alive>
         <router-view />
-    </layout-grid>
+      </keep-alive>
+    </m-layout-grid>
   </main>
 </template>
 
 <script>
-import LayoutGrid from 'components/LayoutGrid/LayoutGrid'
-
 export default {
-  name: 'main-panel',
-  components: { LayoutGrid }
+
 }
 </script>
 
+<style>
+@import '~material-components-vue/dist/material-components-vue.css';
+</style>
