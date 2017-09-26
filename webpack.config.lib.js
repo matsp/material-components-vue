@@ -3,7 +3,6 @@ const Webpack = require('webpack')
 // const CompressionPlugin = require('compression-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const root = path.join(__dirname)
 const src = path.join(root + '/src/')
@@ -62,7 +61,8 @@ module.exports = {
         test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
         loader: 'url-loader',
         options: {
-          limit: 10000
+          // limit: 10000
+          limit: 1000000
         }
       }
     ]
@@ -115,9 +115,4 @@ module.exports.plugins = [
     threshold: 1024,
     minRatio: 0.8
   }), */
-  new BundleAnalyzerPlugin({
-    analyzerMode: 'static',
-    openAnalyzer: false,
-    reportFilename: path.resolve(root, 'reports/bundle_analyse.html')
-  })
 ]
