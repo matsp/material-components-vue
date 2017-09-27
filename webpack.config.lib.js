@@ -68,8 +68,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      components: path.resolve(root + '/src/components/'),
-      scss: path.resolve(src + '/scss/')
+      components: path.resolve(root + '/src/components/')
     },
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   }
