@@ -1,5 +1,5 @@
 <template>
-    <li class="mdc-list-item" :id="id" v-on="$listeners" data-mdc-auto-init="MDCRipple">
+    <li class="mdc-list-item" :id="id" data-mdc-auto-init="MDCRipple">
         <slot name="listItemStartDetail" />
         <slot name="listItemContent" />
         <slot name="listItemEndDetail" />
