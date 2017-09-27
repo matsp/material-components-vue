@@ -1,5 +1,5 @@
 <template>
-    <li class="mdc-list-item" :id="id" v-on="$listeners" :data-mdc-auto-init="interactive ? MDCRipple : null">
+    <li class="mdc-list-item" :id="id" v-on="$listeners">
         <slot name="listItemStartDetail" />
         <slot name="listItemContent" />
         <slot name="listItemEndDetail" />
@@ -25,7 +25,8 @@ export default {
         }
     },
     mounted() {
-        MDCRipple.attachTo(this.$el)
+        if this.interactive
+            MDCRipple.attachTo(this.$el)
 
         if (this.$slots.listItemStartDetail)
             this.$slots.listItemStartDetail.map((n) => {
