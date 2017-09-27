@@ -1,5 +1,5 @@
 <template>
-    <li class="mdc-list-item" :id="id" v-on="$listeners" data-mdc-auto-init="MDCRipple">
+    <li class="mdc-list-item" :id="id" v-on="$listeners" :data-mdc-auto-init="interactive ? MDCRipple : null">
         <slot name="listItemStartDetail" />
         <slot name="listItemContent" />
         <slot name="listItemEndDetail" />
@@ -17,6 +17,10 @@ export default {
     props: {
         id: {
             type: String,
+            required: false
+        },
+        interactive: {
+            type: Boolean,
             required: false
         }
     },
