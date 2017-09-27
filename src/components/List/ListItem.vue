@@ -25,7 +25,7 @@ export default {
         }
     },
     mounted() {
-        if this.interactive
+        if (this.interactive)
             MDCRipple.attachTo(this.$el)
 
         if (this.$slots.listItemStartDetail)
