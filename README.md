@@ -30,12 +30,15 @@ components compact if possible. There are only sub-components when they are need
 * [x] Import as vuejs plugin
 * [x] Extra repository for example
 * [x] Export each component as plugin (and then as complete collection)
+* [ ] Destroy initiated mdc components [1]
 * [ ] Implement changes from mdc > 0.20.0
 * [ ] Usage description
 * [ ] Implement all missing components
 * [ ] Adding testframework to project
 * [ ] Use 'ref' inside components instead of IDs?
 * [ ] Documentation of components and their usage (props, events, ...)
+
+[1] https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md
 
 ## Components
 
