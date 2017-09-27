@@ -31,6 +31,7 @@ components compact if possible. There are only sub-components when they are need
 * [x] Extra repository for example
 * [x] Export each component as plugin (and then as complete collection)
 * [ ] Destroy initiated mdc components [1]
+* [ ] Make ripple effect optional with 'interactive' prop
 * [ ] Implement changes from mdc > 0.20.0
 * [ ] Usage description
 * [ ] Implement all missing components
