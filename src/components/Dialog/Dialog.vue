@@ -15,7 +15,7 @@
             <section class="mdc-dialog__body" v-if="$slots['dialogBody']">
                 <slot name="dialogBody" />
             </section>
-            <footer class="mdc-dialog__footer" v-if="$slots['dialogAcceptButton'] || $slots['dialogCancelButton'] || $slots['dialog Button']">
+            <footer class="mdc-dialog__footer" v-if="$slots['dialogAcceptButton'] || $slots['dialogCancelButton'] || $slots['dialogButton']">
                 <slot name="dialogAcceptButton" />
                 <slot name="dialogCancelButton" />
                 <slot name="dialogButton" />
