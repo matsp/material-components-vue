@@ -5,10 +5,10 @@
                 <h1 v-if="heading === 1" class="mdc-dialog__header__title">
                     <slot name="dialogHeader" />
                 </h1>
-                <h2 v-if="heading === 2" class="mdc-dialog__header__title">
+                <h2 v-else-if="heading === 2" class="mdc-dialog__header__title">
                     <slot name="dialogHeader" />
                 </h2>
-                <h3 v-if="heading === 3" class="mdc-dialog__header__title">
+                <h3 v-else-if="heading === 3" class="mdc-dialog__header__title">
                     <slot name="dialogHeader" />
                 </h3>
             </header>
