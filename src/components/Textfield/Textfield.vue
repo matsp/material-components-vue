@@ -54,11 +54,14 @@ export default {
     },
     data() {
         return {
-            textfield: null
+            mdcTextfield: null
         }
     },
     mounted() {
-        this.textfield = new MDCTextfield(this.$el)
+        this.mdcTextfield = new MDCTextfield(this.$el)
+    },
+    destroyed() {
+        this.mdcTextfield.destroy()
     },
     computed: {
         classes() {
