@@ -33,16 +33,19 @@ export default {
     },
     data() {
         return {
-            checkbox: null
+            mdcCheckbox: null
         }
     },
     mounted() {
-        this.checkbox = new MDCCheckbox(this.$el)
-        this.checkbox.indeterminate = this.indeterminate
+        this.mdcCheckbox = new MDCCheckbox(this.$el)
+        this.mdcCheckbox.indeterminate = this.indeterminate
+    },
+    destroyed() {
+        this.mdcCheckbox.destroy()
     },
     watch: {
         checked() {
-            this.checkbox.indeterminate = false
+            this.mdcCheckbox.indeterminate = false
         }
     },
     computed: {
