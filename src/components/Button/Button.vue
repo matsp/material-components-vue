@@ -49,6 +49,11 @@ export default {
             required: false
         }
     },
+    data() {
+      return {
+        mdcRipple: null
+      }
+    },
     computed: {
         classes() {
             return {
@@ -64,7 +69,10 @@ export default {
     },
     mounted() {
         if (this.interactive)
-          MDCRipple.attachTo(this.$el)
+          this.mdcRipple = new MDCRipple(this.$el)
+    },
+    destroyed() {
+        this.mdcRipple.destroy()
     }
 }
 </script>
