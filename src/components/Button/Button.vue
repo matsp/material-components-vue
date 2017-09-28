@@ -1,5 +1,5 @@
 <template>
-    <button class="mdc-button" :class="classes" :id="id" v-bind="$attrs" v-on="$listeners" data-mdc-auto-init="MDCRipple">
+    <button class="mdc-button" :class="classes" :id="id" v-bind="$attrs" v-on="$listeners">
         {{text}}
     </button>
 </template>
@@ -44,6 +44,10 @@ export default {
             type: Boolean,
             required: false
         },
+        interactive: {
+            type: Boolean,
+            required: false
+        }
     },
     computed: {
         classes() {
@@ -59,7 +63,8 @@ export default {
         }
     },
     mounted() {
-        MDCRipple.attachTo(this.$el)
+        if (this.interactive)
+          MDCRipple.attachTo(this.$el)
     }
 }
 </script>
