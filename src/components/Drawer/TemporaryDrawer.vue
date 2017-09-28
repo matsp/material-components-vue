@@ -29,15 +29,18 @@ export default {
     },
     data() {
         return {
-            drawer: null
+            mdcTemporaryDrawer: null
         }
     },
     mounted() {
-        this.drawer = new MDCTemporaryDrawer(this.$el)
+        this.mdcTemporaryDrawer = new MDCTemporaryDrawer(this.$el)
+    },
+    destroyed() {
+        this.mdcTemporaryDrawer.destroy()
     },
     watch: {
         visible() {
-            this.drawer.open = this.visible
+            this.mdcTemporaryDrawer.open = this.visible
         }
     }
 }
