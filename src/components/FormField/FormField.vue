@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 import { MDCFormField } from '@material/form-field'
 
 export default {
@@ -21,11 +20,14 @@ export default {
   },
   data() {
     return {
-      formfield: null
+      mdcFormField: null
     }
   },
   mounted() {
-    this.formField = new MDCFormField(this.$el)
+    this.mdcFormField = new MDCFormField(this.$el)
+  },
+  destroyed() {
+    this.mdcFormField.destroy()
   },
   computed: {
     classes() {
