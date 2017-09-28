@@ -24,9 +24,14 @@ export default {
             required: false
         }
     },
+    data() {
+        return {
+            mdcRipple: null
+        }
+    },
     mounted() {
         if (this.interactive)
-            MDCRipple.attachTo(this.$el)
+            this.mdcRipple = new MDCRipple(this.$el)
 
         if (this.$slots.listItemStartDetail)
             this.$slots.listItemStartDetail.map((n) => {
@@ -40,6 +45,9 @@ export default {
             this.$slots.listItemTextSecondary.map((n) => {
                 n.elm.classList.add('mdc-list-item__text__secondary')
             })
+    },
+    destroyed() {
+        this.mdcRipple.destroy()
     }
 }
 </script>
