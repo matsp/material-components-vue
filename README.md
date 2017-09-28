@@ -8,6 +8,23 @@ No deep foundation implementation, the components just use the CSS classes and m
 Instead of fully implement the mdc adapters I try to realize as much as possible with vue features and keep the
 components compact if possible. There are only sub-components when they are needed because of optional other content.
 
+## usage
+
+#### npm
+```javascript
+import MaterialComponentsVue from 'material-components-vue'
+
+Vue.use(MaterialComponentsVue)
+```
+
+#### html
+
+```html
+<script src="https://unpkg.com/vue"></script>
+<link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/material-components-vue.css"></link>
+<script src="https://unpkg.com/material-components-vue"></script>
+```
+
 ## component architecture principles
 
 * container components e.g. 'Card' have named slots to fill in other components
@@ -30,10 +47,10 @@ components compact if possible. There are only sub-components when they are need
 * [x] Import as vuejs plugin
 * [x] Extra repository for example
 * [x] Export each component as plugin (and then as complete collection)
-* [ ] Destroy initiated mdc components [1]
-* [ ] Make ripple effect optional with 'interactive' prop
+* [x] Destroy initiated mdc components [1]
+* [x] Make ripple effect optional with 'interactive' prop
 * [ ] Implement changes from mdc > 0.20.0
-* [ ] Usage description
+* [x] Usage description
 * [ ] Implement all missing components
 * [ ] Adding testframework to project
 * [ ] Use 'ref' inside components instead of IDs?
