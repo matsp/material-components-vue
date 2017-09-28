@@ -45,16 +45,16 @@ export default {
     },
     data() {
         return {
-            dialog: null
+            mdcDialog: null
         }
     },
     mounted() {
         let vm = this;
-        vm.dialog = new MDCDialog(this.$el)
-        vm.dialog.listen('MDCDialog:accept', function() {
+        vm.mdcDialog = new MDCDialog(this.$el)
+        vm.mdcDialog.listen('MDCDialog:accept', function() {
             vm.$emit('accept')
         })
-        vm.dialog.listen('MDCDialog:cancel', function() {
+        vm.mdcDialog.listen('MDCDialog:cancel', function() {
             vm.$emit('cancel')
         })
 
@@ -73,9 +73,12 @@ export default {
                 n.elm.classList.add('mdc-dialog__footer__button')
             })
     },
+    destroyed() {
+        this.mdcDialog.destroy()
+    },
     watch: {
         visible() {
-            this.visible ? this.dialog.show() : this.dialog.close()
+            this.visible ? this.mdcDialog.show() : this.mdcDialog.close()
         }
     }
 }
