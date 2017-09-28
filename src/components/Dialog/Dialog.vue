@@ -69,7 +69,7 @@ export default {
                 n.elm.classList.add('mdc-dialog__footer__button--cancel')
             })
         if (vm.$slots.dialogButton)
-            vm.$slots.dialogCancelButton.map((n) => {
+            vm.$slots.dialogButton.map((n) => {
                 n.elm.classList.add('mdc-dialog__footer__button')
             })
     },
