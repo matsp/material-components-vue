@@ -38,8 +38,16 @@ export default {
             required: false
         }
     },
+    data() {
+        return {
+            mdcToolbar: null
+        }
+    },
     mounted() {
-        const toolbar = new MDCToolbar(this.$el)
+        this.mdcToolbar = new MDCToolbar(this.$el)
+    },
+    destroyed() {
+        this.mdcToolbar.destroy()
     },
     computed: {
         classes() {
