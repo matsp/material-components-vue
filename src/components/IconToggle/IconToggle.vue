@@ -45,13 +45,16 @@ export default {
     },
     data() {
         return {
-            iconToggle: null
+            mdcIconToggle: null
         }
     },
     mounted() {
-        this.iconToggle = new MDCIconToggle(this.$el)
-        this.iconToggle.disabled = this.disabled
-        this.iconToggle.on = this.value
+        this.mdcIconToggle = new MDCIconToggle(this.$el)
+        this.mdcIconToggle.disabled = this.disabled
+        this.mdcIconToggle.on = this.value
+    },
+    destroy() {
+        this.mdcIconToggle.destroy()
     },
     computed: {
         classes() {
