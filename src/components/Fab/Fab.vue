@@ -1,5 +1,5 @@
 <template>
-    <button class="mdc-fab" :class="classes" :id="id" data-mdc-auto-init="MDCRipple" v-on="$listeners">
+    <button class="mdc-fab" :class="classes" :id="id" v-on="$listeners">
         <span class="mdc-fab__icon">
             {{icon}}
         </span>
@@ -25,6 +25,15 @@ export default {
         icon: {
             type: String,
             required: true
+        },
+        interactive: {
+            type: Boolean,
+            required: false
+        }
+    },
+    data() {
+        return {
+            mdcRipple: null
         }
     },
     computed: {
@@ -37,7 +46,11 @@ export default {
         }
     },
     mounted() {
-        MDCRipple.attachTo(this.$el)
+        if (this.interactive)
+            this.mdcRipple = new MDCRipple(this.$el)
+    },
+    destroyed() {
+        this.mdcRipple.destroy()
     }
 }
 </script>
