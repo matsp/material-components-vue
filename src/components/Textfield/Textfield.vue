@@ -7,6 +7,7 @@
 
 <script>
 import { MDCTextfield } from '@material/textfield'
+import { MDCRipple } from '@material/ripple'
 import { debounce } from '../utils'
 
 export default {
@@ -50,18 +51,28 @@ export default {
         labelFloat: {
             type: Boolean,
             required: false
+        },
+        interactive: {
+            type: Boolean,
+            required: false
         }
     },
     data() {
         return {
             mdcTextfield: null
+            mdcRipple: null
         }
     },
     mounted() {
         this.mdcTextfield = new MDCTextfield(this.$el)
+        
+        if (this.interactive && this.box)
+            this.mdcRipple = new MDCRipple(this.$el)
     },
     destroyed() {
         this.mdcTextfield.destroy()
+        if (this.mdcRipple !== null)
+            this.mdcRipple.destroy()
     },
     computed: {
         classes() {
