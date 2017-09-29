@@ -1,6 +1,6 @@
 <template>
     <div class="mdc-textfield" :class="classes">
-        <input :id="id" class="mdc-textfield__input" :value="value" @input="updateModel" :placeholder="placeholder" :type="type" v-bind="$attrs" />
+        <input :id="id" :class="mdc-textfield__input" :class="classesInput" :value="value" @input="updateModel" :placeholder="placeholder" :type="type" v-bind="$attrs" />
         <label v-if="label" class="mdc-textfield__label" :class="classesLabel">{{label}}</label>
     </div>
 </template>
@@ -70,6 +70,11 @@ export default {
                 'mdc-textfield--upgraded': this.upgraded,
                 'mdc-textfield--fullwidth': this.fullWidth,
                 'mdc-textfield--box': this.box
+            }
+        },
+        classesInput() {
+            return {
+                
             }
         },
         classesLabel() {
