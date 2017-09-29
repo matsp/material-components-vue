@@ -59,7 +59,7 @@ export default {
     },
     data() {
         return {
-            mdcTextfield: null
+            mdcTextfield: null,
             mdcRipple: null
         }
     },
