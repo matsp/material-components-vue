@@ -50,6 +50,7 @@ Vue.use(MaterialComponentsVue)
 * [x] Destroy initiated mdc components [1]
 * [x] Make ripple effect optional with 'interactive' prop
 * [ ] Implement changes from mdc > 0.20.0
+* [ ] Slots for components with text / labels
 * [x] Usage description
 * [ ] Implement all missing components
 * [ ] Adding testframework to project
