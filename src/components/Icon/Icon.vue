@@ -14,16 +14,12 @@ export default {
         icon: {
             type: String,
             required: true
-        },
-        toolbarIcon: {
-            type: Boolean,
-            required: false
         }
     },
     computed: {
         classes() {
             return {
-                'mdc-toolbar__icon--menu': this.toolbarIcon
+                
             }
         }
     }
