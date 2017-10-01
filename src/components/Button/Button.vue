@@ -1,6 +1,9 @@
 <template>
     <button class="mdc-button" :class="classes" :id="id" v-bind="$attrs" v-on="$listeners">
-        {{text}}
+        <a v-if="icon" class="material-icons mdc-button__icon">{{icon}}</a>
+        <slot>
+            {{text}}
+        </slot>
     </button>
 </template>
 
@@ -13,6 +16,10 @@ export default {
             required: false
         },
         id: {
+            type: String,
+            required: false
+        },
+        icon: {
             type: String,
             required: false
         },
@@ -36,23 +43,15 @@ export default {
             type: Boolean,
             required: false
         },
-        primary: {
-            type: Boolean,
-            required: false
-        },
-        accent: {
-            type: Boolean,
-            required: false
-        },
         interactive: {
             type: Boolean,
             required: false
         }
     },
     data() {
-      return {
-        mdcRipple: null
-      }
+        return {
+            mdcRipple: null
+        }
     },
     computed: {
         classes() {
@@ -61,15 +60,13 @@ export default {
                 'mdc-button--unelevated': this.unelevated,
                 'mdc-button--stroked': this.stroked,
                 'mdc-button--dense': this.dense,
-                'mdc-button--compact': this.compact,
-                'mdc-button--primary': this.primary,
-                'mdc-button--accent': this.accent
+                'mdc-button--compact': this.compact
             }
         }
     },
     mounted() {
         if (this.interactive)
-          this.mdcRipple = new MDCRipple(this.$el)
+            this.mdcRipple = new MDCRipple(this.$el)
     },
     destroyed() {
         this.mdcRipple.destroy()
