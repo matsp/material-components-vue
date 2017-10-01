@@ -4,7 +4,7 @@ node_js:
 install:
   - yarn
 script:
-  - yarn build:lib 
+  - yarn build 
 deploy:
   provider: npm
   email: mats.pfeiffer@googlemail.com
