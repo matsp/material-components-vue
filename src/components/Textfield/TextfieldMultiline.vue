@@ -1,5 +1,5 @@
 <template>
-    <div class="mdc-textfield" :class="classes">
+    <div class="mdc-textfield mdc-textfield--textarea" :class="classes">
         <textarea :id="id" class="mdc-textfield__input" v-model="model" :placeholder="placeholder" :rows="rows" :cols="cols" />
         <label v-if="label" class="mdc-textfield__label" :class="classesLabel">{{label}}</label>
     </div>
@@ -74,7 +74,6 @@ export default {
     computed: {
         classes() {
             return {
-                'mdc-textfield--multiline': true,
                 'mdc-textfield--disabled': this.disabled,
                 'mdc-textfield--upgraded': this.upgraded,
                 'mdc-textfield--fullwidth': this.fullWidth,
