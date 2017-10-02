@@ -1,5 +1,5 @@
 <template>
-    <button class="mdc-fab" :class="classes" :id="id" v-on="$listeners">
+    <button class="mdc-fab material-icons" :class="classes" :id="id" v-on="$listeners">
         <span class="mdc-fab__icon">
             {{icon}}
         </span>
@@ -39,7 +39,6 @@ export default {
     computed: {
         classes() {
             return {
-                'material-icons': true,
                 'mdc-fab--mini': this.mini,
                 'mdc-fab--absolute-right': this.absoluteRight
             }  
