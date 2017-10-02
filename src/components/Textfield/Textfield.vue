@@ -1,7 +1,10 @@
 <template>
     <div class="mdc-textfield" :class="classes">
-        <input :id="id" :class="mdc-textfield__input" :class="classesInput" :value="value" @input="updateModel" :placeholder="placeholder" :type="type" v-bind="$attrs" />
+        <i v-if="leadingIcon" class="material-icons mdc-textfield__icon">{{leadingIcon}}</i>
+        <input :id="id" :class="mdc-textfield__input" :value="value" @input="updateModel" :placeholder="placeholder" :type="type" v-bind="$attrs" />
         <label v-if="label" class="mdc-textfield__label" :class="classesLabel">{{label}}</label>
+        <i v-if="trailingIcon" class="material-icons mdc-textfield__icon">{{trailingIcon}}</i>
+        <div v-if="bottomLine" class="mdc-textfield__bottom-line"></div>
     </div>
 </template>
 
@@ -55,6 +58,18 @@ export default {
         interactive: {
             type: Boolean,
             required: false
+        },
+        bottomLine: {
+            type: Boolean,
+            required: false
+        },
+        leadingIcon: {
+            type: String,
+            required: false
+        },
+        trailingIcon: {
+            type: String,
+            required: false
         }
     },
     data() {
@@ -65,12 +80,13 @@ export default {
     },
     mounted() {
         this.mdcTextfield = new MDCTextfield(this.$el)
-        
+
         if (this.interactive && this.box)
             this.mdcRipple = new MDCRipple(this.$el)
     },
     destroyed() {
         this.mdcTextfield.destroy()
+
         if (this.mdcRipple !== null)
             this.mdcRipple.destroy()
     },
@@ -80,12 +96,9 @@ export default {
                 'mdc-textfield--disabled': this.disabled,
                 'mdc-textfield--upgraded': this.upgraded,
                 'mdc-textfield--fullwidth': this.fullWidth,
-                'mdc-textfield--box': this.box
-            }
-        },
-        classesInput() {
-            return {
-                
+                'mdc-textfield--box': this.box,
+                'mdc-textfield--with-leading-icon': this.leadingIcon,
+                'mdc-textfield--with-trailing-icon': this.trailingIcon
             }
         },
         classesLabel() {
