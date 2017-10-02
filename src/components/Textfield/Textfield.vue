@@ -81,8 +81,8 @@ export default {
     mounted() {
         this.mdcTextfield = new MDCTextfield(this.$el)
        
-        //if (this.interactive && this.box)
-        //    this.mdcRipple = new MDCRipple(this.$el)
+        if (this.interactive && this.box)
+            this.mdcRipple = new MDCRipple(this.$el)
     },
     destroyed() {
         this.mdcTextfield.destroy()
