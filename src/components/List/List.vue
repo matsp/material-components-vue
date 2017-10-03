@@ -36,10 +36,6 @@ export default {
                 'mdc-list--two-line': this.twoLine,
                 'mdc-list--avatar-list': this.avatar
             }
-
-            let tmpClass = this.class
-            tmpClass.push((this.modifier ? 'mdc-list--' + this.modifier : ''))
-            return tmpClass
         }
     }
 }
