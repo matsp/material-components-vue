@@ -47,7 +47,8 @@ export default {
             })
     },
     destroyed() {
-        this.mdcRipple.destroy()
+        if (this.interactive)
+            this.mdcRipple.destroy()
     }
 }
 </script>
