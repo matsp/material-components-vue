@@ -30,7 +30,7 @@ import { MDCDialog } from '@material/dialog';
 
 export default {
     props: {
-        visible: {
+        show: {
             type: Boolean,
             required: false
         },
@@ -77,8 +77,8 @@ export default {
         this.mdcDialog.destroy()
     },
     watch: {
-        visible() {
-            this.visible ? this.mdcDialog.show() : this.mdcDialog.close()
+        show() {
+            this.show ? this.mdcDialog.show() : this.mdcDialog.close()
         }
     }
 }

@@ -1,6 +1,5 @@
 const path = require('path')
 const Webpack = require('webpack')
-// const CompressionPlugin = require('compression-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
@@ -105,12 +104,5 @@ module.exports.plugins = [
     output: {
       beautify: false
     }
-  }),
-  /*new CompressionPlugin({
-    asset: '[path].gz[query]',
-    algorithm: 'gzip',
-    test: /\.(js|html|css)$/,
-    threshold: 1024,
-    minRatio: 0.8
-  }), */
+  })
 ]

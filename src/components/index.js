@@ -8,6 +8,7 @@ import Icon from './Icon'
 import IconToggle from './IconToggle'
 import LayoutGrid from './LayoutGrid'
 import List from './List'
+import Snackbar from './Snackbar'
 import TemporaryDrawer from './Drawer'
 import Textfield from './Textfield'
 import Toolbar from './Toolbar'
@@ -24,6 +25,7 @@ const plugin = {
     vue.use(IconToggle)
     vue.use(LayoutGrid)
     vue.use(List)
+    vue.use(Snackbar)
     vue.use(TemporaryDrawer)
     vue.use(Textfield)
     vue.use(Toolbar)
