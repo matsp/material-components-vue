@@ -1,10 +1,10 @@
-# material-components-vue | mdc-web &#9829; vuejs
+# material-components-vue
 
 [![Build Status](https://travis-ci.org/matsp/material-components-vue.svg?branch=master)](https://travis-ci.org/matsp/material-components-vue) 
 [![npm version](https://badge.fury.io/js/material-components-vue.svg)](https://badge.fury.io/js/material-components-vue)
 
-Ready to use vue components with the styling and behavior of material design - including material-icons.
-No deep foundation implementation, the components just use the CSS classes and minimal initialization code.
+Ready to use vue components with the styling and behavior of material design.
+No deep foundation implementation, the components just use the CSS classes and minimal initialization code of material-components-web.
 Instead of fully implement the mdc adapters I try to realize as much as possible with vue features and keep the
 components compact if possible. There are only sub-components when they are needed because of optional other content.
 
@@ -49,7 +49,6 @@ Vue.use(MaterialComponentsVue)
 * [x] Export each component as plugin (and then as complete collection)
 * [x] Destroy initiated mdc components [1]
 * [x] Make ripple effect optional with 'interactive' prop
-* [ ] Implement changes from mdc > 0.20.0
 * [ ] Slots for components with text / labels
 * [x] Usage description
 * [ ] Implement all missing components
