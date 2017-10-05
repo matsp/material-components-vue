@@ -33,7 +33,7 @@ export default {
             required: true
         },
         timeout: {
-            type: Integer,
+            type: Number,
             required: false
         },
         actionHandler: {
