@@ -28,29 +28,9 @@ export default {
             type: Boolean,
             default: false
         },
-        message: {
-            type: String,
+        options: {
+            type: Object,
             required: true
-        },
-        timeout: {
-            type: Number,
-            required: false
-        },
-        actionHandler: {
-            type: Function,
-            required: false
-        },
-        actionText: {
-            type: String,
-            required: false
-        },
-        multiline: {
-            type: Boolean,
-            required: false
-        },
-        actionOnBottom: {
-            type: Boolean,
-            required: false
         }
     },
     data() {
@@ -60,14 +40,6 @@ export default {
     },
     watch: {
         show() {
-            let options = {
-                message: this.message,
-                timeout: this.timeout !== undefined ? this.timeout : null,
-                actionHandler: this.actionHandler !== undefined ? this.actionHandler : null,
-                actionText: this.actionText !== undefined ? this.actionText : null,
-                multiline: this.multiline ? true : false,
-                actionOnBottom: this.actionOnBottom ? true : false
-            }
             this.mdcSnackbar.show(options)
         }
     },
