@@ -72,6 +72,7 @@ Vue.use(MaterialComponentsVue)
 * IconToggle
 * Drawer --> TemporaryDrawer
 * Snackbar
+* Switch
 * Toolbar --> Fixed & Waterfall
 * LayoutGrid
 * List
@@ -84,7 +85,6 @@ Vue.use(MaterialComponentsVue)
 * RadioButton
 * SelectMenu
 * Slider
-* Switch
 * Progress
 * Menus
 * Tabs
