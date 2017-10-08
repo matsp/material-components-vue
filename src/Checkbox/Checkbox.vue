@@ -16,7 +16,7 @@ export default {
     props: {
         checked: {
             type: Boolean,
-            required: false
+            required: true
         },
         indeterminate: {
             type: Boolean,
