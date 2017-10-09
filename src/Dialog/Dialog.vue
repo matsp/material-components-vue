@@ -1,7 +1,7 @@
 <template>
     <aside class="mdc-dialog" role="alertdialog" :id="id">
         <div class="mdc-dialog__surface">
-            <header class="mdc-dialog__header" v-if="$slots['dialogHeader']">                
+            <header class="mdc-dialog__header" v-if="$slots['dialogHeader']">
                 <h1 v-if="heading === 1" class="mdc-dialog__header__title">
                     <slot name="dialogHeader" />
                 </h1>
@@ -30,13 +30,13 @@ import { MDCDialog } from '@material/dialog';
 
 export default {
     props: {
-        show: {
-            type: Boolean,
-            required: false
-        },
         id: {
             type: String,
             required: false
+        },
+        show: {
+            type: Boolean,
+            required: true
         },
         heading: {
             type: Number,
