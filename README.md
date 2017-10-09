@@ -52,6 +52,7 @@ Vue.use(MaterialComponentsVue)
 * [ ] Slots for components with text / labels
 * [ ] Better implementation for css class binding in slot e.g. ListItem?
 * [x] Usage description
+* [ ] Conditional component rendering for sub-components
 * [ ] Build each component as asset
 * [ ] Implement all missing components
 * [ ] Adding testframework to project
@@ -85,7 +86,7 @@ Vue.use(MaterialComponentsVue)
 * Toolbar
 * GridList
 * RadioButton
-* SelectMenu
+* Select
 * Slider
 * Progress
 * Tabs
