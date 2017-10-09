@@ -8,6 +8,7 @@ import Icon from './Icon'
 import IconToggle from './IconToggle'
 import LayoutGrid from './LayoutGrid'
 import List from './List'
+import Menu from './Menu'
 import Snackbar from './Snackbar'
 import Switch from './Switch'
 import TemporaryDrawer from './Drawer'
@@ -26,6 +27,7 @@ const plugin = {
     vue.use(IconToggle)
     vue.use(LayoutGrid)
     vue.use(List)
+    vue.use(Menu)
     vue.use(Snackbar)
     vue.use(Switch)
     vue.use(TemporaryDrawer)

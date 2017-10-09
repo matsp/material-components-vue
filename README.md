@@ -52,6 +52,7 @@ Vue.use(MaterialComponentsVue)
 * [ ] Slots for components with text / labels
 * [ ] Better implementation for css class binding in slot e.g. ListItem?
 * [x] Usage description
+* [ ] Build each component as asset
 * [ ] Implement all missing components
 * [ ] Adding testframework to project
 * [ ] Use 'ref' inside components instead of IDs?
@@ -63,19 +64,20 @@ Vue.use(MaterialComponentsVue)
 
 ### Ready to use components
 * Button
+* Card
 * Checkbox
 * Dialog
-* Card
+* Drawer --> TemporaryDrawer
 * Fab
 * FormField
 * Icon
 * IconToggle
-* Drawer --> TemporaryDrawer
+* LayoutGrid
+* List
+* Menu
 * Snackbar
 * Switch
 * Toolbar --> Fixed & Waterfall
-* LayoutGrid
-* List
 * Textfield
 
 ### Missing components
@@ -86,6 +88,5 @@ Vue.use(MaterialComponentsVue)
 * SelectMenu
 * Slider
 * Progress
-* Menus
 * Tabs
 * Typography
