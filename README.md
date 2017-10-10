@@ -76,6 +76,7 @@ Vue.use(MaterialComponentsVue)
 * LayoutGrid
 * List
 * Menu
+* Select
 * Snackbar
 * Switch
 * Toolbar --> Fixed & Waterfall
@@ -86,7 +87,6 @@ Vue.use(MaterialComponentsVue)
 * Toolbar
 * GridList
 * RadioButton
-* Select
 * Slider
 * Progress
 * Tabs
