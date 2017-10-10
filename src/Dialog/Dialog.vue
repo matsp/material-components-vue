@@ -1,23 +1,15 @@
 <template>
-    <aside class="mdc-dialog" role="alertdialog" :id="id">
+    <aside class="mdc-dialog" role="alertdialog" @MDCDialog:accept="onAccept" @MDCDialog:cancel="onCancel">
         <div class="mdc-dialog__surface">
-            <header class="mdc-dialog__header" v-if="$slots['dialogHeader']">
-                <h1 v-if="heading === 1" class="mdc-dialog__header__title">
-                    <slot name="dialogHeader" />
-                </h1>
-                <h2 v-else-if="heading === 2" class="mdc-dialog__header__title">
-                    <slot name="dialogHeader" />
-                </h2>
-                <h3 v-else-if="heading === 3" class="mdc-dialog__header__title">
-                    <slot name="dialogHeader" />
-                </h3>
+            <header class="mdc-dialog__header" v-if="$slots['header']">
+                <slot name="header" />
             </header>
-            <section class="mdc-dialog__body" v-if="$slots['dialogBody']">
-                <slot name="dialogBody" />
+            <section class="mdc-dialog__body" v-if="$slots['body']">
+                <slot name="body" />
             </section>
-            <footer class="mdc-dialog__footer" v-if="$slots['dialogAcceptButton'] || $slots['dialogCancelButton'] || $slots['dialogButton']">
-                <slot name="dialogAcceptButton" />
-                <slot name="dialogCancelButton" />
+            <footer class="mdc-dialog__footer" v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']">
+                <slot name="acceptButton" />
+                <slot name="cancelButton" />
                 <slot name="dialogButton" />
             </footer>
         </div>
@@ -29,20 +21,6 @@
 import { MDCDialog } from '@material/dialog';
 
 export default {
-    props: {
-        id: {
-            type: String,
-            required: false
-        },
-        show: {
-            type: Boolean,
-            required: true
-        },
-        heading: {
-            type: Number,
-            required: true
-        }
-    },
     data() {
         return {
             mdcDialog: null
@@ -51,20 +29,14 @@ export default {
     mounted() {
         let vm = this;
         vm.mdcDialog = new MDCDialog(this.$el)
-        vm.mdcDialog.listen('MDCDialog:accept', function() {
-            vm.$emit('accept')
-        })
-        vm.mdcDialog.listen('MDCDialog:cancel', function() {
-            vm.$emit('cancel')
-        })
 
-        if (vm.$slots.dialogAcceptButton)
-            vm.$slots.dialogAcceptButton.map((n) => {
+        if (vm.$slots.acceptButton)
+            vm.$slots.acceptButton.map((n) => {
                 n.elm.classList.add('mdc-dialog__footer__button')
                 n.elm.classList.add('mdc-dialog__footer__button--accept')
             })
-        if (vm.$slots.dialogCancelButton)
-            vm.$slots.dialogCancelButton.map((n) => {
+        if (vm.$slots.cancelButton)
+            vm.$slots.cancelButton.map((n) => {
                 n.elm.classList.add('mdc-dialog__footer__button')
                 n.elm.classList.add('mdc-dialog__footer__button--cancel')
             })
@@ -76,9 +48,15 @@ export default {
     destroyed() {
         this.mdcDialog.destroy()
     },
-    watch: {
+    methods: {
+        onAccept() {
+            this.$emit('accepted')
+        },
+        onCancel() {
+            this.$emit('canceled')
+        },
         show() {
-            this.show ? this.mdcDialog.show() : this.mdcDialog.close()
+            this.mdcDialog.show()
         }
     }
 }

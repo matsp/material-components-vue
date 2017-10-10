@@ -1,8 +1,8 @@
 <template>
-    <div class="mdc-toolbar" :class="classes" :id="id">
+    <div class="mdc-toolbar" :class="classes">
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-                <a class="material-icons mdc-toolbar__icon--menu" @click="toggleDrawer()">
+                <a class="material-icons mdc-toolbar__icon--menu" @click="menuClicked">
                     menu
                 </a>
                 <span class="mdc-toolbar__title">{{title}}</span>
@@ -23,10 +23,6 @@ import { MDCToolbar } from '@material/toolbar'
 
 export default {
     props: {
-        id: {
-            type: String,
-            required: false
-        },
         title: {
             type: String,
             required: false
@@ -60,8 +56,8 @@ export default {
         }
     },
     methods: {
-        toggleDrawer() {
-            this.$emit('toggleDrawer');
+        menuClicked() {
+            this.$emit('clicked');
         }
     }
 }

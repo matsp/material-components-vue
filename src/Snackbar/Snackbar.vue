@@ -12,10 +12,6 @@ import { MDCSnackbar } from '@material/snackbar';
 
 export default {
     props: {
-        id: {
-            type: String,
-            required: false
-        },
         alignStart: {
             type: Boolean,
             required: false
@@ -23,14 +19,6 @@ export default {
         dismissesOnAction: {
             type: Boolean,
             default: true
-        },
-        show: {
-            type: Boolean,
-            default: false
-        },
-        options: {
-            type: Object,
-            required: true
         }
     },
     data() {
@@ -38,7 +26,7 @@ export default {
             mdcSnackbar: null
         }
     },
-    watch: {
+    methods: {
         show() {
             this.mdcSnackbar.show(options)
         }

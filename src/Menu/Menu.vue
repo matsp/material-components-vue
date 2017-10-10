@@ -1,6 +1,8 @@
 <template>
-    <div class="mdc-simple-menu" :class="classes" :id="id" tabindex="-1">
-        <slot />
+    <div class="mdc-simple-menu" :class="classes" tabindex="-1" @MDCSimpleMenu:selected="onSelect" @MDCSimpleMenu:cancel="onCancel">
+        <ul class="mdc-simple-menu__items mdc-list" :class="listClasses" role="menu">
+            <slot />
+        </ul>
     </div>
 </template>
 
@@ -9,27 +11,31 @@ import { MDCSimpleMenu } from '@material/menu'
 
 export default {
     props: {
-        id: {
-            type: String,
-            required: false
-        },
-        open: {
-            type: Boolean,
-            required: true
-        },
-        fromTopToLeft: {
+        startOpen: {
             type: Boolean,
             required: false
         },
-        fromTopToRight: {
+        openfromTopLeft: {
             type: Boolean,
             required: false
         },
-        fromBottomLeft: {
+        openfromTopRight: {
             type: Boolean,
             required: false
         },
-        fromBottomRight: {
+        openfromBottomLeft: {
+            type: Boolean,
+            required: false
+        },
+        openfromBottomRight: {
+            type: Boolean,
+            required: false
+        },
+        dense: {
+            type: Boolean,
+            required: false
+        },
+        twoLine: {
             type: Boolean,
             required: false
         }
@@ -41,23 +47,39 @@ export default {
     },
     mounted() {
         this.mdcSimpleMenu = new MDCSimpleMenu(this.$el)
-
-        if (this.$slots.default)
-            this.$slots.default.map((n) => {
-                n.elm.classList.add('mdc-simple-menu__items')
-            })
+        this.mdcSimpleMenu.open = this.open
     },
     destroyed() {
         this.mdcSimpleMenu.destroy()
     },
+    methods: {
+        show() {
+            this.mdcSimpleMenu.show()
+        },
+        hide() {
+            this.mdcSimpleMenu.hide()
+        },
+        onSelect(event) {
+            this.$emit('selected', event.detail.index)
+        },
+        onCancel(event) {
+            this.$emit('canceled')
+        }
+    },
     computed: {
         classes() {
             return {
-                'mdc-simple-menu--open': this.open,
-                'mdc-simple-menu--open-from-top-left': this.fromTopLeft,
-                'mdc-simple-menu--open-from-top-right': this.fromTopRight,
-                'mdc-simple-menu--open-from-bottom-left': this.fromBottomLeft,
-                'mdc-simple-menu--open-from-bottom-right': this.fromBottomRight
+                'mdc-simple-menu--open': this.startOpen,
+                'mdc-simple-menu--open-from-top-left': this.openfromTopLeft,
+                'mdc-simple-menu--open-from-top-right': this.openfromTopRight,
+                'mdc-simple-menu--open-from-bottom-left': this.openfromBottomLeft,
+                'mdc-simple-menu--open-from-bottom-right': this.openfromBottomRight
+            }
+        },
+        listClasses() {
+            return {
+                'mdc-list--dense': this.dense,
+                'mdc-list--two-line': this.twoLine
             }
         }
     }
@@ -67,4 +89,5 @@ export default {
 
 <style lang="scss">
 @import "@material/menu/mdc-menu";
+@import "@material/list/mdc-list";
 </style>

@@ -1,15 +1,11 @@
 <template>
-    <li role="separator" class="mdc-list-divider" :class="classes" :id="id" />
+    <li role="separator" class="mdc-list-divider" :class="classes" />
 </template>
 
 <script>
 export default {
     props: {
-        id: {
-            type: String,
-            required: false
-        },
-        isnet: {
+        inset: {
             type: Boolean,
             required: false
         }

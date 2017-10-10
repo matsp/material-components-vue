@@ -27,10 +27,6 @@ export default {
             type: String,
             required: false
         },
-        id: {
-            type: String,
-            required: false
-        },
         disabled: {
             type: Boolean,
             required: false
@@ -76,14 +72,14 @@ export default {
     },
     mounted() {
         this.mdcTextfield = new MDCTextfield(this.$el)
-       
+
         if (this.interactive && this.box)
             this.mdcRipple = new MDCRipple(this.$el)
     },
     destroyed() {
         this.mdcTextfield.destroy()
 
-        if (this.mdcRipple !== null)
+        if (this.interactive)
             this.mdcRipple.destroy()
     },
     computed: {

@@ -1,5 +1,5 @@
 <template>
-    <button class="mdc-fab material-icons" :class="classes" :id="id" v-on="$listeners">
+    <button class="mdc-fab material-icons" :class="classes" v-on="$listeners">
         <span class="mdc-fab__icon">
             {{icon}}
         </span>
@@ -16,10 +16,6 @@ export default {
         },
         absoluteRight: {
             type: Boolean,
-            required: false
-        },
-        id: {
-            type: String,
             required: false
         },
         icon: {
@@ -41,7 +37,7 @@ export default {
             return {
                 'mdc-fab--mini': this.mini,
                 'mdc-fab--absolute-right': this.absoluteRight
-            }  
+            }
         }
     },
     mounted() {
@@ -49,7 +45,8 @@ export default {
             this.mdcRipple = new MDCRipple(this.$el)
     },
     destroyed() {
-        this.mdcRipple.destroy()
+        if (this.interactive)
+            this.mdcRipple.destroy()
     }
 }
 </script>

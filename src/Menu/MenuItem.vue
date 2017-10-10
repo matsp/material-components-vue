@@ -1,6 +1,6 @@
 <template>
-    <li class="mdc-list-item" v-on="$listeners">
-        <div class="mdc-list-item__start-detail" v-if="$slots['startDetail']">
+    <li class="mdc-list-item" v-on="$listeners" role="menuitem" :tabindex="disabled?'-1':'0'" :aria-disabled="disabled">
+       <div class="mdc-list-item__start-detail" v-if="$slots['startDetail']">
             <slot name="startDetail" />
         </div>
         <slot />
@@ -15,30 +15,15 @@
         </div>
     </li>
 </template>
-  
+
 <script>
-import { MDCRipple } from '@material/ripple'
 
 export default {
     props: {
-        interactive: {
+        disabled: {
             type: Boolean,
             required: false
         }
-    },
-    data() {
-        return {
-            mdcRipple: null
-        }
-    },
-    mounted() {
-        if (this.interactive)
-            this.mdcRipple = new MDCRipple(this.$el)
-
-    },
-    destroyed() {
-        if (this.interactive)
-            this.mdcRipple.destroy()
     }
 }
 </script>
@@ -46,5 +31,4 @@ export default {
 <style lang="scss">
 @import "@material/list/mdc-list";
 </style>
-
 

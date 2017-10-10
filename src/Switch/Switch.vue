@@ -1,6 +1,6 @@
 <template>
     <div class="mdc-switch" :class="classes">
-        <input :id="id" v-model="model" type="checkbox" class="mdc-switch__native-control" :disabled="disabled" />
+        <input v-model="model" type="checkbox" class="mdc-switch__native-control" :disabled="disabled" />
         <div class="mdc-switch__background">
             <div class="mdc-switch__knob"></div>
         </div>
@@ -10,10 +10,6 @@
 <script>
 export default {
     props: {
-        id: {
-            type: String,
-            required: false
-        },
         checked: {
             type: Boolean,
             required: true
@@ -38,7 +34,7 @@ export default {
                 return this.checked
             },
             set(state) {
-                this.$emit('change', state)
+                this.$emit('changed', state)
             }
         }
     }

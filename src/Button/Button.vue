@@ -1,9 +1,7 @@
 <template>
-    <button class="mdc-button" :class="classes" :id="id" v-bind="$attrs" v-on="$listeners">
+    <button class="mdc-button" :class="classes" v-bind="$attrs" v-on="$listeners">
         <a v-if="icon" class="material-icons mdc-button__icon">{{icon}}</a>
-        <slot>
-            {{text}}
-        </slot>
+        <slot />
     </button>
 </template>
 
@@ -11,14 +9,6 @@
 import { MDCRipple } from '@material/ripple'
 export default {
     props: {
-        text: {
-            type: String,
-            required: false
-        },
-        id: {
-            type: String,
-            required: false
-        },
         icon: {
             type: String,
             required: false
@@ -69,7 +59,8 @@ export default {
             this.mdcRipple = new MDCRipple(this.$el)
     },
     destroyed() {
-        this.mdcRipple.destroy()
+        if (this.interactive)
+            this.mdcRipple.destroy()
     }
 }
 </script>

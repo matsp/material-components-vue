@@ -1,5 +1,5 @@
 <template>
-    <ul class="mdc-list" :class="classes" :id="id">
+    <ul class="mdc-list" :class="classes" >
         <slot />
     </ul>
 </template>
@@ -7,10 +7,6 @@
 <script>
 export default {
     props: {
-        id: {
-            type: String,
-            required: false
-        },
         darkTheme: {
             type: Boolean,
             required: false

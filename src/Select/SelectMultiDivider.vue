@@ -1,9 +1,8 @@
 <template>
-  <span class="mdc-list-group__subheader">
-    <slot />
-  </span>
+    <option class="mdc-list-divider" role="presentation" disabled />
 </template>
 
 <style lang="scss">
 @import "@material/list/mdc-list";
 </style>
+
