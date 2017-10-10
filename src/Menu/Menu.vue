@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MDCSimpleMenu from '@material/menu'
+import { MDCSimpleMenu } from '@material/menu'
 
 export default {
     props: {
