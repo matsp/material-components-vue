@@ -4,7 +4,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-
 const root = path.join(__dirname)
 const src = path.join(root + '/src/')
 const nodeModules = path.join(root, '/node_modules/')
@@ -67,7 +66,7 @@ module.exports.plugins = [
   new OptimizeCssAssetsPlugin(),
   new Webpack.optimize.ModuleConcatenationPlugin(),
   new UglifyJSPlugin({
-    ecma: 5, 
+    ecma: 5,
     cache: true,
     parallel: true
   })
