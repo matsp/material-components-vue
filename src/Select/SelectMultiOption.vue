@@ -1,5 +1,5 @@
 <template>
-    <option class="mdc-list-item" :disabled="disabled" >
+    <option class="mdc-list-item" :value="value" :disabled="disabled">
         <slot />
     </option>
 </template>
@@ -7,6 +7,10 @@
 <script>
 export default {
     props: {
+        value: {
+            type: String,
+            required: true
+        },
         disabled: {
             type: Boolean,
             required: false
