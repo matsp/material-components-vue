@@ -43,15 +43,8 @@ Vue.use(MaterialComponentsVue)
 ## TODO
 
 ### Common
-* [x] Refactor components
-* [x] Import as vuejs plugin
-* [x] Extra repository for example
-* [x] Export each component as plugin (and then as complete collection)
-* [x] Destroy initiated mdc components [1]
-* [x] Make ripple effect optional with 'interactive' prop
 * [ ] Slots for components with text / labels
 * [ ] Better implementation for css class binding in slot e.g. ListItem?
-* [x] Usage description
 * [ ] Conditional component rendering for sub-components
 * [ ] Build each component as asset
 * [ ] Implement all missing components
@@ -74,9 +67,12 @@ Vue.use(MaterialComponentsVue)
 * Icon
 * IconToggle
 * LayoutGrid
+* LinearProgress
 * List
 * Menu
+* Radio
 * Select
+* Slider
 * Snackbar
 * Switch
 * Toolbar --> Fixed & Waterfall
@@ -86,8 +82,6 @@ Vue.use(MaterialComponentsVue)
 * Drawer
 * Toolbar
 * GridList
-* RadioButton
-* Slider
-* Progress
 * Tabs
+* Theme
 * Typography

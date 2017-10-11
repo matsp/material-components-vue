@@ -1,7 +1,7 @@
 <template>
     <div class="mdc-textfield" :class="classes">
         <i v-if="leadingIcon" class="material-icons mdc-textfield__icon">{{leadingIcon}}</i>
-        <input :id="id" class="mdc-textfield__input" :value="value" @input="updateModel" :placeholder="placeholder" v-bind="$attrs" />
+        <input :id="id" class="mdc-textfield__input" :value="value" @input="onInput" :placeholder="placeholder" v-bind="$attrs" />
         <label v-if="label" class="mdc-textfield__label" :class="classesLabel">{{label}}</label>
         <i v-if="trailingIcon" class="material-icons mdc-textfield__icon">{{trailingIcon}}</i>
         <div v-if="bottomLine" class="mdc-textfield__bottom-line"></div>
@@ -79,7 +79,7 @@ export default {
     destroyed() {
         this.mdcTextfield.destroy()
 
-        if (this.interactive)
+        if (this.interactive && this.box)
             this.mdcRipple.destroy()
     },
     computed: {
@@ -100,7 +100,7 @@ export default {
         }
     },
     methods: {
-        updateModel(event) {
+        onInput(event) {
             debounce(this.$emit('input', event.target.value))
         }
     }

@@ -16,7 +16,7 @@ export default {
     props: {
         checked: {
             type: Boolean,
-            required: true
+            required: false
         },
         indeterminate: {
             type: Boolean,
@@ -49,8 +49,8 @@ export default {
             get() {
                 return this.checked
             },
-            set(state) {
-                this.$emit('change', state)
+            set(value) {
+                this.$emit('change', value)
             }
         }
     }

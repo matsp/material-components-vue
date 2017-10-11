@@ -16,6 +16,10 @@ export default {
             required: false
         }
     },
+    model: {
+        prop: 'selected',
+        event: 'change'
+    },
     data() {
         return {
             selected: []
@@ -23,8 +27,7 @@ export default {
     },
     methods: {
         onChange(event) {
-            this.$emit('selected', this.selected)
-
+            this.$emit('change', this.selected)
         }
     }
 }

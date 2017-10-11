@@ -45,6 +45,10 @@ export default {
             mdcSimpleMenu: null
         }
     },
+    model: {
+        prop: 'selected',
+        event: 'change'
+    },
     mounted() {
         this.mdcSimpleMenu = new MDCSimpleMenu(this.$el)
         this.mdcSimpleMenu.open = this.open
@@ -60,7 +64,7 @@ export default {
             this.mdcSimpleMenu.hide()
         },
         onSelect(event) {
-            this.$emit('selected', event.detail.index)
+            this.$emit('change', event.detail.index)
         },
         onCancel(event) {
             this.$emit('canceled')

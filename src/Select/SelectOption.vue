@@ -1,5 +1,5 @@
 <template>
-    <li class="mdc-list-item" role="option" :aria-selected="selected" :aria-disabled="disabled" :tabindex="disabled?-1:0">
+    <li class="mdc-list-item" role="option" :id="id" :aria-selected="selected" :aria-disabled="disabled" :tabindex="disabled?-1:0">
         <slot />
     </li>
 </template>
@@ -14,6 +14,10 @@ export default {
         disabled: {
             type: Boolean,
             required: false
+        },
+        id: {
+            type: String,
+            required: true
         }
     }
 }

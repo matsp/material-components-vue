@@ -1,5 +1,5 @@
 <template>
-    <div class="mdc-select" :class="classes" :value="value" @change="onChange" tabindex="0" :aria-disabled="disabled" role="listbox" @MDCSelect:change="onChange">
+    <div class="mdc-select" :class="classes" tabindex="0" :aria-disabled="disabled" role="listbox" @MDCSelect:change="onChange">
         <span class="mdc-select__selected-text"></span>
          <div class="mdc-simple-menu mdc-select__menu">
              <ul class="mdc-list mdc-simple-menu__items">
@@ -17,11 +17,11 @@ export default {
         disabled: {
             type: Boolean,
             required: false
-        },
-        value: {
-            type: String,
-            required: false
         }
+    },
+    model: {
+        prop: 'selected',
+        event: 'change'
     },
     data() {
         return {
@@ -43,7 +43,7 @@ export default {
     },
     methods: {
         onChange(event) {
-            this.$emit('selected', event.detail.selectedIndex)
+            this.$emit('change', this.mdcSelect.value)
         }
     }
 }
