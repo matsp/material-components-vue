@@ -10,8 +10,8 @@ const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
-    bundle: [path.resolve(demo + '/index.js')],
-    vendor: ['babel-polyfill', 'vue', 'vuex', 'vue-router', path.resolve(components + 'index.js')]
+    bundle: [path.resolve(demo + 'index.js'), path.resolve(components + 'index.js')],
+    vue: ['vue', 'vuex', 'vue-router']
   },
   output: {
     path: path.resolve(root + '/dist'),
@@ -92,7 +92,7 @@ module.exports.plugins = [
   new Webpack.HotModuleReplacementPlugin(),
   new Webpack.NamedModulesPlugin(),
   new Webpack.optimize.CommonsChunkPlugin({
-    names: ['vendor', 'manifest']
+    names: ['bundle', 'vue', 'manifest']
   }),
   new HtmlWebpackPlugin({
     template: path.resolve(demo + 'index.html'),

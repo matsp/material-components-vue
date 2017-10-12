@@ -12,12 +12,12 @@ const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
-    bundle: [path.resolve(demo + '/index.js')],
-    vendor: ['babel-polyfill', 'vue', 'vuex', 'vue-router', path.resolve(components + 'index.js')]
+    bundle: [path.resolve(demo + 'index.js'), path.resolve(components + 'index.js')],
+    vue: ['vue', 'vuex', 'vue-router']
   },
   output: {
     path: path.resolve(root + '/dist'),
-    filename: '[name].[hash].js',
+    filename: '[name].[chunkhash].js',
     chunkFilename: '[id].[name].[chunkhash].js'
   },
   module: {
@@ -87,7 +87,7 @@ module.exports.plugins = [
   }),
   new Webpack.HashedModuleIdsPlugin(),
   new Webpack.optimize.CommonsChunkPlugin({
-    names: ['vendor', 'manifest']
+    names: ['bundle', 'vue', 'manifest']
   }),
   new HtmlWebpackPlugin({
     template: path.resolve(demo + 'index.html'),
@@ -98,14 +98,7 @@ module.exports.plugins = [
     filename: '[name].[chunkhash].css',
     allChunks: true
   }),
-  new OptimizeCssAssetsPlugin({
-    cssProcessor: require('cssnano'),
-    cssProcessorOptions: {
-      safe: true,
-      minimize: true,
-      discardComments: { removeAll: true }
-    }
-  }),
+  new OptimizeCssAssetsPlugin(),
   // new Webpack.optimize.AggressiveSplittingPlugin({
   //  minSize: 30000,
   //  maxSize: 50000,

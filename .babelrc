@@ -4,7 +4,7 @@
     "presets": [
         ["env", {
             "targets": {
-            "browsers": "last 2 versions"
+            "browsers": ["last 2 versions", "ie >= 10"]
             },
             "loose": true,
             "modules": false
