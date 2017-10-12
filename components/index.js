@@ -2,6 +2,7 @@ import Button from './Button'
 import Card from './Card'
 import Checkbox from './Checkbox'
 import Dialog from './Dialog'
+import Elevation from './Elevation'
 import Fab from './Fab'
 import FormField from './FormField'
 import Icon from './Icon'
@@ -26,6 +27,7 @@ export default {
     vue.use(Card)
     vue.use(Checkbox)
     vue.use(Dialog)
+    vue.use(Elevation)
     vue.use(Fab)
     vue.use(FormField)
     vue.use(Icon)

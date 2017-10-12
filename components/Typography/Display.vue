@@ -11,10 +11,10 @@ export default {
             type: Boolean,
             default: true
         },
-        value: {
+        level: {
             type: Number,
             required: true,
-            validator: (value) => value > 0 && value <= 4,
+            validator: (level) => level > 0 && level <= 4,
         }
     },
     computed: {
@@ -24,7 +24,7 @@ export default {
             }
 
             let calc = {}
-            calc['mdc-typography--display' + this.value] = true
+            calc['mdc-typography--display' + this.level] = true
 
             return Object.assign(def, calc)
         }

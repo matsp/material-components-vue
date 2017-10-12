@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3 v-if="value < 2" :class="classes">
+        <h3 v-if="level < 2" :class="classes">
             <slot />
         </h3>
         <h4 v-else :class="classes">
@@ -16,10 +16,10 @@ export default {
             type: Boolean,
             default: true
         },
-        value: {
+        level: {
             type: Number,
             required: true,
-            validator: (value) => value > 0 && value <= 2,
+            validator: (level) => level > 0 && level <= 2,
         }
     },
     computed: {
@@ -29,7 +29,7 @@ export default {
             }
 
             let calc = {}
-            calc['mdc-typography--subheading' + this.value] = true
+            calc['mdc-typography--subheading' + this.level] = true
 
             return Object.assign(def, calc)
         }

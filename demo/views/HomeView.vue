@@ -82,11 +82,14 @@
         <m-layout-grid-cell :span="12">
             <m-typo-headline>Heading</m-typo-headline>
             <m-typo-title>Title</m-typo-title>
-            <m-typo-subheading :value="1">Subheading1</m-typo-subheading>
-            <m-typo-subheading :value="2">Subheading2</m-typo-subheading>
-
+            <m-typo-subheading :level="1">Subheading1</m-typo-subheading>
+            <m-typo-subheading :level="2">Subheading2</m-typo-subheading>
         </m-layout-grid-cell>
-
+        <m-layout-grid-cell :span="4">
+            <m-elevation :level="10">
+                <span> Hello </span>
+            </m-elevation>
+        </m-layout-grid-cell>
     </m-layout-grid-inner>
 </template>
 
