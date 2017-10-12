@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/material-components-vue.svg)](https://badge.fury.io/js/material-components-vue)
 [![Greenkeeper badge](https://badges.greenkeeper.io/matsp/material-components-vue.svg)](https://greenkeeper.io/)
 
-material-components-vue is a simple approach implementation of the material-components-web.
+material-components-vue is a simple approach implementation of the material-components-web package by google.
 
 ## installation
 
