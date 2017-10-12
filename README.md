@@ -49,6 +49,7 @@ $mdc-theme-background: #f5f5f5;
 * Card
 * Checkbox
 * Dialog
+* Elevation
 * Fab
 * FormField
 * Icon
@@ -67,7 +68,6 @@ $mdc-theme-background: #f5f5f5;
 
 ### Missing components
 * Drawer
-* Elevation
 * Toolbar
 * GridList
 * Ripple
