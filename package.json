@@ -4,13 +4,20 @@
   "description": "material-components-web with vuejs",
   "author": "Mats Pfeiffer",
   "license": "MIT",
-  "main": "./dist/material-components-vue.min.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
     "lint": "eslint --fix ./",
-    "build": "webpack -p"
+    "build:prod": "webpack -p --config ./webpack.config.prod.js",
+    "build:dev": "webpack -d --config ./webpack.config.dev.js",
+    "serve:dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js"
   },
   "dependencies": {
-    "material-components-web": "^0.22.0"
+    "babel-polyfill": "^6.26.0",
+    "material-components-web": "^0.22.0",
+    "vue": "^2.4.4",
+    "vue-router": "^3.0.0",
+    "vuex": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -29,6 +36,8 @@
     "eslint-plugin-vue": "^3.12.0",
     "extract-text-webpack-plugin": "^3.0.1",
     "file-loader": "^1.1.5",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.3",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "sass-loader": "^6.0.6",
@@ -36,6 +45,7 @@
     "uglifyjs-webpack-plugin": "^0.4.6",
     "vue-loader": "^13.2.1",
     "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
   }
 }

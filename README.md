@@ -2,66 +2,53 @@
 
 [![Build Status](https://travis-ci.org/matsp/material-components-vue.svg?branch=master)](https://travis-ci.org/matsp/material-components-vue) 
 [![npm version](https://badge.fury.io/js/material-components-vue.svg)](https://badge.fury.io/js/material-components-vue)
+[![Greenkeeper badge](https://badges.greenkeeper.io/matsp/material-components-vue.svg)](https://greenkeeper.io/)
 
-Ready to use vue components with the styling and behavior of material design.
-No deep foundation implementation, the components just use the CSS classes and minimal initialization code of material-components-web.
-Instead of fully implement the mdc adapters I try to realize as much as possible with vue features and keep the
-components compact if possible. There are only sub-components when they are needed because of optional other content.
+material-components-vue is a simple approach implementation of the material-components-web.
+
+## installation
+
+```shell
+npm install --save material-components-vue
+
+yarn add material-components-vue
+```
+
 
 ## usage
 
-#### npm
+### register plugin
 ```javascript
 import MaterialComponentsVue from 'material-components-vue'
 
 Vue.use(MaterialComponentsVue)
 ```
 
-#### html
-
-```html
-<script src="https://unpkg.com/vue"></script>
-<link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/material-components-vue.css"></link>
-<script src="https://unpkg.com/material-components-vue"></script>
+### customize/import theme & material-icons & roboto font
+```scss
+$mdc-theme-primary: #2196f3;
+$mdc-theme-accent: #ff1744;
+$mdc-theme-background: #f5f5f5;
+@import '~material-components-vue/components/styles.scss';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 ```
-
-## component architecture principles
-
-* container components e.g. 'Card' have named slots to fill in other components
-* sub-components for components with optional content e.g. 'List'
-* state is outside of components and will be passed in as props - maybe modeled
-* components react on state changes with actions
-* components CSS classes can be modified by props e.g. 'isPrimary'
-
-## component detail design
-* optional id on every component
-* just one type as prop e.g. Boolean instead of [Boolean, String]
-* v-if on tags inside components if needed e.g. v-if="text" 
-* v-bind="$attrs" to inherit parent non prop attributes in sub components & v-on="$listeners" to inherit their listeners
-
 
 ## TODO
 
 ### Common
+* [ ] A better theming integration
 * [ ] Slots for components with text / labels
 * [ ] Better implementation for css class binding in slot e.g. ListItem?
-* [ ] Conditional component rendering for sub-components
-* [ ] Build each component as asset
-* [ ] Implement all missing components
 * [ ] Adding testframework to project
-* [ ] Use 'ref' inside components instead of IDs?
 * [ ] Documentation of components and their usage (props, events, ...)
-
-[1] https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md
 
 ## Components
 
-### Ready to use components
 * Button
 * Card
 * Checkbox
 * Dialog
-* Drawer --> TemporaryDrawer
 * Fab
 * FormField
 * Icon
@@ -75,13 +62,15 @@ Vue.use(MaterialComponentsVue)
 * Slider
 * Snackbar
 * Switch
-* Toolbar --> Fixed & Waterfall
 * Textfield
+* Typography
 
 ### Missing components
 * Drawer
+* Elevation
 * Toolbar
 * GridList
+* Ripple
 * Tabs
 * Theme
-* Typography
+

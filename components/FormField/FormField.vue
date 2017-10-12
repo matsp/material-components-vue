@@ -1,0 +1,41 @@
+<template>
+  <div class="mdc-form-field" :class="classes" :id="id">
+    <slot />
+  </div>
+</template>
+
+<script>
+import { MDCFormField } from '@material/form-field'
+
+export default {
+  props: {
+    alignEnd: {
+      type: Boolean,
+      required: false
+    },
+    id: {
+      type: String,
+      required: false
+    }
+  },
+  data() {
+    return {
+      mdcFormField: null
+    }
+  },
+  mounted() {
+    this.mdcFormField = new MDCFormField(this.$el)
+  },
+  destroyed() {
+    this.mdcFormField.destroy()
+  },
+  computed: {
+    classes() {
+      return {
+        'mdc-form-field--align-end': this.alignEnd
+      }
+    }
+  }
+}
+
+</script>
