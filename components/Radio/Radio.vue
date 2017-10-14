@@ -36,7 +36,7 @@ export default {
         this.mdcRadio.checked = this.checked
         this.mdcRadio.disabled = this.disabled
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcRadio.destroy()
     },
     methods: {

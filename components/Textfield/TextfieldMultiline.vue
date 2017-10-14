@@ -68,7 +68,7 @@ export default {
     mounted() {
         this.mdcTextfield = new MDCTextfield(this.$el)
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcTextfield.destroy()
     },
     computed: {

@@ -42,7 +42,7 @@ export default {
         this.mdcSnackbar = new MDCSnackbar(this.$el);
         this.mdcSnackbar.dismissesOnAction = this.dismissesOnAction
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcSnackbar.destroy()
     }
 }

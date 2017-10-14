@@ -76,7 +76,7 @@ export default {
         if (this.interactive && this.box)
             this.mdcRipple = new MDCRipple(this.$el)
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcTextfield.destroy()
 
         if (this.interactive && this.box)

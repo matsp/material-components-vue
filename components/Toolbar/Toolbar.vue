@@ -44,7 +44,7 @@ export default {
     mounted() {
         this.mdcToolbar = new MDCToolbar(this.$el)
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcToolbar.destroy()
     },
     computed: {

@@ -77,7 +77,7 @@ export default {
         this.mdcSlider.step = this.step
         this.mdcSlider.disabled = this.disabled
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcSlider.destroy()
     },
     watch: {

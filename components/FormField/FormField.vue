@@ -26,7 +26,7 @@ export default {
   mounted() {
     this.mdcFormField = new MDCFormField(this.$el)
   },
-  destroyed() {
+  beforeDestroy() {
     this.mdcFormField.destroy()
   },
   computed: {

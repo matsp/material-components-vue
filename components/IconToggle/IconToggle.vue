@@ -1,6 +1,6 @@
 <template>
-    <i class="mdc-icon-toggle" :class="classes" :id="id" role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" @click="toggleState">
-        {{icon+'_border'}}
+    <i class="mdc-icon-toggle" :class="classes" role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" @click="onClick">
+            {{icon+'_border'}}
     </i>
 </template>
 
@@ -10,10 +10,6 @@ import { debounce } from '../utils'
 
 export default {
     props: {
-        id: {
-            type: String,
-            required: false
-        },
         icon: {
             type: String,
             required: true
@@ -73,7 +69,7 @@ export default {
         }
     },
     methods: {
-        toggleState() {
+        onClick() {
             debounce(this.$emit('input', !this.value))
         }
     },

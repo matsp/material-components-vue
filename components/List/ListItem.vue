@@ -36,7 +36,7 @@ export default {
             this.mdcRipple = new MDCRipple(this.$el)
 
     },
-    destroyed() {
+    beforeDestroy() {
         if (this.interactive)
             this.mdcRipple.destroy()
     }

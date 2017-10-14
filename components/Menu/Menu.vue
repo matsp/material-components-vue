@@ -53,7 +53,7 @@ export default {
         this.mdcSimpleMenu = new MDCSimpleMenu(this.$el)
         this.mdcSimpleMenu.open = this.open
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcSimpleMenu.destroy()
     },
     methods: {

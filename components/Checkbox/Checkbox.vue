@@ -36,7 +36,7 @@ export default {
         this.mdcCheckbox = new MDCCheckbox(this.$el)
         this.mdcCheckbox.indeterminate = this.indeterminate
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcCheckbox.destroy()
     },
     watch: {

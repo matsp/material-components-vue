@@ -37,13 +37,10 @@ $mdc-theme-background: #f5f5f5;
 ## TODO
 
 ### Common
-* [ ] A better theming integration
-* [ ] Slots for components with text / labels
-* [ ] Better implementation for css class binding in slot e.g. ListItem?
-* [ ] Adding testframework to project
 * [ ] Documentation of components and their usage (props, events, ...)
+* [ ] Adding testframework to project
 
-## Components
+### Components
 
 * Button
 * Card
@@ -52,6 +49,7 @@ $mdc-theme-background: #f5f5f5;
 * Elevation
 * Fab
 * FormField
+* GridList
 * Icon
 * IconToggle
 * LayoutGrid
@@ -64,13 +62,21 @@ $mdc-theme-background: #f5f5f5;
 * Snackbar
 * Switch
 * Textfield
+* Theme
 * Typography
 
 ### Missing components
+* Animation
 * Drawer
-* Toolbar
-* GridList
 * Ripple
+* Toolbar
 * Tabs
-* Theme
 
+### Missing functions
+* Dark theme
+* RTL
+
+### Refactoring
+* Card (decouple complex slot logic in different components)
+* Snackbar (object prop?)
+* Icon (there a few icon implementations around...)

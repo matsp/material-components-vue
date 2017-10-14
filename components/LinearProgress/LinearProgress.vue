@@ -73,7 +73,7 @@ export default {
         this.mdcLinearProgress.buffer = this.buffer
         this.open ? this.mdcLinearProgress.open() : this.mdcLinearProgress.close()
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcLinearProgress.destroy()
     },
     computed: {

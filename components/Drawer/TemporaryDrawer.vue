@@ -25,7 +25,7 @@ export default {
     mounted() {
         this.mdcTemporaryDrawer = new MDCTemporaryDrawer(this.$el)
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcTemporaryDrawer.destroy()
     },
     methods: {

@@ -71,13 +71,12 @@
             <m-slider discrete displayMarkers v-model="sliderValue" :min="0" :max="50" />
             <m-button @click="resetSlider"> Reset </m-button>
         </m-layout-grid-cell>
-        <m-layout-grid-cell :span="8">
-            <div class="mdc-theme--dark">
-                <m-linear-progress ref="progress" open :progress="0.5" :buffer="0.5" indeterminate/>
-                <br />
-                <m-button @click="stopProgress" raised interactive> Hide </m-button>
-                <m-button @click="startProgress"> Show </m-button>
-            </div>
+        <m-layout-grid-cell :span="8" class="flex">
+            <m-linear-progress ref="progress" open :progress="0.5" :buffer="0.5" indeterminate/>
+            <br />
+            <m-button @click="stopProgress" raised interactive class="surface"> Hide </m-button>
+            <p />
+            <m-button @click="startProgress" stroked class="surface"> Show </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="12">
             <m-typo-headline>Heading</m-typo-headline>
@@ -85,10 +84,34 @@
             <m-typo-subheading :level="1">Subheading1</m-typo-subheading>
             <m-typo-subheading :level="2">Subheading2</m-typo-subheading>
         </m-layout-grid-cell>
-        <m-layout-grid-cell :span="4">
-            <m-elevation :level="10">
-                <span> Hello </span>
+        <m-layout-grid-cell :span="6" class="surfaces">
+            <m-elevation ref="hov" :level="hovLevel" class="surface" @click.native="hover">
+                <div class="mdc-ripple-surface"></div>
+                <span />
             </m-elevation>
+            <m-elevation :level="20" class="surface">
+                <div class="mdc-ripple-surface"></div>
+                <span />
+            </m-elevation>
+        </m-layout-grid-cell>
+        <m-layout-grid-cell>
+            <m-grid-list ratio="1x1" startIcon twolineCaption>
+                <m-grid-list-tiles>
+                    <m-grid-list-tile @click="resetSlider">
+                        <m-grid-list-title slot="secondary">Edit me</m-grid-list-title>
+                        <m-grid-list-icon slot="secondary" icon="edit" />
+                        <m-grid-list-supporttext slot="secondary">helptext</m-grid-list-supporttext>
+                    </m-grid-list-tile>
+                </m-grid-list-tiles>
+            </m-grid-list>
+        </m-layout-grid-cell>
+        <m-layout-grid-cell>
+            <!-- <m-tab-bar-scroller> -->
+                <m-tab-bar id="test">
+                    <m-tab active href="#hello">Hello</m-tab>
+                    <m-tab href="#abc">ABC</m-tab>
+                </m-tab-bar>
+            <!-- </m-tab-bar-scroller> -->
         </m-layout-grid-cell>
     </m-layout-grid-inner>
 </template>
@@ -104,10 +127,15 @@ export default {
             selected: null,
             selectedMulti: null,
             selectedMenu: null,
-            sliderValue: null
+            sliderValue: null,
+            hovLevel: 2
         }
     },
     methods: {
+        hover() {
+            this.hovLevel = 20
+            setTimeout(() => this.hovLevel = 2, 1000)
+        },
         stopProgress() {
             this.$refs.progress.hide()
         },
@@ -138,4 +166,32 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.surfaces {
+    padding-top: 48px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.surface {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    margin: 0 60px 80px;
+    border-radius: 3px;
+    font-size: .8em;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 48px;
+}
+</style>
+
 

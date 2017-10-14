@@ -45,7 +45,7 @@ export default {
                 n.elm.classList.add('mdc-dialog__footer__button')
             })
     },
-    destroyed() {
+    beforeDestroy() {
         this.mdcDialog.destroy()
     },
     methods: {

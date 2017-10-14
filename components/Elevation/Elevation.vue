@@ -14,14 +14,14 @@ export default {
         },
         transition: {
             type: Boolean,
-            default: true
+            required: false
         }
     },
     computed: {
         classes() {
             let calc = {}
             calc['mdc-elevation--z' + this.level] = true
-            return Object.assign(calc, { 'mdc-elevation-transition': this.transition })
+            return Object.assign({ 'mdc-elevation-transition': this.transition }, calc)
         }
     }
 }
