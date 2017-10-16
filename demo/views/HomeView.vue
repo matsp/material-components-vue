@@ -109,11 +109,11 @@
             <m-tab-bar scrollable accent>
                 <m-tab href="#home" icon="edit">Hello</m-tab>
                 <m-tab active href="#home" icon="edit">ABC</m-tab>
-                <m-tab active href="#home" icon="edit">ABC</m-tab>
-                <m-tab active href="#home" icon="edit">ABC</m-tab>
-                <m-tab active href="#home" icon="edit">ABC</m-tab>
-                <m-tab active href="#home" icon="edit">ABC</m-tab>
-                <m-tab active href="#home" icon="edit">ABC</m-tab>
+                <m-tab href="#home" icon="edit">ABC</m-tab>
+                <m-tab href="#home" icon="edit">ABC</m-tab>
+                <m-tab href="#home" icon="edit">ABC</m-tab>
+                <m-tab href="#home" icon="edit">ABC</m-tab>
+                <m-tab href="#home" icon="edit">ABC</m-tab>
             </m-tab-bar>
         </m-layout-grid-cell>
         <m-layout-grid-cell>

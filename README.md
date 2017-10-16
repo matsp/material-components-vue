@@ -66,11 +66,11 @@ $mdc-theme-background: #f5f5f5;
 * Tabs
 * Textfield
 * Theme
+* Toolbar
 * Typography
 
 ### Missing components
 * Animation
-* Toolbar
 
 ### Missing functions
 * Dark theme

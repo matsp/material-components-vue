@@ -46,10 +46,10 @@ export default {
         this.mdcTemporaryDrawer.destroy()
     },
     methods: {
-        primaryClasses(el) {
+        primaryClasses(prop) {
             return {
-                'mdc-theme--primary-bg': el,
-                'mdc-theme--text-primary-on-primary': el
+                'mdc-theme--primary-bg': prop,
+                'mdc-theme--text-primary-on-primary': prop
             }
         },
         show() {

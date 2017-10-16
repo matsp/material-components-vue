@@ -1,11 +1,11 @@
 <template>
   <header>
-    <m-toolbar title="Demo" fixed waterfall @clicked="showDrawer" />
+    <m-toolbar fixed waterfall menuIcon="menu" @click="showDrawer">Demo</m-toolbar>
     <aside>
       <m-temporary-drawer ref="drawer" primaryToolbarSpacer @click="hideDrawer">
         <span slot="toolbarSpacer" />
         <m-temporary-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon" @click="openRoute(item.route)">
-            {{item.text}}
+          {{item.text}}
         </m-temporary-drawer-item>
       </m-temporary-drawer>
     </aside>
@@ -15,11 +15,6 @@
 <script>
 
 export default {
-  data() {
-    return {
-      drawerVisible: false
-    }
-  },
   methods: {
     showDrawer() {
       this.$refs.drawer.show()
