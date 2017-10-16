@@ -2,7 +2,7 @@
   <header>
     <m-toolbar title="Demo" fixed waterfall @clicked="showDrawer" />
     <aside>
-      <m-temporary-drawer ref="drawer" primaryToolbarSpacer>
+      <m-temporary-drawer ref="drawer" primaryToolbarSpacer @click="hideDrawer">
         <span slot="toolbarSpacer"> Spacer </span>
         <span slot="drawerHeader">Menu</span>
         <m-temporary-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon" @click="openRoute(item.route)">
@@ -25,6 +25,9 @@ export default {
   methods: {
     showDrawer() {
       this.$refs.drawer.show()
+    },
+    hideDrawer() {
+      this.$refs.drawer.hide()
     },
     openRoute(route) {
       this.$router.push(route)

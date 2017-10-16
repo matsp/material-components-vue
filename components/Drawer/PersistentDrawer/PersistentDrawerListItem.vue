@@ -45,7 +45,7 @@ export default {
     computed: {
         classes() {
             return {
-                'mdc-temporary-drawer--selected': this.selected
+                'mdc-persistent-drawer--selected': this.selected
             }
         }
     }

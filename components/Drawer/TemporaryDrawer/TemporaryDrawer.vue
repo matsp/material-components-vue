@@ -1,5 +1,5 @@
 <template>
-    <div class="mdc-temporary-drawer" @click="hide">
+    <div class="mdc-temporary-drawer" v-on="$listeners">
         <nav class="mdc-temporary-drawer__drawer">
             <div class="mdc-temporary-drawer__toolbar-spacer" :class="primaryClasses(primaryToolbarSpacer)" v-if="$slots['toolbarSpacer']">
                 <slot name="toolbarSpacer" />
@@ -9,7 +9,7 @@
                     <slot name="header" />
                 </div>
             </header>
-            <nav class="mdc-temporary-drawer__content mdc-list" :class="primaryClasses(primaryContent)">
+            <nav class="mdc-temporary-drawer__content mdc-list" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
                 <slot />
             </nav>
         </nav>
