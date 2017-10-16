@@ -95,23 +95,31 @@
             </m-elevation>
         </m-layout-grid-cell>
         <m-layout-grid-cell>
-            <m-grid-list ratio="1x1" startIcon twolineCaption>
-                <m-grid-list-tiles>
-                    <m-grid-list-tile @click="resetSlider">
-                        <m-grid-list-title slot="secondary">Edit me</m-grid-list-title>
-                        <m-grid-list-icon slot="secondary" icon="edit" />
-                        <m-grid-list-supporttext slot="secondary">helptext</m-grid-list-supporttext>
-                    </m-grid-list-tile>
-                </m-grid-list-tiles>
+            <m-grid-list startIcon twolineCaption>
+                <m-grid-tile icon="edit">
+                    Edit
+                    <span slot="supporttext"> you can edit this tile </span>
+                </m-grid-tile>
+                <m-grid-tile icon="favorite"> Like you
+                    <m-button slot="primary"> Click me </m-button>
+                </m-grid-tile>
             </m-grid-list>
         </m-layout-grid-cell>
         <m-layout-grid-cell>
-            <!-- <m-tab-bar-scroller> -->
-                <m-tab-bar id="test">
-                    <m-tab active href="#hello">Hello</m-tab>
-                    <m-tab href="#abc">ABC</m-tab>
-                </m-tab-bar>
-            <!-- </m-tab-bar-scroller> -->
+            <m-tab-bar scrollable accent>
+                <m-tab href="#home" icon="edit">Hello</m-tab>
+                <m-tab active href="#home" icon="edit">ABC</m-tab>
+                <m-tab active href="#home" icon="edit">ABC</m-tab>
+                <m-tab active href="#home" icon="edit">ABC</m-tab>
+                <m-tab active href="#home" icon="edit">ABC</m-tab>
+                <m-tab active href="#home" icon="edit">ABC</m-tab>
+                <m-tab active href="#home" icon="edit">ABC</m-tab>
+            </m-tab-bar>
+        </m-layout-grid-cell>
+        <m-layout-grid-cell>
+            <m-ripple >
+                <m-icon icon="edit" />
+            </m-ripple>
         </m-layout-grid-cell>
     </m-layout-grid-inner>
 </template>

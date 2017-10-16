@@ -25,7 +25,7 @@ import Toolbar from './Toolbar'
 import Typography from './Typography'
 
 export default {
-  install(vue) {
+  install (vue) {
     vue.use(Button)
     vue.use(Card)
     vue.use(Checkbox)

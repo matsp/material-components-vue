@@ -57,10 +57,12 @@ $mdc-theme-background: #f5f5f5;
 * List
 * Menu
 * Radio
+* Ripple
 * Select
 * Slider
 * Snackbar
 * Switch
+* Tabs
 * Textfield
 * Theme
 * Typography
@@ -68,9 +70,7 @@ $mdc-theme-background: #f5f5f5;
 ### Missing components
 * Animation
 * Drawer
-* Ripple
 * Toolbar
-* Tabs
 
 ### Missing functions
 * Dark theme
@@ -80,3 +80,6 @@ $mdc-theme-background: #f5f5f5;
 * Card (decouple complex slot logic in different components)
 * Snackbar (object prop?)
 * Icon (there a few icon implementations around...)
+* Custom element naming
+* Use .attachTo instead of new MDC..
+* Primary and secondary color theme trough method e.g. tempdrawer

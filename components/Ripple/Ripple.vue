@@ -12,6 +12,10 @@ export default {
         unbounded: {
             type: Boolean,
             required: false
+        },
+        accent: {
+            type: Boolean,
+            required: false
         }
     },
     data() {
@@ -22,14 +26,18 @@ export default {
     mounted() {
         if (this.$slots.default) {
             this.$slots.default.map((n, i) => {
-                this.mdcRipple = new MDCRipple(n.elm)
+                if (i === 0) {
+                    n.elm.classList.add('mdc-ripple-surface')
+                    this.accent ? n.elm.classList.add('mdc-ripple-surface--accent') : n.elm.classList.add('mdc-ripple-surface--primary')
+                    this.mdcRipple = MDCRipple.attachTo(n.elm)
+                    this.unbounded ? this.mdcRipple.unbounded = true : this.mdcRipple.unbounded = false
+                }
             })
-            this.unbounded ? this.mdcRipple.unbounded = true : this.mdcRipple.unbounded = false
         }
     },
     beforeDestroy() {
-        if (this.$slots.default)
-            Object.values(this.mdcRipples).map(n => n.destroy())
+        if (this.mdcRipple !== null)
+            this.mdcRipple.destroy()
     },
     methods: {
         activate() {
@@ -41,3 +49,15 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@import "@material/elevation/mixins";
+@import "@material/ripple/mixins";
+
+.test {
+    @include mdc-ripple-base;
+    @include mdc-ripple-bg((pseudo: "::before"));
+    @include mdc-ripple-fg((pseudo: "::after"));
+    overflow: hidden;
+}
+</style>

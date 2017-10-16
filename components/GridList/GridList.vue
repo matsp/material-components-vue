@@ -1,10 +1,15 @@
 <template>
     <div class="mdc-grid-list" :class="classes">
-        <slot />
+        <ul class="mdc-grid-list__tiles">
+            <slot />
+        </ul>
     </div>
 </template>
 
 <script>
+
+import { MDCGridList } from '@material/grid-list'
+
 export default {
     props: {
         headerCaption: {
@@ -29,9 +34,20 @@ export default {
         },
         ratio: {
             type: String,
-            required: false,
-            validator: (value) => ['1x1', '16x9', '2x3', '3x2', '4x3', '3x4'].includes(value)
+            validator: (value) => ['1x1', '16x9', '2x3', '3x2', '4x3', '3x4'].includes(value),
+            default: '1x1'
         }
+    },
+    data() {
+        return {
+            mdcGridList: null
+        }
+    },
+    mounted() {
+        this.mdcGridList = MDCGridList.attachTo(this.$el)
+    },
+    beforeDestroy() {
+        this.mdcGridList.destroy()
     },
     computed: {
         classes() {
@@ -46,7 +62,7 @@ export default {
             let calc = {}
             if (this.ratio)
                 calc['mdc-grid-list--tile-aspect-' + this.ratio] = true
-            
+
             return Object.assign(def, calc)
         }
     }
