@@ -3,12 +3,10 @@
     <m-toolbar title="Demo" fixed waterfall @clicked="showDrawer" />
     <aside>
       <m-temporary-drawer ref="drawer" primaryToolbarSpacer @click="hideDrawer">
-        <span slot="toolbarSpacer"> Spacer </span>
-        <span slot="drawerHeader">Menu</span>
+        <span slot="toolbarSpacer" />
         <m-temporary-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon" @click="openRoute(item.route)">
             {{item.text}}
         </m-temporary-drawer-item>
-        <m-drawer-item-divider />
       </m-temporary-drawer>
     </aside>
   </header>
