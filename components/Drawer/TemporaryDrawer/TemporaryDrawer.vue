@@ -9,7 +9,6 @@
                     <slot name="header" />
                 </div>
             </header>
-
             <nav class="mdc-temporary-drawer__content mdc-list" :class="primaryClasses(primaryContent)">
                 <slot />
             </nav>
@@ -46,9 +45,6 @@ export default {
     beforeDestroy() {
         this.mdcTemporaryDrawer.destroy()
     },
-    computed: {
-
-    },
     methods: {
         primaryClasses(el) {
             return {
@@ -61,9 +57,6 @@ export default {
         },
         hide() {
             this.mdcTemporaryDrawer.open = false
-        },
-        select() {
-
         }
     }
 }
