@@ -79,5 +79,4 @@ $mdc-theme-background: #f5f5f5;
 * Card (decouple complex slot logic in different components)
 * Snackbar (object prop?)
 * Custom element naming
-* Use .attachTo instead of new MDC..
 * Optimize CSS import 
