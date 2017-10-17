@@ -13,6 +13,10 @@ export default {
             type: Boolean,
             required: false
         },
+        flexibleDefault: {
+            type: Boolean,
+            required: false
+        },
         fixed: {
             type: Boolean,
             required: false
@@ -44,7 +48,8 @@ export default {
                 'mdc-toolbar--fixed': this.fixed || this.waterfall || this.fixedLastRow,
                 'mdc-toolbar--fixed-lastrow-only': this.fixedLastRow,
                 'mdc-toolbar--waterfall': this.waterfall,
-                'mdc-toolbar--flexible': this.flexible
+                'mdc-toolbar--flexible': this.flexible,
+                'mdc-toolbar--flexible-default-behavior': this.flexible && this.flexibleDefault
             }
         }
     }
