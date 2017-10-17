@@ -1,6 +1,6 @@
 <template>
     <m-layout-grid-inner>
-        <m-fab :mini="true" :absoluteRight="true" icon="favorite" @click="openDialog" />
+        <m-fab mini absoluteRight icon="favorite" @click="openDialog" />
         <!-- <m-snackbar :show="iconToggle" message="Hello" actionText="Click me" :actionHandler="openDialog" /> -->
         <m-dialog ref="dialog" @accepted="dialogAccepted" @canceled="dialogCanceled">
             <m-typo-headline slot="header">Header</m-typo-headline>
@@ -12,16 +12,16 @@
         </m-dialog>
         <m-layout-grid-cell :span="4">
             <m-form-field :alignEnd="true">
-                <m-checkbox id="checkboxOne" v-model="checkboxOne" :indeterminate="true" disabled/>
+                <m-checkbox id="checkboxOne" v-model="checkboxOne" indeterminate disabled/>
                 <label for="checkboxOne">Checkbox</label>
             </m-form-field>
-            <m-form-field :alignEnd="true">
+            <m-form-field alignEnd>
                 <m-checkbox id="checkboxTwo" v-model="checkboxOne" />
                 <label for="checkboxTwo">Checkbox</label>
             </m-form-field>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="4">
-            <m-icon-toggle v-model="iconToggle" :accent="true" icon="favorite" />
+            <m-icon-toggle v-model="iconToggle" accent icon="favorite" />
         </m-layout-grid-cell>
 
         <m-layout-grid-cell :span="6">
