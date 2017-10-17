@@ -28,7 +28,7 @@ export default {
     },
     mounted() {
         let vm = this;
-        vm.mdcDialog = new MDCDialog(this.$el)
+        vm.mdcDialog = MDCDialog.attachTo(this.$el)
 
         if (vm.$slots.acceptButton)
             vm.$slots.acceptButton.map((n) => {

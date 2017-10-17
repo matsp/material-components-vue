@@ -32,7 +32,7 @@ export default {
         }
     },
     mounted() {
-        this.mdcRadio = new MDCRadio(this.$el)
+        this.mdcRadio = MDCRadio.attachTo(this.$el)
         this.mdcRadio.checked = this.checked
         this.mdcRadio.disabled = this.disabled
     },

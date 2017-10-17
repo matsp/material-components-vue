@@ -66,7 +66,7 @@ export default {
         }
     },
     mounted() {
-        this.mdcLinearProgress = new MDCLinearProgress(this.$el)
+        this.mdcLinearProgress = MDCLinearProgress.attachTo(this.$el)
         this.mdcLinearProgress.determinate = !this.indeterminate
         this.mdcLinearProgress.reverse = this.reverse
         this.mdcLinearProgress.progress = this.progress

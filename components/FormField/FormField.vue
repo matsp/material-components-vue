@@ -24,7 +24,7 @@ export default {
     }
   },
   mounted() {
-    this.mdcFormField = new MDCFormField(this.$el)
+    this.mdcFormField = MDCFormField.attachTo(this.$el)
   },
   beforeDestroy() {
     this.mdcFormField.destroy()

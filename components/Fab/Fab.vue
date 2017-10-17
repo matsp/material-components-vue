@@ -42,7 +42,7 @@ export default {
     },
     mounted() {
         if (this.interactive)
-            this.mdcRipple = new MDCRipple(this.$el)
+            this.mdcRipple = MDCRipple.attachTo(this.$el)
     },
     beforeDestroy() {
         if (this.interactive)

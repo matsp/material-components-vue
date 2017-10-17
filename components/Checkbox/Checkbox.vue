@@ -33,7 +33,7 @@ export default {
         }
     },
     mounted() {
-        this.mdcCheckbox = new MDCCheckbox(this.$el)
+        this.mdcCheckbox = MDCCheckbox.attachTo(this.$el)
         this.mdcCheckbox.indeterminate = this.indeterminate
     },
     beforeDestroy() {

@@ -71,10 +71,10 @@ export default {
         }
     },
     mounted() {
-        this.mdcTextfield = new MDCTextfield(this.$el)
+        this.mdcTextfield = MDCTextfield.attachTo(this.$el)
 
         if (this.interactive && this.box)
-            this.mdcRipple = new MDCRipple(this.$el)
+            this.mdcRipple = MDCRipple.attachTo(this.$el)
     },
     beforeDestroy() {
         this.mdcTextfield.destroy()

@@ -39,7 +39,7 @@ export default {
         }
     },
     mounted() {
-        this.mdcSnackbar = new MDCSnackbar(this.$el);
+        this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
         this.mdcSnackbar.dismissesOnAction = this.dismissesOnAction
     },
     beforeDestroy() {

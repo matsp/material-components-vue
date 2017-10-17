@@ -45,7 +45,7 @@ export default {
         }
     },
     mounted() {
-        this.mdcIconToggle = new MDCIconToggle(this.$el)
+        this.mdcIconToggle = MDCIconToggle.attachTo(this.$el)
         this.mdcIconToggle.disabled = this.disabled
         this.mdcIconToggle.on = this.value
     },

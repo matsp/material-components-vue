@@ -70,7 +70,7 @@ export default {
         event: 'change'
     },
     mounted() {
-        this.mdcSlider = new MDCSlider(this.$el)
+        this.mdcSlider = MDCSlider.attachTo(this.$el)
         this.mdcSlider.value = this.value
         this.mdcSlider.min = this.min
         this.mdcSlider.max = this.max

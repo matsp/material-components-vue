@@ -50,7 +50,7 @@ export default {
         event: 'change'
     },
     mounted() {
-        this.mdcSimpleMenu = new MDCSimpleMenu(this.$el)
+        this.mdcSimpleMenu = MDCSimpleMenu.attachTo(this.$el)
         this.mdcSimpleMenu.open = this.open
     },
     beforeDestroy() {

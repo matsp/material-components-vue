@@ -29,7 +29,7 @@ export default {
         }
     },
     mounted() {
-        this.mdcSelect = new MDCSelect(this.$el);
+        this.mdcSelect = MDCSelect.attachTo(this.$el)
     },
     destroy() {
         this.mdcSelect.destroy()
