@@ -1,5 +1,5 @@
 <template>
-    <div class="mdc-temporary-drawer" v-on="$listeners">
+    <aside class="mdc-temporary-drawer" v-on="$listeners">
         <nav class="mdc-temporary-drawer__drawer">
             <div class="mdc-temporary-drawer__toolbar-spacer" :class="primaryClasses(primaryToolbarSpacer)" v-if="$slots['toolbarSpacer']">
                 <slot name="toolbarSpacer" />
@@ -13,7 +13,7 @@
                 <slot />
             </nav>
         </nav>
-    </div>
+    </aside>
 </template>
 
 <script>
@@ -21,6 +21,10 @@ import { MDCTemporaryDrawer } from '@material/drawer'
 
 export default {
     props: {
+        initialOpen: {
+            type: Boolean,
+            required: false
+        },
         primaryHeader: {
             type: Boolean,
             required: false
@@ -36,11 +40,14 @@ export default {
     },
     data() {
         return {
+            open: null,
             mdcTemporaryDrawer: null
         }
     },
     mounted() {
         this.mdcTemporaryDrawer = MDCTemporaryDrawer.attachTo(this.$el)
+        this.open = this.initialOpen
+        this.mdcTemporaryDrawer.open = this.open
     },
     beforeDestroy() {
         this.mdcTemporaryDrawer.destroy()
@@ -52,11 +59,9 @@ export default {
                 'mdc-theme--text-primary-on-primary': prop
             }
         },
-        show() {
-            this.mdcTemporaryDrawer.open = true
-        },
-        hide() {
-            this.mdcTemporaryDrawer.open = false
+        toggle() {
+            this.open ? this.mdcTemporaryDrawer.open = false : this.mdcTemporaryDrawer.open = true
+            this.open = !this.open
         }
     }
 }
