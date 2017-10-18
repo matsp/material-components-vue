@@ -16,11 +16,23 @@ yarn add material-components-vue
 
 ## usage
 
-### register plugin
+You have to set up your own build workflow with webpack (see demo) or something else
+to compile the components.
+
+### import all components
 ```javascript
 import MaterialComponentsVue from 'material-components-vue'
 
 Vue.use(MaterialComponentsVue)
+```
+
+### import specific components
+```javascript
+import Button from 'material-components-vue/components/button'
+import Card from 'material-components-vue/components/card'
+
+Vue.use(Button)
+Vue.use(Card)
 ```
 
 ### customize/import theme & material-icons & roboto font
@@ -28,7 +40,8 @@ Vue.use(MaterialComponentsVue)
 $mdc-theme-primary: #2196f3;
 $mdc-theme-accent: #ff1744;
 $mdc-theme-background: #f5f5f5;
-@import '~material-components-vue/components/styles.scss';
+@import '~material-components-vue/components/theme.scss';
+@import url('https://cdnjs.com/libraries/normalize');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 ```
@@ -76,7 +89,4 @@ $mdc-theme-background: #f5f5f5;
 * RTL
 
 ### Refactoring
-* Card (decouple complex slot logic in different components)
-* Snackbar (object prop?)
 * Custom element naming
-* Optimize CSS import 

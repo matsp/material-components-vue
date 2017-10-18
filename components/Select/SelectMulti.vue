@@ -34,3 +34,7 @@ export default {
 </script>
 
 
+<style lang="scss">
+@import "@material/select/mdc-select";
+@import "@material/list/mdc-list";
+</style>

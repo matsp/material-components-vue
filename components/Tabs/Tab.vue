@@ -41,3 +41,6 @@ export default {
 }
 </script>
 
+<style lang="scss">
+@import "@material/tabs/mdc-tabs";
+</style>

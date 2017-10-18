@@ -66,3 +66,7 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@import "@material/drawer/mdc-drawer";
+</style>

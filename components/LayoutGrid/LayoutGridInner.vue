@@ -15,4 +15,6 @@ export default {
 }
 </script>
 
-
+<style lang="scss">
+@import "@material/layout-grid/mdc-layout-grid";
+</style>

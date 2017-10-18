@@ -69,3 +69,7 @@ export default {
 
 }
 </script>
+
+<style lang="scss">
+@import "@material/grid-list/mdc-grid-list";
+</style>

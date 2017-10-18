@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@material/fab/mdc-fab";
+
 .mdc-fab--absolute-right.mdc-fab--absolute-right {
     position: fixed;
     bottom: 1rem;

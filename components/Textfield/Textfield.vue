@@ -107,3 +107,7 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+@import "@material/textfield/mdc-textfield";
+@import "@material/ripple/mdc-ripple";
+</style>

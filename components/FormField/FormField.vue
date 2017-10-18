@@ -39,3 +39,7 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+@import "@material/form-field/mdc-form-field";
+</style>

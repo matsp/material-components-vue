@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import homeRoute from 'routes/homeRoute'
+import buttonRoute from 'routes/buttonRoute'
+import cardRoute from 'routes/cardRoute'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
-  routes: [homeRoute]
+  routes: [
+    buttonRoute,
+    cardRoute
+  ]
 })

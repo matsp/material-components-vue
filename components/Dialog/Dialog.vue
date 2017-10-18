@@ -61,3 +61,8 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@import "@material/dialog/mdc-dialog";
+</style>
+

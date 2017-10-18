@@ -48,3 +48,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@import "@material/select/mdc-select";
+@import "@material/menu/mdc-menu";
+@import "@material/list/mdc-list";
+</style>

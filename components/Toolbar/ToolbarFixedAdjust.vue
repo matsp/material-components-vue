@@ -3,3 +3,7 @@
         <slot />
     </div>
 </template>
+
+<style lang="scss">
+@import "@material/toolbar/mdc-toolbar";
+</style>

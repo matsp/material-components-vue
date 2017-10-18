@@ -1,34 +1,36 @@
 <template>
-  <div id="app">
-    <m-typography class="demo-body">
-      <!-- drawer -->
-      <m-temporary-drawer ref="drawer" primaryToolbarSpacer @click="toggleDrawer">
-        <span slot="toolbarSpacer" />
-        <m-temporary-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon" @click="openRoute(item.route)">
-          {{item.text}}
-        </m-temporary-drawer-item>
-      </m-temporary-drawer>
-      <!-- toolbar -->
-      <m-toolbar ref="toolbar" fixedLastRow menuIcon="menu">
-        <m-toolbar-row menuIcon="menu" @click="toggleDrawer">
-          <span slot="title">Demo</span>
-        </m-toolbar-row>
-        <m-toolbar-row>
-          <span slot="center">2nd row</span>
-        </m-toolbar-row>
-      </m-toolbar>
-      <!-- main -->
-      <main class="demo-content">
-        <m-toolbar-fixed-adjust>
+  <m-typography class="demo-body">
+    <!-- toolbar -->
+    <m-toolbar ref="toolbar" fixed waterfall menuIcon="menu">
+      <m-toolbar-row menuIcon="menu" @click="toggleDrawer">
+        <span slot="title">Demo</span>
+      </m-toolbar-row>
+    </m-toolbar>
+    <!-- toolbar -->
+
+    <!-- drawer -->
+    <m-temporary-drawer ref="drawer" primaryToolbarSpacer @click="toggleDrawer">
+      <span slot="toolbarSpacer" />
+      <m-temporary-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon" @click="openRoute(item.route)">
+        {{item.text}}
+      </m-temporary-drawer-item>
+    </m-temporary-drawer>
+    <!-- drawer -->
+
+    <!-- main -->
+    <div class="demo-content">
+      <m-toolbar-fixed-adjust>
+        <main>
           <m-layout-grid>
             <keep-alive>
               <router-view />
             </keep-alive>
           </m-layout-grid>
-        </m-toolbar-fixed-adjust>
-      </main>
-    </m-typography>
-  </div>
+        </main>
+      </m-toolbar-fixed-adjust>
+      <!-- main -->
+    </div>
+  </m-typography>
 </template>
 
 <script>
@@ -39,7 +41,7 @@ export default {
     },
     openRoute(route) {
       this.$router.push(route)
-      this.toggleDrawer()
+      //this.toggleDrawer()
     }
   },
   computed: {
@@ -54,7 +56,7 @@ export default {
 $mdc-theme-primary: #2196f3;
 $mdc-theme-accent: #ff1744;
 $mdc-theme-background: #f5f5f5;
-@import '../components/styles.scss';
+@import '../components/theme.scss';
 @import '~normalize.css/normalize.css';
 // @import url('https://cdnjs.com/libraries/normalize')
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');

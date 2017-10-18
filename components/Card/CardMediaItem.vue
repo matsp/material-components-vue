@@ -1,32 +1,27 @@
 <template>
-    <img class="mdc-card__media-item" :class="classes" :id="id" :src="src">
+    <img class="mdc-card__media-item" :class="classes" />
 </template>
 
 <script>
 
 export default {
     props: {
-         id: {
-            type: String,
-            required: false
-        },
-        src: {
-            type: String,
-            required: true
-        },
         height: {
             type: Number,
+            validator: value => ( value >=1 && value <=3 ),
             required: false
         }
     },
     computed: {
         classes() {
-            return {
-                'mdc-card__media-item--1x': (height === 1),
-                'mdc-card__media-item--2x': (height === 2),
-                'mdc-card__media-item--3x': (height === 3)
-            }
+            let calc = {}
+            calc['mdc-card__media-item--'+this.height+'x'] = true
+            return calc
         }
     }
 }
 </script>
+
+<style lang="scss">
+@import "@material/card/mdc-card";
+</style>

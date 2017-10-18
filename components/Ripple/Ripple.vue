@@ -51,13 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@material/ripple/mdc-ripple";
 @import "@material/elevation/mixins";
-@import "@material/ripple/mixins";
-
-.test {
-    @include mdc-ripple-base;
-    @include mdc-ripple-bg((pseudo: "::before"));
-    @include mdc-ripple-fg((pseudo: "::after"));
-    overflow: hidden;
-}
+//@import "@material/ripple/mixins";
 </style>

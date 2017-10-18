@@ -81,3 +81,6 @@ export default {
 }
 </script>
 
+<style lang="scss">
+@import "@material/icon-toggle/mdc-icon-toggle";
+</style>

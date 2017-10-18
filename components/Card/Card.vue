@@ -1,5 +1,5 @@
 <template>
-  <div class="mdc-card" :class="classes">
+  <div class="mdc-card">
     <div class="mdc-card__horizontal-block" v-if="horizontal && ($slots['horizontalMedia'] || $slots['horizontalTitle'] || $slots['horizontalSubtitle'])">
         <section class="mdc-card__primary" >
           <section class="mdc-card__media" v-if="$slots['horizontalMedia']">
@@ -56,11 +56,6 @@ export default {
       })
   },
   computed: {
-    classes() {
-      return {
-        
-      }
-    },
     classesActions() {
       return {
         'mdc-card__actions--vertical': this.verticalActions
@@ -74,5 +69,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "@material/card/mdc-card";
+</style>
 
 
