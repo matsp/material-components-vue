@@ -25,6 +25,10 @@
             <m-button interactive unelevated>Button</m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell>
+            <m-typo-title>Unelevated compact (interactive)</m-typo-title>
+            <m-button interactive unelevated compact>Button</m-button>
+        </m-layout-grid-cell>
+        <m-layout-grid-cell>
             <m-typo-title>Stroked (interactive)</m-typo-title>
             <m-button interactive stroked>Button</m-button>
         </m-layout-grid-cell>
