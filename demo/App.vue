@@ -41,7 +41,7 @@ export default {
     },
     openRoute(route) {
       this.$router.push(route)
-      //this.toggleDrawer()
+      this.toggleDrawer()
     }
   },
   computed: {
