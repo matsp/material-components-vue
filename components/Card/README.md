@@ -1,6 +1,6 @@
-# Card
+## Card
 
-## markup
+### markup
 
 ```html
 <m-card>
@@ -16,14 +16,14 @@
 </m-card>
 ```
 
-## props & events
+### props & events
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | verticalActions | Boolean | - | false | renders actions vertical |
 | largeTitle | Boolean | - | false | larger title (without typography component)| 
 | horizontal | Boolean | -| false | renders media, title & subtitle horizontal
 
-## slots
+### slots
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
 | horizontalMedia | horizontal | horizontal card media item |
@@ -36,6 +36,9 @@
 | actions | verticalActions | card actions
 
 ## CardMediaItem
+
+### props & events
+
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | height | Number | - | false | image scale between 1 and 3

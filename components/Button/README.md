@@ -1,13 +1,13 @@
-# Button
+## Button
 
-## markup
+### markup
 
 ```html
 <m-button interactive raised @click="onClick">Button</m-button>
 <m-button unelevated icon="cloud">Button</m-button>
 <m-button disabled>Button</m-button>
 ```
-## props & events
+### props & events
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | icon | String | - | false | icon button
@@ -20,7 +20,7 @@
 
 Non prop attributes and events are mapped to the inner button element.
 
-## slots
+### slots
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
 | default | - | button label |
