@@ -1,7 +1,15 @@
 <template>
     <m-layout-grid-inner>
-        <m-layout-grid-cell :span="8">
-            <m-typo-title>Text</m-typo-title>
+         <m-layout-grid-cell :span="12">
+            <m-typo-display :level="1">Button</m-typo-display>
+                        <m-typo-body :level="2">
+                <a href="https://github.com/matsp/material-components-vue/blob/master/components/Button">
+                    https://github.com/matsp/material-components-vue/blob/master/components/Button
+                </a>
+            </m-typo-body>
+         </m-layout-grid-cell>
+        <m-layout-grid-cell :span="12">
+            <m-typo-headline>Text</m-typo-headline>
             <m-layout-grid-inner>
                 <m-layout-grid-cell :span="3">
                     <m-button>text</m-button>
@@ -23,8 +31,8 @@
                 </m-layout-grid-cell>
             </m-layout-grid-inner>
         </m-layout-grid-cell>
-        <m-layout-grid-cell :span="8">
-            <m-typo-title>Raised</m-typo-title>
+        <m-layout-grid-cell :span="12">
+            <m-typo-headline>Raised</m-typo-headline>
             <m-layout-grid-inner>
              <m-layout-grid-cell :span="3">
             <m-button raised>text</m-button>
@@ -46,8 +54,8 @@
             </m-layout-grid-cell>
             </m-layout-grid-inner>
         </m-layout-grid-cell>
-        <m-layout-grid-cell :span="8">
-            <m-typo-title>Unelevated</m-typo-title>
+        <m-layout-grid-cell :span="12">
+            <m-typo-headline>Unelevated</m-typo-headline>
             <m-layout-grid-inner>
              <m-layout-grid-cell :span="3">
             <m-button unelevated>text</m-button>
@@ -69,8 +77,8 @@
             </m-layout-grid-cell>
             </m-layout-grid-inner>
         </m-layout-grid-cell>
-        <m-layout-grid-cell :span="8">
-            <m-typo-title>Stroked</m-typo-title>
+        <m-layout-grid-cell :span="12">
+            <m-typo-headline>Stroked</m-typo-headline>
             <m-layout-grid-inner>
              <m-layout-grid-cell :span="3">
             <m-button stroked>text</m-button>
