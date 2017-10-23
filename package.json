@@ -1,11 +1,11 @@
 {
   "name": "material-components-vue",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "material-components-web with vuejs",
   "author": "Mats Pfeiffer",
   "license": "MIT",
-  "main": "src/index.js",
-  "module": "src/index.js",
+  "main": "components/index.js",
+  "module": "components/index.js",
   "scripts": {
     "lint": "eslint --fix ./",
     "build:prod": "webpack -p --config ./webpack.config.prod.js",
