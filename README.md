@@ -51,6 +51,7 @@ $mdc-theme-background: #f5f5f5;
 ### Common
 * [ ] Documentation of components and their usage (props, events, ...)
 * [ ] Adding testframework to project
+* [ ] Host demos as github page
 
 ### Components
 
