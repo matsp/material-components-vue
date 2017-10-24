@@ -47,13 +47,6 @@ $mdc-theme-background: #f5f5f5;
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 ```
 
-## TODO
-
-### Common
-* [ ] Documentation of components and their usage (props, events, ...)
-* [ ] Adding testframework to project
-* [ ] Host demos as github page
-
 ### Components
 
 * Button
@@ -89,6 +82,12 @@ $mdc-theme-background: #f5f5f5;
 ### Missing functions
 * Dark theme
 * RTL
+
+### TODO
+
+* [ ] Documentation of components and their usage (props, events, ...)
+* [ ] Adding testframework to project
+* [ ] Host demos as github page
 
 ### Refactoring
 * Custom element naming
