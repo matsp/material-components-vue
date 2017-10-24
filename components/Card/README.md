@@ -17,6 +17,7 @@
 ```
 
 ### props & events
+
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | verticalActions | Boolean | - | false | renders actions vertical |
@@ -24,6 +25,7 @@
 | horizontal | Boolean | -| false | renders media, title & subtitle horizontal
 
 ### slots
+
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
 | horizontalMedia | horizontal | horizontal card media item |

@@ -9,6 +9,7 @@
 <m-button interactive href="https://github.com/matsp/material-components-vue">Github</m-button>
 ```
 ### props & events
+
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | icon | String | - | false | icon button
@@ -23,9 +24,11 @@
 Non prop attributes and events are mapped to the inner button element.
 
 ### slots
+
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
 | default | - | button label |
 
 ### Reference
+
 - https://github.com/material-components/material-components-web/tree/master/packages/mdc-button
