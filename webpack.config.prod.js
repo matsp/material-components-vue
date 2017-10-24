@@ -107,7 +107,9 @@ module.exports.plugins = [
   // }),
   new Webpack.optimize.ModuleConcatenationPlugin(),
   new UglifyJSPlugin({
-    ecma: 5,
+    uglifyOptions: {
+      ecma: 5
+    },
     cache: true,
     parallel: true
   })
