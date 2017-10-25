@@ -11,61 +11,60 @@
 import { MDCGridList } from '@material/grid-list'
 
 export default {
-    props: {
-        headerCaption: {
-            type: Boolean,
-            required: false
-        },
-        smallGutter: {
-            type: Boolean,
-            required: false
-        },
-        twolineCaption: {
-            type: Boolean,
-            required: false
-        },
-        startIcon: {
-            type: Boolean,
-            required: false
-        },
-        endIcon: {
-            type: Boolean,
-            required: false
-        },
-        ratio: {
-            type: String,
-            validator: (value) => ['1x1', '16x9', '2x3', '3x2', '4x3', '3x4'].includes(value),
-            default: '1x1'
-        }
+  props: {
+    headerCaption: {
+      type: Boolean,
+      required: false
     },
-    data() {
-        return {
-            mdcGridList: null
-        }
+    smallGutter: {
+      type: Boolean,
+      required: false
     },
-    mounted() {
-        this.mdcGridList = MDCGridList.attachTo(this.$el)
+    twolineCaption: {
+      type: Boolean,
+      required: false
     },
-    beforeDestroy() {
-        this.mdcGridList.destroy()
+    startIcon: {
+      type: Boolean,
+      required: false
     },
-    computed: {
-        classes() {
-            let def = {
-                'mdc-grid-list--header-caption': this.headerCaption,
-                'mdc-grid-list--tile-gutter-1': this.smallGutter,
-                'mdc-grid-list--twoline-caption': this.twolineCaption,
-                'mdc-grid-list--with-icon-align-start': this.startIcon,
-                'mdc-grid-list--with-icon-align-end': this.endIcon
-            }
-
-            let calc = {}
-            if (this.ratio)
-                calc['mdc-grid-list--tile-aspect-' + this.ratio] = true
-
-            return Object.assign(def, calc)
-        }
+    endIcon: {
+      type: Boolean,
+      required: false
+    },
+    ratio: {
+      type: String,
+      validator: (value) => ['1x1', '16x9', '2x3', '3x2', '4x3', '3x4'].includes(value),
+      default: '1x1'
     }
+  },
+  data () {
+    return {
+      mdcGridList: null
+    }
+  },
+  mounted () {
+    this.mdcGridList = MDCGridList.attachTo(this.$el)
+  },
+  beforeDestroy () {
+    this.mdcGridList.destroy()
+  },
+  computed: {
+    classes () {
+      let def = {
+        'mdc-grid-list--header-caption': this.headerCaption,
+        'mdc-grid-list--tile-gutter-1': this.smallGutter,
+        'mdc-grid-list--twoline-caption': this.twolineCaption,
+        'mdc-grid-list--with-icon-align-start': this.startIcon,
+        'mdc-grid-list--with-icon-align-end': this.endIcon
+      }
+
+      let calc = {}
+      if (this.ratio) { calc['mdc-grid-list--tile-aspect-' + this.ratio] = true }
+
+      return Object.assign(def, calc)
+    }
+  }
 
 }
 </script>

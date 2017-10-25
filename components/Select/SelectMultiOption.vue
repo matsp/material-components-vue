@@ -6,16 +6,16 @@
 
 <script>
 export default {
-    props: {
-        disabled: {
-            type: Boolean,
-            required: false
-        },
-        id: {
-            type: String,
-            required: true
-        }
+  props: {
+    disabled: {
+      type: Boolean,
+      required: false
+    },
+    id: {
+      type: String,
+      required: true
     }
+  }
 }
 </script>
 

@@ -18,19 +18,19 @@ export default {
       required: false
     }
   },
-  data() {
+  data () {
     return {
       mdcFormField: null
     }
   },
-  mounted() {
+  mounted () {
     this.mdcFormField = MDCFormField.attachTo(this.$el)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.mdcFormField.destroy()
   },
   computed: {
-    classes() {
+    classes () {
       return {
         'mdc-form-field--align-end': this.alignEnd
       }

@@ -6,12 +6,12 @@
 
 <script>
 export default {
-    props: {
-        id: {
-            type: String,
-            require: false
-        }
+  props: {
+    id: {
+      type: String,
+      require: false
     }
+  }
 }
 </script>
 

@@ -20,50 +20,50 @@
 import { MDCPersistentDrawer } from '@material/drawer'
 
 export default {
-    props: {
-        initialOpen: {
-            type: Boolean,
-            required: false
-        },
-        primaryHeader: {
-            type: Boolean,
-            required: false
-        },
-        primaryContent: {
-            type: Boolean,
-            required: false
-        },
-        primaryToolbarSpacer: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    initialOpen: {
+      type: Boolean,
+      required: false
     },
-    data() {
-        return {
-            open: null,
-            mdcPersistentDrawer: null
-        }
+    primaryHeader: {
+      type: Boolean,
+      required: false
     },
-    mounted() {
-        this.mdcPersistentDrawer = MDCPersistentDrawer.attachTo(this.$el)
-        this.open = this.initialOpen
-        this.mdcPersistentDrawer.open = this.open
+    primaryContent: {
+      type: Boolean,
+      required: false
     },
-    beforeDestroy() {
-        this.mdcPersistentDrawer.destroy()
-    },
-    methods: {
-        primaryClasses(prop) {
-            return {
-                'mdc-theme--primary-bg': prop,
-                'mdc-theme--text-primary-on-primary': prop
-            }
-        },
-        toggle() {
-            this.open ? this.mdcPersistentDrawer.open = false : this.mdcPersistentDrawer.open = true 
-            this.open = !this.open
-        }
+    primaryToolbarSpacer: {
+      type: Boolean,
+      required: false
     }
+  },
+  data () {
+    return {
+      open: null,
+      mdcPersistentDrawer: null
+    }
+  },
+  mounted () {
+    this.mdcPersistentDrawer = MDCPersistentDrawer.attachTo(this.$el)
+    this.open = this.initialOpen
+    this.mdcPersistentDrawer.open = this.open
+  },
+  beforeDestroy () {
+    this.mdcPersistentDrawer.destroy()
+  },
+  methods: {
+    primaryClasses (prop) {
+      return {
+        'mdc-theme--primary-bg': prop,
+        'mdc-theme--text-primary-on-primary': prop
+      }
+    },
+    toggle () {
+      this.open ? this.mdcPersistentDrawer.open = false : this.mdcPersistentDrawer.open = true
+      this.open = !this.open
+    }
+  }
 }
 </script>
 

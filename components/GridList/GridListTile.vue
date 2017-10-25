@@ -19,29 +19,29 @@
 
 <script>
 export default {
-    props: {
-        imgSrc: {
-            type: String,
-            required: false
-        },
-        icon: {
-            type: String,
-            required: false
-        }
+  props: {
+    imgSrc: {
+      type: String,
+      required: false
     },
-    mounted() {
-        if (this.$slots.supporttext) {
-            this.$slots.supporttext.map(n =>
-                n.elm.classList.add('mdc-grid-tile__support-text')
-            )
-        }
-
-        if (this.$slots.primary) {
-            this.$slots.primary.map(n =>
-                n.elm.classList.add('mdc-grid-tile__primary-content')
-            )
-        }
+    icon: {
+      type: String,
+      required: false
     }
+  },
+  mounted () {
+    if (this.$slots.supporttext) {
+      this.$slots.supporttext.map(n =>
+        n.elm.classList.add('mdc-grid-tile__support-text')
+      )
+    }
+
+    if (this.$slots.primary) {
+      this.$slots.primary.map(n =>
+        n.elm.classList.add('mdc-grid-tile__primary-content')
+      )
+    }
+  }
 }
 </script>
 

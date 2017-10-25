@@ -9,48 +9,48 @@
 </template>
 
 <script>
-import { MDCRadio } from '@material/radio';
+import { MDCRadio } from '@material/radio'
 
 export default {
-    props: {
-        checked: {
-            type: Boolean,
-            required: false
-        },
-        disabled: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    checked: {
+      type: Boolean,
+      required: false
     },
-    model: {
-        prop: 'checked',
-        event: 'change'
-    },
-    data() {
-        return {
-            mdcRadio: null
-        }
-    },
-    mounted() {
-        this.mdcRadio = MDCRadio.attachTo(this.$el)
-        this.mdcRadio.checked = this.checked
-        this.mdcRadio.disabled = this.disabled
-    },
-    beforeDestroy() {
-        this.mdcRadio.destroy()
-    },
-    methods: {
-        onChange(event){
-            this.$emit('change', event.target.value === 'on' ? true : false)
-        }
-    },
-    computed: {
-        classes() {
-            return {
-                'mdc-radio--disabled': this.disabled
-            }
-        }
+    disabled: {
+      type: Boolean,
+      required: false
     }
+  },
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  data () {
+    return {
+      mdcRadio: null
+    }
+  },
+  mounted () {
+    this.mdcRadio = MDCRadio.attachTo(this.$el)
+    this.mdcRadio.checked = this.checked
+    this.mdcRadio.disabled = this.disabled
+  },
+  beforeDestroy () {
+    this.mdcRadio.destroy()
+  },
+  methods: {
+    onChange (event) {
+      this.$emit('change', event.target.value === 'on')
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-radio--disabled': this.disabled
+      }
+    }
+  }
 }
 </script>
 

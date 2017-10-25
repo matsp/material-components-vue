@@ -9,35 +9,35 @@
 
 <script>
 export default {
-    props: {
-        checked: {
-            type: Boolean,
-            required: true
-        },
-        disabled: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    checked: {
+      type: Boolean,
+      required: true
+    },
+    disabled: {
+      type: Boolean,
+      required: false
+    }
+  },
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-switch--disabled': this.disabled
+      }
     },
     model: {
-        prop: 'checked',
-        event: 'change'
-    },
-    computed: {
-        classes() {
-            return {
-                'mdc-switch--disabled': this.disabled
-            }
-        },
-        model: {
-            get() {
-                return this.checked
-            },
-            set(state) {
-                this.$emit('changed', state)
-            }
-        }
+      get () {
+        return this.checked
+      },
+      set (state) {
+        this.$emit('changed', state)
+      }
     }
+  }
 }
 </script>
 

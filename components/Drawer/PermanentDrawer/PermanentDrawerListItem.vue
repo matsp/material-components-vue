@@ -10,45 +10,42 @@
 import { MDCRipple } from '@material/ripple'
 
 export default {
-    props: {
-        selected: {
-            type: Boolean,
-            required: false
-        },
-        startIcon: {
-            type: String,
-            required: false
-        },
-        endIcon: {
-            type: String,
-            required: false
-        },
-        interactive: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    selected: {
+      type: Boolean,
+      required: false
     },
-    data() {
-        return {
-            mdcRipple: null
-        }
+    startIcon: {
+      type: String,
+      required: false
     },
-    mounted() {
-        if (this.interactive)
-            this.mdcRipple = MDCRipple.attachTo(this.$el)
-
+    endIcon: {
+      type: String,
+      required: false
     },
-    beforeDestroy() {
-        if (this.interactive)
-            this.mdcRipple.destroy()
-    },
-    computed: {
-        classes() {
-            return {
-                'mdc-permanent-drawer--selected': this.selected
-            }
-        }
+    interactive: {
+      type: Boolean,
+      required: false
     }
+  },
+  data () {
+    return {
+      mdcRipple: null
+    }
+  },
+  mounted () {
+    if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
+  },
+  beforeDestroy () {
+    if (this.interactive) { this.mdcRipple.destroy() }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-permanent-drawer--selected': this.selected
+      }
+    }
+  }
 
 }
 </script>

@@ -8,43 +8,43 @@
 </template>
 
 <script>
-import { MDCSnackbar } from '@material/snackbar';
+import { MDCSnackbar } from '@material/snackbar'
 
 export default {
-    props: {
-        alignStart: {
-            type: Boolean,
-            required: false
-        },
-        dismissesOnAction: {
-            type: Boolean,
-            default: true
-        }
+  props: {
+    alignStart: {
+      type: Boolean,
+      required: false
     },
-    data() {
-        return {
-            mdcSnackbar: null
-        }
-    },
-    methods: {
-        show() {
-            this.mdcSnackbar.show(options)
-        }
-    },
-    computed: {
-        classes() {
-            return {
-                'mdc-snackbar--align-start': this.alignStart
-            }
-        }
-    },
-    mounted() {
-        this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
-        this.mdcSnackbar.dismissesOnAction = this.dismissesOnAction
-    },
-    beforeDestroy() {
-        this.mdcSnackbar.destroy()
+    dismissesOnAction: {
+      type: Boolean,
+      default: true
     }
+  },
+  data () {
+    return {
+      mdcSnackbar: null
+    }
+  },
+  methods: {
+    show () {
+      this.mdcSnackbar.show(options)
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-snackbar--align-start': this.alignStart
+      }
+    }
+  },
+  mounted () {
+    this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
+    this.mdcSnackbar.dismissesOnAction = this.dismissesOnAction
+  },
+  beforeDestroy () {
+    this.mdcSnackbar.destroy()
+  }
 }
 </script>
 

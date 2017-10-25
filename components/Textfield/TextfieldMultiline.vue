@@ -10,90 +10,90 @@ import { MDCTextfield } from '@material/textfield'
 import { debounce } from '../utils'
 
 export default {
-    model: {
-        prop: 'value',
-        event: 'input'
+  model: {
+    prop: 'value',
+    event: 'input'
+  },
+  props: {
+    label: {
+      type: String,
+      required: false
     },
-    props: {
-        label: {
-            type: String,
-            required: false
-        },
-        value: {
-            type: String,
-            required: true
-        },
-        placeholder: {
-            type: String,
-            required: false
-        },
-        id: {
-            type: String,
-            required: false
-        },
-        rows: {
-            type: Number,
-            required: false
-        },
-        cols: {
-            type: Number,
-            required: false
-        },
-        disabled: {
-            type: Boolean,
-            required: false
-        },
-        upgraded: {
-            type: Boolean,
-            required: false
-        },
-        fullWidth: {
-            type: Boolean,
-            required: false
-        },
-        box: {
-            type: Boolean,
-            required: false
-        },
-        labelFloat: {
-            type: Boolean,
-            required: false
-        }
+    value: {
+      type: String,
+      required: true
     },
-    data() {
-        return {
-            mdcTextfield: null
-        }
+    placeholder: {
+      type: String,
+      required: false
     },
-    mounted() {
-        this.mdcTextfield = MDCTextfield.attachTo(this.$el)
+    id: {
+      type: String,
+      required: false
     },
-    beforeDestroy() {
-        this.mdcTextfield.destroy()
+    rows: {
+      type: Number,
+      required: false
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-textfield--disabled': this.disabled,
-                'mdc-textfield--upgraded': this.upgraded,
-                'mdc-textfield--fullwidth': this.fullWidth,
-                'mdc-textfield--box': this.box
-            }
-        },
-        classesLabel() {
-            return {
-                'mdc-textfield__label--float-above': this.labelFloat
-            }
-        },
-        model: {
-            get() {
-                return this.value
-            },
-            set(value) {
-                this.$emit('input', value)
-            }
-        }
+    cols: {
+      type: Number,
+      required: false
+    },
+    disabled: {
+      type: Boolean,
+      required: false
+    },
+    upgraded: {
+      type: Boolean,
+      required: false
+    },
+    fullWidth: {
+      type: Boolean,
+      required: false
+    },
+    box: {
+      type: Boolean,
+      required: false
+    },
+    labelFloat: {
+      type: Boolean,
+      required: false
     }
+  },
+  data () {
+    return {
+      mdcTextfield: null
+    }
+  },
+  mounted () {
+    this.mdcTextfield = MDCTextfield.attachTo(this.$el)
+  },
+  beforeDestroy () {
+    this.mdcTextfield.destroy()
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-textfield--disabled': this.disabled,
+        'mdc-textfield--upgraded': this.upgraded,
+        'mdc-textfield--fullwidth': this.fullWidth,
+        'mdc-textfield--box': this.box
+      }
+    },
+    classesLabel () {
+      return {
+        'mdc-textfield__label--float-above': this.labelFloat
+      }
+    },
+    model: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        this.$emit('input', value)
+      }
+    }
+  }
 }
 </script>
 

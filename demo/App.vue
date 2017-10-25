@@ -36,16 +36,16 @@
 <script>
 export default {
   methods: {
-    toggleDrawer() {
+    toggleDrawer () {
       this.$refs.drawer.toggle()
     },
-    openRoute(route) {
+    openRoute (route) {
       this.$router.push(route)
       this.toggleDrawer()
     }
   },
   computed: {
-    listItems() {
+    listItems () {
       return this.$store.getters.getDrawerListItems
     }
   }
@@ -80,5 +80,3 @@ $mdc-theme-background: #f5f5f5;
   box-sizing: border-box;
 }
 </style>
-
-

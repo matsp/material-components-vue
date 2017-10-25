@@ -14,96 +14,94 @@ import { MDCRipple } from '@material/ripple'
 import { debounce } from '../utils'
 
 export default {
-    props: {
-        label: {
-            type: String,
-            required: false
-        },
-        value: {
-            type: String,
-            required: true
-        },
-        placeholder: {
-            type: String,
-            required: false
-        },
-        disabled: {
-            type: Boolean,
-            required: false
-        },
-        upgraded: {
-            type: Boolean,
-            required: false
-        },
-        fullWidth: {
-            type: Boolean,
-            required: false
-        },
-        box: {
-            type: Boolean,
-            required: false
-        },
-        labelFloat: {
-            type: Boolean,
-            required: false
-        },
-        interactive: {
-            type: Boolean,
-            required: false
-        },
-        bottomLine: {
-            type: Boolean,
-            required: false
-        },
-        leadingIcon: {
-            type: String,
-            required: false
-        },
-        trailingIcon: {
-            type: String,
-            required: false
-        }
+  props: {
+    label: {
+      type: String,
+      required: false
     },
-    data() {
-        return {
-            mdcTextfield: null,
-            mdcRipple: null
-        }
+    value: {
+      type: String,
+      required: true
     },
-    mounted() {
-        this.mdcTextfield = MDCTextfield.attachTo(this.$el)
-
-        if (this.interactive && this.box)
-            this.mdcRipple = MDCRipple.attachTo(this.$el)
+    placeholder: {
+      type: String,
+      required: false
     },
-    beforeDestroy() {
-        this.mdcTextfield.destroy()
-
-        if (this.interactive && this.box)
-            this.mdcRipple.destroy()
+    disabled: {
+      type: Boolean,
+      required: false
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-textfield--disabled': this.disabled,
-                'mdc-textfield--upgraded': this.upgraded,
-                'mdc-textfield--fullwidth': this.fullWidth,
-                'mdc-textfield--box': this.box,
-                'mdc-textfield--with-leading-icon': this.leadingIcon,
-                'mdc-textfield--with-trailing-icon': this.trailingIcon
-            }
-        },
-        classesLabel() {
-            return {
-                'mdc-textfield__label--float-above': this.labelFloat
-            }
-        }
+    upgraded: {
+      type: Boolean,
+      required: false
     },
-    methods: {
-        onInput(event) {
-            debounce(this.$emit('input', event.target.value))
-        }
+    fullWidth: {
+      type: Boolean,
+      required: false
+    },
+    box: {
+      type: Boolean,
+      required: false
+    },
+    labelFloat: {
+      type: Boolean,
+      required: false
+    },
+    interactive: {
+      type: Boolean,
+      required: false
+    },
+    bottomLine: {
+      type: Boolean,
+      required: false
+    },
+    leadingIcon: {
+      type: String,
+      required: false
+    },
+    trailingIcon: {
+      type: String,
+      required: false
     }
+  },
+  data () {
+    return {
+      mdcTextfield: null,
+      mdcRipple: null
+    }
+  },
+  mounted () {
+    this.mdcTextfield = MDCTextfield.attachTo(this.$el)
+
+    if (this.interactive && this.box) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
+  },
+  beforeDestroy () {
+    this.mdcTextfield.destroy()
+
+    if (this.interactive && this.box) { this.mdcRipple.destroy() }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-textfield--disabled': this.disabled,
+        'mdc-textfield--upgraded': this.upgraded,
+        'mdc-textfield--fullwidth': this.fullWidth,
+        'mdc-textfield--box': this.box,
+        'mdc-textfield--with-leading-icon': this.leadingIcon,
+        'mdc-textfield--with-trailing-icon': this.trailingIcon
+      }
+    },
+    classesLabel () {
+      return {
+        'mdc-textfield__label--float-above': this.labelFloat
+      }
+    }
+  },
+  methods: {
+    onInput (event) {
+      debounce(this.$emit('input', event.target.value))
+    }
+  }
 }
 </script>
 

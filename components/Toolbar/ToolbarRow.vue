@@ -20,31 +20,31 @@
 
 <script>
 export default {
-    props: {
-        menuIcon: {
-            type: String,
-            required: false
-        },
-        shrinkStart: {
-            type: Boolean,
-            required: false
-        },
-        shrinkCenter: {
-            type: Boolean,
-            required: false
-        },
-        shrinkEnd: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    menuIcon: {
+      type: String,
+      required: false
     },
-    methods: {
-        shrinkClass(prop) {
-            return {
-                'mdc-toolbar__section--shrink-to-fit': prop
-            }
-        }
+    shrinkStart: {
+      type: Boolean,
+      required: false
+    },
+    shrinkCenter: {
+      type: Boolean,
+      required: false
+    },
+    shrinkEnd: {
+      type: Boolean,
+      required: false
     }
+  },
+  methods: {
+    shrinkClass (prop) {
+      return {
+        'mdc-toolbar__section--shrink-to-fit': prop
+      }
+    }
+  }
 }
 </script>
 

@@ -26,95 +26,95 @@
 import { MDCSlider } from '@material/slider'
 
 export default {
-    props: {
-        label: {
-            type: String,
-            required: false
-        },
-        displayMarkers: {
-            type: Boolean,
-            required: false
-        },
-        discrete: {
-            type: Boolean,
-            required: false
-        },
-        value: {
-            type: Number,
-            required: false
-        },
-        min: {
-            type: Number,
-            required: true
-        },
-        max: {
-            type: Number,
-            required: true
-        },
-        step: {
-            type: Number,
-            required: false
-        },
-        disabled: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    label: {
+      type: String,
+      required: false
     },
-    data() {
-        return {
-            mdcSlider: null
-        }
+    displayMarkers: {
+      type: Boolean,
+      required: false
     },
-    model: {
-        prop: 'value',
-        event: 'change'
+    discrete: {
+      type: Boolean,
+      required: false
     },
-    mounted() {
-        this.mdcSlider = MDCSlider.attachTo(this.$el)
-        this.mdcSlider.value = this.value
-        this.mdcSlider.min = this.min
-        this.mdcSlider.max = this.max
-        this.mdcSlider.step = this.step
-        this.mdcSlider.disabled = this.disabled
+    value: {
+      type: Number,
+      required: false
     },
-    beforeDestroy() {
-        this.mdcSlider.destroy()
+    min: {
+      type: Number,
+      required: true
     },
-    watch: {
-        value() {
-            this.mdcSlider.value = this.value
-        },
-        min() {
-            this.mdcSlider.min = this.min
-        },
-        max() {
-            this.mdcSlider.max = this.max
-        },
-        step() {
-            this.mdcSlider.step = this.step
-        },
-        disabled() {
-            this.mdcSlider.disabled = this.disabled
-        }
+    max: {
+      type: Number,
+      required: true
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-slider--discrete': this.discrete,
-                'mdc-slider--display-markers': this.displayMarkers
-            }
-        },
-        discreteClasses() {
-            return {
-                'mdc-slider__track-marker-container': this.displayMarkers
-            }
-        }
+    step: {
+      type: Number,
+      required: false
     },
-    methods: {
-        onChange(event) {
-            this.$emit('change', this.mdcSlider.value)
-        }
+    disabled: {
+      type: Boolean,
+      required: false
     }
+  },
+  data () {
+    return {
+      mdcSlider: null
+    }
+  },
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
+  mounted () {
+    this.mdcSlider = MDCSlider.attachTo(this.$el)
+    this.mdcSlider.value = this.value
+    this.mdcSlider.min = this.min
+    this.mdcSlider.max = this.max
+    this.mdcSlider.step = this.step
+    this.mdcSlider.disabled = this.disabled
+  },
+  beforeDestroy () {
+    this.mdcSlider.destroy()
+  },
+  watch: {
+    value () {
+      this.mdcSlider.value = this.value
+    },
+    min () {
+      this.mdcSlider.min = this.min
+    },
+    max () {
+      this.mdcSlider.max = this.max
+    },
+    step () {
+      this.mdcSlider.step = this.step
+    },
+    disabled () {
+      this.mdcSlider.disabled = this.disabled
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-slider--discrete': this.discrete,
+        'mdc-slider--display-markers': this.displayMarkers
+      }
+    },
+    discreteClasses () {
+      return {
+        'mdc-slider__track-marker-container': this.displayMarkers
+      }
+    }
+  },
+  methods: {
+    onChange (event) {
+      this.$emit('change', this.mdcSlider.value)
+    }
+  }
 }
 </script>
 

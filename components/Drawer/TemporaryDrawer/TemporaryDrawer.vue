@@ -20,54 +20,53 @@
 import { MDCTemporaryDrawer } from '@material/drawer'
 
 export default {
-    props: {
-        initialOpen: {
-            type: Boolean,
-            required: false
-        },
-        primaryHeader: {
-            type: Boolean,
-            required: false
-        },
-        primaryToolbarSpacer: {
-            type: Boolean,
-            required: false
-        },
-        primaryContent: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    initialOpen: {
+      type: Boolean,
+      required: false
     },
-    data() {
-        return {
-            open: null,
-            mdcTemporaryDrawer: null
-        }
+    primaryHeader: {
+      type: Boolean,
+      required: false
     },
-    mounted() {
-        this.mdcTemporaryDrawer = MDCTemporaryDrawer.attachTo(this.$el)
-        this.open = this.initialOpen
-        this.mdcTemporaryDrawer.open = this.open
+    primaryToolbarSpacer: {
+      type: Boolean,
+      required: false
     },
-    beforeDestroy() {
-        this.mdcTemporaryDrawer.destroy()
-    },
-    methods: {
-        primaryClasses(prop) {
-            return {
-                'mdc-theme--primary-bg': prop,
-                'mdc-theme--text-primary-on-primary': prop
-            }
-        },
-        toggle() {
-            this.open ? this.mdcTemporaryDrawer.open = false : this.mdcTemporaryDrawer.open = true
-            this.open = !this.open
-        }
+    primaryContent: {
+      type: Boolean,
+      required: false
     }
+  },
+  data () {
+    return {
+      open: null,
+      mdcTemporaryDrawer: null
+    }
+  },
+  mounted () {
+    this.mdcTemporaryDrawer = MDCTemporaryDrawer.attachTo(this.$el)
+    this.open = this.initialOpen
+    this.mdcTemporaryDrawer.open = this.open
+  },
+  beforeDestroy () {
+    this.mdcTemporaryDrawer.destroy()
+  },
+  methods: {
+    primaryClasses (prop) {
+      return {
+        'mdc-theme--primary-bg': prop,
+        'mdc-theme--text-primary-on-primary': prop
+      }
+    },
+    toggle () {
+      this.open ? this.mdcTemporaryDrawer.open = false : this.mdcTemporaryDrawer.open = true
+      this.open = !this.open
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 @import "@material/drawer/mdc-drawer";
 </style>
-

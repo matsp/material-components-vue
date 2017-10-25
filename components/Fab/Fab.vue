@@ -7,47 +7,45 @@
 </template>
 
 <script>
-import { MDCRipple } from '@material/ripple';
+import { MDCRipple } from '@material/ripple'
 export default {
-    props: {
-        mini: {
-            type: Boolean,
-            required: false
-        },
-        absoluteRight: {
-            type: Boolean,
-            required: false
-        },
-        icon: {
-            type: String,
-            required: true
-        },
-        interactive: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    mini: {
+      type: Boolean,
+      required: false
     },
-    data() {
-        return {
-            mdcRipple: null
-        }
+    absoluteRight: {
+      type: Boolean,
+      required: false
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-fab--mini': this.mini,
-                'mdc-fab--absolute-right': this.absoluteRight
-            }
-        }
+    icon: {
+      type: String,
+      required: true
     },
-    mounted() {
-        if (this.interactive)
-            this.mdcRipple = MDCRipple.attachTo(this.$el)
-    },
-    beforeDestroy() {
-        if (this.interactive)
-            this.mdcRipple.destroy()
+    interactive: {
+      type: Boolean,
+      required: false
     }
+  },
+  data () {
+    return {
+      mdcRipple: null
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-fab--mini': this.mini,
+        'mdc-fab--absolute-right': this.absoluteRight
+      }
+    }
+  },
+  mounted () {
+    if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
+  },
+  beforeDestroy () {
+    if (this.interactive) { this.mdcRipple.destroy() }
+  }
 }
 </script>
 

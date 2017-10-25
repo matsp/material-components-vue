@@ -15,86 +15,85 @@
 import { MDCLinearProgress } from '@material/linear-progress'
 
 export default {
-    props: {
-        open: {
-            type: Boolean,
-            required: false
-        },
-        indeterminate: {
-            type: Boolean,
-            required: false
-        },
-        reverse: {
-            type: Boolean,
-            required: false
-        },
-        accent: {
-            type: Boolean,
-            required: false
-        },
-        progress: {
-            type: Number,
-            validator: (value) => (value >= 0) && (value <= 1),
-            required: false
-        },
-        buffer: {
-            type: Number,
-            validator: (value) => (value >= 0) && (value <= 1),
-            required: false
-        }
+  props: {
+    open: {
+      type: Boolean,
+      required: false
     },
-    data() {
-        return {
-            mdcLinearProgress: null
-        }
+    indeterminate: {
+      type: Boolean,
+      required: false
     },
-    watch: {
-        progress() {
-            this.mdcLinearProgress.progress(progress)
-        },
-        buffer() {
-            this.mdcLinearProgress.buffer(buffer)
-        },
-        indeterminate() {
-            this.mdcLinearProgress.determinate = !this.indeterminate
-        },
-        reversed() {
-            this.mdcLinearProgress.reverse = this.reversed
-        },
-        open() {
-            this.open ? this.mdcLinearProgress.open() : this.mdcLinearProgress.close()
-        }
+    reverse: {
+      type: Boolean,
+      required: false
     },
-    mounted() {
-        this.mdcLinearProgress = MDCLinearProgress.attachTo(this.$el)
-        this.mdcLinearProgress.determinate = !this.indeterminate
-        this.mdcLinearProgress.reverse = this.reverse
-        this.mdcLinearProgress.progress = this.progress
-        this.mdcLinearProgress.buffer = this.buffer
-        this.open ? this.mdcLinearProgress.open() : this.mdcLinearProgress.close()
+    accent: {
+      type: Boolean,
+      required: false
     },
-    beforeDestroy() {
-        this.mdcLinearProgress.destroy()
+    progress: {
+      type: Number,
+      validator: (value) => (value >= 0) && (value <= 1),
+      required: false
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-linear-progress--accent': this.accent
-            }
-        }
-    },
-    methods: {
-        show() {
-            this.mdcLinearProgress.open()
-        },
-        hide() {
-            this.mdcLinearProgress.close()
-        }
+    buffer: {
+      type: Number,
+      validator: (value) => (value >= 0) && (value <= 1),
+      required: false
     }
+  },
+  data () {
+    return {
+      mdcLinearProgress: null
+    }
+  },
+  watch: {
+    progress () {
+      this.mdcLinearProgress.progress(progress)
+    },
+    buffer () {
+      this.mdcLinearProgress.buffer(buffer)
+    },
+    indeterminate () {
+      this.mdcLinearProgress.determinate = !this.indeterminate
+    },
+    reversed () {
+      this.mdcLinearProgress.reverse = this.reversed
+    },
+    open () {
+      this.open ? this.mdcLinearProgress.open() : this.mdcLinearProgress.close()
+    }
+  },
+  mounted () {
+    this.mdcLinearProgress = MDCLinearProgress.attachTo(this.$el)
+    this.mdcLinearProgress.determinate = !this.indeterminate
+    this.mdcLinearProgress.reverse = this.reverse
+    this.mdcLinearProgress.progress = this.progress
+    this.mdcLinearProgress.buffer = this.buffer
+    this.open ? this.mdcLinearProgress.open() : this.mdcLinearProgress.close()
+  },
+  beforeDestroy () {
+    this.mdcLinearProgress.destroy()
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-linear-progress--accent': this.accent
+      }
+    }
+  },
+  methods: {
+    show () {
+      this.mdcLinearProgress.open()
+    },
+    hide () {
+      this.mdcLinearProgress.close()
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 @import "@material/linear-progress/mdc-linear-progress";
 </style>
-

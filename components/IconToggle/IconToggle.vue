@@ -9,75 +9,75 @@ import { MDCIconToggle } from '@material/icon-toggle'
 import { debounce } from '../utils'
 
 export default {
-    props: {
-        icon: {
-            type: String,
-            required: true
-        },
-        disabled: {
-            type: Boolean,
-            required: false
-        },
-        primary: {
-            type: Boolean,
-            required: false
-        },
-        accent: {
-            type: Boolean,
-            required: false
-        },
-        labelOn: {
-            type: String,
-            required: false
-        },
-        labelOff: {
-            type: String,
-            required: false
-        },
-        value: {
-            type: Boolean,
-            required: true
-        }
+  props: {
+    icon: {
+      type: String,
+      required: true
     },
-    data() {
-        return {
-            mdcIconToggle: null
-        }
+    disabled: {
+      type: Boolean,
+      required: false
     },
-    mounted() {
-        this.mdcIconToggle = MDCIconToggle.attachTo(this.$el)
-        this.mdcIconToggle.disabled = this.disabled
-        this.mdcIconToggle.on = this.value
+    primary: {
+      type: Boolean,
+      required: false
     },
-    destroy() {
-        this.mdcIconToggle.destroy()
+    accent: {
+      type: Boolean,
+      required: false
     },
-    computed: {
-        classes() {
-            return {
-                'material-icons': true,
-                'mdc-icon-toggle--disabled': this.disabled,
-                'mdc-icon-toggle--primary': this.primary,
-                'mdc-icon-toggle--accent': this.accent
-            }
-        },
-        dataToggleOn() {
-            return JSON.stringify({ 'content': this.icon, 'label': this.labelOn })
-        },
-        dataToggleOff() {
-            return JSON.stringify({ 'content': this.icon + '_border', 'label': this.labelOff })
-        }
+    labelOn: {
+      type: String,
+      required: false
     },
-    methods: {
-        onClick() {
-            debounce(this.$emit('input', !this.value))
-        }
+    labelOff: {
+      type: String,
+      required: false
     },
-    watch: {
-        disabled() {
-            this.iconToggle.disabled = this.disabled
-        }
+    value: {
+      type: Boolean,
+      required: true
     }
+  },
+  data () {
+    return {
+      mdcIconToggle: null
+    }
+  },
+  mounted () {
+    this.mdcIconToggle = MDCIconToggle.attachTo(this.$el)
+    this.mdcIconToggle.disabled = this.disabled
+    this.mdcIconToggle.on = this.value
+  },
+  destroy () {
+    this.mdcIconToggle.destroy()
+  },
+  computed: {
+    classes () {
+      return {
+        'material-icons': true,
+        'mdc-icon-toggle--disabled': this.disabled,
+        'mdc-icon-toggle--primary': this.primary,
+        'mdc-icon-toggle--accent': this.accent
+      }
+    },
+    dataToggleOn () {
+      return JSON.stringify({ 'content': this.icon, 'label': this.labelOn })
+    },
+    dataToggleOff () {
+      return JSON.stringify({ 'content': this.icon + '_border', 'label': this.labelOff })
+    }
+  },
+  methods: {
+    onClick () {
+      debounce(this.$emit('input', !this.value))
+    }
+  },
+  watch: {
+    disabled () {
+      this.iconToggle.disabled = this.disabled
+    }
+  }
 }
 </script>
 

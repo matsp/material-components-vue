@@ -6,34 +6,34 @@
 
 <script>
 export default {
-    props: {
-        darkTheme: {
-            type: Boolean,
-            required: false
-        },
-        dense: {
-            type: Boolean,
-            required: false
-        },
-        twoLine: {
-            type: Boolean,
-            required: false
-        },
-        avatar: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    darkTheme: {
+      type: Boolean,
+      required: false
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-list--theme-dark': this.darkTheme,
-                'mdc-list--theme-dense': this.dense,
-                'mdc-list--two-line': this.twoLine,
-                'mdc-list--avatar-list': this.avatar
-            }
-        }
+    dense: {
+      type: Boolean,
+      required: false
+    },
+    twoLine: {
+      type: Boolean,
+      required: false
+    },
+    avatar: {
+      type: Boolean,
+      required: false
     }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-list--theme-dark': this.darkTheme,
+        'mdc-list--theme-dense': this.dense,
+        'mdc-list--two-line': this.twoLine,
+        'mdc-list--avatar-list': this.avatar
+      }
+    }
+  }
 }
 </script>
 

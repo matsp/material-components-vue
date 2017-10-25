@@ -15,31 +15,28 @@
         </div>
     </li>
 </template>
-  
+
 <script>
 import { MDCRipple } from '@material/ripple'
 
 export default {
-    props: {
-        interactive: {
-            type: Boolean,
-            required: false
-        }
-    },
-    data() {
-        return {
-            mdcRipple: null
-        }
-    },
-    mounted() {
-        if (this.interactive)
-            this.mdcRipple = MDCRipple.attachTo(this.$el)
-
-    },
-    beforeDestroy() {
-        if (this.interactive)
-            this.mdcRipple.destroy()
+  props: {
+    interactive: {
+      type: Boolean,
+      required: false
     }
+  },
+  data () {
+    return {
+      mdcRipple: null
+    }
+  },
+  mounted () {
+    if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
+  },
+  beforeDestroy () {
+    if (this.interactive) { this.mdcRipple.destroy() }
+  }
 }
 </script>
 

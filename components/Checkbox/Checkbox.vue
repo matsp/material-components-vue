@@ -13,47 +13,47 @@
 <script>
 import { MDCCheckbox } from '@material/checkbox'
 export default {
-    props: {
-        checked: {
-            type: Boolean,
-            required: false
-        },
-        indeterminate: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    checked: {
+      type: Boolean,
+      required: false
     },
-    model: {
-        prop: 'checked',
-        event: 'change'
-    },
-    data() {
-        return {
-            mdcCheckbox: null
-        }
-    },
-    mounted() {
-        this.mdcCheckbox = MDCCheckbox.attachTo(this.$el)
-        this.mdcCheckbox.indeterminate = this.indeterminate
-    },
-    beforeDestroy() {
-        this.mdcCheckbox.destroy()
-    },
-    watch: {
-        checked() {
-            this.mdcCheckbox.indeterminate = false
-        }
-    },
-    computed: {
-        model: {
-            get() {
-                return this.checked
-            },
-            set(value) {
-                this.$emit('change', value)
-            }
-        }
+    indeterminate: {
+      type: Boolean,
+      required: false
     }
+  },
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  data () {
+    return {
+      mdcCheckbox: null
+    }
+  },
+  mounted () {
+    this.mdcCheckbox = MDCCheckbox.attachTo(this.$el)
+    this.mdcCheckbox.indeterminate = this.indeterminate
+  },
+  beforeDestroy () {
+    this.mdcCheckbox.destroy()
+  },
+  watch: {
+    checked () {
+      this.mdcCheckbox.indeterminate = false
+    }
+  },
+  computed: {
+    model: {
+      get () {
+        return this.checked
+      },
+      set (value) {
+        this.$emit('change', value)
+      }
+    }
+  }
 }
 </script>
 

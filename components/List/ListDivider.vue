@@ -4,19 +4,19 @@
 
 <script>
 export default {
-    props: {
-        inset: {
-            type: Boolean,
-            required: false
-        }
-    },
-    computed: {
-        classes() {
-            return {
-                'mdc-list-divider--inset': this.inset
-            }
-        }
+  props: {
+    inset: {
+      type: Boolean,
+      required: false
     }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-list-divider--inset': this.inset
+      }
+    }
+  }
 }
 </script>
 

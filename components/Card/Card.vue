@@ -49,19 +49,20 @@ export default {
       required: false
     }
   },
-  mounted() {
-    if (this.$slots.actions)
+  mounted () {
+    if (this.$slots.actions) {
       this.$slots.actions.map((n) => {
         n.elm.classList.add('mdc-card__action')
       })
+    }
   },
   computed: {
-    classesActions() {
+    classesActions () {
       return {
         'mdc-card__actions--vertical': this.verticalActions
       }
     },
-    classesTitle() {
+    classesTitle () {
       return {
         'mdc-card__title--large': this.largeTitle
       }
@@ -73,5 +74,3 @@ export default {
 <style lang="scss">
 @import "@material/card/mdc-card";
 </style>
-
-

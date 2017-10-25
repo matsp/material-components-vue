@@ -6,12 +6,12 @@
 
 <script>
 export default {
-    props: {
-        icon: {
-            type: String,
-            required: true
-        }
+  props: {
+    icon: {
+      type: String,
+      required: true
     }
+  }
 }
 </script>
 

@@ -15,24 +15,24 @@
 
 <script>
 export default {
-    props: {
-        primaryToolbarSpacer: {
-            type: Boolean,
-            required: false
-        },
-        primaryContent: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    primaryToolbarSpacer: {
+      type: Boolean,
+      required: false
     },
-    methods: {
-        primaryClasses(prop) {
-            return {
-                'mdc-theme--primary-bg': prop,
-                'mdc-theme--text-primary-on-primary': prop
-            }
-        }
+    primaryContent: {
+      type: Boolean,
+      required: false
     }
+  },
+  methods: {
+    primaryClasses (prop) {
+      return {
+        'mdc-theme--primary-bg': prop,
+        'mdc-theme--text-primary-on-primary': prop
+      }
+    }
+  }
 }
 </script>
 

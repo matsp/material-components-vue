@@ -127,51 +127,51 @@
 <script>
 
 export default {
-    data() {
-        return {
-            dialogVisible: false,
-            checkboxOne: false,
-            iconToggle: false,
-            selected: null,
-            selectedMulti: null,
-            selectedMenu: null,
-            sliderValue: null,
-            hovLevel: 2
-        }
-    },
-    methods: {
-        hover() {
-            this.hovLevel = 20
-            setTimeout(() => this.hovLevel = 2, 1000)
-        },
-        stopProgress() {
-            this.$refs.progress.hide()
-        },
-        startProgress() {
-            this.$refs.progress.show()
-        },
-        resetSlider() {
-            this.sliderValue = 0.0
-        },
-        showMenu() {
-            this.$refs.menu.show()
-        },
-        openDialog() {
-            this.$refs.dialog.show()
-        },
-        dialogAccepted() {
-            console.log('accepted')
-        },
-        dialogCanceled() {
-            console.log('canceled')
-        },
-        selectedLog(event) {
-            console.log(event)
-        }
-    },
-    computed: {
-
+  data () {
+    return {
+      dialogVisible: false,
+      checkboxOne: false,
+      iconToggle: false,
+      selected: null,
+      selectedMulti: null,
+      selectedMenu: null,
+      sliderValue: null,
+      hovLevel: 2
     }
+  },
+  methods: {
+    hover () {
+      this.hovLevel = 20
+      setTimeout(() => this.hovLevel = 2, 1000)
+    },
+    stopProgress () {
+      this.$refs.progress.hide()
+    },
+    startProgress () {
+      this.$refs.progress.show()
+    },
+    resetSlider () {
+      this.sliderValue = 0.0
+    },
+    showMenu () {
+      this.$refs.menu.show()
+    },
+    openDialog () {
+      this.$refs.dialog.show()
+    },
+    dialogAccepted () {
+      console.log('accepted')
+    },
+    dialogCanceled () {
+      console.log('canceled')
+    },
+    selectedLog (event) {
+      console.log(event)
+    }
+  },
+  computed: {
+
+  }
 }
 </script>
 
@@ -201,5 +201,3 @@ export default {
     margin: 48px;
 }
 </style>
-
-

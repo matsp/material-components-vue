@@ -13,39 +13,39 @@
 import { MDCSelect } from '@material/select'
 
 export default {
-    props: {
-        disabled: {
-            type: Boolean,
-            required: false
-        }
-    },
-    model: {
-        prop: 'selected',
-        event: 'change'
-    },
-    data() {
-        return {
-            mdcSelect: null
-        }
-    },
-    mounted() {
-        this.mdcSelect = MDCSelect.attachTo(this.$el)
-    },
-    destroy() {
-        this.mdcSelect.destroy()
-    },
-    computed: {
-        classes() {
-            return {
-                'mdc-select--disabled': this.disabled
-            }
-        }
-    },
-    methods: {
-        onChange(event) {
-            this.$emit('change', this.mdcSelect.value)
-        }
+  props: {
+    disabled: {
+      type: Boolean,
+      required: false
     }
+  },
+  model: {
+    prop: 'selected',
+    event: 'change'
+  },
+  data () {
+    return {
+      mdcSelect: null
+    }
+  },
+  mounted () {
+    this.mdcSelect = MDCSelect.attachTo(this.$el)
+  },
+  destroy () {
+    this.mdcSelect.destroy()
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-select--disabled': this.disabled
+      }
+    }
+  },
+  methods: {
+    onChange (event) {
+      this.$emit('change', this.mdcSelect.value)
+    }
+  }
 }
 </script>
 

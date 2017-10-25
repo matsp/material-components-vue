@@ -10,83 +10,83 @@
 import { MDCSimpleMenu } from '@material/menu'
 
 export default {
-    props: {
-        startOpen: {
-            type: Boolean,
-            required: false
-        },
-        openfromTopLeft: {
-            type: Boolean,
-            required: false
-        },
-        openfromTopRight: {
-            type: Boolean,
-            required: false
-        },
-        openfromBottomLeft: {
-            type: Boolean,
-            required: false
-        },
-        openfromBottomRight: {
-            type: Boolean,
-            required: false
-        },
-        dense: {
-            type: Boolean,
-            required: false
-        },
-        twoLine: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    startOpen: {
+      type: Boolean,
+      required: false
     },
-    data() {
-        return {
-            mdcSimpleMenu: null
-        }
+    openfromTopLeft: {
+      type: Boolean,
+      required: false
     },
-    model: {
-        prop: 'selected',
-        event: 'change'
+    openfromTopRight: {
+      type: Boolean,
+      required: false
     },
-    mounted() {
-        this.mdcSimpleMenu = MDCSimpleMenu.attachTo(this.$el)
-        this.mdcSimpleMenu.open = this.open
+    openfromBottomLeft: {
+      type: Boolean,
+      required: false
     },
-    beforeDestroy() {
-        this.mdcSimpleMenu.destroy()
+    openfromBottomRight: {
+      type: Boolean,
+      required: false
     },
-    methods: {
-        show() {
-            this.mdcSimpleMenu.show()
-        },
-        hide() {
-            this.mdcSimpleMenu.hide()
-        },
-        onSelect(event) {
-            this.$emit('change', event.detail.index)
-        },
-        onCancel(event) {
-            this.$emit('canceled')
-        }
+    dense: {
+      type: Boolean,
+      required: false
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-simple-menu--open': this.startOpen,
-                'mdc-simple-menu--open-from-top-left': this.openfromTopLeft,
-                'mdc-simple-menu--open-from-top-right': this.openfromTopRight,
-                'mdc-simple-menu--open-from-bottom-left': this.openfromBottomLeft,
-                'mdc-simple-menu--open-from-bottom-right': this.openfromBottomRight
-            }
-        },
-        listClasses() {
-            return {
-                'mdc-list--dense': this.dense,
-                'mdc-list--two-line': this.twoLine
-            }
-        }
+    twoLine: {
+      type: Boolean,
+      required: false
     }
+  },
+  data () {
+    return {
+      mdcSimpleMenu: null
+    }
+  },
+  model: {
+    prop: 'selected',
+    event: 'change'
+  },
+  mounted () {
+    this.mdcSimpleMenu = MDCSimpleMenu.attachTo(this.$el)
+    this.mdcSimpleMenu.open = this.open
+  },
+  beforeDestroy () {
+    this.mdcSimpleMenu.destroy()
+  },
+  methods: {
+    show () {
+      this.mdcSimpleMenu.show()
+    },
+    hide () {
+      this.mdcSimpleMenu.hide()
+    },
+    onSelect (event) {
+      this.$emit('change', event.detail.index)
+    },
+    onCancel (event) {
+      this.$emit('canceled')
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-simple-menu--open': this.startOpen,
+        'mdc-simple-menu--open-from-top-left': this.openfromTopLeft,
+        'mdc-simple-menu--open-from-top-right': this.openfromTopRight,
+        'mdc-simple-menu--open-from-bottom-left': this.openfromBottomLeft,
+        'mdc-simple-menu--open-from-bottom-right': this.openfromBottomRight
+      }
+    },
+    listClasses () {
+      return {
+        'mdc-list--dense': this.dense,
+        'mdc-list--two-line': this.twoLine
+      }
+    }
+  }
 
 }
 </script>
@@ -95,5 +95,3 @@ export default {
 @import "@material/menu/mdc-menu";
 @import "@material/list/mdc-list";
 </style>
-
-

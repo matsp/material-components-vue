@@ -16,28 +16,28 @@
 import { MDCTab } from '@material/tabs'
 
 export default {
-    props: {
-        active: {
-            type: Boolean,
-            default: false
-        },
-        label: {
-            type: String,
-            required: false
-        },
-        icon: {
-            type: String,
-            required: false
-        }
+  props: {
+    active: {
+      type: Boolean,
+      default: false
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-tab--active': this.active,
-                'mdc-tab--with-icon-and-text': this.icon && !this.label
-            }
-        }
+    label: {
+      type: String,
+      required: false
+    },
+    icon: {
+      type: String,
+      required: false
     }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-tab--active': this.active,
+        'mdc-tab--with-icon-and-text': this.icon && !this.label
+      }
+    }
+  }
 }
 </script>
 

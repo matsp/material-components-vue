@@ -6,33 +6,32 @@
 
 <script>
 export default {
-    props: {
-        size: {
-            type: Number,
-            required: false
-        },
-        disabled: {
-            type: Boolean,
-            required: false
-        }
+  props: {
+    size: {
+      type: Number,
+      required: false
     },
-    model: {
-        prop: 'selected',
-        event: 'change'
-    },
-    data() {
-        return {
-            selected: []
-        }
-    },
-    methods: {
-        onChange(event) {
-            this.$emit('change', this.selected)
-        }
+    disabled: {
+      type: Boolean,
+      required: false
     }
+  },
+  model: {
+    prop: 'selected',
+    event: 'change'
+  },
+  data () {
+    return {
+      selected: []
+    }
+  },
+  methods: {
+    onChange (event) {
+      this.$emit('change', this.selected)
+    }
+  }
 }
 </script>
-
 
 <style lang="scss">
 @import "@material/select/mdc-select";
