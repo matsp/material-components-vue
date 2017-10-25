@@ -7,7 +7,7 @@
   "main": "components/index.js",
   "module": "components/index.js",
   "scripts": {
-    "lint": "eslint --fix ./",
+    "lint": "eslint --ext .vue --ext .js --fix ./",
     "build:prod": "webpack -p --config ./webpack.config.prod.js",
     "build:dev": "webpack -d --config ./webpack.config.dev.js",
     "serve:dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js"
