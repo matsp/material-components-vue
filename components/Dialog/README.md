@@ -17,7 +17,11 @@
 this.$refs.dialog.show()
 ```
 
-### Events & methods
+### Props & events & methods
+
+| Prop | Type | Default | Required | Description |
+|------|------|---------|----------|-------------|
+| scrollable | Boolean | - | false | scrollable body |
 
 | Event | Description |
 |------|------|
