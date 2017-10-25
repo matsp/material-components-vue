@@ -1,6 +1,6 @@
 ## Checkbox
 
-### markup
+### Markup
 
 ```html
 <m-form-field>
@@ -13,7 +13,7 @@
 </m-form-field>
 ```
 
-### props & events
+### Props
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|

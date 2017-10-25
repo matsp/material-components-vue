@@ -1,6 +1,6 @@
 ## Card
 
-### markup
+### Markup
 
 ```html
 <m-card>
@@ -16,7 +16,7 @@
 </m-card>
 ```
 
-### props & events
+### Props
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
@@ -24,7 +24,7 @@
 | largeTitle | Boolean | - | false | larger title (without typography component)| 
 | horizontal | Boolean | -| false | renders media, title & subtitle horizontal
 
-### slots
+### Slots
 
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
@@ -39,7 +39,7 @@
 
 ## CardMediaItem
 
-### props & events
+### Props
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|

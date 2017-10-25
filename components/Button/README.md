@@ -1,6 +1,6 @@
 ## Button
 
-### markup
+### Markup
 
 ```html
 <m-button interactive raised @click="onClick">Button</m-button>
@@ -8,7 +8,7 @@
 <m-button disabled>Button</m-button>
 <m-button interactive href="https://github.com/matsp/material-components-vue">Github</m-button>
 ```
-### props & events
+### Props
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
@@ -23,7 +23,7 @@
 
 Non prop attributes and events are mapped to the inner button element.
 
-### slots
+### Slots
 
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
