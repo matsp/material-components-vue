@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-temporary-drawer ref="drawer" primaryToolbarSpacer @click="toggleDrawer">
+<m-temporary-drawer ref="drawer" primaryToolbarSpacer>
   <span slot="toolbarSpacer" />
   <m-temporary-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon">
     {{item.text}}
