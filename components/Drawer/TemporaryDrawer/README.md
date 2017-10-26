@@ -10,9 +10,10 @@
   </m-temporary-drawer-item>
 </m-temporary-drawer>
 ```
+### Script
 
 ```javascript
-
+this.$refs.drawer.toggle()
 ```
 
 ### Props
