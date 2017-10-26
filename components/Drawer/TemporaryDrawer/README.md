@@ -8,6 +8,7 @@
   <m-temporary-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon">
     {{item.text}}
   </m-temporary-drawer-item>
+  <m-drawer-item-divider />
 </m-temporary-drawer>
 ```
 ### Script

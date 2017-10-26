@@ -8,6 +8,7 @@
   <m-permanent-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon">
     {{item.text}}
   </m-permanent-drawer-item>
+  <m-drawer-item-divider />
 </m-permanent-drawer>
 ```
 
