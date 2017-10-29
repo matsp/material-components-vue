@@ -4,7 +4,9 @@
 * [PersistentDrawer](PersistentDrawer/README.md)
 * [TemporaryDrawer](TemporaryDrawer/README.md)
 
-### DrawerItemDivider
+## DrawerItemDivider
+
+### Markup
 
 ```html
 <m-permanent-drawer>
