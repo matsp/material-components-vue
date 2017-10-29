@@ -1,5 +1,5 @@
 <template>
-  <div class="mdc-form-field" :class="classes" :id="id">
+  <div class="mdc-form-field" :class="classes">
     <slot />
   </div>
 </template>
@@ -11,10 +11,6 @@ export default {
   props: {
     alignEnd: {
       type: Boolean,
-      required: false
-    },
-    id: {
-      type: String,
       required: false
     }
   },
