@@ -7,6 +7,10 @@
 <script>
 export default {
   props: {
+    avatar: {
+      type: Boolean,
+      required: false
+    },
     darkTheme: {
       type: Boolean,
       required: false
@@ -16,10 +20,6 @@ export default {
       required: false
     },
     twoLine: {
-      type: Boolean,
-      required: false
-    },
-    avatar: {
       type: Boolean,
       required: false
     }
