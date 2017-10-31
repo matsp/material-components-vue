@@ -20,6 +20,11 @@
 | activate | activate the ripple |
 | deactivate | deactivate the ripple |
 
+### Slots
+
+| Slot | Prop dependencies | Description |
+|------|-------------------|-------------|
+| default | - | ripple content |
 
 ### Reference
 
