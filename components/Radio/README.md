@@ -18,7 +18,6 @@ data() {
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| checked | Boolean | - | false | radio state |
 | disabled | Boolean | - | false | disabled radio |
 
 Non prop attributes are mapped to the inner input element.|

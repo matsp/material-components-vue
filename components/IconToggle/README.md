@@ -26,7 +26,6 @@ data() {
 | accent | Boolean | - | false | secondary theme color |
 | labelOn | String | - | false | label when toggle is true |
 | labelOff | String | - | false | label when toggle is false |
-| value | Boolean | - | true | toggle state |
 
 ### Reference
 
