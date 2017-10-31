@@ -52,5 +52,4 @@ export default {
 <style lang="scss">
 @import "@material/ripple/mdc-ripple";
 @import "@material/elevation/mixins";
-//@import "@material/ripple/mixins";
 </style>
