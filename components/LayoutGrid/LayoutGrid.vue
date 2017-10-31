@@ -1,5 +1,5 @@
 <template>
-    <div class="mdc-layout-grid" :class="classes" :id="id">
+    <div class="mdc-layout-grid" :class="classes">
         <slot />
     </div>
 </template>
@@ -7,10 +7,6 @@
 <script>
 export default {
   props: {
-    id: {
-      type: String,
-      require: false
-    },
     fixedColumnWidth: {
       type: Boolean,
       required: false

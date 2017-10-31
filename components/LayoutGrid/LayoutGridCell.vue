@@ -1,5 +1,5 @@
 <template>
-    <div class="mdc-layout-grid__cell" :class="classes" :id="id">
+    <div class="mdc-layout-grid__cell" :class="classes">
         <slot />
     </div>
 </template>
@@ -7,32 +7,34 @@
 <script>
 export default {
   props: {
-    id: {
-      type: String,
-      require: false
-    },
     span: {
       type: Number,
+      validator: value => value >=1 && value <=12 ,
       required: false
     },
     spanDesktop: {
       type: Number,
+      validator: value => value >=1 && value <=12 ,
       required: false
     },
     spanTablet: {
       type: Number,
+      validator: value => value >=1 && value <=12 ,
       required: false
     },
     spanPhone: {
       type: Number,
+      validator: value => value >=1 && value <=12 ,
       required: false
     },
     order: {
       type: Number,
+      validator: value => value >=1 && value <=12 ,
       required: false
     },
     align: {
       type: String,
+      validator: value => ['top', 'left', 'bottom'].includes(value),
       required: false
     }
   },
