@@ -13,7 +13,7 @@ this.$refs.progress.show()
 this.$refs.progress.hide()
 ```
 
-### Props
+### Props & methods
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
@@ -23,6 +23,11 @@ this.$refs.progress.hide()
 | accent | Boolean | - | false | secondary theme color |
 | progress | Number | - | false | progress value between 0 and 1 |
 | buffer | Number | - | false | buffer value between 0 and 1 |
+
+| Method | Description |
+|------|------|
+| show | show the progress |
+| hide | hide the progress |
 ### Reference
 
 - https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress
