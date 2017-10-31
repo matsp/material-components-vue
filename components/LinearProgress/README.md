@@ -25,9 +25,10 @@ this.$refs.progress.hide()
 | buffer | Number | - | false | buffer value between 0 and 1 |
 
 | Method | Description |
-|------|------|
+|--------|-------------|
 | show | show the progress |
 | hide | hide the progress |
+
 ### Reference
 
 - https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress

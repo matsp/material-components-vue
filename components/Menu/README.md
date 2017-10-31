@@ -36,7 +36,7 @@ data() {
 
 ```
 
-### Props
+### Props & methods
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
@@ -47,6 +47,11 @@ data() {
 | openFromBottomRight | Boolean | - | false | opens the menu from bottom right |
 | dense | Boolean | - | false | whether the menu entries should be densed |
 | twoline | Boolean | - | false | whether the menu entries should be twoline |
+
+| Method | Description |
+|--------|-------------|
+| show | show the menu |
+| hide | hide the menu |
 
 ### Slots
 
