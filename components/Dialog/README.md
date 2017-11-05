@@ -28,10 +28,9 @@ this.$refs.dialog.show()
 | accepted | will be dispatched when the accept button will be clicked |
 | canceled | will be dispatched when the cancel button will be clicked |
 
-
 | Method | Description |
-|------|------|
-| show | show the dialog
+|--------|-------------|
+| show | show the dialog |
 
 ### Slots
 

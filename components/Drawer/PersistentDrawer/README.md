@@ -17,7 +17,7 @@
 this.$refs.drawer.toggle()
 ```
 
-### Props
+### Props & methods
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
@@ -27,6 +27,10 @@ this.$refs.drawer.toggle()
 | primaryContent | Boolean | - | false | whether the content section should be themed as primary color |
 
 Non prop events are mapped to the inner button element.
+
+| Method | Description |
+|--------|-------------|
+| toggle | toggles the drawer |
 
 ### Slots
 
