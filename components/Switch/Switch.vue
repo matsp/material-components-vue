@@ -12,7 +12,7 @@ export default {
   props: {
     checked: {
       type: Boolean,
-      required: true
+      required: false
     },
     disabled: {
       type: Boolean,
