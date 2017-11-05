@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { MDCSlider } from '@material/slider'
+import { MDCSlider } from "@material/slider";
 
 export default {
   props: {
@@ -53,6 +53,7 @@ export default {
     },
     step: {
       type: Number,
+      validator: value => value > 0,
       required: false
     },
     disabled: {
@@ -60,62 +61,62 @@ export default {
       required: false
     }
   },
-  data () {
+  data() {
     return {
       mdcSlider: null
-    }
+    };
   },
   model: {
-    prop: 'value',
-    event: 'change'
+    prop: "value",
+    event: "change"
   },
-  mounted () {
-    this.mdcSlider = MDCSlider.attachTo(this.$el)
-    this.mdcSlider.value = this.value
-    this.mdcSlider.min = this.min
-    this.mdcSlider.max = this.max
-    this.mdcSlider.step = this.step
-    this.mdcSlider.disabled = this.disabled
+  mounted() {
+    this.mdcSlider = MDCSlider.attachTo(this.$el);
+    this.mdcSlider.value = this.value;
+    this.mdcSlider.min = this.min;
+    this.mdcSlider.max = this.max;
+    this.mdcSlider.step = this.step;
+    this.mdcSlider.disabled = this.disabled;
   },
-  beforeDestroy () {
-    this.mdcSlider.destroy()
+  beforeDestroy() {
+    this.mdcSlider.destroy();
   },
   watch: {
-    value () {
-      this.mdcSlider.value = this.value
+    value() {
+      this.mdcSlider.value = this.value;
     },
-    min () {
-      this.mdcSlider.min = this.min
+    min() {
+      this.mdcSlider.min = this.min;
     },
-    max () {
-      this.mdcSlider.max = this.max
+    max() {
+      this.mdcSlider.max = this.max;
     },
-    step () {
-      this.mdcSlider.step = this.step
+    step() {
+      this.mdcSlider.step = this.step;
     },
-    disabled () {
-      this.mdcSlider.disabled = this.disabled
+    disabled() {
+      this.mdcSlider.disabled = this.disabled;
     }
   },
   computed: {
-    classes () {
+    classes() {
       return {
-        'mdc-slider--discrete': this.discrete,
-        'mdc-slider--display-markers': this.displayMarkers
-      }
+        "mdc-slider--discrete": this.discrete,
+        "mdc-slider--display-markers": this.displayMarkers
+      };
     },
-    discreteClasses () {
+    discreteClasses() {
       return {
-        'mdc-slider__track-marker-container': this.displayMarkers
-      }
+        "mdc-slider__track-marker-container": this.displayMarkers
+      };
     }
   },
   methods: {
-    onChange (event) {
-      this.$emit('change', this.mdcSlider.value)
+    onChange(event) {
+      this.$emit("change", this.mdcSlider.value);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
