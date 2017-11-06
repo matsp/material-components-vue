@@ -4,7 +4,9 @@
             {{icon}}
         </i>
         <span v-if="icon && label" class="mdc-tab__icon-text">
-            <slot />
+            <slot>
+              {{label}}
+            </slot>
         </span>
         <span v-else>
             <slot />
