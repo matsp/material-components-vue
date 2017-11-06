@@ -3,7 +3,7 @@
         <slot />
         <span class="mdc-tab-bar__indicator"></span>
     </nav>
-    <div v-else class="mdc-tab-bar-scroller">
+    <div v-else class="mdc-tab-bar-scroller" >
         <div class="mdc-tab-bar-scroller__indicator mdc-tab-bar-scroller__indicator--back">
             <a class="mdc-tab-bar-scroller__indicator__inner material-icons" href="#" aria-label="scroll back button">
                 navigate_before
@@ -52,18 +52,14 @@ export default {
     }
   },
   mounted () {
-    if (this.$slots.default) { this.$slots.default.map(n => n.elm.classList.add('mdc-tab')) }
-
-    if (this.$slots.default && this.withIconAndText) {
-      this.$slots.default.map(n =>
-        n.elm.classList.add('mdc-tab--with-icon-and-text')
-      )
-    }
-
-    this.scrollable ? this.mdcTabBarScroller = MDCTabBarScroller.attachTo(this.$el) : this.mdcTabBar = MDCTabBar.attachTo(this.$el)
+    this.scrollable
+      ? (this.mdcTabBarScroller = MDCTabBarScroller.attachTo(this.$el))
+      : (this.mdcTabBar = MDCTabBar.attachTo(this.$el))
   },
   beforeDestroy () {
-    this.scrollable ? this.mdcTabBarScroller.destroy() : this.mdcTabBar.destroy()
+    this.scrollable
+      ? this.mdcTabBarScroller.destroy()
+      : this.mdcTabBar.destroy()
   },
   computed: {
     classes () {

@@ -1,9 +1,9 @@
 <template>
-    <a :class="classes" v-on="$listeners">
+    <a class="mdc-tab" :class="classes" v-on="$listeners">
         <i v-if="icon" class="material-icons mdc-tab__icon" :aria-label="label" :aria-hidden="label?false:true">
             {{icon}}
         </i>
-        <span v-if="icon && !label" class="mdc-tab__icon-text">
+        <span v-if="icon && label" class="mdc-tab__icon-text">
             <slot />
         </span>
         <span v-else>
@@ -30,11 +30,22 @@ export default {
       required: false
     }
   },
+  data () {
+    return {
+      mdcTab: null
+    }
+  },
+  mounted() {
+    this.mdcTab = MDCTab.attachTo(this.$el)
+  },
+  beforeDestroy() {
+    this.mdcTab.destroy()
+  },
   computed: {
     classes () {
       return {
         'mdc-tab--active': this.active,
-        'mdc-tab--with-icon-and-text': this.icon && !this.label
+        'mdc-tab--with-icon-and-text': this.icon && this.label
       }
     }
   }
