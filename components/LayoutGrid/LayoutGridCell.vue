@@ -9,27 +9,27 @@ export default {
   props: {
     span: {
       type: Number,
-      validator: value => value >=1 && value <=12 ,
+      validator: value => value >= 1 && value <= 12,
       required: false
     },
     spanDesktop: {
       type: Number,
-      validator: value => value >=1 && value <=12 ,
+      validator: value => value >= 1 && value <= 12,
       required: false
     },
     spanTablet: {
       type: Number,
-      validator: value => value >=1 && value <=12 ,
+      validator: value => value >= 1 && value <= 12,
       required: false
     },
     spanPhone: {
       type: Number,
-      validator: value => value >=1 && value <=12 ,
+      validator: value => value >= 1 && value <= 12,
       required: false
     },
     order: {
       type: Number,
-      validator: value => value >=1 && value <=12 ,
+      validator: value => value >= 1 && value <= 12,
       required: false
     },
     align: {
