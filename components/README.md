@@ -1,0 +1,1 @@
+This directory contains all of the individual components. Each component can be used as standalone vue plugin.
