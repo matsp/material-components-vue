@@ -4,11 +4,9 @@
             {{icon}}
         </i>
         <span v-if="icon && label" class="mdc-tab__icon-text">
-            <slot>
-              {{label}}
-            </slot>
+            <slot />
         </span>
-        <span v-else>
+        <span v-else-if="label">
             <slot />
         </span>
     </a>
@@ -24,8 +22,8 @@ export default {
       default: false
     },
     label: {
-      type: String,
-      required: false
+      type: Boolean,
+      default: true
     },
     icon: {
       type: String,

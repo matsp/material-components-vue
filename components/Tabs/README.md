@@ -32,7 +32,7 @@
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | active | Boolean | - | false | whether the tab should be marked as active |
-| label | String | - | false | tab label |
+| label | Boolean | true | - | whether the label in the default slot should be visible |
 | icon | String | - | false | tab icon |
 
 Non prop events are mapped to the inner button element.
