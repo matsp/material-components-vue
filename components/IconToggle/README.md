@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-icon-toggle v-model="iconToggle" accent icon="favorite" />
+<m-icon-toggle v-model="iconToggle" iconOn="favorite" iconOff="favorite_border" />
 ```
 
 ### Script 
@@ -20,12 +20,11 @@ data() {
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| icon | String | - | true | material icon name |
+| iconOn | String | - | true | material icon name when toggle is true |
+| iconOff | String | - | true | material icon name when toggle is false |
 | disabled | Boolean | - | false | not toggleable icon |
 | primary | Boolean | - | false | primary theme color |
 | accent | Boolean | - | false | secondary theme color |
-| labelOn | String | - | false | label when toggle is true |
-| labelOff | String | - | false | label when toggle is false |
 
 ### Reference
 

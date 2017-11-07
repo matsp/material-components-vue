@@ -1,6 +1,7 @@
 <template>
-    <i class="mdc-icon-toggle" :class="classes" role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" @click="onClick">
-            {{icon+'_border'}}
+    <i @click="onClick" class="mdc-icon-toggle" :class="classes" 
+      role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" >
+        {{value?iconOn:iconOff}}
     </i>
 </template>
 
@@ -10,7 +11,11 @@ import { debounce } from '../utils'
 
 export default {
   props: {
-    icon: {
+    iconOn: {
+      type: String,
+      required: true
+    },
+    iconOff: {
       type: String,
       required: true
     },
@@ -26,17 +31,9 @@ export default {
       type: Boolean,
       required: false
     },
-    labelOn: {
-      type: String,
-      required: false
-    },
-    labelOff: {
-      type: String,
-      required: false
-    },
     value: {
       type: Boolean,
-      required: true
+      required: false
     }
   },
   data () {
@@ -62,10 +59,10 @@ export default {
       }
     },
     dataToggleOn () {
-      return JSON.stringify({ 'content': this.icon, 'label': this.labelOn })
+      return JSON.stringify({ 'content': this.iconOn })
     },
     dataToggleOff () {
-      return JSON.stringify({ 'content': this.icon + '_border', 'label': this.labelOff })
+      return JSON.stringify({ 'content': this.iconOff })
     }
   },
   methods: {
@@ -75,7 +72,10 @@ export default {
   },
   watch: {
     disabled () {
-      this.iconToggle.disabled = this.disabled
+      this.mdcIconToggle.disabled = this.disabled
+    },
+    value() {
+      this.mdcIconToggle.on = this.value
     }
   }
 }
