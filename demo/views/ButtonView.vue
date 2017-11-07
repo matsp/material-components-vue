@@ -2,7 +2,7 @@
     <m-layout-grid-inner>
          <m-layout-grid-cell :span="12">
             <m-typo-display :level="1">Button</m-typo-display>
-                        <m-typo-body :level="2">
+            <m-typo-body :level="2">
                 <a href="https://github.com/matsp/material-components-vue/blob/master/components/Button">
                     https://github.com/matsp/material-components-vue/blob/master/components/Button
                 </a>

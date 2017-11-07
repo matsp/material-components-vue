@@ -9,6 +9,16 @@ const state = {
       text: 'Card',
       route: '/card',
       icon: 'code'
+    },
+    iconToggle: {
+      text: 'IconToggle',
+      route: '/iconToggle',
+      icon: 'code'
+    },
+    textfield: {
+      text: 'Textfield',
+      route: '/textfield',
+      icon: 'code'
     }
   }
 }

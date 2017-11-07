@@ -1,8 +1,9 @@
 <template>
   <m-typography class="demo-body">
     <!-- toolbar -->
-    <m-toolbar ref="toolbar" fixed waterfall menuIcon="menu">
-      <m-toolbar-row menuIcon="menu" @click="toggleDrawer">
+    <m-toolbar ref="toolbar" fixed waterfall>
+      <m-toolbar-row>
+        <m-toolbar-icon slot="start" icon="menu" menuIcon @click="toggleDrawer" />
         <span slot="title">Demo</span>
       </m-toolbar-row>
     </m-toolbar>
