@@ -1,7 +1,9 @@
 <template>
     <div class="mdc-textfield mdc-textfield--textarea" :class="classes">
-        <textarea :id="id" class="mdc-textfield__input" v-model="model" :placeholder="placeholder" :rows="rows" :cols="cols" />
-        <label v-if="label" class="mdc-textfield__label" :class="classesLabel">{{label}}</label>
+        <textarea class="mdc-textfield__input" :value="value" @input="onInput" v-bind="$attrs"/>
+        <label class="mdc-textfield__label" :class="classesLabel" v-if="$slots['default']">
+          <slot />
+        </label>
     </div>
 </template>
 
@@ -10,33 +12,9 @@ import { MDCTextfield } from '@material/textfield'
 import { debounce } from '../utils'
 
 export default {
-  model: {
-    prop: 'value',
-    event: 'input'
-  },
   props: {
-    label: {
-      type: String,
-      required: false
-    },
     value: {
       type: String,
-      required: true
-    },
-    placeholder: {
-      type: String,
-      required: false
-    },
-    id: {
-      type: String,
-      required: false
-    },
-    rows: {
-      type: Number,
-      required: false
-    },
-    cols: {
-      type: Number,
       required: false
     },
     disabled: {
@@ -62,11 +40,13 @@ export default {
   },
   data () {
     return {
-      mdcTextfield: null
+      mdcTextfield: null,
+      float: false
     }
   },
   mounted () {
     this.mdcTextfield = MDCTextfield.attachTo(this.$el)
+    this.float = this.labelFloat
   },
   beforeDestroy () {
     this.mdcTextfield.destroy()
@@ -82,16 +62,18 @@ export default {
     },
     classesLabel () {
       return {
-        'mdc-textfield__label--float-above': this.labelFloat
+        'mdc-textfield__label--float-above': this.float
       }
-    },
-    model: {
-      get () {
-        return this.value
-      },
-      set (value) {
-        this.$emit('input', value)
-      }
+    }
+  },
+  methods: {
+    onInput (event) {
+      debounce(this.$emit('input', event.target.value))
+    }
+  },
+  watch: {
+    value() {
+      this.value === '' ? this.float = false : this.float = true
     }
   }
 }

@@ -1,8 +1,10 @@
 <template>
     <div class="mdc-textfield" :class="classes">
         <i v-if="leadingIcon" class="material-icons mdc-textfield__icon">{{leadingIcon}}</i>
-        <input class="mdc-textfield__input" :value="value" @input="onInput" :placeholder="placeholder" v-bind="$attrs" />
-        <label v-if="label" class="mdc-textfield__label" :class="classesLabel">{{label}}</label>
+        <input class="mdc-textfield__input" :value="value" @input="onInput" v-bind="$attrs" />
+        <label class="mdc-textfield__label" :class="classesLabel" v-if="$slots['default'] && !fullWidth">
+          <slot />
+        </label>
         <i v-if="trailingIcon" class="material-icons mdc-textfield__icon">{{trailingIcon}}</i>
         <div v-if="bottomLine" class="mdc-textfield__bottom-line"></div>
     </div>
@@ -15,15 +17,7 @@ import { debounce } from '../utils'
 
 export default {
   props: {
-    label: {
-      type: String,
-      required: false
-    },
     value: {
-      type: String,
-      required: true
-    },
-    placeholder: {
       type: String,
       required: false
     },
@@ -67,12 +61,13 @@ export default {
   data () {
     return {
       mdcTextfield: null,
-      mdcRipple: null
+      mdcRipple: null,
+      float: false
     }
   },
   mounted () {
     this.mdcTextfield = MDCTextfield.attachTo(this.$el)
-
+    this.float = this.labelFloat
     if (this.interactive && this.box) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
   },
   beforeDestroy () {
@@ -93,7 +88,7 @@ export default {
     },
     classesLabel () {
       return {
-        'mdc-textfield__label--float-above': this.labelFloat
+        'mdc-textfield__label--float-above': this.float
       }
     }
   },
@@ -101,11 +96,16 @@ export default {
     onInput (event) {
       debounce(this.$emit('input', event.target.value))
     }
+  },
+  watch: {
+    value() {
+      this.value === '' ? this.float = false : this.float = true
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@material/textfield/mdc-textfield";
 @import "@material/ripple/mdc-ripple";
 </style>
