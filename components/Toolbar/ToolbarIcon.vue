@@ -1,5 +1,5 @@
 <template>
-    <a class="material-icons mdc-toolbar__icon">
+    <a class="material-icons" :class="classes" @click="$emit('click')">
         {{icon}}
     </a>
 </template>
@@ -10,6 +10,18 @@ export default {
     icon: {
       type: String,
       required: true
+    },
+    menuIcon: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    classes() {
+      return {
+        'mdc-toolbar__menu-icon': this.menuIcon,
+        'mdc-toolbar__icon': !this.menuIcon
+      }
     }
   }
 }

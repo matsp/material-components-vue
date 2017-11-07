@@ -1,13 +1,10 @@
 <template>
     <div class="mdc-toolbar__row">
         <section class="mdc-toolbar__section mdc-toolbar__section--align-start" :class="shrinkClass(shrinkStart)" v-if="$slots['title'] || $slots['start']">
-            <a v-if="menuIcon" class="material-icons mdc-toolbar__menu-icon" @click="$emit('click')">
-                {{menuIcon}}
-            </a>
+            <slot name="start" />
             <span class="mdc-toolbar__title" v-if="$slots['title']">
                 <slot name="title" />
             </span>
-            <slot name="start" />
         </section>
         <section class="mdc-toolbar__section" :class="shrinkClass(shrinkCenter)" v-if="$slots['center']">
             <slot name="center" />
@@ -21,10 +18,6 @@
 <script>
 export default {
   props: {
-    menuIcon: {
-      type: String,
-      required: false
-    },
     shrinkStart: {
       type: Boolean,
       required: false
