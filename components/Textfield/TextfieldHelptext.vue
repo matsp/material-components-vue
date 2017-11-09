@@ -1,14 +1,12 @@
 <template>
-    <p class="mdc-textfield-helptext" :class="classes" :id="id"> {{text}} </p>
+    <p class="mdc-textfield-helptext" :class="classes">
+      <slot /> 
+    </p>
 </template>
 
 <script>
 export default {
   props: {
-    id: {
-      type: String,
-      required: false
-    },
     text: {
       type: String,
       required: true

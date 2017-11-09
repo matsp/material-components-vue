@@ -14,6 +14,14 @@
             </m-textfield>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="2">
+            <m-textfield bottomLine required minlength=8 aria-controls="pw-validation">
+                Password
+            </m-textfield>
+            <m-textfield-helptext id="pw-validation">
+                Password must be at least 8 characters long.
+            </m-textfield-helptext>
+        </m-layout-grid-cell>
+        <m-layout-grid-cell :span="2">
             <m-textfield v-model="text" box>
                 Textfield
             </m-textfield>

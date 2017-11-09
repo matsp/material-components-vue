@@ -12,7 +12,6 @@
 
 <script>
 import { MDCTextfield } from '@material/textfield'
-import { MDCRipple } from '@material/ripple'
 import { debounce } from '../utils'
 
 export default {
@@ -41,10 +40,6 @@ export default {
       type: Boolean,
       required: false
     },
-    interactive: {
-      type: Boolean,
-      required: false
-    },
     bottomLine: {
       type: Boolean,
       required: false
@@ -68,7 +63,6 @@ export default {
   mounted () {
     this.mdcTextfield = MDCTextfield.attachTo(this.$el)
     this.float = this.labelFloat
-    if (this.interactive && this.box) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
   },
   beforeDestroy () {
     this.mdcTextfield.destroy()
@@ -107,5 +101,4 @@ export default {
 
 <style lang="scss">
 @import "@material/textfield/mdc-textfield";
-@import "@material/ripple/mdc-ripple";
 </style>
