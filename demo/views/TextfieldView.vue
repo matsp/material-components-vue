@@ -21,6 +21,7 @@
                 Password must be at least 8 characters long.
             </m-textfield-helptext>
         </m-layout-grid-cell>
+        <m-layout-grid-cell :span="8" />
         <m-layout-grid-cell :span="2">
             <m-textfield v-model="text" box>
                 Textfield
