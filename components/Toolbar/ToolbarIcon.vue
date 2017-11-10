@@ -17,7 +17,7 @@ export default {
     }
   },
   computed: {
-    classes() {
+    classes () {
       return {
         'mdc-toolbar__menu-icon': this.menuIcon,
         'mdc-toolbar__icon': !this.menuIcon

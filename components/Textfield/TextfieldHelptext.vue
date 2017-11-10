@@ -1,6 +1,6 @@
 <template>
     <p class="mdc-textfield-helptext" :class="classes">
-      <slot /> 
+      <slot />
     </p>
 </template>
 

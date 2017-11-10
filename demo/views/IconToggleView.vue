@@ -31,11 +31,11 @@
 
 <script>
 export default {
-  data() {
-      return {
-          iconToggle: false,
-          cloudToggle: false
-      }
+  data () {
+    return {
+      iconToggle: false,
+      cloudToggle: false
+    }
   }
 }
 </script>

@@ -35,10 +35,10 @@ export default {
       mdcTab: null
     }
   },
-  mounted() {
+  mounted () {
     this.mdcTab = MDCTab.attachTo(this.$el)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.mdcTab.destroy()
   },
   computed: {

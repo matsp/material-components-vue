@@ -72,7 +72,7 @@ export default {
     }
   },
   watch: {
-    value() {
+    value () {
       this.value === '' ? this.float = false : this.float = true
     }
   }

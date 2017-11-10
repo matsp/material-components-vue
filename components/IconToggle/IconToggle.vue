@@ -1,5 +1,5 @@
 <template>
-    <i @click="onClick" class="mdc-icon-toggle" :class="classes" 
+    <i @click="onClick" class="mdc-icon-toggle" :class="classes"
       role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" >
         {{value?iconOn:iconOff}}
     </i>
@@ -74,7 +74,7 @@ export default {
     disabled () {
       this.mdcIconToggle.disabled = this.disabled
     },
-    value() {
+    value () {
       this.mdcIconToggle.on = this.value
     }
   }

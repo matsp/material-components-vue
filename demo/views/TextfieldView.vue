@@ -50,10 +50,10 @@
 
 <script>
 export default {
-  data() {
-      return {
-          text: ''
-      }
+  data () {
+    return {
+      text: ''
+    }
   }
 }
 </script>
