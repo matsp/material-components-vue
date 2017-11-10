@@ -7,6 +7,13 @@ before_script: greenkeeper-lockfile-update
 script: yarn build:prod
 after_script: greenkeeper-lockfile-upload
 deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: dist
+  on:
+    tags: true
+deploy:
   provider: npm
   email: mats.pfeiffer@googlemail.com
   api_key: $NPM_TOKEN
