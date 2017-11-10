@@ -7,6 +7,9 @@
 
 Material-components-vue is a wrapper around the mdc-web vanilla components following the [simple approach](https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md#the-simple-approach-wrapping-mdc-web-vanilla-components).
 
+## [demo](https://matsp.github.io/material-components-vue)
+
+
 ## installation
 
 ```shell
