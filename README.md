@@ -9,6 +9,7 @@ Material-components-vue is a wrapper around the mdc-web vanilla components follo
 
 ## [demo](https://matsp.github.io/material-components-vue)
 
+Visit the demo page to get an overview of all available components.
 
 ## installation
 
