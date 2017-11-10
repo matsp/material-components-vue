@@ -26,11 +26,10 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       checkboxValue: false
-    };
+    }
   }
-};
+}
 </script>
-
