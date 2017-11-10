@@ -10,6 +10,11 @@ const state = {
       route: '/card',
       icon: 'code'
     },
+    checkbox: {
+      text: 'Checkbox',
+      route: '/checkbox',
+      icon: 'code'
+    },
     iconToggle: {
       text: 'IconToggle',
       route: '/iconToggle',
