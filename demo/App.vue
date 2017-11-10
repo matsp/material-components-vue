@@ -4,7 +4,7 @@
     <m-toolbar ref="toolbar" fixed waterfall>
       <m-toolbar-row>
         <m-toolbar-icon slot="start" icon="menu" menuIcon @click="toggleDrawer" />
-        <span slot="title">Demo</span>
+        Demo
       </m-toolbar-row>
     </m-toolbar>
     <!-- toolbar -->
