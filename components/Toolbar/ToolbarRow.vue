@@ -1,9 +1,9 @@
 <template>
     <div class="mdc-toolbar__row">
-        <section class="mdc-toolbar__section mdc-toolbar__section--align-start" :class="shrinkClass(shrinkStart)" v-if="$slots['title'] || $slots['start']">
+        <section class="mdc-toolbar__section mdc-toolbar__section--align-start" :class="shrinkClass(shrinkStart)" v-if="$slots['default'] || $slots['start']">
             <slot name="start" />
-            <span class="mdc-toolbar__title" v-if="$slots['title']">
-                <slot name="title" />
+            <span class="mdc-toolbar__title" v-if="$slots['default']">
+                <slot />
             </span>
         </section>
         <section class="mdc-toolbar__section" :class="shrinkClass(shrinkCenter)" v-if="$slots['center']">

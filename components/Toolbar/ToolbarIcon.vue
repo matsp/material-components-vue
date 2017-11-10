@@ -1,5 +1,5 @@
 <template>
-    <a class="material-icons" :class="classes" @click="$emit('click')">
+    <a class="material-icons" :class="classes" v-on="$listeners">
         {{icon}}
     </a>
 </template>
