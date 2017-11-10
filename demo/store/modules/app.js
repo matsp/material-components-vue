@@ -15,6 +15,11 @@ const state = {
       route: '/checkbox',
       icon: 'code'
     },
+    dialog: {
+      text: 'Dialog',
+      route: '/dialog',
+      icon: 'code'
+    },
     iconToggle: {
       text: 'IconToggle',
       route: '/iconToggle',
