@@ -1,5 +1,5 @@
 <template>
-    <i @click="onClick" class="mdc-icon-toggle" :class="classes"
+    <i @click="onClick" class="mdc-icon-toggle material-icons" :class="classes"
       role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" >
         {{value?iconOn:iconOff}}
     </i>
@@ -52,7 +52,6 @@ export default {
   computed: {
     classes () {
       return {
-        'material-icons': true,
         'mdc-icon-toggle--disabled': this.disabled,
         'mdc-icon-toggle--primary': this.primary,
         'mdc-icon-toggle--accent': this.accent
@@ -81,6 +80,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@material/icon-toggle/mdc-icon-toggle";
 </style>

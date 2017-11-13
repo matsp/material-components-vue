@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@material/fab/mdc-fab";
 
 .mdc-fab--absolute-right.mdc-fab--absolute-right {

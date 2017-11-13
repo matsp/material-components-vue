@@ -27,6 +27,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@material/toolbar/mdc-toolbar";
 </style>
