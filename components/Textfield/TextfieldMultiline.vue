@@ -1,14 +1,14 @@
 <template>
-    <div class="mdc-textfield mdc-textfield--textarea" :class="classes">
-        <textarea class="mdc-textfield__input" :value="value" @input="onInput" v-bind="$attrs"/>
-        <label class="mdc-textfield__label" :class="classesLabel" v-if="$slots['default']">
+    <div class="mdc-text-field mdc-text-field--textarea" :class="classes">
+        <textarea class="mdc-text-field__input" :value="value" @input="onInput" v-bind="$attrs"/>
+        <label class="mdc-text-field__label" :class="classesLabel" v-if="$slots['default']">
           <slot />
         </label>
     </div>
 </template>
 
 <script>
-import { MDCTextfield } from '@material/textfield'
+import { MDCTextField } from '@material/textfield'
 import { debounce } from '../utils'
 
 export default {
@@ -40,29 +40,29 @@ export default {
   },
   data () {
     return {
-      mdcTextfield: null,
+      mdcTextField: null,
       float: false
     }
   },
   mounted () {
-    this.mdcTextfield = MDCTextfield.attachTo(this.$el)
+    this.mdcTextField = MDCTextField.attachTo(this.$el)
     this.float = this.labelFloat
   },
   beforeDestroy () {
-    this.mdcTextfield.destroy()
+    this.mdcTextField.destroy()
   },
   computed: {
     classes () {
       return {
-        'mdc-textfield--disabled': this.disabled,
-        'mdc-textfield--upgraded': this.upgraded,
-        'mdc-textfield--fullwidth': this.fullWidth,
-        'mdc-textfield--box': this.box
+        'mdc-text-field--disabled': this.disabled,
+        'mdc-text-field--upgraded': this.upgraded,
+        'mdc-text-field--fullwidth': this.fullWidth,
+        'mdc-text-field--box': this.box
       }
     },
     classesLabel () {
       return {
-        'mdc-textfield__label--float-above': this.float
+        'mdc-text-field__label--float-above': this.float
       }
     }
   },
@@ -80,5 +80,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@material/textfield/mdc-textfield";
+@import "@material/textfield/mdc-text-field";
 </style>

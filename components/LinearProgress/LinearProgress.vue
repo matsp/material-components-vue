@@ -1,5 +1,5 @@
 <template>
-    <div role="progressbar" class="mdc-linear-progress" :class="classes">
+    <div role="progressbar" class="mdc-linear-progress">
         <div class="mdc-linear-progress__buffering-dots"></div>
         <div class="mdc-linear-progress__buffer"></div>
         <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
@@ -25,10 +25,6 @@ export default {
       required: false
     },
     reverse: {
-      type: Boolean,
-      required: false
-    },
-    accent: {
       type: Boolean,
       required: false
     },
@@ -75,13 +71,6 @@ export default {
   },
   beforeDestroy () {
     this.mdcLinearProgress.destroy()
-  },
-  computed: {
-    classes () {
-      return {
-        'mdc-linear-progress--accent': this.accent
-      }
-    }
   },
   methods: {
     show () {

@@ -1,17 +1,17 @@
 <template>
-    <div class="mdc-textfield" :class="classes">
-        <i v-if="leadingIcon" class="material-icons mdc-textfield__icon">{{leadingIcon}}</i>
-        <input class="mdc-textfield__input" :value="value" @input="onInput" v-bind="$attrs" />
-        <label class="mdc-textfield__label" :class="classesLabel" v-if="$slots['default'] && !fullWidth">
+    <div class="mdc-text-field" :class="classes">
+        <i v-if="leadingIcon" class="material-icons mdc-text-field__icon">{{leadingIcon}}</i>
+        <input class="mdc-text-field__input" :value="value" @input="onInput" v-bind="$attrs" />
+        <label class="mdc-text-field__label" :class="classesLabel" v-if="$slots['default'] && !fullWidth">
           <slot />
         </label>
-        <i v-if="trailingIcon" class="material-icons mdc-textfield__icon">{{trailingIcon}}</i>
-        <div v-if="bottomLine" class="mdc-textfield__bottom-line"></div>
+        <i v-if="trailingIcon" class="material-icons mdc-text-field__icon">{{trailingIcon}}</i>
+        <div v-if="bottomLine" class="mdc-text-field__bottom-line"></div>
     </div>
 </template>
 
 <script>
-import { MDCTextfield } from '@material/textfield'
+import { MDCTextField } from '@material/textfield'
 import { debounce } from '../utils'
 
 export default {
@@ -55,34 +55,34 @@ export default {
   },
   data () {
     return {
-      mdcTextfield: null,
+      mdcTextField: null,
       mdcRipple: null,
       float: false
     }
   },
   mounted () {
-    this.mdcTextfield = MDCTextfield.attachTo(this.$el)
+    this.mdcTextField = MDCTextField.attachTo(this.$el)
     this.float = this.labelFloat
   },
   beforeDestroy () {
-    this.mdcTextfield.destroy()
+    this.mdcTextField.destroy()
 
     if (this.interactive && this.box) { this.mdcRipple.destroy() }
   },
   computed: {
     classes () {
       return {
-        'mdc-textfield--disabled': this.disabled,
-        'mdc-textfield--upgraded': this.upgraded,
-        'mdc-textfield--fullwidth': this.fullWidth,
-        'mdc-textfield--box': this.box,
-        'mdc-textfield--with-leading-icon': this.leadingIcon,
-        'mdc-textfield--with-trailing-icon': this.trailingIcon
+        'mdc-text-field--disabled': this.disabled,
+        'mdc-text-field--upgraded': this.upgraded,
+        'mdc-text-field--fullwidth': this.fullWidth,
+        'mdc-text-field--box': this.box,
+        'mdc-text-field--with-leading-icon': this.leadingIcon,
+        'mdc-text-field--with-trailing-icon': this.trailingIcon
       }
     },
     classesLabel () {
       return {
-        'mdc-textfield__label--float-above': this.float
+        'mdc-text-field__label--float-above': this.float
       }
     }
   },
@@ -100,5 +100,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@material/textfield/mdc-textfield";
+@import "@material/textfield/mdc-text-field";
 </style>

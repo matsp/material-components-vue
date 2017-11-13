@@ -20,7 +20,6 @@ this.$refs.progress.hide()
 | open | Boolean | - | false | initial state |
 | indeterminate | Boolean | - | false | indeterminate state |
 | reverse | Boolean | - | false | reverse direction of progress |
-| accent | Boolean | - | false | secondary theme color |
 | progress | Number | - | false | progress value between 0 and 1 |
 | buffer | Number | - | false | buffer value between 0 and 1 |
 

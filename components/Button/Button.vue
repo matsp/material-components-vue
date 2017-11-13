@@ -71,6 +71,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@material/button/mdc-button";
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <p class="mdc-textfield-helptext" :class="classes">
+    <p class="mdc-text-field-helptext" :class="classes">
       <slot />
     </p>
 </template>
@@ -32,5 +32,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@material/textfield/mdc-textfield";
+@import "@material/textfield/mdc-text-field";
 </style>
