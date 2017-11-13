@@ -8,12 +8,12 @@
   "module": "components/index.js",
   "scripts": {
     "lint": "eslint --ext .vue --ext .js --fix ./",
-    "build:prod": "webpack -p --config ./webpack.config.prod.js",
-    "build:dev": "webpack -d --config ./webpack.config.dev.js",
+    "build:prod": "webpack -p --config webpack.config.prod.js",
+    "build:dev": "webpack -d --config webpack.config.dev.js",
     "serve:dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "material-components-web": "^0.24.0",
     "normalize.css": "^7.0.0",
     "vue": "^2.5.3",
@@ -23,9 +23,9 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
     "eslint": "^4.10.0",
     "eslint-config-standard": "^10.2.1",
@@ -46,6 +46,7 @@
     "vue-loader": "^13.5.0",
     "vue-template-compiler": "^2.5.3",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^2.9.4",
+    "webpack-merge": "^4.1.1"
   }
 }
