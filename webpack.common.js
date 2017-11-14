@@ -1,7 +1,8 @@
 const path = require('path')
-const Webpack = require('webpack')
+const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const root = path.join(__dirname)
@@ -11,9 +12,7 @@ const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
-    bundle: ['babel-polyfill', path.resolve(demo + 'index.js')],
-    components: [path.resolve(components + 'index.js')],
-    vue: ['vue', 'vuex', 'vue-router']
+    app: ['babel-polyfill', path.resolve(demo + 'index.js')]
   },
   module: {
     rules: [
@@ -75,15 +74,30 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new Webpack.NamedModulesPlugin(),
-    new Webpack.HashedModuleIdsPlugin(),
-    new Webpack.optimize.CommonsChunkPlugin({
-      names: ['bundle', 'vue', 'components', 'manifest']
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'app',
+      children: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function (module) {
+        return module.context && module.context.indexOf('node_modules') !== -1
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(demo + 'index.html'),
       chunksSortMode: 'dependency'
       // hash: true
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      prefetch: {
+        test: /\.js$/,
+        chunks: 'async'
+      }
     }),
     new ExtractTextPlugin({
       filename: '[name].[chunkhash].css',

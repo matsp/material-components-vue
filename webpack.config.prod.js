@@ -1,32 +1,38 @@
 const path = require('path')
-const Webpack = require('webpack')
+const webpack = require('webpack')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 
-const root = path.join(__dirname)
+const dist = path.resolve('./dist')
 
 module.exports = merge(common, {
   output: {
-    path: path.resolve(root + '/dist'),
+    path: dist,
     filename: '[name].[chunkhash].js',
-    chunkFilename: '[id].[name].[chunkhash].js'
+    chunkFilename: 'chunk.[chunkhash].js'
   },
   plugins: [
-    new Webpack.LoaderOptionsPlugin({
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: 'production'
+      }
+    }),
+    new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
     }),
+    new webpack.HashedModuleIdsPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new OptimizeCssAssetsPlugin(),
-    new Webpack.optimize.ModuleConcatenationPlugin(),
     new UglifyJSPlugin({
       uglifyOptions: {
         ecma: 5
       },
       cache: true,
-      parallel: true
+      parallel: false
     })
     // ,new Webpack.optimize.AggressiveSplittingPlugin({
     //  minSize: 30000,

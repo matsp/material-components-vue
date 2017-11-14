@@ -1,9 +1,5 @@
-import Slider from './Slider'
-
-export { Slider }
-
 export default {
   install (vm) {
-    vm.component('m-slider', Slider)
+    vm.component('m-slider', () => import('./Slider'))
   }
 }

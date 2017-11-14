@@ -52,6 +52,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "@material/tabs/mdc-tabs";
 </style>

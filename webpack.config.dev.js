@@ -1,27 +1,33 @@
 const path = require('path')
-const Webpack = require('webpack')
+const webpack = require('webpack')
+
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 
-const root = path.join(__dirname)
+const dist = path.resolve('./dist')
 
 module.exports = merge(common, {
   output: {
-    path: path.resolve(root + '/dist'),
+    path: dist,
     filename: '[name].[hash].js',
-    chunkFilename: '[id].[name].[chunkhash].js'
+    chunkFilename: 'chunk.[chunkhash].js'
   },
   devServer: {
-    contentBase: path.resolve(root, 'output'),
     compress: true,
     hot: true,
     port: 8080
   },
   plugins: [
-    new Webpack.LoaderOptionsPlugin({
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: 'development'
+      }
+    }),
+    new webpack.LoaderOptionsPlugin({
       minimize: false,
       debug: true
     }),
-    new Webpack.HotModuleReplacementPlugin()
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 })

@@ -1,21 +1,11 @@
-import Menu from './Menu'
-import MenuAnchor from './MenuAnchor'
-import MenuDivider from './MenuDivider'
-import MenuGroup from './MenuGroup'
-import MenuGroupDivider from './MenuGroupDivider'
-import MenuGroupSubheader from './MenuGroupSubheader'
-import MenuItem from './MenuItem'
-
-export { Menu, MenuAnchor }
-
 export default {
   install (vm) {
-    vm.component('m-menu', Menu)
-    vm.component('m-menu-anchor', MenuAnchor)
-    vm.component('m-menu-divider', MenuDivider)
-    vm.component('m-menu-group', MenuGroup)
-    vm.component('m-menu-group-divider', MenuGroupDivider)
-    vm.component('m-menu-group-subheader', MenuGroupSubheader)
-    vm.component('m-menu-item', MenuItem)
+    vm.component('m-menu', () => import('./Menu'))
+    vm.component('m-menu-anchor', () => import('./MenuAnchor'))
+    vm.component('m-menu-divider', () => import('./MenuDivider'))
+    vm.component('m-menu-group', () => import('./MenuGroup'))
+    vm.component('m-menu-group-divider', () => import('./MenuGroupDivider'))
+    vm.component('m-menu-group-subheader', () => import('./MenuGroupSubheader'))
+    vm.component('m-menu-item', () => import('./MenuItem'))
   }
 }
