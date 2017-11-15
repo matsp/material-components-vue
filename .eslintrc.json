@@ -1,4 +1,4 @@
-{ 
+{
     "parserOptions": {
         "parser": "babel-eslint",
         "sourceType": "module",
