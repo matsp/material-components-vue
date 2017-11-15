@@ -22,6 +22,10 @@ export default new VueRouter({
       component: () => import('views/DialogView')
     },
     {
+      path: '/drawer',
+      component: () => import('views/DrawerView')
+    },
+    {
       path: '/iconToggle',
       component: () => import('views/IconToggleView')
     },

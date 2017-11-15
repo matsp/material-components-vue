@@ -20,6 +20,11 @@ const state = {
       route: '/dialog',
       icon: 'code'
     },
+    drawer: {
+      text: 'Drawer',
+      route: '/drawer',
+      icon: 'code'
+    },
     iconToggle: {
       text: 'IconToggle',
       route: '/iconToggle',
