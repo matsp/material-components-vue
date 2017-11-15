@@ -1,13 +1,19 @@
 {
-    //"plugins": ["transform-runtime"],
     "comments": false,
     "presets": [
-        ["env", {
-            "targets": {
-            "browsers": ["last 2 versions", "ie >= 10"]
-            },
-            "loose": true,
-            "modules": false
-        }], ["stage-0"]
+        [
+            "env",
+            {
+                "targets": {
+                    "browsers": [
+                        "> 5%",
+                        "last 2 versions",
+                        "ie >= 10"
+                    ]
+                },
+                "modules": false
+            }
+        ],
+        ["stage-0"]
     ]
 }

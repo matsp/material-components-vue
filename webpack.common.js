@@ -18,7 +18,15 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'cache-loader',
+            options: {
+              cacheDirectory: path.resolve(nodeModules + '.cache/cache-loader')
+            }
+          },
+          { loader: 'babel-loader' }
+        ],
         include: [demo, components, path.join(nodeModules, '@material')]
       },
       {

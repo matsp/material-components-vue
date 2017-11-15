@@ -1,3 +1,21 @@
-{
-    "extends": ["standard", "plugin:vue/recommended"]
+{ 
+    "parserOptions": {
+        "parser": "babel-eslint",
+        "sourceType": "module",
+        "allowImportExportEverywhere": true
+    },
+    "extends": [
+        "standard",
+        "plugin:vue/recommended"
+    ],
+    "plugins": [
+        "json",
+        "markdown"
+    ],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "jest": true
+    }
 }

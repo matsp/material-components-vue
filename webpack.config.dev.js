@@ -9,8 +9,8 @@ const dist = path.resolve('./dist')
 module.exports = merge(common, {
   output: {
     path: dist,
-    filename: '[name].[hash].js',
-    chunkFilename: 'chunk.[chunkhash].js'
+    filename: '[name].js',
+    chunkFilename: 'chunk.[name].js'
   },
   devServer: {
     compress: true,

@@ -24,6 +24,8 @@ deploy:
       tags: true
 cache:
   yarn: true
+  directories:
+    - node_modules
 notifications:
   email:
     on_success: never
