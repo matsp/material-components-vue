@@ -7,6 +7,19 @@
 
 Material-components-vue is a wrapper around the mdc-web vanilla components following the [simple approach](https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md#the-simple-approach-wrapping-mdc-web-vanilla-components).
 
+## about this wrapper
+
+### goals
+
+* decoupled components - can be cherry picked
+* implementing just the specs not more or less
+* keep the components as simple as possible
+* keep in sync with changes in the mdc-web repository
+
+### hint
+
+Material-components-vue is designed to be used in web apps and websites. It is **not** designed for native mobile apps or something else. I choose the simple approach because I think that PWAs will be the future and provide a better cross environment experience. I already started to optimise the components and demos for that use case.
+
 ## [demo](https://matsp.github.io/material-components-vue)
 
 Visit the demo page to get an overview of all available components.
