@@ -11,7 +11,7 @@
     "build:prod": "webpack -p --config webpack.config.prod.js",
     "build:dev": "webpack -d --config webpack.config.dev.js",
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js",
-    "release": "standard-version && git push --follow-tags origin master"
+    "release": "standard-version"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
