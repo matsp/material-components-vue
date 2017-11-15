@@ -27,7 +27,7 @@ export default {
     }
   },
   methods: {
-    show () {
+    show (options) {
       this.mdcSnackbar.show(options)
     }
   },
