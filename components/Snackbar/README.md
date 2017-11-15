@@ -10,7 +10,7 @@
 
 ```javascript
 let options = {
-    message: 'snackbar message'
+  message: 'snackbar message'
 }
 
 this.$refs.snackbar.show(options)
