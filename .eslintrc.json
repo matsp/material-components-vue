@@ -10,7 +10,9 @@
     ],
     "plugins": [
         "json",
-        "markdown"
+        "markdown",
+        "html",
+        "babel"
     ],
     "env": {
         "browser": true,
