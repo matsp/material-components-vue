@@ -9,5 +9,5 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * build environment set false ([141c142](https://github.com/matsp/material-components-vue/commit/141c142))
-* watched props set wrong ([7c8b8ef](https://github.com/matsp/material-components-vue/commit/7c8b8ef))
+* **linearProgress:** watched props set wrong ([7c8b8ef](https://github.com/matsp/material-components-vue/commit/7c8b8ef))
 * **snackbar:** options property not set in show() ([d4e906f](https://github.com/matsp/material-components-vue/commit/d4e906f))
