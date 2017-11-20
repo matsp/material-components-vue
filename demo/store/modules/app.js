@@ -30,6 +30,11 @@ const state = {
       route: '/elevation',
       icon: 'code'
     },
+    fab: {
+      text: 'Fab',
+      route: '/fab',
+      icon: 'code'
+    },
     iconToggle: {
       text: 'IconToggle',
       route: '/iconToggle',

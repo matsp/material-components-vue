@@ -30,6 +30,10 @@ export default new VueRouter({
       component: () => import('views/ElevationView')
     },
     {
+      path: '/fab',
+      component: () => import('views/FabView')
+    },
+    {
       path: '/iconToggle',
       component: () => import('views/IconToggleView')
     },
