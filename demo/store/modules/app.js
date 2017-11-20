@@ -25,6 +25,11 @@ const state = {
       route: '/drawer',
       icon: 'code'
     },
+    elevation: {
+      text: 'Elevation',
+      route: '/elevation',
+      icon: 'code'
+    },
     iconToggle: {
       text: 'IconToggle',
       route: '/iconToggle',

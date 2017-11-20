@@ -26,6 +26,10 @@ export default new VueRouter({
       component: () => import('views/DrawerView')
     },
     {
+      path: '/elevation',
+      component: () => import('views/ElevationView')
+    },
+    {
       path: '/iconToggle',
       component: () => import('views/IconToggleView')
     },
