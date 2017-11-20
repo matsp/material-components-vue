@@ -4,6 +4,11 @@
   "description": "material-components-web with vuejs",
   "author": "Mats Pfeiffer",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matsp/material-components-vue.git"
+  },
+  "homepage": "https://matsp.github.io/material-components-vue",
   "main": "components/index.js",
   "module": "components/index.js",
   "scripts": {
