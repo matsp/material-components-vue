@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "material-components-web": "^0.25.0",
+    "material-components-web": "^0.26.0",
     "normalize.css": "^7.0.0",
     "vue": "^2.5.6",
     "vue-router": "^3.0.1",
