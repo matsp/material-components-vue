@@ -1,5 +1,5 @@
 <template>
-    <p class="mdc-text-field-helptext" :class="classes">
+    <p class="mdc-text-field-helper-text" :class="classes">
       <slot />
     </p>
 </template>
@@ -23,8 +23,8 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-textfield-helptext--persistent': this.persistent,
-        'mdc-textfield-helptext--validation-msg': this.validationMsg
+        'mdc-textfield-helper-text--persistent': this.persistent,
+        'mdc-textfield-helper-text--validation-msg': this.validationMsg
       }
     }
   }
