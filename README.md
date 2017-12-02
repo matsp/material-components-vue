@@ -1,5 +1,5 @@
 # material-components-vue
-[![npm](https://img.shields.io/npm/l/material-components-vur.svg)]()
+[![npm](https://img.shields.io/npm/l/material-components-vue.svg)]()
 [![npm](https://img.shields.io/npm/dt/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
 
 
