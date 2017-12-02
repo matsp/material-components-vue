@@ -36,9 +36,9 @@ module.exports = merge(common, {
     })
     // ,new Webpack.optimize.AggressiveSplittingPlugin({
     //  minSize: 30000,
-  //  maxSize: 50000,
-  //  chunkOverhead: 0,
-  //  entryChunkMultiplicator: 1,
-  // }),
+    //  maxSize: 50000,
+    //  chunkOverhead: 0,
+    //  entryChunkMultiplicator: 1,
+    // }),
   ]
 })

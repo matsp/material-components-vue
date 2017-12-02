@@ -103,5 +103,14 @@ module.exports = {
       filename: '[name].[chunkhash].css',
       allChunks: true
     })
-  ]
+  ],
+  stats: {
+    all: false,
+    assets: true,
+    chunkModules: true,
+    chunkOrigins: true,
+    errors: true,
+    errorDetails: true,
+    colors: true
+  }
 }
