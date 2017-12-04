@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss">
 $mdc-theme-primary: #2196f3;
-$mdc-theme-accent: #ff1744;
+$mdc-theme-secondary: #ff1744;
 $mdc-theme-background: #f5f5f5;
 @import '../components/theme.scss';
 @import '~normalize.css/normalize.css';
