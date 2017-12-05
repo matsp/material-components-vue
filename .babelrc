@@ -11,7 +11,8 @@
                         "ie >= 10"
                     ]
                 },
-                "modules": false
+                "modules": false,
+                "useBuiltIns": "entry"
             }
         ],
         ["stage-0"]

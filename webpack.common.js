@@ -12,7 +12,7 @@ const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
-    app: ['babel-polyfill', path.resolve(demo + 'index.js')]
+    app: [path.resolve(demo + 'index.js')]
   },
   module: {
     rules: [
