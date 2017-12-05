@@ -76,6 +76,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
       name: 'app',
       children: true
     }),
@@ -84,10 +88,6 @@ module.exports = {
       minChunks: function (module) {
         return module.context && module.context.indexOf('node_modules') !== -1
       }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(demo + 'index.html'),
