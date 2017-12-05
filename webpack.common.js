@@ -84,6 +84,10 @@ module.exports = {
       children: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
+      name: 'polyfills',
+      children: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module) {
         return module.context && module.context.indexOf('node_modules') !== -1
