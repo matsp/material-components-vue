@@ -12,8 +12,7 @@ const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
-    app: [path.resolve(demo + 'index.js')],
-    polyfills: [path.resolve(demo + 'polyfills.js')]
+    app: [path.resolve(demo + 'index.js')]
   },
   module: {
     rules: [
@@ -76,18 +75,14 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module) {
-        return module.context && module.context.indexOf('node_modules') !== -1
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
       name: 'app',
       children: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'polyfills',
-      children: true
+      name: 'vendor',
+      minChunks: function (module) {
+        return module.context && module.context.indexOf('node_modules') !== -1
+      }
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
