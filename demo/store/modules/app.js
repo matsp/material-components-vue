@@ -48,18 +48,10 @@ const state = {
   }
 }
 
-const getters = {
-  getDrawerListItems (state) {
-    return state.drawerListItems
-  }
-}
+const getters = {}
 
-const mutations = {
+const mutations = {}
 
-}
-
-const actions = {
-
-}
+const actions = {}
 
 export default { state, getters, mutations, actions }

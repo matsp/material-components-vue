@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     listItems () {
-      return this.$store.getters.getDrawerListItems
+      return this.$store.state.app.drawerListItems
     }
   }
 }
