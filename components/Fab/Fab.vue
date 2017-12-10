@@ -18,6 +18,10 @@ export default {
       type: Boolean,
       required: false
     },
+    exited: {
+      type: Boolean,
+      required: false
+    },
     icon: {
       type: String,
       required: true
@@ -36,7 +40,8 @@ export default {
     classes () {
       return {
         'mdc-fab--mini': this.mini,
-        'mdc-fab--absolute-right': this.absoluteRight
+        'mdc-fab--absolute-right': this.absoluteRight,
+        'mdc-fab--exited': this.exited
       }
     }
   },
