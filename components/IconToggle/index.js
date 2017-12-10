@@ -1,5 +1,7 @@
+import IconToggle from './IconToggle.vue'
+
 export default {
   install (vm) {
-    vm.component('m-icon-toggle', () => import('./IconToggle'))
+    vm.component('m-icon-toggle', IconToggle)
   }
 }

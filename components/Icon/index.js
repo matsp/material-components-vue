@@ -1,5 +1,7 @@
+import Icon from './Icon.vue'
+
 export default {
   install (vm) {
-    vm.component('m-icon', () => import('./Icon'))
+    vm.component('m-icon', Icon)
   }
 }

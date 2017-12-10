@@ -1,5 +1,7 @@
+import Slider from './Slider.vue'
+
 export default {
   install (vm) {
-    vm.component('m-slider', () => import('./Slider'))
+    vm.component('m-slider', Slider)
   }
 }

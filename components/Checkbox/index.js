@@ -1,5 +1,7 @@
+import Checkbox from './Checkbox.vue'
+
 export default {
   install (vm) {
-    vm.component('m-checkbox', () => import('./Checkbox'))
+    vm.component('m-checkbox', Checkbox)
   }
 }

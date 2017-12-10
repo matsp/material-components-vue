@@ -1,6 +1,9 @@
+import Tab from './Tab.vue'
+import TabBar from './TabBar.vue'
+
 export default {
   install (vm) {
-    vm.component('m-tab', () => import('./Tab'))
-    vm.component('m-tab-bar', () => import('./TabBar'))
+    vm.component('m-tab', Tab)
+    vm.component('m-tab-bar', TabBar)
   }
 }

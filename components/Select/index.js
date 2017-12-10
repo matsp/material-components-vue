@@ -1,10 +1,17 @@
+import Select from './Select.vue'
+import SelectMulti from './SelectMulti.vue'
+import SelectMultiDivider from './SelectMultiDivider.vue'
+import SelectMultiGroup from './SelectMultiGroup.vue'
+import SelectMultiOption from './SelectMultiOption.vue'
+import SelectOption from './SelectOption.vue'
+
 export default {
   install (vm) {
-    vm.component('m-select', () => import('./Select'))
-    vm.component('m-select-multi', () => import('./SelectMulti'))
-    vm.component('m-select-multi-divider', () => import('./SelectMultiDivider'))
-    vm.component('m-select-multi-group', () => import('./SelectMultiGroup'))
-    vm.component('m-select-multi-option', () => import('./SelectMultiOption'))
-    vm.component('m-select-option', () => import('./SelectOption'))
+    vm.component('m-select', Select)
+    vm.component('m-select-multi', SelectMulti)
+    vm.component('m-select-multi-divider', SelectMultiDivider)
+    vm.component('m-select-multi-group', SelectMultiGroup)
+    vm.component('m-select-multi-option', SelectMultiOption)
+    vm.component('m-select-option', SelectOption)
   }
 }
