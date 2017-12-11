@@ -21,6 +21,7 @@ import Switch from './Switch'
 import Tabs from './Tabs'
 import TemporaryDrawer from './Drawer'
 import Textfield from './Textfield'
+import Theme from './Theme'
 import Toolbar from './Toolbar'
 import Typography from './Typography'
 
@@ -49,6 +50,7 @@ export default {
     vue.use(Tabs)
     vue.use(TemporaryDrawer)
     vue.use(Textfield)
+    vue.use(Theme)
     vue.use(Toolbar)
     vue.use(Typography)
   }
