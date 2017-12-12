@@ -15,7 +15,7 @@ export default {
     computed: {
         classes() {
             return {
-                '--mdc-theme-dark': this.dark
+                'mdc-theme--dark': this.dark
             }
         }
     }
