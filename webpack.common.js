@@ -62,9 +62,6 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.runtime.esm.js',
-      'vuex': 'vuex/dist/vuex.esm.js',
-      'vue-router': 'vue-router/dist/vue-router.esm.js',
       panels: path.resolve(demo + '/panels/'),
       views: path.resolve(demo + '/views/'),
       modules: path.resolve(demo + '/store/modules/'),
