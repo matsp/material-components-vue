@@ -1,5 +1,4 @@
 <template>
-  <m-theme dark>
   <m-typography class="demo-body">
     <!-- toolbar -->
     <m-toolbar ref="toolbar" fixed waterfall>
@@ -33,7 +32,6 @@
       <!-- main -->
     </div>
   </m-typography>
-  </m-theme>
 </template>
 
 <script>
@@ -56,10 +54,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-// $mdc-theme-primary: #2196f3;
-// $mdc-theme-secondary: #ff1744;
-// $mdc-theme-background: #f5f5f5;
 @import '~normalize.css/normalize.css';
 // @import url('https://cdnjs.com/libraries/normalize')
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
