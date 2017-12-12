@@ -19,7 +19,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [demo, components, path.join(nodeModules, '@material')]
+        include: [demo, components, path.join(nodeModules, '@material')],
+        options: {
+          cacheDirectory: true
+        }
       },
       {
         test: /\.vue$/,
