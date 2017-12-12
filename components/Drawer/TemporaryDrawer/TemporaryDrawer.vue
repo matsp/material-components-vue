@@ -9,7 +9,7 @@
                     <slot name="header" />
                 </div>
             </header>
-            <nav class="mdc-temporary-drawer__content mdc-list" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
+            <nav class="mdc-temporary-drawer__content" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
                 <slot />
             </nav>
         </nav>

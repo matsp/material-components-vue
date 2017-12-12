@@ -12,9 +12,12 @@
     <!-- drawer -->
     <m-temporary-drawer ref="drawer" primaryToolbarSpacer @click="toggleDrawer">
       <span slot="toolbarSpacer" />
-      <m-temporary-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon" @click="openRoute(item.route)">
-        {{item.text}}
-      </m-temporary-drawer-item>
+      <m-list>
+        <m-list-item v-for="item in listItems" :key="item.text" @click="openRoute(item.route)">
+          <m-icon slot="graphic" :icon="item.icon"/>
+            {{item.text}}
+        </m-list-item>
+      </m-list>
     </m-temporary-drawer>
     <!-- drawer -->
 
@@ -37,16 +40,15 @@
 <script>
 export default {
   methods: {
-    toggleDrawer () {
+    toggleDrawer() {
       this.$refs.drawer.toggle()
     },
-    openRoute (route) {
+    openRoute(route) {
       this.$router.push(route)
-      this.toggleDrawer()
     }
   },
   computed: {
-    listItems () {
+    listItems() {
       return this.$store.state.app.drawerListItems
     }
   }
@@ -54,10 +56,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~normalize.css/normalize.css';
+@import "~normalize.css/normalize.css";
 // @import url('https://cdnjs.com/libraries/normalize')
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .demo-body {
   display: flex;

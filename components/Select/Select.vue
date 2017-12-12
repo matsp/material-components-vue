@@ -1,11 +1,17 @@
 <template>
-    <div class="mdc-select" :class="classes" tabindex="0" :aria-disabled="disabled" role="listbox" @MDCSelect:change="onChange">
-        <span class="mdc-select__selected-text"></span>
-         <div class="mdc-simple-menu mdc-select__menu">
-             <ul class="mdc-list mdc-simple-menu__items">
-                 <slot />
-             </ul>
-         </div>
+    <div class="mdc-select" tabindex="0" :aria-disabled="disabled" role="listbox" @MDCSelect:change="onChange">
+      <div class="mdc-select__surface" ref="surface">
+        <div class="mdc-select__label">
+          <slot />
+          </div>
+        <div class="mdc-select__selected-text" />
+        <div class="mdc-select__bottom-line" />  
+      </div>
+      <div class="mdc-simple-menu mdc-select__menu">
+        <ul class="mdc-list mdc-simple-menu__items">
+          <slot name="options" />
+        </ul>
+      </div>
     </div>
 </template>
 
@@ -23,26 +29,19 @@ export default {
     prop: 'selected',
     event: 'change'
   },
-  data () {
+  data() {
     return {
       mdcSelect: null
     }
   },
-  mounted () {
-    this.mdcSelect = MDCSelect.attachTo(this.$el)
+  mounted() {
+    this.mdcSelect = MDCSelect.attachTo(this.$refs.surface)
   },
-  destroy () {
+  destroy() {
     this.mdcSelect.destroy()
   },
-  computed: {
-    classes () {
-      return {
-        'mdc-select--disabled': this.disabled
-      }
-    }
-  },
   methods: {
-    onChange (event) {
+    onChange(event) {
       this.$emit('change', this.mdcSelect.value)
     }
   }

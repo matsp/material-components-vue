@@ -42,7 +42,8 @@ data() {
 
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
-| default | - | select content |
+| default | - | select label |
+| items | - | select options |
 
 ## SelectOption
 

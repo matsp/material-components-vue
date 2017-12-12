@@ -5,9 +5,7 @@
                 <slot name="toolbarSpacer" />
             </div>
             <div class="mdc-permanent-drawer__content" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
-                <nav class="mdc-list">
-                    <slot />
-                </nav>
+              <slot />
             </div>
         </nav>
     </aside>

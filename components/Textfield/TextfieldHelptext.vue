@@ -7,10 +7,6 @@
 <script>
 export default {
   props: {
-    text: {
-      type: String,
-      required: true
-    },
     persistent: {
       type: Boolean,
       required: false

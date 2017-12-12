@@ -72,18 +72,18 @@
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | interactive | Boolean | - | false | ripple effect |
+| activated | Boolean | - | false | actived item |
+| selected | Boolean | - | false | selected item |
 
 ### Slots
 
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
 | default | - | list item content |
-| startDetail | - | start detail of content e.g. an icon |
-| primaryText | - | first row of content when twoline list |
+| graphic | - | first tile |
+| text | - | first row of content when twoline list |
 | secondaryText | - | second row of content when twoline list |
-| endDetail | - | end detail of content e.g. an icon |
-
-
+| meta | - | end tile |
 
 ### Reference
 

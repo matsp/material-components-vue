@@ -5,10 +5,12 @@
 ```html
 <m-persistent-drawer ref="drawer" primaryToolbarSpacer>
   <span slot="toolbarSpacer" />
-  <m-persistent-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon">
-    {{item.text}}
-  </m-persistent-drawer-item>
-  <m-drawer-item-divider />
+  <m-list>
+    <m-list-item v-for="item in listItems" :key="item.text">
+      <m-icon slot="graphic">{{item.icon}}</m-icon>
+      {{item.text}}
+    </m-list-item>
+  </m-list>
 </m-persistent-drawer>
 ```
 ### Script
@@ -40,22 +42,6 @@ Non prop events are mapped to the inner button element.
 | toolbarSpacer | primaryToolbarSpacer | adds space with the same size as the toolbar on top of the drawer |
 | header | primaryHeader | header section of the drawer |
 
-## PersistentDrawerItem
-
-### Props
-
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| selected | Boolean | - | false | visual select of item |
-| startIcon | String | - | false | start icon name |
-| endIcon | String | - |  false | end icon name |
-| interactive | Boolean | - | false | item with ripple effect |
-
-### Slots
-
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | item content |
 
 ### Reference
 

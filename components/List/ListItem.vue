@@ -1,18 +1,14 @@
 <template>
     <li class="mdc-list-item" v-on="$listeners">
-        <div class="mdc-list-item__start-detail" v-if="$slots['startDetail']">
-            <slot name="startDetail" />
-        </div>
+      <slot name="graphic" v-if="$slots['graphic']"/>
         <slot />
-        <span class="mdc-list-item__text" v-if="$slots['primaryText']">
-            <slot name="primaryText" />
-            <div class="mdc-list-item__text__secondary" v-if="$slots['secondaryText']">
+        <span class="mdc-list-item__text" v-if="$slots['text']">
+            <slot name="text" />
+            <div class="mdc-list-mdc-list-item__secondary-text" v-if="$slots['secondaryText']">
                 <slot name="secondaryText" />
             </div>
         </span>
-        <div class="mdc-list-item__end-detail" v-if="$slots['endDetail']">
-            <slot name="endDetail" />
-        </div>
+        <slot name="meta" v-if="$slots['meta']"/>
     </li>
 </template>
 
@@ -24,18 +20,45 @@ export default {
     interactive: {
       type: Boolean,
       required: false
+    },
+    activated: {
+      type: Boolean,
+      required: false
+    },
+    selected: {
+      type: Boolean,
+      required: false
     }
   },
-  data () {
+  data() {
     return {
       mdcRipple: null
     }
   },
-  mounted () {
+  mounted() {
     if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
+
+    if (this.$slots.graphic) {
+      this.$slots.graphic.map(n => {
+        n.elm.classList.add('mdc-list-item__graphic')
+      })
+    }
+    if (this.$slots.meta) {
+      this.$slots.meta.map(n => {
+        n.elm.classList.add('mdc-list-item__meta')
+      })
+    }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.interactive) { this.mdcRipple.destroy() }
+  },
+  computed: {
+    classes() {
+      return {
+        'mdc-list-item--activated': this.activated,
+        'mdc-list-item--selected': this.selected
+      }
+    }
   }
 }
 </script>

@@ -10,7 +10,7 @@
         </m-layout-grid-cell>
         <m-layout-grid-cell v-for="n in 24" :key="n">
             <m-elevation :level="n" class="surface">
-                <m-typo-body>Level {{n}}</m-typo-body>
+                <m-typo-body :level="1">Level {{n}}</m-typo-body>
             </m-elevation>
         </m-layout-grid-cell>
     </m-layout-grid-inner>

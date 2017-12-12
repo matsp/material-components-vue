@@ -14,7 +14,7 @@
             </m-textfield>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="2">
-            <m-textfield bottomLine required minlength=8 aria-controls="pw-validation">
+            <m-textfield v-model="pw" type="password" bottomLine required minlength=8 aria-controls="pw-validation">
                 Password
             </m-textfield>
             <m-textfield-helptext id="pw-validation">
@@ -52,7 +52,8 @@
 export default {
   data () {
     return {
-      text: ''
+      text: '',
+      pw: ''
     }
   }
 }
