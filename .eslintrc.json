@@ -8,12 +8,6 @@
         "standard",
         "plugin:vue/recommended"
     ],
-    "plugins": [
-        "json",
-        "markdown",
-        "html",
-        "babel"
-    ],
     "env": {
         "browser": true,
         "node": true,
