@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div :class="classes" :style="styles">
       <slot />
   </div>   
 </template>
@@ -10,6 +10,10 @@ export default {
         dark: {
             type: Boolean,
             required: false
+        },
+        customStyles: {
+            type: Object,
+            required: false
         }
     },
     computed: {
@@ -18,6 +22,9 @@ export default {
                 'mdc-theme--dark': this.dark
             }
         }
+    },
+    styles() {
+      return this.customStyles
     }
 }
 </script>
