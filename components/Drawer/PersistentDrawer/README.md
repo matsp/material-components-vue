@@ -7,7 +7,7 @@
   <span slot="toolbarSpacer" />
   <m-list>
     <m-list-item v-for="item in listItems" :key="item.text">
-      <m-icon slot="graphic">{{item.icon}}</m-icon>
+      <m-icon slot="graphic" :icon="item.icon" />
       {{item.text}}
     </m-list-item>
   </m-list>
