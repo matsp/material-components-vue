@@ -5,10 +5,12 @@
 ```html
 <m-permanent-drawer primaryToolbarSpacer>
   <span slot="toolbarSpacer" />
-  <m-permanent-drawer-item v-for="item in listItems" :key="item.text" :startIcon="item.icon">
-    {{item.text}}
-  </m-permanent-drawer-item>
-  <m-drawer-item-divider />
+  <m-list>
+    <m-list-item v-for="item in listItems" :key="item.text">
+      <m-icon slot="graphic" :icon="item.icon" />
+      {{item.text}}
+    </m-list-item>
+  </m-list>
 </m-permanent-drawer>
 ```
 
@@ -25,23 +27,6 @@
 |------|-------------------|-------------|
 | default | - | content section of the drawer |
 | toolbarSpacer | primaryToolbarSpacer | adds space with the same size as the toolbar on top of the drawer |
-
-## PermanentDrawerItem
-
-### Props
-
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| selected | Boolean | - | false | visual select of item |
-| startIcon | String | - | false | start icon name |
-| endIcon | String | - |  false | end icon name |
-| interactive | Boolean | - | false | item with ripple effect |
-
-### Slots
-
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | item content |
 
 ### Reference
 
