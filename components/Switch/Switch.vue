@@ -34,7 +34,7 @@ export default {
         return this.checked
       },
       set (state) {
-        this.$emit('changed', state)
+        this.$emit('change', state)
       }
     }
   }
