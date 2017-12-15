@@ -1,4 +1,7 @@
+import * as types from './mutation-types'
+
 const state = {
+  darkTheme: false,
   drawerListItems: {
     button: {
       text: 'Button',
@@ -50,8 +53,16 @@ const state = {
 
 const getters = {}
 
-const mutations = {}
+const mutations = {
+  TOGGLE_DARKTHEME(state) {
+    state.darkTheme ? state.darkTheme = false : state.darkTheme = true
+  }
+}
 
-const actions = {}
+const actions = {
+  toggleDarkTheme(context) {
+    context.commit(types.TOGGLE_DARKTHEME)
+  }
+}
 
 export default { state, getters, mutations, actions }
