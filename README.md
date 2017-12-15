@@ -1,4 +1,4 @@
-# material-components-vue
+# Material components for Vue.js
 [![npm](https://img.shields.io/npm/l/material-components-vue.svg)]()
 [![npm](https://img.shields.io/npm/dt/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
 
