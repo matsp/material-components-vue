@@ -60,7 +60,7 @@ Vue.use(Card)
 $mdc-theme-primary: #2196f3;
 $mdc-theme-accent: #ff1744;
 $mdc-theme-background: #f5f5f5;
-@import '~material-components-vue/components/theme.scss';
+@import '~material-components-vue/components/Theme/theme.scss';
 @import url('https://cdnjs.com/libraries/normalize');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
