@@ -55,7 +55,7 @@ Vue.use(Button)
 Vue.use(Card)
 ```
 
-#### customize/import theme & material-icons & roboto font
+#### SASS theming
 ```scss
 $mdc-theme-primary: #2196f3;
 $mdc-theme-accent: #ff1744;
@@ -64,4 +64,29 @@ $mdc-theme-background: #f5f5f5;
 @import url('https://cdnjs.com/libraries/normalize');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+```
+
+#### CSS custom properties theming
+```html
+<m-theme :customStyle="material">
+  themed content
+</m-theme>
+```
+
+```javascript
+data() {
+    return {
+        material: {
+            '--mdc-theme-primary-light': '#9162e4',
+            '--mdc-theme-primary':  '#5e35b1',
+            '--mdc-theme-primary-dark': '#280680',
+            '--mdc-theme-secondary': '#ff5722',
+            '--mdc-theme-secondary-light': '#ff8a50',
+            '--mdc-theme-secondary-dark': '#c41c00',
+            '--mdc-theme-background': '#ffffff',
+            '--mdc-theme-text-primary-on-primary': '#ffffff',
+            '--mdc-theme-text-secondary-on-secondary': '#000000'
+        }
+    }
+}
 ```
