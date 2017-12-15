@@ -1,8 +1,7 @@
 <template>
   <m-theme 
-    class="demo-body"
     :dark="darkTheme">
-    <m-typography >
+    <m-typography class="demo-body">
 
       <m-toolbar ref="toolbar" fixed waterfall>
         <m-toolbar-row shrinkCenter>
@@ -94,13 +93,6 @@ $mdc-theme-background: #ffffff;
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-html {
-  margin: 0;
-  height: 100%;
-  min-height: 100%;
-}
-
-
 .demo-body {
   display: flex;
   flex-direction: row;
@@ -127,5 +119,6 @@ html {
 
 .mdc-theme--dark {
   background-color: #303030;
+  color: #ffffff;
 }
 </style>
