@@ -56,7 +56,6 @@ export default {
         '--mdc-theme-background': '#ffffff',
         '--mdc-theme-text-primary-on-primary': '#ffffff',
         '--mdc-theme-text-secondary-on-secondary': '#000000'
-
       }
     }
   },
