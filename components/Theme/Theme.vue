@@ -1,6 +1,8 @@
 <template>
-  <div :class="classes" :style="styles">
-      <slot />
+  <div 
+    :class="classes" 
+    :style="customStyles">
+    <slot />
   </div>   
 </template>
 
@@ -23,14 +25,5 @@ export default {
             }
         }
     },
-    styles() {
-      return this.customStyles
-    }
 }
 </script>
-
-
-<style lang="scss">
-@import "./theme.scss";
-</style>
-
