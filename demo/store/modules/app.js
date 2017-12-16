@@ -43,6 +43,11 @@ const state = {
       route: '/iconToggle',
       icon: 'code'
     },
+    linearProgress: {
+      text: 'LinearProgress',
+      route: '/linearProgress',
+      icon: 'code'
+    },
     textfield: {
       text: 'Textfield',
       route: '/textfield',

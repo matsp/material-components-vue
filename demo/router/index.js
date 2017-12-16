@@ -38,6 +38,10 @@ export default new VueRouter({
       component: () => import('views/IconToggleView')
     },
     {
+      path: '/linearProgress',
+      component: () => import('views/LinearProgressView')
+    },
+    {
       path: '/textfield',
       component: () => import('views/TextfieldView')
     }
