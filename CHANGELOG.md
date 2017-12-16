@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/matsp/material-components-vue/compare/v0.3.0...v0.4.0) (2017-12-16)
+
+
+### Features
+
+* **demos:** Added demo for linear progress component ([584fba5](https://github.com/matsp/material-components-vue/commit/584fba5))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/matsp/material-components-vue/compare/v0.2.0...v0.3.0) (2017-12-15)
 
