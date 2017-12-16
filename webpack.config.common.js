@@ -73,7 +73,7 @@ module.exports = {
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['public']),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'app',
       children: true

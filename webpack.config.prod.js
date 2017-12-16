@@ -4,13 +4,13 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const merge = require('webpack-merge')
-const common = require('./webpack.common.js')
+const common = require('./webpack.config.common.js')
 
-const dist = path.resolve('./dist')
+const output = path.resolve('./public')
 
 module.exports = merge(common, {
   output: {
-    path: dist,
+    path: output,
     filename: '[name].[chunkhash].js',
     chunkFilename: 'chunk.[chunkhash].js'
   },
@@ -34,11 +34,5 @@ module.exports = merge(common, {
       cache: true,
       parallel: false
     })
-    // ,new Webpack.optimize.AggressiveSplittingPlugin({
-    //  minSize: 30000,
-    //  maxSize: 50000,
-    //  chunkOverhead: 0,
-    //  entryChunkMultiplicator: 1,
-    // }),
   ]
 })

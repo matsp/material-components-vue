@@ -9,12 +9,16 @@
     "url": "https://github.com/matsp/material-components-vue.git"
   },
   "homepage": "https://matsp.github.io/material-components-vue",
-  "main": "components/index.js",
+  "style": "dist/material-component-vue.css",
+  "main": "dist/material-component-vue.js",
   "module": "components/index.js",
+  "unpkg": "dist/material-components-vue.min.js",
   "scripts": {
     "lint": "eslint --ext js, vue --fix ./",
-    "build:prod": "webpack -p --config webpack.config.prod.js",
-    "build:dev": "webpack -d --config webpack.config.dev.js",
+    "build:dev": "webpack --config webpack.config.dev.js",
+    "build:prod": "webpack --config webpack.config.prod.js",
+    "build:lib": "webpack --config webpack.config.lib.js",
+    "build:es5": "webpack --config webpack.config.lib.es5.js",
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js",
     "release": "standard-version"
   },

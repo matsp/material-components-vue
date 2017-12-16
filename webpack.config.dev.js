@@ -2,13 +2,13 @@ const path = require('path')
 const webpack = require('webpack')
 
 const merge = require('webpack-merge')
-const common = require('./webpack.common.js')
+const common = require('./webpack.config.common.js')
 
-const dist = path.resolve('./dist')
+const output = path.resolve('./public')
 
 module.exports = merge(common, {
   output: {
-    path: dist,
+    path: output,
     filename: '[name].js',
     chunkFilename: 'chunk.[name].js'
   },

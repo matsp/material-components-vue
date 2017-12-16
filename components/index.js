@@ -25,7 +25,7 @@ import Theme from './Theme'
 import Toolbar from './Toolbar'
 import Typography from './Typography'
 
-export default {
+const plugin = {
   install (vue) {
     vue.use(Button)
     vue.use(Card)
@@ -54,4 +54,10 @@ export default {
     vue.use(Toolbar)
     vue.use(Typography)
   }
+}
+
+export default plugin
+
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(plugin)
 }

@@ -34,10 +34,28 @@ npm install --save material-components-vue
 yarn add material-components-vue
 ```
 
-### usage
+## usage
 
 You have to set up your own build workflow with webpack (see demo) or something else
 to compile the components.
+
+### cdn
+
+```html
+<head>
+  <link rel="stylesheet" href="https://cdnjs.com/libraries/normalize">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/material-components-vue"></script>
+</head>
+<body>
+  <m-button raised> Example </button>
+<body>
+```
+
+### bundler
 
 #### import all components
 ```javascript
