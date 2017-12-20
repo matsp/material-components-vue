@@ -6,8 +6,8 @@
     },
     "extends": [
         "standard",
-        "plugin:vue/recommended",
-        "prettier"
+        "prettier",
+        "plugin:vue/recommended"
     ],
     "plugins": [
         "prettier",
@@ -15,8 +15,7 @@
         "json"
     ],
     "rules": {
-        "prettier/prettier": "error"
-      },
+    },
     "env": {
         "browser": true,
         "node": true,
