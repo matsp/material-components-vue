@@ -26,7 +26,7 @@
     "babel-polyfill": "^6.26.0",
     "material-components-web": "^0.27.0",
     "normalize.css": "^7.0.0",
-    "vue": "^2.5.11",
+    "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
@@ -50,7 +50,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.0.0-beta.2",
     "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.5",
+    "file-loader": "^1.1.6",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
@@ -61,8 +61,8 @@
     "standard-version": "^4.2.0",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.4",
-    "vue-loader": "^13.5.1",
-    "vue-template-compiler": "^2.5.11",
+    "vue-loader": "^13.6.0",
+    "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
     "webpack-merge": "^4.1.1"
