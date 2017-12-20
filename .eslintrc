@@ -6,12 +6,17 @@
     },
     "extends": [
         "standard",
-        "plugin:vue/recommended"
+        "plugin:vue/recommended",
+        "prettier"
     ],
     "plugins": [
+        "prettier",
         "html",
         "json"
     ],
+    "rules": {
+        "prettier/prettier": "error"
+      },
     "env": {
         "browser": true,
         "node": true,
