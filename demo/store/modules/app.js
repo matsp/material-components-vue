@@ -60,7 +60,7 @@ const getters = {}
 
 const mutations = {
   TOGGLE_DARKTHEME (state) {
-    state.darkTheme ? state.darkTheme = false : state.darkTheme = true
+    state.darkTheme ? (state.darkTheme = false) : (state.darkTheme = true)
   }
 }
 

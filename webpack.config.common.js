@@ -32,15 +32,16 @@ module.exports = {
           loaders: {
             scss: ExtractTextPlugin.extract({
               fallback: 'style-loader',
-              use: [{
-                loader: 'css-loader'
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  includePaths: [demo, components, nodeModules]
+              use: [
+                {
+                  loader: 'css-loader'
+                },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    includePaths: [demo, components, nodeModules]
+                  }
                 }
-              }
               ]
             })
           }
