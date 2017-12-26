@@ -46,10 +46,10 @@ export default {
   },
   watch: {
     progress () {
-      this.mdcLinearProgress.progress(this.progress)
+      this.mdcLinearProgress.progress = this.progress
     },
     buffer () {
-      this.mdcLinearProgress.buffer(this.buffer)
+      this.mdcLinearProgress.buffer = this.buffer
     },
     indeterminate () {
       this.mdcLinearProgress.determinate = !this.indeterminate
