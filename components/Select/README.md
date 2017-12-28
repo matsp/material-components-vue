@@ -4,8 +4,8 @@
 
 ```html
 <m-select v-model="selected">
-    <m-select-option id="11">A</m-select-option>
-    <m-select-option id="33">B</m-select-option>
+    <m-select-option slot="options" id="11">A</m-select-option>
+    <m-select-option slot="options" id="33">B</m-select-option>
 </m-select>
 
 <m-select-multi v-model="selectedMulti" :size="4">

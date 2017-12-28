@@ -1,11 +1,11 @@
 <template>
-    <div class="mdc-select" tabindex="0" :aria-disabled="disabled" role="listbox" @MDCSelect:change="onChange">
-      <div class="mdc-select__surface" ref="surface">
+    <div class="mdc-select" ref="surface" tabindex="0" :aria-disabled="disabled" role="listbox" @MDCSelect:change="onChange">
+      <div class="mdc-select__surface" tabindex="0">
         <div class="mdc-select__label">
           <slot />
           </div>
         <div class="mdc-select__selected-text" />
-        <div class="mdc-select__bottom-line" />  
+        <div class="mdc-select__bottom-line" />
       </div>
       <div class="mdc-simple-menu mdc-select__menu">
         <ul class="mdc-list mdc-simple-menu__items">
