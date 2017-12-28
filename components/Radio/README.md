@@ -20,7 +20,7 @@ data() {
 |------|------|---------|----------|-------------|
 | disabled | Boolean | - | false | disabled radio |
 
-Non prop attributes are mapped to the inner input element.|
+Non prop attributes are mapped to the inner input element.
 
 ### Reference
 
