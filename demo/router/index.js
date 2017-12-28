@@ -42,6 +42,10 @@ export default new VueRouter({
       component: () => import('views/LinearProgressView')
     },
     {
+      path: '/radio',
+      component: () => import('views/RadioView')
+    },
+    {
       path: '/textfield',
       component: () => import('views/TextfieldView')
     }

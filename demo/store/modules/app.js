@@ -48,6 +48,11 @@ const state = {
       route: '/linearProgress',
       icon: 'code'
     },
+    radio: {
+      text: 'Radio',
+      route: '/radio',
+      icon: 'code'
+    },
     textfield: {
       text: 'Textfield',
       route: '/textfield',
