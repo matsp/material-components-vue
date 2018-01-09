@@ -1,10 +1,10 @@
 <template>
-    <div class="mdc-snackbar" :class="classes">
-        <div class="mdc-snackbar__text" />
-        <div class="mdc-snackbar__action-wrapper">
-            <button type="button" class="mdc-button mdc-snackbar__action-button" />
-        </div>
+  <div class="mdc-snackbar" :class="classes">
+    <div class="mdc-snackbar__text" />
+    <div class="mdc-snackbar__action-wrapper">
+      <button type="button" class="mdc-button mdc-snackbar__action-button" />
     </div>
+  </div>
 </template>
 
 <script>

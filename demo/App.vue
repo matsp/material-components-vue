@@ -1,25 +1,25 @@
 <template>
-  <m-theme 
-    :dark="darkTheme">
+  <m-theme
+  :dark="darkTheme">
     <m-typography class="demo-body">
 
       <m-toolbar ref="toolbar" fixed waterfall>
-        <m-toolbar-row shrinkCenter>
-          <m-toolbar-icon slot="start" icon="menu" menuIcon @click="toggleDrawer" />
+        <m-toolbar-row shrink-center>
+          <m-toolbar-icon slot="start" icon="menu" menu-icon @click="toggleDrawer" />
           Demo
-          <m-form-field alignEnd slot="end" class="demo-toolbar-row-right">
+          <m-form-field align-end slot="end" class="demo-toolbar-row-right">
             <m-switch @change="toggleDarkTheme()"/>
             <label>Dark theme</label>
           </m-form-field>
         </m-toolbar-row>
       </m-toolbar>
 
-      <m-temporary-drawer ref="drawer" primaryToolbarSpacer @click="toggleDrawer">
+      <m-temporary-drawer ref="drawer" primary-toolbar-spacer @click="toggleDrawer">
         <span slot="toolbarSpacer" />
         <m-list>
           <m-list-item v-for="item in listItems" :key="item.text" @click="openRoute(item.route)">
-            <m-icon 
-              slot="graphic" 
+            <m-icon
+              slot="graphic"
               :icon="item.icon"/>
             {{ item.text }}
           </m-list-item>
@@ -44,10 +44,10 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       material: {
-        '--mdc-theme-primary':  '#5e35b1',
+        '--mdc-theme-primary': '#5e35b1',
         '--mdc-theme-primary-light': '#9162e4',
         '--mdc-theme-primary-dark': '#280680',
         '--mdc-theme-secondary': '#ff5722',
@@ -60,25 +60,25 @@ export default {
     }
   },
   methods: {
-    toggleDrawer() {
+    toggleDrawer () {
       this.$refs.drawer.toggle()
     },
-    openRoute(route) {
+    openRoute (route) {
       this.$router.push(route)
     },
-    toggleDarkTheme() {
+    toggleDarkTheme () {
       this.$store.dispatch('toggleDarkTheme')
     }
   },
   computed: {
-    listItems() {
+    listItems () {
       return this.$store.state.app.drawerListItems
     },
-    darkTheme() {
+    darkTheme () {
       return this.$store.state.app.darkTheme
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

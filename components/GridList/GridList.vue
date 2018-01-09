@@ -1,9 +1,9 @@
 <template>
-    <div class="mdc-grid-list" :class="classes">
-        <ul class="mdc-grid-list__tiles">
-            <slot />
-        </ul>
-    </div>
+  <div class="mdc-grid-list" :class="classes">
+    <ul class="mdc-grid-list__tiles">
+      <slot />
+    </ul>
+  </div>
 </template>
 
 <script>

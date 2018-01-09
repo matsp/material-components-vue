@@ -1,10 +1,10 @@
 <template>
-    <div class="mdc-switch" :class="classes">
-        <input v-model="model" type="checkbox" class="mdc-switch__native-control" :disabled="disabled" />
-        <div class="mdc-switch__background">
-            <div class="mdc-switch__knob"></div>
-        </div>
+  <div class="mdc-switch" :class="classes">
+    <input v-model="model" type="checkbox" class="mdc-switch__native-control" :disabled="disabled" >
+    <div class="mdc-switch__background">
+      <div class="mdc-switch__knob"/>
     </div>
+  </div>
 </template>
 
 <script>

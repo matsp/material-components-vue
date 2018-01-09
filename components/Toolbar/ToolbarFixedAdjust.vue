@@ -1,7 +1,7 @@
 <template>
-    <div class="mdc-toolbar-fixed-adjust">
-        <slot />
-    </div>
+  <div class="mdc-toolbar-fixed-adjust">
+    <slot />
+  </div>
 </template>
 
 <style lang="scss">

@@ -1,8 +1,8 @@
 <template>
-    <i @click="onClick" class="mdc-icon-toggle material-icons" :class="classes"
-      role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" >
-        {{value?iconOn:iconOff}}
-    </i>
+  <i @click="onClick" class="mdc-icon-toggle material-icons" :class="classes"
+     role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" >
+    {{ value?iconOn:iconOff }}
+  </i>
 </template>
 
 <script>

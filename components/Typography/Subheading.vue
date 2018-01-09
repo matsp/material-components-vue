@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <h3 v-if="level < 2" :class="classes">
-            <slot />
-        </h3>
-        <h4 v-else :class="classes">
-            <slot />
-        </h4>
-    </div>
+  <div>
+    <h3 v-if="level < 2" :class="classes">
+      <slot />
+    </h3>
+    <h4 v-else :class="classes">
+      <slot />
+    </h4>
+  </div>
 </template>
 
 <script>

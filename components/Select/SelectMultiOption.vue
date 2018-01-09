@@ -1,7 +1,7 @@
 <template>
-    <option class="mdc-list-item" :value="id" :disabled="disabled">
-        <slot />
-    </option>
+  <option class="mdc-list-item" :value="id" :disabled="disabled">
+    <slot />
+  </option>
 </template>
 
 <script>

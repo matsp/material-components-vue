@@ -1,7 +1,7 @@
 <template>
-    <h2 class="mdc-typography--title" :class="classes">
-        <slot />
-    </h2>
+  <h2 class="mdc-typography--title" :class="classes">
+    <slot />
+  </h2>
 </template>
 
 <script>

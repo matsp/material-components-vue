@@ -1,13 +1,13 @@
 <template>
-    <div class="mdc-text-field" :class="classes">
-        <i v-if="leadingIcon" class="material-icons mdc-text-field__icon">{{leadingIcon}}</i>
-        <input class="mdc-text-field__input" :value="value" @input="onInput" v-bind="$attrs" />
-        <label class="mdc-text-field__label" :class="classesLabel" v-if="$slots['default'] && !fullWidth">
-          <slot />
-        </label>
-        <i v-if="trailingIcon" class="material-icons mdc-text-field__icon">{{trailingIcon}}</i>
-        <div v-if="bottomLine" class="mdc-text-field__bottom-line"></div>
-    </div>
+  <div class="mdc-text-field" :class="classes">
+    <i v-if="leadingIcon" class="material-icons mdc-text-field__icon">{{ leadingIcon }}</i>
+    <input class="mdc-text-field__input" :value="value" @input="onInput" v-bind="$attrs" >
+    <label class="mdc-text-field__label" :class="classesLabel" v-if="$slots['default'] && !fullWidth">
+      <slot />
+    </label>
+    <i v-if="trailingIcon" class="material-icons mdc-text-field__icon">{{ trailingIcon }}</i>
+    <div v-if="bottomLine" class="mdc-text-field__bottom-line"/>
+  </div>
 </template>
 
 <script>

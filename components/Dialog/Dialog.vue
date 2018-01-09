@@ -1,20 +1,20 @@
 <template>
-    <aside class="mdc-dialog" role="alertdialog" @MDCDialog:accept="onAccept" @MDCDialog:cancel="onCancel">
-        <div class="mdc-dialog__surface">
-            <header class="mdc-dialog__header" v-if="$slots['header']">
-                <slot name="header" />
-            </header>
-            <section class="mdc-dialog__body" :class="bodyClasses" v-if="$slots['body']">
-                <slot name="body" />
-            </section>
-            <footer class="mdc-dialog__footer" v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']">
-                <slot name="acceptButton" />
-                <slot name="cancelButton" />
-                <slot name="dialogButton" />
-            </footer>
-        </div>
-        <div class="mdc-dialog__backdrop"></div>
-    </aside>
+  <aside class="mdc-dialog" role="alertdialog" @MDCDialog:accept="onAccept" @MDCDialog:cancel="onCancel">
+    <div class="mdc-dialog__surface">
+      <header class="mdc-dialog__header" v-if="$slots['header']">
+        <slot name="header" />
+      </header>
+      <section class="mdc-dialog__body" :class="bodyClasses" v-if="$slots['body']">
+        <slot name="body" />
+      </section>
+      <footer class="mdc-dialog__footer" v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']">
+        <slot name="acceptButton" />
+        <slot name="cancelButton" />
+        <slot name="dialogButton" />
+      </footer>
+    </div>
+    <div class="mdc-dialog__backdrop"/>
+  </aside>
 </template>
 
 <script>

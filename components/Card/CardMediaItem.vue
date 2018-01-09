@@ -1,5 +1,5 @@
 <template>
-    <img class="mdc-card__media-item" :class="classes" />
+  <img class="mdc-card__media-item" :class="classes" >
 </template>
 
 <script>

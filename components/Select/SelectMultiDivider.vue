@@ -1,5 +1,5 @@
 <template>
-    <option class="mdc-list-divider" role="presentation" disabled />
+  <option class="mdc-list-divider" role="presentation" disabled />
 </template>
 
 <style lang="scss">

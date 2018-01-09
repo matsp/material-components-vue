@@ -1,7 +1,7 @@
 <template>
-    <div class="mdc-menu-anchor">
-        <slot />
-    </div>
+  <div class="mdc-menu-anchor">
+    <slot />
+  </div>
 </template>
 
 <style lang="scss">

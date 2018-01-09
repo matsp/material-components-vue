@@ -1,7 +1,7 @@
 <template>
-    <span class="mdc-typography--button" :class="classes">
-        <slot />
-    </span>
+  <span class="mdc-typography--button" :class="classes">
+    <slot />
+  </span>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-    <li class="mdc-list-item" role="option" :aria-selected="selected" :aria-disabled="disabled" :tabindex="disabled?-1:0">
-        <slot />
-    </li>
+  <li class="mdc-list-item" role="option" :aria-selected="selected" :aria-disabled="disabled" :tabindex="disabled?-1:0">
+    <slot />
+  </li>
 </template>
 
 <script>

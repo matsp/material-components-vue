@@ -1,7 +1,7 @@
 <template>
-    <optgroup class="mdc-list-group" :label="label">
-        <slot />
-    </optgroup>
+  <optgroup class="mdc-list-group" :label="label">
+    <slot />
+  </optgroup>
 </template>
 
 <script>

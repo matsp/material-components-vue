@@ -1,10 +1,10 @@
 <template>
-    <div class="mdc-text-field mdc-text-field--textarea" :class="classes">
-        <textarea class="mdc-text-field__input" :value="value" @input="onInput" v-bind="$attrs"/>
-        <label class="mdc-text-field__label" :class="classesLabel" v-if="$slots['default']">
-          <slot />
-        </label>
-    </div>
+  <div class="mdc-text-field mdc-text-field--textarea" :class="classes">
+    <textarea class="mdc-text-field__input" :value="value" @input="onInput" v-bind="$attrs"/>
+    <label class="mdc-text-field__label" :class="classesLabel" v-if="$slots['default']">
+      <slot />
+    </label>
+  </div>
 </template>
 
 <script>

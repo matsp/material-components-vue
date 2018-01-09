@@ -1,19 +1,19 @@
 <template>
-    <aside class="mdc-persistent-drawer" v-on="$listeners">
-        <nav class="mdc-persistent-drawer__drawer">
-            <div class="mdc-temporary-drawer__toolbar-spacer" :class="primaryClasses(primaryToolbarSpacer)" v-if="$slots['toolbarSpacer']">
-                <slot name="toolbarSpacer" />
-            </div>
-            <header class="mdc-persistent-drawer__header" :class="primaryClasses(primaryHeader)" v-if="$slots['header']">
-                <div class="mdc-persistent-drawer__header-content">
-                    <slot name="header" />
-                </div>
-            </header>
-            <nav class="mdc-persistent-drawer__content" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
-                <slot />
-            </nav>
-        </nav>
-    </aside>
+  <aside class="mdc-persistent-drawer" v-on="$listeners">
+    <nav class="mdc-persistent-drawer__drawer">
+      <div class="mdc-temporary-drawer__toolbar-spacer" :class="primaryClasses(primaryToolbarSpacer)" v-if="$slots['toolbarSpacer']">
+        <slot name="toolbarSpacer" />
+      </div>
+      <header class="mdc-persistent-drawer__header" :class="primaryClasses(primaryHeader)" v-if="$slots['header']">
+        <div class="mdc-persistent-drawer__header-content">
+          <slot name="header" />
+        </div>
+      </header>
+      <nav class="mdc-persistent-drawer__content" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
+        <slot />
+      </nav>
+    </nav>
+  </aside>
 </template>
 
 <script>

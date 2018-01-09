@@ -1,9 +1,9 @@
 <template>
-    <button class="mdc-fab material-icons" :class="classes" v-on="$listeners">
-        <span class="mdc-fab__icon">
-            {{icon}}
-        </span>
-    </button>
+  <button class="mdc-fab material-icons" :class="classes" v-on="$listeners">
+    <span class="mdc-fab__icon">
+      {{ icon }}
+    </span>
+  </button>
 </template>
 
 <script>

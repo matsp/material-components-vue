@@ -1,14 +1,14 @@
 <template>
-    <aside>
-        <nav class="mdc-permanent-drawer">
-            <div class="mdc-permanent-drawer__toolbar-spacer" :class="primaryClasses(primaryToolbarSpacer)" v-if="$slots['toolbarSpacer']">
-                <slot name="toolbarSpacer" />
-            </div>
-            <div class="mdc-permanent-drawer__content" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
-              <slot />
-            </div>
-        </nav>
-    </aside>
+  <aside>
+    <nav class="mdc-permanent-drawer">
+      <div class="mdc-permanent-drawer__toolbar-spacer" :class="primaryClasses(primaryToolbarSpacer)" v-if="$slots['toolbarSpacer']">
+        <slot name="toolbarSpacer" />
+      </div>
+      <div class="mdc-permanent-drawer__content" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
+        <slot />
+      </div>
+    </nav>
+  </aside>
 </template>
 
 <script>

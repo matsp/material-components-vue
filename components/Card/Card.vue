@@ -1,17 +1,17 @@
 <template>
   <div class="mdc-card">
     <div class="mdc-card__horizontal-block" v-if="horizontal && ($slots['horizontalMedia'] || $slots['horizontalTitle'] || $slots['horizontalSubtitle'])">
-        <section class="mdc-card__primary" >
-          <section class="mdc-card__media" v-if="$slots['horizontalMedia']">
-            <slot name="horizontalMedia" />
-          </section>
-          <div class="mdc-card__title" :class="classesTitle" v-if="$slots['horizontalTitle']">
-            <slot name="horizontalTitle" />
-          </div>
-          <div class="mdc-card__subtitle" v-if="$slots['horizontalSubtitle']">
-            <slot name="horizontalSubtitle" />
-          </div>
+      <section class="mdc-card__primary" >
+        <section class="mdc-card__media" v-if="$slots['horizontalMedia']">
+          <slot name="horizontalMedia" />
         </section>
+        <div class="mdc-card__title" :class="classesTitle" v-if="$slots['horizontalTitle']">
+          <slot name="horizontalTitle" />
+        </div>
+        <div class="mdc-card__subtitle" v-if="$slots['horizontalSubtitle']">
+          <slot name="horizontalSubtitle" />
+        </div>
+      </section>
     </div>
     <section class="mdc-card__primary" v-else-if="!horizontal && ($slots['media'] || $slots['title'] || $slots['subtitle'])">
       <section class="mdc-card__media" v-if="$slots['media']">

@@ -1,12 +1,12 @@
 <template>
-    <a v-if="href" role="button" class="mdc-button" :href="href" v-bind="$attrs" v-on="$listeners">
-        <a v-if="icon" class="material-icons mdc-button__icon">{{icon}}</a>
-        <slot />
-    </a>
-    <button v-else class="mdc-button" :class="classes" v-bind="$attrs" v-on="$listeners">
-        <a v-if="icon" class="material-icons mdc-button__icon">{{icon}}</a>
-        <slot />
-    </button>
+  <a v-if="href" role="button" class="mdc-button" :href="href" v-bind="$attrs" v-on="$listeners">
+    <a v-if="icon" class="material-icons mdc-button__icon">{{ icon }}</a>
+    <slot />
+  </a>
+  <button v-else class="mdc-button" :class="classes" v-bind="$attrs" v-on="$listeners">
+    <a v-if="icon" class="material-icons mdc-button__icon">{{ icon }}</a>
+    <slot />
+  </button>
 </template>
 
 <script>

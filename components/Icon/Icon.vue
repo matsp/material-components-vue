@@ -1,7 +1,7 @@
 <template>
-    <a class="material-icons" v-on="$listeners">
-        {{icon}}
-    </a>
+  <a class="material-icons" v-on="$listeners">
+    {{ icon }}
+  </a>
 </template>
 
 <script>

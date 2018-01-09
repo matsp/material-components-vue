@@ -1,29 +1,29 @@
 <template>
-  <div 
-    :class="classes" 
+  <div
+    :class="classes"
     :style="customStyles">
     <slot />
-  </div>   
+  </div>
 </template>
 
 <script>
 export default {
-    props: {
-        dark: {
-            type: Boolean,
-            required: false
-        },
-        customStyles: {
-            type: Object,
-            required: false
-        }
+  props: {
+    dark: {
+      type: Boolean,
+      required: false
     },
-    computed: {
-        classes() {
-            return {
-                'mdc-theme--dark': this.dark
-            }
-        }
-    },
+    customStyles: {
+      type: Object,
+      required: false
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-theme--dark': this.dark
+      }
+    }
+  }
 }
 </script>

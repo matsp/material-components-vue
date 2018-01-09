@@ -1,7 +1,7 @@
 <template>
-    <ul class="mdc-list" :class="classes" >
-        <slot />
-    </ul>
+  <ul class="mdc-list" :class="classes" >
+    <slot />
+  </ul>
 </template>
 
 <script>
@@ -25,7 +25,7 @@ export default {
     }
   },
   computed: {
-    classes() {
+    classes () {
       return {
         'mdc-list--theme-dark': this.darkTheme,
         'mdc-list--theme-dense': this.dense,

@@ -1,5 +1,5 @@
 <template>
-    <li role="separator" class="mdc-list-divider" :class="classes" />
+  <li role="separator" class="mdc-list-divider" :class="classes" />
 </template>
 
 <script>

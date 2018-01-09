@@ -1,11 +1,11 @@
 <template>
-    <div class="mdc-radio">
-        <input class="mdc-radio__native-control" :class="classes" type="radio" v-bind="$attrs" :checked="checked" @change="onChange">
-        <div class="mdc-radio__background">
-            <div class="mdc-radio__outer-circle"></div>
-            <div class="mdc-radio__inner-circle"></div>
-        </div>
+  <div class="mdc-radio">
+    <input class="mdc-radio__native-control" :class="classes" type="radio" v-bind="$attrs" :checked="checked" @change="onChange">
+    <div class="mdc-radio__background">
+      <div class="mdc-radio__outer-circle"/>
+      <div class="mdc-radio__inner-circle"/>
     </div>
+  </div>
 </template>
 
 <script>

@@ -1,15 +1,15 @@
 <template>
-    <a class="mdc-tab" :class="classes" v-on="$listeners">
-        <i v-if="icon" class="material-icons mdc-tab__icon" :aria-label="label" :aria-hidden="label?false:true">
-            {{icon}}
-        </i>
-        <span v-if="icon && label" class="mdc-tab__icon-text">
-            <slot />
-        </span>
-        <span v-else-if="label">
-            <slot />
-        </span>
-    </a>
+  <a class="mdc-tab" :class="classes" v-on="$listeners">
+    <i v-if="icon" class="material-icons mdc-tab__icon" :aria-label="label" :aria-hidden="label?false:true">
+      {{ icon }}
+    </i>
+    <span v-if="icon && label" class="mdc-tab__icon-text">
+      <slot />
+    </span>
+    <span v-else-if="label">
+      <slot />
+    </span>
+  </a>
 </template>
 
 <script>

@@ -1,15 +1,15 @@
 <template>
-    <li class="mdc-list-item" v-on="$listeners">
-      <slot name="graphic" v-if="$slots['graphic']"/>
-        <slot />
-        <span class="mdc-list-item__text" v-if="$slots['text']">
-            <slot name="text" />
-            <div class="mdc-list-mdc-list-item__secondary-text" v-if="$slots['secondaryText']">
-                <slot name="secondaryText" />
-            </div>
-        </span>
-        <slot name="meta" v-if="$slots['meta']"/>
-    </li>
+  <li class="mdc-list-item" v-on="$listeners">
+    <slot name="graphic" v-if="$slots['graphic']"/>
+    <slot />
+    <span class="mdc-list-item__text" v-if="$slots['text']">
+      <slot name="text" />
+      <div class="mdc-list-mdc-list-item__secondary-text" v-if="$slots['secondaryText']">
+        <slot name="secondaryText" />
+      </div>
+    </span>
+    <slot name="meta" v-if="$slots['meta']"/>
+  </li>
 </template>
 
 <script>
@@ -30,12 +30,12 @@ export default {
       required: false
     }
   },
-  data() {
+  data () {
     return {
       mdcRipple: null
     }
   },
-  mounted() {
+  mounted () {
     if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
 
     if (this.$slots.graphic) {
@@ -49,11 +49,11 @@ export default {
       })
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.interactive) { this.mdcRipple.destroy() }
   },
   computed: {
-    classes() {
+    classes () {
       return {
         'mdc-list-item--activated': this.activated,
         'mdc-list-item--selected': this.selected

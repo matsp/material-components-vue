@@ -1,9 +1,9 @@
 <template>
-    <div class="mdc-simple-menu" :class="classes" tabindex="-1" @MDCSimpleMenu:selected="onSelect" @MDCSimpleMenu:cancel="onCancel">
-        <ul class="mdc-simple-menu__items mdc-list" :class="listClasses" role="menu">
-            <slot />
-        </ul>
-    </div>
+  <div class="mdc-simple-menu" :class="classes" tabindex="-1" @MDCSimpleMenu:selected="onSelect" @MDCSimpleMenu:cancel="onCancel">
+    <ul class="mdc-simple-menu__items mdc-list" :class="listClasses" role="menu">
+      <slot />
+    </ul>
+  </div>
 </template>
 
 <script>

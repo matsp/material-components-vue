@@ -1,7 +1,7 @@
 <template>
-    <select multiple :size="size" class="mdc-multi-select mdc-list" v-model="selected" :disable="disabled" @change="onChange">
-        <slot />
-    </select>
+  <select multiple :size="size" class="mdc-multi-select mdc-list" v-model="selected" :disable="disabled" @change="onChange">
+    <slot />
+  </select>
 </template>
 
 <script>
