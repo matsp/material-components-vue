@@ -6,15 +6,15 @@
     },
     "extends": [
         "standard",
-        "prettier",
         "plugin:vue/recommended"
     ],
     "plugins": [
-        "prettier",
-        "html",
-        "json"
+        "html"
     ],
-    "rules": {
+    "settings": {
+        "html/html-extensions": [
+            ".html"
+        ]
     },
     "env": {
         "browser": true,
