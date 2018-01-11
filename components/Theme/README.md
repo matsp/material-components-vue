@@ -7,6 +7,7 @@
   themed content
 </m-theme>
 ```
+### Script
 
 ```javascript
 const customStyle = {
