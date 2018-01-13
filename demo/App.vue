@@ -14,7 +14,7 @@
         </m-toolbar-row>
       </m-toolbar>
 
-      <m-temporary-drawer ref="drawer" primary-toolbar-spacer @click="toggleDrawer">
+      <m-temporary-drawer ref="drawer" @click="toggleDrawer">
         <span slot="toolbarSpacer" />
         <m-list>
           <m-list-item v-for="item in listItems" :key="item.text" @click="openRoute(item.route)">

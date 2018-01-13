@@ -23,8 +23,6 @@ data() {
 | iconOn | String | - | true | material icon name when toggle is true |
 | iconOff | String | - | true | material icon name when toggle is false |
 | disabled | Boolean | - | false | not toggleable icon |
-| primary | Boolean | - | false | primary theme color |
-| accent | Boolean | - | false | secondary theme color |
 
 ### Reference
 

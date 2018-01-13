@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-permanent-drawer primaryToolbarSpacer>
+<m-permanent-drawer>
   <span slot="toolbarSpacer" />
   <m-list>
     <m-list-item v-for="item in listItems" :key="item.text">
@@ -13,13 +13,6 @@
   </m-list>
 </m-permanent-drawer>
 ```
-
-### Props
-
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| primaryToolbarSpacer | Boolean | - | false | whether the toolbarSpacer section should be themed as primary color |
-| primaryContent | Boolean | - | false | whether the content section should be themed as primary color |
 
 ### Slots
 

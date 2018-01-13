@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-persistent-drawer ref="drawer" primaryToolbarSpacer>
+<m-persistent-drawer ref="drawer">
   <span slot="toolbarSpacer" />
   <m-list>
     <m-list-item v-for="item in listItems" :key="item.text">
@@ -24,9 +24,6 @@ this.$refs.drawer.toggle()
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | initialOpen | Boolean | - | false | whether the drawer should be open at start |
-| primaryToolbarSpacer | Boolean | - | false | whether the toolbarSpacer section should be themed as primary color |
-| primaryHeader | Boolean | - | false | whether the header section should be themed as primary color | 
-| primaryContent | Boolean | - | false | whether the content section should be themed as primary color |
 
 Non prop events are mapped to the inner button element.
 

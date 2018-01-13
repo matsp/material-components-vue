@@ -1,6 +1,11 @@
 <template>
-  <i @click="onClick" class="mdc-icon-toggle material-icons" :class="classes"
-     role="button" :data-toggle-on="dataToggleOn" :data-toggle-off="dataToggleOff" >
+  <i
+    @click="onClick"
+    class="mdc-icon-toggle material-icons"
+    :class="classes"
+    role="button"
+    :data-toggle-on="dataToggleOn"
+    :data-toggle-off="dataToggleOff" >
     {{ value?iconOn:iconOff }}
   </i>
 </template>
@@ -21,24 +26,39 @@ export default {
     },
     disabled: {
       type: Boolean,
-      required: false
-    },
-    primary: {
-      type: Boolean,
-      required: false
-    },
-    accent: {
-      type: Boolean,
-      required: false
+      required: false,
+      default: false
     },
     value: {
       type: Boolean,
-      required: false
+      required: false,
+      default: false
     }
   },
   data () {
     return {
       mdcIconToggle: null
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-icon-toggle--disabled': this.disabled
+      }
+    },
+    dataToggleOn () {
+      return JSON.stringify({ 'content': this.iconOn })
+    },
+    dataToggleOff () {
+      return JSON.stringify({ 'content': this.iconOff })
+    }
+  },
+  watch: {
+    disabled () {
+      this.mdcIconToggle.disabled = this.disabled
+    },
+    value () {
+      this.mdcIconToggle.on = this.value
     }
   },
   mounted () {
@@ -49,32 +69,9 @@ export default {
   destroy () {
     this.mdcIconToggle.destroy()
   },
-  computed: {
-    classes () {
-      return {
-        'mdc-icon-toggle--disabled': this.disabled,
-        'mdc-icon-toggle--primary': this.primary,
-        'mdc-icon-toggle--accent': this.accent
-      }
-    },
-    dataToggleOn () {
-      return JSON.stringify({ 'content': this.iconOn })
-    },
-    dataToggleOff () {
-      return JSON.stringify({ 'content': this.iconOff })
-    }
-  },
   methods: {
     onClick () {
       debounce(this.$emit('input', !this.value))
-    }
-  },
-  watch: {
-    disabled () {
-      this.mdcIconToggle.disabled = this.disabled
-    },
-    value () {
-      this.mdcIconToggle.on = this.value
     }
   }
 }

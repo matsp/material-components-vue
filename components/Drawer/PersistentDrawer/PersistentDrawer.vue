@@ -1,15 +1,16 @@
 <template>
-  <aside class="mdc-persistent-drawer" v-on="$listeners">
-    <nav class="mdc-persistent-drawer__drawer">
-      <div class="mdc-temporary-drawer__toolbar-spacer" :class="primaryClasses(primaryToolbarSpacer)" v-if="$slots['toolbarSpacer']">
-        <slot name="toolbarSpacer" />
-      </div>
-      <header class="mdc-persistent-drawer__header" :class="primaryClasses(primaryHeader)" v-if="$slots['header']">
-        <div class="mdc-persistent-drawer__header-content">
+  <aside
+    class="mdc-drawer mdc-drawer--persistent"
+    v-on="$listeners">
+    <nav class="mdc-drawer__drawer">
+      <header class="mdc-drawer__header">
+        <div class="mdc-drawer__header-content">
           <slot name="header" />
         </div>
       </header>
-      <nav class="mdc-persistent-drawer__content" :class="primaryClasses(primaryContent)" v-if="$slots['default']">
+      <nav
+        class="mdc-drawer__content"
+        v-if="$slots['default']">
         <slot />
       </nav>
     </nav>
@@ -23,19 +24,8 @@ export default {
   props: {
     initialOpen: {
       type: Boolean,
-      required: false
-    },
-    primaryHeader: {
-      type: Boolean,
-      required: false
-    },
-    primaryContent: {
-      type: Boolean,
-      required: false
-    },
-    primaryToolbarSpacer: {
-      type: Boolean,
-      required: false
+      required: false,
+      default: true
     }
   },
   data () {
@@ -53,12 +43,6 @@ export default {
     this.mdcPersistentDrawer.destroy()
   },
   methods: {
-    primaryClasses (prop) {
-      return {
-        'mdc-theme--primary-bg': prop,
-        'mdc-theme--text-primary-on-primary': prop
-      }
-    },
     toggle () {
       this.open ? this.mdcPersistentDrawer.open = false : this.mdcPersistentDrawer.open = true
       this.open = !this.open

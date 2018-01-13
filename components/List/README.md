@@ -45,7 +45,8 @@
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| inset | Boolean | - | false | inset instead full-width divider |
+| inset | Boolean | false | false | inset instead full-width divider |
+| padded | Boolean | false | false | padded instead full-width divider |
 
 ## ListGroup
 
