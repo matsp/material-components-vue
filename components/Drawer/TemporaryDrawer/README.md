@@ -23,7 +23,7 @@ this.$refs.drawer.toggle()
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| initialOpen | Boolean | - | false | whether the drawer should be open at start |
+| initialOpen | Boolean | false | false | whether the drawer should be open at start |
 
 Non prop events are mapped to the inner button element.
 
