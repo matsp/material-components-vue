@@ -19,7 +19,7 @@
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
 | default | - | content section of the drawer |
-| toolbarSpacer | primaryToolbarSpacer | adds space with the same size as the toolbar on top of the drawer |
+| toolbarSpacer | - | adds space with the same size as the toolbar on top of the drawer |
 
 ### Reference
 
