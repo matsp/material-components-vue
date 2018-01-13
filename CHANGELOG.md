@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/matsp/material-components-vue/compare/v0.4.0...v0.5.0) (2018-01-13)
+
+
+### Bug Fixes
+
+* **select:** Fixes to Select component ([b99e76f](https://github.com/matsp/material-components-vue/commit/b99e76f))
+
+
+### Features
+
+* **demo:** Add radio demo ([d75231b](https://github.com/matsp/material-components-vue/commit/d75231b))
+* Integrates mdc-web v0.28.0 (closes [#42](https://github.com/matsp/material-components-vue/issues/42)) ([677fe0a](https://github.com/matsp/material-components-vue/commit/677fe0a))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/matsp/material-components-vue/compare/v0.3.0...v0.4.0) (2017-12-16)
 
