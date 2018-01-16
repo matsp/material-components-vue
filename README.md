@@ -26,7 +26,7 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 * [Changelog](https://github.com/matsp/material-components-vue/blob/master/CHANGELOG.md)
 * [Codepen CDN Example](https://codepen.io/matsp/pen/baxLOx)
 * [Code of Conduct](https://github.com/matsp/material-components-vue/blob/master/CODE_OF_CONDUCT.md)
-* [Demos](https://matsp.github.io/material-components-vue)
+* [Demos (work in progress)](https://matsp.github.io/material-components-vue)
 
 ### installation
 
