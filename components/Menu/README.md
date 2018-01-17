@@ -4,15 +4,17 @@
 
 ```html
 <m-menu-anchor>
-    <m-button @click="showMenu"> open </m-button>
+    <m-button @click="showMenu">open</m-button>
     <m-menu ref="menu" v-model="selectedMenuEntry">
-      <m-list-item @click="clicked">
-        Entry 1
-      </m-list-item>
-      <m-list-divider />
-      <m-list-item>
-        Entry 2
-      </m-list-item>
+      <m-list>
+        <m-list-item @click="clicked">
+            Entry 1
+        </m-list-item>
+        <m-list-divider />
+        <m-list-item>
+            Entry 2
+        </m-list-item>
+      </m-list>
     </m-menu>
 </m-menu-anchor>
 ```
@@ -41,10 +43,6 @@ data() {
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
 | startOpen | Boolean | - | false | whether the menu should be open at start |
-| openFromTopLeft | Boolean | - | false | opens the menu from top left |
-| openFromTopRight | Boolean | - | false | opens the menu from bottom left |
-| openFromBottomLeft | Boolean | - | false | opens the menu from bottom left |
-| openFromBottomRight | Boolean | - | false | opens the menu from bottom right |
 | dense | Boolean | - | false | whether the menu entries should be densed |
 | twoline | Boolean | - | false | whether the menu entries should be twoline |
 
@@ -57,7 +55,7 @@ data() {
 
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
-| default | - | menu content |
+| default | - | menu content (list) |
 
 ## MenuAnchor
 
