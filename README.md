@@ -97,7 +97,7 @@ Import the SASS file in the root component of app for maximal customization.
 ```html
 <style lang="scss">
   $mdc-theme-primary: #2196f3;
-  $mdc-theme-accent: #ff1744;
+  $mdc-theme-secondary: #ff1744;
   $mdc-theme-background: #f5f5f5;
   @import '~material-components-vue/components/Theme/theme.scss';
   @import url('https://cdnjs.com/libraries/normalize');
