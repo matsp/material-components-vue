@@ -12,8 +12,8 @@
             slot="start"
             icon="menu"
             menu-icon
-            @click="toggleDrawer"/>
-          Demo
+            @click="toggleDrawer()"/>
+          Material components for Vue.js
           <m-form-field
             align-end
             slot="end"
@@ -24,11 +24,11 @@
         </m-toolbar-row>
       </m-toolbar>
 
-      <m-temporary-drawer
-        ref="drawer"
-        @click="toggleDrawer">
-        <span slot="toolbarSpacer" />
-        <m-list>
+      <m-persistent-drawer
+      ref="drawer">
+        <span
+        slot="toolbarSpacer"/>
+        <m-list dense>
           <m-list-item
             v-for="item in listItems"
             :key="item.text"
@@ -39,7 +39,7 @@
             {{ item.text }}
           </m-list-item>
         </m-list>
-      </m-temporary-drawer>
+      </m-persistent-drawer>
 
       <div class="demo-content">
         <m-toolbar-fixed-adjust>
@@ -51,29 +51,14 @@
             </m-layout-grid>
           </main>
         </m-toolbar-fixed-adjust>
-
       </div>
+
     </m-typography>
   </m-theme>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      material: {
-        '--mdc-theme-primary': '#5e35b1',
-        '--mdc-theme-primary-light': '#9162e4',
-        '--mdc-theme-primary-dark': '#280680',
-        '--mdc-theme-secondary': '#ff5722',
-        '--mdc-theme-secondary-light': '#ff8a50',
-        '--mdc-theme-secondary-dark': '#c41c00',
-        '--mdc-theme-background': '#ffffff',
-        '--mdc-theme-text-primary-on-primary': '#ffffff',
-        '--mdc-theme-text-secondary-on-secondary': '#000000'
-      }
-    }
-  },
   computed: {
     listItems () {
       return this.$store.state.app.drawerListItems
