@@ -3,6 +3,11 @@
     class="mdc-drawer mdc-drawer--persistent"
     v-on="$listeners">
     <nav class="mdc-drawer__drawer">
+      <div
+        class="mdc-drawer__toolbar-spacer"
+        v-if="$slots['toolbarSpacer']">
+        <slot name="toolbarSpacer" />
+      </div>
       <header
         class="mdc-drawer__header"
         v-if="$slots['header']">
