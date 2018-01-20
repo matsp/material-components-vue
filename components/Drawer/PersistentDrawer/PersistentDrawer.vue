@@ -3,7 +3,9 @@
     class="mdc-drawer mdc-drawer--persistent"
     v-on="$listeners">
     <nav class="mdc-drawer__drawer">
-      <header class="mdc-drawer__header">
+      <header
+        class="mdc-drawer__header"
+        v-if="$slots['header']">
         <div class="mdc-drawer__header-content">
           <slot name="header" />
         </div>
