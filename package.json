@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "material-components-web": "^0.28.0",
+    "material-components-web": "^0.29.0",
     "normalize.css": "^7.0.0",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
@@ -61,7 +61,7 @@
     "vue-loader": "^13.7.0",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.0",
+    "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
   }
 }
