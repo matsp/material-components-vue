@@ -3,14 +3,15 @@
 ### Markup
 
 ```html
-<m-textfield v-model="text" bottomLine>Textfield</m-textfield>
-<m-textfield-multiline v-model="text">Textfield</m-textfield-multiline>
-<m-textfield bottomLine required minlength=8 aria-controls="pw-validation">
-    Password
-</m-textfield>
-<m-textfield-helptext id="pw-validation">
-    Password must be at least 8 characters long.
-</m-textfield-helptext>
+<m-text-field v-model="text" bottomLine>
+  Textfield
+</m-text-field>
+<m-text-field v-model="pw" type="password" bottom-line required minlength="8" aria-controls="pw-validation">
+  Password
+</m-text-field>
+<m-text-field-helptext id="pw-validation">
+  Password must be at least 8 characters long.
+</m-text-field-helptext>
 ```
 
 ### Script
@@ -18,7 +19,7 @@
 ```javascript
 data() {
     return {
-        text: ''
+        text: 'I am a text-field!'
     }
 }
 ```
@@ -27,13 +28,20 @@ data() {
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| value | String | - | false | textfield value |
-| disabled | Boolean | - | false |  whether the textfield should be disabled |
-| upgraded | Boolean | - | false | whether the textfield should be upgraded when it already has a value (FOUC) |
-| fullWidth | Boolean | - | false | expand the textfield to max width |
-| box | Boolean | - | false | draws a box around the textfield |
-| labelFloat | - | false | whether the label should float above the input field that already has a value (FOUC) |
-| bottomLine | Boolean | - | false | draws the bottom line in primary theme color |
+| value | String | '' | false | textfield value |
+| disabled | Boolean | false | false |  whether the textfield should be disabled |
+| upgraded | Boolean | false | false | whether the textfield should be upgraded when it already has a value (FOUC) |
+| fullWidth | Boolean | false | false | expand the textfield to max width |
+| box | Boolean | false | false | draws a box around the textfield |
+| labelFloat | false | false | whether the label should float above the input field that already has a value (FOUC) |
+| bottomLine | Boolean | false | false | draws the bottom line in primary theme color |
+| leadingIcon | String | '' | false | display a leading material icon in the input field |
+| trailingIcon | String | '' | false | display a trailing material icon in the input field |
+| outlined | Boolean | false | false | draws an outer line around input field |
+| dense | Boolean | false | false | whether the textfield should be dense |
+| focused | Boolean | false | false | whether the textfield should be in focus |
+| textarea | Boolean | false | false | whether the textfield should be a textarea |
+| shake | Boolean | false | false | whether the textfield label should shake |
 
 ### Slots
 
@@ -42,27 +50,6 @@ data() {
 | default | - | textfield label |
 
 Non prop attributes are mapped to the inner input element.
-
-## TextfieldMultiline
-
-### Props
-
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| value | String | - | false | multiline textfield value |
-| disabled | Boolean | - | false |  whether the multiline textfield should be disabled |
-| upgraded | Boolean | - | false | whether the multiline textfield should be upgraded when it already has a value (FOUC) |
-| fullWidth | Boolean | - | false | expand the multiline textfield to max width |
-| box | Boolean | - | false | draws a box around the multiline textfield |
-| labelFloat | - | false | whether the label should float above the input field that already has a value (FOUC) |
-
-### Slots
-
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | multiline textfield label |
-
-Non prop attributes are mapped to the inner textarea element.
 
 ## TextfieldHelptext
 
