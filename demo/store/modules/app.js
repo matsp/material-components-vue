@@ -53,6 +53,11 @@ const state = {
       route: '/radio',
       icon: 'code'
     },
+    select: {
+      text: 'Select',
+      route: '/select',
+      icon: 'code'
+    },
     textfield: {
       text: 'Textfield',
       route: '/textfield',

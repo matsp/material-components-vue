@@ -46,6 +46,10 @@ export default new VueRouter({
       component: () => import('views/RadioView')
     },
     {
+      path: '/select',
+      component: () => import('views/SelectView')
+    },
+    {
       path: '/textfield',
       component: () => import('views/TextfieldView')
     }
