@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/matsp/material-components-vue/compare/v0.5.1...v0.6.0) (2018-01-25)
+
+
+### Bug Fixes
+
+* **drawer:** Only render slot when content is inserted ([7249010](https://github.com/matsp/material-components-vue/commit/7249010))
+* **menu:** Add role and tabindex ([d00a8f8](https://github.com/matsp/material-components-vue/commit/d00a8f8))
+
+
+### Features
+
+* **demo:** Add select demo ([046827e](https://github.com/matsp/material-components-vue/commit/046827e))
+* **drawer:** Add drawer toolbar spacer ([4feaa6c](https://github.com/matsp/material-components-vue/commit/4feaa6c))
+* **list:** Synchronise component with mdc-web ([8c49711](https://github.com/matsp/material-components-vue/commit/8c49711))
+* **select:** Synchronise component with mdc-web v0.29.0 ([f65d2b5](https://github.com/matsp/material-components-vue/commit/f65d2b5))
+* **text-field:** Synchronise with mdc-web (closes [#47](https://github.com/matsp/material-components-vue/issues/47)) ([7eb23d3](https://github.com/matsp/material-components-vue/commit/7eb23d3))
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/matsp/material-components-vue/compare/v0.5.0...v0.5.1) (2018-01-18)
 
