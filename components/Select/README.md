@@ -4,21 +4,15 @@
 
 ```html
 <m-select v-model="selected">
-    <m-select-option slot="options" id="11">A</m-select-option>
-    <m-select-option slot="options" id="33">B</m-select-option>
+  Select
+  <m-menu slot="menu">
+    <m-list>
+      <m-list-item>Entry 1</m-list-item>
+      <m-list-divider />
+      <m-list-item>Entry 2</m-list-item>
+    </m-list>
+  </m-menu>
 </m-select>
-
-<m-select-multi v-model="selectedMulti" :size="4">
-    <m-select-multi-group label="ABC">
-        <m-select-multi-option id="42">A</m-select-multi-option>
-        <m-select-multi-option id="81">B</m-select-multi-option>
-        <m-select-multi-divider />
-        <m-select-multi-option id="76">C</m-select-multi-option>
-    </m-select-multi-group>
-    <m-select-multi-group label="XYZ">
-        ...
-    </m-select-multi-group>>
-</m-select-multi>
 ```
 
 ### Script
@@ -26,8 +20,7 @@
 ```javascript
 data() {
     return {
-        selected: null,
-        selectedMulti: null
+        selected: null
     }
 }
 ```
@@ -43,69 +36,7 @@ data() {
 | Slot | Prop dependencies | Description |
 |------|-------------------|-------------|
 | default | - | select label |
-| items | - | select options |
-
-## SelectOption
-
-### Props
-
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| selected | Boolean | - | false | pre selected option |
-| disabled | Boolean | - | false | disabled option |
-| id | String | - | true | returned id if option will be selected |
-
-### Slots
-
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | option content |
-
-## SelectMulti
-
-### Props
-
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| size | Number | - | false | vertical size of multi select |
-| disabled | Boolean | - | false | whether the multi select should be disabled |
-
-### Slots
-
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | multi select content |
-
-## SelectMultiDivider
-
-## SelectMultiGroup
-
-### Props
-
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| label | String | - | true | multi group label |
-
-### Slots
-
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | multi group content |
-
-## SelectMultiOption
-
-### Props
-
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| disabled | Boolean | - | false | disabled option |
-| id | String | - | true | returned id if multi option will be selected |
-
-### Slots
-
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | multi option content |
+| menu | - | select menu |
 
 ### Reference
 
