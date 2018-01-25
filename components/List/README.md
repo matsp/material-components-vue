@@ -28,10 +28,10 @@
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| avatar | Boolean | - | false | avatar list (large, circular start detail) |
-| darkTheme | Boolean | - | false | dark theming |
-| dense | Boolean | - | false | densed list |
-| twoLine | Boolean | - | false | twoline list |
+| avatar | Boolean | false | false | avatar list (large, circular start detail) |
+| dense | Boolean | false | false | densed list |
+| twoLine | Boolean | false | false | twoline list |
+| nonInteractive | Boolean | false | false | disables interactivity |
 
 ### Slots
 
