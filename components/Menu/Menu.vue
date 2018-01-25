@@ -5,8 +5,7 @@
     tabindex="-1"
     @MDCSimpleMenu:selected="onSelect"
     @MDCSimpleMenu:cancel="onCancel">
-    <slot
-    role="menu"/>
+    <slot />
   </div>
 </template>
 
@@ -42,8 +41,15 @@ export default {
       this.$slots.default.map(n => {
         n.elm.classList.add('mdc-simple-menu__items')
       })
+      this.$slots.default[0].elm.setAttribute('role', 'menu')
+
+      this.$slots.default[0].componentOptions.children.map(n => { 
+        if (n.elm.className.includes('mdc-list-item')) {
+          n.elm.setAttribute('tabindex', '0')
+        }
+      })
     }
-    
+
     this.mdcSimpleMenu = MDCSimpleMenu.attachTo(this.$el)
     this.mdcSimpleMenu.open = this.open
   },
