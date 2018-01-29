@@ -10,6 +10,7 @@ script:
   - yarn build:prod
   - yarn build:lib
   - yarn build:es5
+  - yarn build:es6
 after_script: greenkeeper-lockfile-upload
 deploy:
   - provider: pages

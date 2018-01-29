@@ -10,15 +10,16 @@
   },
   "homepage": "https://matsp.github.io/material-components-vue",
   "style": "dist/material-component-vue.css",
-  "main": "dist/material-component-vue.js",
+  "main": "dist/material-component-vue.umd.js",
   "module": "components/index.js",
-  "unpkg": "dist/material-components-vue.min.js",
+  "unpkg": "dist/material-components-vue.umd.es5.min.js",
   "scripts": {
     "lint": "eslint --ext .js --ext .vue --fix ./",
     "build:dev": "webpack --config webpack.config.dev.js",
     "build:prod": "webpack --config webpack.config.prod.js",
     "build:lib": "webpack --config webpack.config.lib.js",
     "build:es5": "webpack --config webpack.config.lib.es5.js",
+    "build:es6": "webpack --config webpack.config.lib.es6.js",
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js",
     "release": "standard-version"
   },

@@ -10,12 +10,6 @@ const nodeModules = path.join(root, '/node_modules/')
 module.exports = {
   name: 'material-components-vue',
   entry: path.resolve(components + 'index.js'),
-  output: {
-    path: path.resolve(root + '/dist'),
-    filename: 'material-components-vue.min.js',
-    libraryTarget: 'umd',
-    library: 'material-components-vue'
-  },
   module: {
     rules: [
       {

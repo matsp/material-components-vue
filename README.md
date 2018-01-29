@@ -19,6 +19,13 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 * keep the components as simple as possible (KISS, DRY)
 * keep in sync with changes in the mdc-web repository
 
+## distributions
+| Name | ECMA | Minimized |
+| ---- | --- | --- | --------- |
+| dist/material-components-vue.umd.js | 6 | no |
+| dist/material-components-vue.umd.min.js | 6 | yes |
+| dist/material-components-vue.umd.es5.min.js | 5 | yes | 
+
 ## quick start
 
 ### links
@@ -69,9 +76,6 @@ yarn add material-components-vue
 
 ### bundler
 
-You have to set up your own build workflow with webpack (see demo) or something else
-to compile the components.
-
 #### import all components
 ```javascript
 import MaterialComponentsVue from 'material-components-vue'
@@ -99,7 +103,7 @@ Import the SASS file in the root component of app for maximal customization.
   $mdc-theme-primary: #2196f3;
   $mdc-theme-secondary: #ff1744;
   $mdc-theme-background: #f5f5f5;
-  @import '~material-components-vue/components/Theme/theme.scss';
+  @import '~material-components-vue/components/material-components-vue.scss';
   @import url('https://cdnjs.com/libraries/normalize');
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -132,4 +136,13 @@ data() {
         }
     }
 }
+```
+
+```html
+<style lang="css">
+  @import '~material-components-vue/dist/material-components-vue.css';
+  @import url('https://cdnjs.com/libraries/normalize');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+</style>
 ```
