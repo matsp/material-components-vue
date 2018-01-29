@@ -21,7 +21,7 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 
 ## distributions
 | Name | ECMA | Minimized |
-| ---- | --- | --- | --------- |
+| ---- | ---- | --------- |
 | dist/material-components-vue.umd.js | 6 | no |
 | dist/material-components-vue.umd.min.js | 6 | yes |
 | dist/material-components-vue.umd.es5.min.js | 5 | yes | 
