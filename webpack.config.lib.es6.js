@@ -8,7 +8,7 @@ const root = path.join(__dirname)
 module.exports = merge(common, {
   output: {
     path: path.resolve(root + '/dist'),
-    filename: 'material-components-vue.umd.min.js',
+    filename: 'material-components-vue.min.js',
     libraryTarget: 'umd',
     library: 'material-components-vue'
   },
