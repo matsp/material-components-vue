@@ -9,8 +9,8 @@
     "url": "https://github.com/matsp/material-components-vue.git"
   },
   "homepage": "https://matsp.github.io/material-components-vue",
-  "style": "dist/material-component-vue.css",
-  "main": "dist/material-component-vue.umd.js",
+  "style": "dist/material-components-vue.css",
+  "main": "dist/material-components-vue.umd.js",
   "module": "components/index.js",
   "unpkg": "dist/material-components-vue.umd.es5.min.js",
   "scripts": {
