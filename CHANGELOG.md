@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/matsp/material-components-vue/compare/v0.7.3...v0.8.0) (2018-01-30)
+
+
+### Features
+
+* **icon:** Decouple a few icon implementations in other components where possible (closes [#51](https://github.com/matsp/material-components-vue/issues/51)) ([d4a30d4](https://github.com/matsp/material-components-vue/commit/d4a30d4))
+
+
+
 <a name="0.7.3"></a>
 ## [0.7.3](https://github.com/matsp/material-components-vue/compare/v0.7.2...v0.7.3) (2018-01-29)
 
