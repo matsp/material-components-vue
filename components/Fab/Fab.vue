@@ -1,8 +1,9 @@
 <template>
-  <button class="mdc-fab material-icons" :class="classes" v-on="$listeners">
-    <span class="mdc-fab__icon">
-      {{ icon }}
-    </span>
+  <button
+    class="mdc-fab"
+    :class="classes"
+    v-on="$listeners">
+    <slot />
   </button>
 </template>
 
@@ -12,23 +13,19 @@ export default {
   props: {
     mini: {
       type: Boolean,
-      required: false
+      default: false
     },
     absoluteRight: {
       type: Boolean,
-      required: false
+      default: false
     },
     exited: {
       type: Boolean,
-      required: false
-    },
-    icon: {
-      type: String,
-      required: true
+      default: false
     },
     interactive: {
       type: Boolean,
-      required: false
+      default: false
     }
   },
   data () {
@@ -46,6 +43,12 @@ export default {
     }
   },
   mounted () {
+    if (this.$slots.default) {
+      this.$slots.default.map(n => {
+        n.elm.classList.add('mdc-fab__icon')
+      })
+    }
+
     if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
   },
   beforeDestroy () {

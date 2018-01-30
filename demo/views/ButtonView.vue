@@ -18,7 +18,12 @@
           <m-button interactive>interactive</m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button icon="cloud">icon</m-button>
+          <m-button>
+            <m-icon
+              slot="icon"
+              icon="cloud"/>
+            icon
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
           <m-button compact>compact</m-button>
@@ -38,19 +43,40 @@
           <m-button raised>text</m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button raised interactive>interactive</m-button>
+          <m-button
+            raised
+            interactive>
+            interactive
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button raised icon="cloud">icon</m-button>
+          <m-button raised>
+            <m-icon
+              slot="icon"
+              icon="cloud"/>
+            icon
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button raised compact>compact</m-button>
+          <m-button
+            raised
+            compact>
+            compact
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button raised dense>dense</m-button>
+          <m-button
+            raised
+            dense>
+            dense
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button raised disabled>disabled</m-button>
+          <m-button
+            raised
+            disabled>
+            disabled
+          </m-button>
         </m-layout-grid-cell>
       </m-layout-grid-inner>
     </m-layout-grid-cell>
@@ -61,19 +87,40 @@
           <m-button unelevated>text</m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button unelevated interactive>interactive</m-button>
+          <m-button
+            unelevated
+            interactive>
+            interactive
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button unelevated icon="cloud">icon</m-button>
+          <m-button unelevated>
+            <m-icon
+              slot="icon"
+              icon="cloud"/>
+            icon
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button unelevated compact>compact</m-button>
+          <m-button
+            unelevated
+            compact>
+            compact
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button unelevated dense>dense</m-button>
+          <m-button
+            unelevated
+            dense>
+            dense
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button unelevated disabled>disabled</m-button>
+          <m-button
+            unelevated
+            disabled>
+            disabled
+          </m-button>
         </m-layout-grid-cell>
       </m-layout-grid-inner>
     </m-layout-grid-cell>
@@ -84,19 +131,40 @@
           <m-button stroked>text</m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button stroked interactive>interactive</m-button>
+          <m-button
+            stroked
+            interactive>
+            interactive
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button stroked icon="cloud">icon</m-button>
+          <m-button stroked>
+            <m-icon
+              slot="icon"
+              icon="cloud"/>
+            icon
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button stroked compact>compact</m-button>
+          <m-button
+            stroked
+            compact>
+            compact
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button stroked dense>dense</m-button>
+          <m-button
+            stroked
+            dense>
+            dense
+          </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button stroked disabled>disabled</m-button>
+          <m-button
+            stroked
+            disabled>
+            disabled
+          </m-button>
         </m-layout-grid-cell>
       </m-layout-grid-inner>
     </m-layout-grid-cell>

@@ -1,49 +1,58 @@
 <template>
-  <a v-if="href" role="button" class="mdc-button" :href="href" v-bind="$attrs" v-on="$listeners">
-    <a v-if="icon" class="material-icons mdc-button__icon">{{ icon }}</a>
+  <a
+    v-if="href"
+    role="button"
+    class="mdc-button"
+    :class="classes"
+    :href="href"
+    v-bind="$attrs"
+    v-on="$listeners">
+    <slot name="icon"/>
     <slot />
   </a>
-  <button v-else class="mdc-button" :class="classes" v-bind="$attrs" v-on="$listeners">
-    <a v-if="icon" class="material-icons mdc-button__icon">{{ icon }}</a>
+  <button
+    v-else
+    class="mdc-button"
+    :class="classes"
+    v-bind="$attrs"
+    v-on="$listeners">
+    <slot name="icon"/>
     <slot />
   </button>
 </template>
 
 <script>
 import { MDCRipple } from '@material/ripple'
+
 export default {
   props: {
-    icon: {
-      type: String,
-      required: false
-    },
     raised: {
       type: Boolean,
-      required: false
+      default: false
     },
     unelevated: {
       type: Boolean,
-      required: false
+      default: false
     },
     stroked: {
       type: Boolean,
-      required: false
+      default: false
     },
     dense: {
       type: Boolean,
-      required: false
+      default: false
     },
     compact: {
       type: Boolean,
-      required: false
+      default: false
     },
     interactive: {
       type: Boolean,
-      required: false
+      default: false
     },
     href: {
       type: String,
-      required: false
+      default: ''
     }
   },
   data () {
@@ -63,6 +72,12 @@ export default {
     }
   },
   mounted () {
+    if (this.$slots.icon) {
+      this.$slots.icon.map(n => {
+        n.elm.classList.add('mdc-button__icon')
+      })
+    }
+
     if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
   },
   beforeDestroy () {

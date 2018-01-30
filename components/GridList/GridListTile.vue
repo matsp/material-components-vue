@@ -1,18 +1,23 @@
 <template>
-  <li class="mdc-grid-tile" v-on="$listeners">
+  <li
+    class="mdc-grid-tile"
+    v-on="$listeners">
     <div class="mdc-grid-tile__primary">
       <slot name="primary">
-        <img v-if="imgSrc" class="mdc-grid-tile__primary-content" :src="imgSrc" >
+        <img
+          v-if="imgSrc"
+          class="mdc-grid-tile__primary-content"
+          :src="imgSrc">
       </slot>
     </div>
-    <span class="mdc-grid-tile__secondary" v-if="$slots['default']">
+    <span
+      v-if="$slots['default']"
+      class="mdc-grid-tile__secondary">
       <span class="mdc-grid-tile__title">
         <slot />
       </span>
-      <i v-if="icon" class="mdc-grid-tile__icon material-icons">
-        {{ icon }}
-      </i>
-      <slot name="supporttext" />
+      <slot name="icon"/>
+      <slot name="supporttext"/>
     </span>
   </li>
 </template>
@@ -22,11 +27,7 @@ export default {
   props: {
     imgSrc: {
       type: String,
-      required: false
-    },
-    icon: {
-      type: String,
-      required: false
+      default: ''
     }
   },
   mounted () {
@@ -34,6 +35,12 @@ export default {
       this.$slots.supporttext.map(n =>
         n.elm.classList.add('mdc-grid-tile__support-text')
       )
+    }
+
+    if (this.$slots.icon) {
+      this.$slots.icon.map(n => {
+        n.elm.classList.add('mdc-grid-tile__icon')
+      })
     }
 
     if (this.$slots.primary) {

@@ -2,11 +2,7 @@
   <div
     class="mdc-text-field"
     :class="classes">
-    <i
-      v-if="leadingIcon"
-      class="material-icons mdc-text-field__icon">
-      {{ leadingIcon }}
-    </i>
+    <slot name="leadingIcon"/>
     <input
       class="mdc-text-field__input"
       :value="value"
@@ -35,11 +31,7 @@
     <div
       v-if="outlined"
       class="mdc-text-field__idle-outline"/>
-    <i
-      v-if="trailingIcon"
-      class="material-icons mdc-text-field__icon">
-      {{ trailingIcon }}
-    </i>
+    <slot name="trailingIcon"/>
     <div
       v-if="bottomLine"
       class="mdc-text-field__bottom-line"/>
@@ -87,16 +79,6 @@ export default {
       required: false,
       default: false
     },
-    leadingIcon: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    trailingIcon: {
-      type: String,
-      required: false,
-      default: ''
-    },
     outlined: {
       type: Boolean,
       required: false,
@@ -137,8 +119,8 @@ export default {
         'mdc-text-field--upgraded': this.upgraded,
         'mdc-text-field--fullwidth': this.fullWidth,
         'mdc-text-field--box': this.box,
-        'mdc-text-field--with-leading-icon': this.leadingIcon,
-        'mdc-text-field--with-trailing-icon': this.trailingIcon,
+        'mdc-text-field--with-leading-icon': this.$slots.leadingIcon,
+        'mdc-text-field--with-trailing-icon': this.$slots.trailingIcon,
         'mdc-text-field--outlined': this.outlined,
         'mdc-text-field--dense': this.dense,
         'mdc-text-field--focused': this.focused,
@@ -158,6 +140,18 @@ export default {
     }
   },
   mounted () {
+    if (this.$slots.leadingIcon) {
+      this.$slots.leadingIcon.map(n => {
+        n.elm.classList.add('mdc-text-field__icon')
+      })
+    }
+
+    if (this.$slots.trailingIcon) {
+      this.$slots.trailingIcon.map(n => {
+        n.elm.classList.add('mdc-text-field__icon')
+      })
+    }
+
     this.mdcTextField = MDCTextField.attachTo(this.$el)
     this.float = this.labelFloat
   },

@@ -28,12 +28,22 @@
       </m-text-field>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-text-field v-model="text" leading-icon="person" box>
+      <m-text-field
+        v-model="text"
+        box>
+        <m-icon
+          slot="leadingIcon"
+          icon="person"/>
         Textfield
       </m-text-field>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-text-field v-model="text" trailing-icon="person" box>
+      <m-text-field
+        v-model="text"
+        box>
+        <m-icon
+          slot="trailingIcon"
+          icon="person"/>
         Textfield
       </m-text-field>
     </m-layout-grid-cell>

@@ -1,13 +1,16 @@
 <template>
-  <a class="mdc-tab" :class="classes" v-on="$listeners">
-    <i v-if="icon" class="material-icons mdc-tab__icon" :aria-label="label" :aria-hidden="label?false:true">
-      {{ icon }}
-    </i>
-    <span v-if="icon && label" class="mdc-tab__icon-text">
-      <slot />
+  <a
+    class="mdc-tab"
+    :class="classes"
+    v-on="$listeners">
+    <slot name="icon"/>
+    <span
+      v-if="icon && label"
+      class="mdc-tab__icon-text">
+      <slot/>
     </span>
     <span v-else-if="label">
-      <slot />
+      <slot/>
     </span>
   </a>
 </template>
@@ -24,22 +27,12 @@ export default {
     label: {
       type: Boolean,
       default: true
-    },
-    icon: {
-      type: String,
-      required: false
     }
   },
   data () {
     return {
       mdcTab: null
     }
-  },
-  mounted () {
-    this.mdcTab = MDCTab.attachTo(this.$el)
-  },
-  beforeDestroy () {
-    this.mdcTab.destroy()
   },
   computed: {
     classes () {
@@ -48,6 +41,18 @@ export default {
         'mdc-tab--with-icon-and-text': this.icon && this.label
       }
     }
+  },
+  mounted () {
+    if (this.$slots.icon) {
+      this.$slots.icon[0].elm.classList.add('mdc-tab__icon')
+      this.label ? this.$slots.icon[0].elm.setAttribute('aria-label', true)
+        : this.$slots.icon[0].elm.setAttribute('aria-hidden', true)
+    }
+
+    this.mdcTab = MDCTab.attachTo(this.$el)
+  },
+  beforeDestroy () {
+    this.mdcTab.destroy()
   }
 }
 </script>

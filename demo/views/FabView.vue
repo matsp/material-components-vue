@@ -10,13 +10,23 @@
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
       <m-typo-headline>Normal</m-typo-headline>
-      <m-fab icon="add" interactive />
+      <m-fab interactive>
+        <m-icon icon="add"/>
+      </m-fab>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
       <m-typo-headline>Mini</m-typo-headline>
-      <m-fab icon="add" mini interactive />
+      <m-fab
+        mini
+        interactive>
+        <m-icon icon="add"/>
+      </m-fab>
     </m-layout-grid-cell>
-    <m-fab icon="add" absolute-right interactive />
+    <m-fab
+      absolute-right
+      interactive>
+      <m-icon icon="add"/>
+    </m-fab>
   </m-layout-grid-inner>
 </template>
 

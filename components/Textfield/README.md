@@ -35,8 +35,6 @@ data() {
 | box | Boolean | false | false | draws a box around the textfield |
 | labelFloat | false | false | whether the label should float above the input field that already has a value (FOUC) |
 | bottomLine | Boolean | false | false | draws the bottom line in primary theme color |
-| leadingIcon | String | '' | false | display a leading material icon in the input field |
-| trailingIcon | String | '' | false | display a trailing material icon in the input field |
 | outlined | Boolean | false | false | draws an outer line around input field |
 | dense | Boolean | false | false | whether the textfield should be dense |
 | focused | Boolean | false | false | whether the textfield should be in focus |
@@ -45,9 +43,11 @@ data() {
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | textfield label |
+| Slot | Description |
+|------|-------------|
+| default | textfield label |
+| leadingIcon | icon component |
+| trailingIcon | icon component |
 
 Non prop attributes are mapped to the inner input element.
 

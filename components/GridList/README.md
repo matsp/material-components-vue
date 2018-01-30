@@ -8,9 +8,10 @@
         Edit
         <span slot="supporttext"> Supporttext </span>
     </m-grid-tile>
-    <m-grid-tile icon="favorite"> 
+    <m-grid-tile> 
         Like you
         <m-button slot="primary"> Like </m-button>
+        <m-icon slot="icon" icon="favorite"/>
     </m-grid-tile>
 </m-grid-list>
 ```
@@ -36,10 +37,9 @@
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| imgSrc | String | - | false | image source |
-| icon | String | - | false | caption icon |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| imgSrc | String | false | image source |
 
 ### Slots
 
@@ -48,6 +48,7 @@
 | default | - | grid tile title section |
 | primary | imgSrc | primary content if image is not provided as source url |
 | supporttext | - | supporting text for the caption |
+| icon | - | icon component |
 
 ### Reference
 

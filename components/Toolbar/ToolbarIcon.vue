@@ -1,5 +1,8 @@
 <template>
-  <a class="material-icons" :class="classes" v-on="$listeners">
+  <a
+    class="material-icons"
+    :class="classes"
+    v-on="$listeners">
     {{ icon }}
   </a>
 </template>
