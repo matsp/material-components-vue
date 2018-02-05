@@ -41,8 +41,8 @@ export default {
   mounted () {
     if (this.$slots.menu) {
       this.$slots.menu[0].elm.classList.add('mdc-select__menu')
-  
-      this.$slots.menu[0].componentOptions.children[0].componentOptions.children.map(n => { 
+
+      this.$slots.menu[0].componentOptions.children[0].componentOptions.children.map(n => {
         if (n.elm.className.includes('mdc-list-item')) {
           n.elm.setAttribute('role', 'option')
         }

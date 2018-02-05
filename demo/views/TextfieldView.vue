@@ -9,7 +9,7 @@
       </m-typo-body>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-text-field v-model="text" bottomLine>
+      <m-text-field v-model="text" bottom-line>
         Textfield
       </m-text-field>
     </m-layout-grid-cell>
