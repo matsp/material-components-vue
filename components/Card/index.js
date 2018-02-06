@@ -1,9 +1,9 @@
 import Card from './Card.vue'
-import CardMediaItem from './CardMediaItem.vue'
+import CardMedia from './CardMedia.vue'
 
 export default {
   install (vm) {
     vm.component('m-card', Card)
-    vm.component('m-card-media-item', CardMediaItem)
+    vm.component('m-card-media', CardMedia)
   }
 }
