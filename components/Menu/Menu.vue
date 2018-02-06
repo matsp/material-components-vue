@@ -1,16 +1,16 @@
 <template>
   <div
-    class="mdc-simple-menu"
+    class="mdc-menu"
     :class="classes"
     tabindex="-1"
-    @MDCSimpleMenu:selected="onSelect"
-    @MDCSimpleMenu:cancel="onCancel">
+    @MDCMenu:selected="onSelect"
+    @MDCMenu:cancel="onCancel">
     <slot />
   </div>
 </template>
 
 <script>
-import { MDCSimpleMenu } from '@material/menu'
+import { MDCMenu } from '@material/menu'
 
 export default {
   model: {
@@ -20,26 +20,25 @@ export default {
   props: {
     startOpen: {
       type: Boolean,
-      required: false,
       default: false
     }
   },
   data () {
     return {
-      mdcSimpleMenu: null
+      mdcMenu: null
     }
   },
   computed: {
     classes () {
       return {
-        'mdc-simple-menu--open': this.startOpen
+        'mdc-menu--open': this.startOpen
       }
     }
   },
   mounted () {
     if (this.$slots.default) {
       this.$slots.default.map(n => {
-        n.elm.classList.add('mdc-simple-menu__items')
+        n.elm.classList.add('mdc-menu__items')
       })
       this.$slots.default[0].elm.setAttribute('role', 'menu')
 
@@ -50,18 +49,18 @@ export default {
       })
     }
 
-    this.mdcSimpleMenu = MDCSimpleMenu.attachTo(this.$el)
-    this.mdcSimpleMenu.open = this.open
+    this.mdcMenu = MDCMenu.attachTo(this.$el)
+    this.mdcMenu.open = this.open
   },
   beforeDestroy () {
-    this.mdcSimpleMenu.destroy()
+    this.mdcMenu.destroy()
   },
   methods: {
     show () {
-      this.mdcSimpleMenu.show()
+      this.mdcMenu.show()
     },
     hide () {
-      this.mdcSimpleMenu.hide()
+      this.mdcMenu.hide()
     },
     onSelect (event) {
       this.$emit('change', event.detail.index)

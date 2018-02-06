@@ -40,11 +40,9 @@ data() {
 
 ### Props & methods
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| startOpen | Boolean | - | false | whether the menu should be open at start |
-| dense | Boolean | - | false | whether the menu entries should be densed |
-| twoline | Boolean | - | false | whether the menu entries should be twoline |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| startOpen | Boolean | false | whether the menu should be open at start |
 
 | Method | Description |
 |--------|-------------|
@@ -53,9 +51,9 @@ data() {
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | menu content (list) |
+| Slot |  Description |
+|------|-------------|
+| default | menu content (list) |
 
 ## MenuAnchor
 
