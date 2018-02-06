@@ -15,10 +15,10 @@
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| checked | Boolean | - | false | checkbox value |
-| indeterminate | Boolean | - | false | not true not false |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| checked | Boolean | false | checkbox value |
+| indeterminate | Boolean | false | not true not false |
 
 Non prop attributes are mapped to the inner input element.
 
