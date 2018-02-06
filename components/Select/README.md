@@ -27,16 +27,17 @@ data() {
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| disabled | Boolean | - | false | whether the select should be disabled |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| disabled | Boolean | false | whether the select should be disabled |
+| box | Boolean | false | renders a select box |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | select label |
-| menu | - | select menu |
+| Slot | Description |
+|------|-------------|
+| default | select label |
+| menu | select menu |
 
 ### Reference
 

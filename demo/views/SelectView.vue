@@ -8,8 +8,24 @@
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
-    <m-layout-grid-cell :span="12">
+    <m-layout-grid-cell :span="2">
       <m-select>
+        Select
+        <m-menu slot="menu">
+          <m-list>
+            <m-list-item>
+              Entry 1
+            </m-list-item>
+            <m-list-divider />
+            <m-list-item>
+              Entry 2
+            </m-list-item>
+          </m-list>
+        </m-menu>
+      </m-select>
+    </m-layout-grid-cell>
+    <m-layout-grid-cell :span="2">
+      <m-select box>
         Select
         <m-menu slot="menu">
           <m-list>

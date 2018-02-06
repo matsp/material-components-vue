@@ -1,6 +1,7 @@
 <template>
   <div
     class="mdc-select"
+    :class="classes"
     tabindex="0"
     :aria-disabled="disabled"
     role="listbox"
@@ -29,13 +30,23 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      required: false,
+      default: false
+    },
+    box: {
+      type: Boolean,
       default: false
     }
   },
   data () {
     return {
       mdcSelect: null
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-select--box': this.box
+      }
     }
   },
   mounted () {
