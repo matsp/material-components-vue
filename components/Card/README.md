@@ -18,11 +18,12 @@
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| verticalActions | Boolean | - | false | renders actions vertical |
-| largeTitle | Boolean | - | false | larger title (without typography component)| 
-| horizontal | Boolean | -| false | renders media, title & subtitle horizontal
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| verticalActions | Boolean | false | renders actions vertical |
+| largeTitle | Boolean | false | larger title (without typography component)| 
+| horizontal | Boolean | false | renders media, title & subtitle horizontal
+| stroked | Boolean | false | renders a hairline stroke |
 
 ### Slots
 
@@ -41,9 +42,9 @@
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| height | Number | - | false | image scale between 1 and 3
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| height | Number | 1 | image scale between 1 and 3
 
 
 ### Reference

@@ -1,5 +1,7 @@
 <template>
-  <img class="mdc-card__media-item" :class="classes" >
+  <img
+    class="mdc-card__media-item"
+    :class="classes" >
 </template>
 
 <script>
@@ -9,7 +11,7 @@ export default {
     height: {
       type: Number,
       validator: value => (value >= 1 && value <= 3),
-      required: false
+      default: 1
     }
   },
   computed: {
