@@ -1,5 +1,7 @@
 <template>
-  <p class="mdc-text-field-helper-text" :class="classes">
+  <p
+    class="mdc-text-field-helper-text"
+    :class="classes">
     <slot />
   </p>
 </template>

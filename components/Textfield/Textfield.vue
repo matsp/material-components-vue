@@ -32,9 +32,7 @@
       v-if="outlined"
       class="mdc-text-field__idle-outline"/>
     <slot name="trailingIcon"/>
-    <div
-      v-if="bottomLine"
-      class="mdc-text-field__bottom-line"/>
+    <slot name="bottomLine"/>
   </div>
 </template>
 
@@ -70,11 +68,6 @@ export default {
       default: false
     },
     labelFloat: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    bottomLine: {
       type: Boolean,
       required: false,
       default: false
