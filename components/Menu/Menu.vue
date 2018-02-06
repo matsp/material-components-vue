@@ -21,6 +21,10 @@ export default {
     startOpen: {
       type: Boolean,
       default: false
+    },
+    quickOpen: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -51,6 +55,7 @@ export default {
 
     this.mdcMenu = MDCMenu.attachTo(this.$el)
     this.mdcMenu.open = this.open
+    this.mdcMenu.quickOpen = this.quickOpen
   },
   beforeDestroy () {
     this.mdcMenu.destroy()

@@ -43,6 +43,7 @@ data() {
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | startOpen | Boolean | false | whether the menu should be open at start |
+| quickOpen | Boolean | false | deactivates menu animation |
 
 | Method | Description |
 |--------|-------------|
