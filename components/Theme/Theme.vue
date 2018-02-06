@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="classes"
-    :style="customStyles">
+  <div :style="customStyles">
     <slot />
   </div>
 </template>
@@ -9,20 +7,9 @@
 <script>
 export default {
   props: {
-    dark: {
-      type: Boolean,
-      required: false
-    },
     customStyles: {
       type: Object,
-      required: false
-    }
-  },
-  computed: {
-    classes () {
-      return {
-        'mdc-theme--dark': this.dark
-      }
+      default: () => {}
     }
   }
 }

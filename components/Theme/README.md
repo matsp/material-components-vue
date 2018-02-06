@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-theme dark :customStyles="customStyle">
+<m-theme :customStyles="customStyle">
   themed content
 </m-theme>
 ```
@@ -17,16 +17,15 @@ const customStyle = {
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| dark | Boolean | - | false | enables dark theme |
-| customStyles | Object | - | false | customize theme variables |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| customStyles | Object | {} | customize theme variables |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | themed content |
+| Slot | Description |
+|------|-------------|
+| default | themed content |
 
 For a complete list of all CSS custom properties have a look at the [reference](https://github.com/material-components/material-components-web/tree/master/packages/mdc-theme#css-custom-properties).
 
