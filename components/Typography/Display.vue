@@ -9,7 +9,7 @@ export default {
   props: {
     adjustMargin: {
       type: Boolean,
-      default: true
+      default: false
     },
     level: {
       type: Number,

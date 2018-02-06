@@ -24,102 +24,102 @@
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| level | Number | - | true | body level could be 1 or 2 |
-| adjustMargin | Boolean | true | - | adjust margins to other elements |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| level | Number | - | body level could be 1 or 2 |
+| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | content |
+| Slot | Description |
+|------|-------------|
+| default | content |
 
 ## Button
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| adjustMargin | Boolean | true | - | adjust margins to other elements |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | content |
+| Slot | Description |
+|------|-------------|
+| default | content |
 
 ## Caption
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| adjustMargin | Boolean | true | - | adjust margins to other elements |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | content |
+| Slot | Description |
+|------|-------------|
+| default | content |
 
 ## Display
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| level | Number | - | true | display level could be between 1 and 4 |
-| adjustMargin | Boolean | true | - | adjust margins to other elements |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| level | Number | - | display level could be between 1 and 4 |
+| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | content |
+| Slot | Description |
+|------|-------------|
+| default | content |
 
 ## Headline
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| adjustMargin | Boolean | true | - | adjust margins to other elements |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | content |
+| Slot | Description |
+|------|-------------|
+| default | content |
 
 ## Subheading
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| level | Number | - | true | subheading level could be 1 or 2 |
-| adjustMargin | Boolean | true | - | adjust margins to other elements |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| level | Number | - | subheading level could be 1 or 2 |
+| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | content |
+| Slot | Description |
+|------|-------------|
+| default | content |
 
 ## Title
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| adjustMargin | Boolean | true | - | adjust margins to other elements |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | content |
+| Slot | Description |
+|------|-------------|
+| default | content |
 
 ### Reference
 
