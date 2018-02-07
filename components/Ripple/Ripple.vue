@@ -11,11 +11,11 @@ export default {
   props: {
     unbounded: {
       type: Boolean,
-      required: false
+      default: false
     },
     accent: {
       type: Boolean,
-      required: false
+      default: false
     }
   },
   data () {
@@ -44,6 +44,9 @@ export default {
     },
     deactivate () {
       this.mdcRipple.deactivate()
+    },
+    layout () {
+      this.mdcRipple.layout()
     }
   }
 }
@@ -51,5 +54,4 @@ export default {
 
 <style lang="scss">
 @import "@material/ripple/mdc-ripple";
-@import "@material/elevation/mixins";
 </style>
