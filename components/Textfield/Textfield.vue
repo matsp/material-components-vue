@@ -44,57 +44,46 @@ export default {
   props: {
     value: {
       type: String,
-      required: false,
       default: ''
     },
     disabled: {
       type: Boolean,
-      required: false,
       default: false
     },
     upgraded: {
       type: Boolean,
-      required: false,
       default: false
     },
     fullWidth: {
       type: Boolean,
-      required: false,
       default: false
     },
     box: {
       type: Boolean,
-      required: false,
       default: false
     },
     labelFloat: {
       type: Boolean,
-      required: false,
       default: false
     },
     outlined: {
       type: Boolean,
-      required: false,
       default: false
     },
     dense: {
       type: Boolean,
-      required: false,
       default: false
     },
     focused: {
       type: Boolean,
-      required: false,
       default: false
     },
     textarea: {
       type: Boolean,
-      required: false,
       default: false
     },
     shake: {
       type: Boolean,
-      required: false,
       default: false
     }
   },

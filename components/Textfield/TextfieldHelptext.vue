@@ -11,11 +11,11 @@ export default {
   props: {
     persistent: {
       type: Boolean,
-      required: false
+      default: false
     },
     validationMsg: {
       type: Boolean,
-      required: false
+      default: false
     }
   },
   computed: {
