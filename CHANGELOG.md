@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/matsp/material-components-vue/compare/v0.8.0...v0.9.0) (2018-02-07)
+
+
+### Features
+
+* **card:** Synchronise with mdc-web v0.30.0 ([c73d745](https://github.com/matsp/material-components-vue/commit/c73d745))
+* **card:** Synchronise with mdc-web v0.30.0 (add stroked prop) ([c384f99](https://github.com/matsp/material-components-vue/commit/c384f99))
+* **checkbox:** Synchronise with mdc-web v0.30.0 ([ad92849](https://github.com/matsp/material-components-vue/commit/ad92849))
+* **chips:** Synchronise with mdc-web v0.30.0 (add chip component) ([dd6a08a](https://github.com/matsp/material-components-vue/commit/dd6a08a))
+* **line-ripple:** Synchronise with mdc-web v0.30.0 (add line-ripple component) ([bdd1f39](https://github.com/matsp/material-components-vue/commit/bdd1f39))
+* **menu:** Synchronise with mdc-web v0.30.0 ([7a83af9](https://github.com/matsp/material-components-vue/commit/7a83af9))
+* **menu:** Synchronise with mdc-web v0.30.0 ([8fea9c8](https://github.com/matsp/material-components-vue/commit/8fea9c8))
+* **ripple:** Add missing method ([66f995f](https://github.com/matsp/material-components-vue/commit/66f995f))
+* **select:** Synchronise with mdc-web v0.30.0 ([e8c3d59](https://github.com/matsp/material-components-vue/commit/e8c3d59))
+* **textfield:** Synchronise with mdc-web v0.30.0 ([629df48](https://github.com/matsp/material-components-vue/commit/629df48))
+* **theme:** Synchronise with mdc-web v0.30.0 ([1ef3026](https://github.com/matsp/material-components-vue/commit/1ef3026))
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/matsp/material-components-vue/compare/v0.7.3...v0.8.0) (2018-01-30)
 
