@@ -31,7 +31,7 @@ this.$refs.r.activate()
 
 | Slot | Description |
 |------|-------------|
-| default | - | ripple content |
+| default | ripple content |
 
 ### Reference
 
