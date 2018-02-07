@@ -1,6 +1,7 @@
 import Button from './Button'
 import Card from './Card'
 import Checkbox from './Checkbox'
+import Chips from './Chips'
 import Dialog from './Dialog'
 import Elevation from './Elevation'
 import Fab from './Fab'
@@ -31,6 +32,7 @@ const plugin = {
     vue.use(Button)
     vue.use(Card)
     vue.use(Checkbox)
+    vue.use(Chips)
     vue.use(Dialog)
     vue.use(Elevation)
     vue.use(Fab)
