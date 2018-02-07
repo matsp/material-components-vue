@@ -1,10 +1,10 @@
-# Material components for Vue.js
+# Material design styled components for Vue.js
 [![npm](https://img.shields.io/npm/l/material-components-vue.svg)](https://github.com/matsp/material-components-vue/blob/master/LICENSE)
 [![npm](https://img.shields.io/npm/dt/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
 
 
 [![npm version](https://img.shields.io/npm/v/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
-[![mdc-web](https://img.shields.io/badge/mdc--web-0.29.0-orange.svg)](https://www.npmjs.com/package/material-components-web)
+[![mdc-web](https://img.shields.io/badge/mdc--web-0.30.0-orange.svg)](https://www.npmjs.com/package/material-components-web)
 [![Build Status](https://travis-ci.org/matsp/material-components-vue.svg?branch=master)](https://travis-ci.org/matsp/material-components-vue) 
 [![Greenkeeper badge](https://badges.greenkeeper.io/matsp/material-components-vue.svg)](https://greenkeeper.io/)
 
@@ -14,10 +14,11 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 
 ## main goals
 
-* decoupled components - can be cherry picked!
+* decoupled components
 * implementing just the specs not more or less
-* keep the components as simple as possible (KISS, DRY)
+* keep the components as simple as possible
 * keep in sync with changes in the mdc-web repository
+* user friendly component api
 
 ## distributions
 
