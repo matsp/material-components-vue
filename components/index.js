@@ -10,6 +10,7 @@ import Icon from './Icon'
 import IconToggle from './IconToggle'
 import LayoutGrid from './LayoutGrid'
 import LinearProgress from './LinearProgress'
+import LineRipple from './LineRipple'
 import List from './List'
 import Menu from './Menu'
 import Radio from './Radio'
@@ -39,6 +40,7 @@ const plugin = {
     vue.use(IconToggle)
     vue.use(LayoutGrid)
     vue.use(LinearProgress)
+    vue.use(LineRipple)
     vue.use(List)
     vue.use(Menu)
     vue.use(Radio)
