@@ -5,9 +5,11 @@
 ```html
 <m-text-field v-model="text">
   Textfield
+  <m-line-ripple slot="bottomLine"/>
 </m-text-field>
 <m-text-field v-model="pw" type="password" required minlength="8" aria-controls="pw-validation">
   Password
+  <m-line-ripple slot="bottomLine"/>
 </m-text-field>
 <m-text-field-helptext id="pw-validation">
   Password must be at least 8 characters long.
