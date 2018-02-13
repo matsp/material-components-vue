@@ -3,23 +3,9 @@
     class="mdc-drawer mdc-drawer--temporary"
     v-on="$listeners">
     <nav class="mdc-drawer__drawer">
-      <div
-        class="mdc-drawer__toolbar-spacer"
-        v-if="$slots['toolbarSpacer']">
-        <slot name="toolbarSpacer" />
-      </div>
-      <header
-        class="mdc-drawer__header"
-        v-if="$slots['header']">
-        <div class="mdc-drawer__header-content">
-          <slot name="header" />
-        </div>
-      </header>
-      <nav
-        class="mdc-drawer__content"
-        v-if="$slots['default']">
-        <slot />
-      </nav>
+      <slot name="toolbarSpacer"/>
+      <slot name="header"/>
+      <slot />
     </nav>
   </aside>
 </template>
@@ -31,7 +17,6 @@ export default {
   props: {
     initialOpen: {
       type: Boolean,
-      required: false,
       default: false
     }
   },

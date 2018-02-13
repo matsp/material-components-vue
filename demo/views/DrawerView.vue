@@ -10,37 +10,43 @@
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
       <m-typo-headline>PermanentDrawer</m-typo-headline>
-      <m-permanent-drawer>
-        <span slot="toolbarSpacer" />
-        <m-list>
-          <m-list-item> Item </m-list-item>
-          <m-list-divider />
-          <m-list-item> Item 2 </m-list-item>
-        </m-list>
-      </m-permanent-drawer>
+      <m-drawer-permanent>
+        <m-drawer-toolbar-spacer slot="toolbarSpacer" />
+        <m-drawer-content>
+          <m-list>
+            <m-list-item> Item </m-list-item>
+            <m-list-divider />
+            <m-list-item> Item 2 </m-list-item>
+          </m-list>
+        </m-drawer-content>
+      </m-drawer-permanent>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
       <m-typo-headline>PersistentDrawer</m-typo-headline>
       <m-button interactive raised @click="$refs.persistentDrawer.toggle()">toggle</m-button>
-      <m-persistent-drawer ref="persistentDrawer">
-        <span slot="toolbarSpacer" />
-        <m-list>
-          <m-list-item> Item </m-list-item>
-          <m-list-divider />
-          <m-list-item> Item 2 </m-list-item>
-        </m-list>
-      </m-persistent-drawer>
+      <m-drawer-persistent ref="persistentDrawer">
+        <m-drawer-toolbar-spacer slot="toolbarSpacer"/>
+        <m-drawer-content>
+          <m-list>
+            <m-list-item> Item </m-list-item>
+            <m-list-divider />
+            <m-list-item> Item 2 </m-list-item>
+          </m-list>
+        </m-drawer-content>
+      </m-drawer-persistent>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
       <m-typo-headline>TemporaryDrawer</m-typo-headline>
       <m-button interactive raised @click="$refs.temporaryDrawer.toggle()">toggle</m-button>
-      <m-temporary-drawer ref="temporaryDrawer">
-        <m-list>
-          <m-list-item> Item </m-list-item>
-          <m-list-divider />
-          <m-list-item> Item 2 </m-list-item>
-        </m-list>
-      </m-temporary-drawer>
+      <m-drawer-temporary ref="temporaryDrawer">
+        <m-drawer-content>
+          <m-list>
+            <m-list-item> Item </m-list-item>
+            <m-list-divider />
+            <m-list-item> Item 2 </m-list-item>
+          </m-list>
+        </m-drawer-content>
+      </m-drawer-temporary>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>

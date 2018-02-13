@@ -13,27 +13,31 @@
         Material Components Vue - Demonstration
       </m-toolbar-row>
     </m-toolbar>
-    <m-temporary-drawer ref="drawer">
-      <!-- <span slot="toolbarSpacer"/> -->
-      <span
+    <m-drawer-temporary ref="drawer">
+      <m-drawer-toolbar-spacer
+        class="mdc-theme--primary-bg"
+        slot="toolbarSpacer"/>
+      <m-drawer-header
         class="mdc-theme--primary"
         slot="header">
         <m-typo-headline>
           Components
         </m-typo-headline>
-      </span>
-      <m-list dense>
-        <m-list-item
-          v-for="item in listItems"
-          :key="item.text"
-          @click="openRoute(item.route)">
-          <m-icon
-            slot="graphic"
-            :icon="item.icon"/>
-          {{ item.text }}
-        </m-list-item>
-      </m-list>
-    </m-temporary-drawer>
+      </m-drawer-header>
+      <m-drawer-content>
+        <m-list dense>
+          <m-list-item
+            v-for="item in listItems"
+            :key="item.text"
+            @click="openRoute(item.route)">
+            <m-icon
+              slot="graphic"
+              :icon="item.icon"/>
+            {{ item.text }}
+          </m-list-item>
+        </m-list>
+      </m-drawer-content>
+    </m-drawer-temporary>
     <div class="demo-content">
       <m-toolbar-fixed-adjust>
         <main>
