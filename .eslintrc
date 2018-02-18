@@ -1,25 +1,23 @@
 {
-    "parserOptions": {
-        "parser": "babel-eslint",
-        "sourceType": "module",
-        "allowImportExportEverywhere": true
-    },
-    "extends": [
-        "standard",
-        "plugin:vue/recommended"
-    ],
-    "plugins": [
-        "html"
-    ],
-    "settings": {
-        "html/html-extensions": [
-            ".html"
-        ]
-    },
-    "env": {
-        "browser": true,
-        "node": true,
-        "es6": true,
-        "jest": true
-    }
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "extends": [
+    "standard",
+    "plugin:vue/recommended"
+  ],
+  "plugins": [
+    "html"
+  ],
+  "settings": {
+    "html/html-extensions": [".html"]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  }
 }
