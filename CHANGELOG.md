@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/matsp/material-components-vue/compare/v0.9.0...v0.10.0) (2018-02-18)
+
+
+### Bug Fixes
+
+* **package:** update normalize.css to version 8.0.0 ([81f15b0](https://github.com/matsp/material-components-vue/commit/81f15b0))
+
+
+### Features
+
+* **demo:** Removed dark-theme switch ([9a174c8](https://github.com/matsp/material-components-vue/commit/9a174c8))
+* **demo:** Replaced bottom-line with line-ripple in the textfield demo ([773864a](https://github.com/matsp/material-components-vue/commit/773864a))
+* **drawer:** Decoupled drawer component for better customization (closes [#60](https://github.com/matsp/material-components-vue/issues/60)) ([c384a7a](https://github.com/matsp/material-components-vue/commit/c384a7a))
+
+
+### BREAKING CHANGES
+
+* **drawer:** There are new sub-components - have a look at the docs.
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/matsp/material-components-vue/compare/v0.8.0...v0.9.0) (2018-02-07)
 
