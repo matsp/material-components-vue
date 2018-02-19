@@ -42,6 +42,10 @@ export default new VueRouter({
       component: () => import('views/LinearProgressView')
     },
     {
+      path: '/list',
+      component: () => import('views/ListView')
+    },
+    {
       path: '/radio',
       component: () => import('views/RadioView')
     },
