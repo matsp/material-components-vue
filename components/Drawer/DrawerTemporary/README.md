@@ -12,8 +12,8 @@
           {{item.text}}
       </m-list-item>
     </m-list>
-  <m-drawer-content>
-</m-temporary-drawer>
+  </m-drawer-content>
+</m-drawer-temporary>
 ```
 ### Script
 
