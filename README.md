@@ -116,7 +116,7 @@ Import the SASS file in the root component of app for maximal customization.
 
 #### CSS custom properties
 
-Integrate a theme component in your template und pass in an object with CSS custom properties, but keep browser compatibilty in mind.
+Integrate a theme component in your template and pass in an object with CSS custom properties, but keep browser compatibilty in mind.
 
 ```html
 <m-theme :customStyle="material">
