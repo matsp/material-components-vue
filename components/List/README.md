@@ -70,21 +70,21 @@
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| interactive | Boolean | - | false | ripple effect |
-| activated | Boolean | - | false | actived item |
-| selected | Boolean | - | false | selected item |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| interactive | Boolean | false | ripple effect |
+| activated | Boolean | false | activated item |
+| selected | Boolean | false | selected item |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | list item content |
-| graphic | - | first tile |
-| text | - | first row of content when twoline list |
-| secondaryText | - | second row of content when twoline list |
-| meta | - | end tile |
+| Slot | Description |
+|------|-------------|
+| default | list item content |
+| graphic | first tile |
+| text | first row of content when twoline list |
+| secondaryText | second row of content when twoline list |
+| meta | end tile |
 
 ### Reference
 

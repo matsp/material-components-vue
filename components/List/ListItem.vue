@@ -1,14 +1,25 @@
 <template>
-  <li class="mdc-list-item" v-on="$listeners">
-    <slot name="graphic" v-if="$slots['graphic']"/>
-    <slot />
-    <span class="mdc-list-item__text" v-if="$slots['text']">
-      <slot name="text" />
-      <div class="mdc-list-mdc-list-item__secondary-text" v-if="$slots['secondaryText']">
-        <slot name="secondaryText" />
+  <li 
+    class="mdc-list-item" 
+    :class="classes"
+    v-on="$listeners">
+    <slot
+      name="graphic"
+      v-if="$slots['graphic']"/>
+    <slot/>
+    <span
+      class="mdc-list-item__text"
+      v-if="$slots['text']">
+      <slot name="text"/>
+      <div 
+        class="mdc-list-mdc-list-item__secondary-text"
+        v-if="$slots['secondaryText']">
+        <slot name="secondaryText"/>
       </div>
     </span>
-    <slot name="meta" v-if="$slots['meta']"/>
+    <slot
+      name="meta"
+      v-if="$slots['meta']"/>
   </li>
 </template>
 
@@ -19,15 +30,15 @@ export default {
   props: {
     interactive: {
       type: Boolean,
-      required: false
+      default: false
     },
     activated: {
       type: Boolean,
-      required: false
+      default: false
     },
     selected: {
       type: Boolean,
-      required: false
+      default: false
     }
   },
   data () {
