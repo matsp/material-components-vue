@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/matsp/material-components-vue/compare/v0.10.1...v0.11.0) (2018-02-20)
+
+
+### Features
+
+* **card:** Synchronise with mdc-web v0.31.0 (add primary action) ([ac51092](https://github.com/matsp/material-components-vue/commit/ac51092))
+* **chip:** Synchronise with mdc-web v0.31.0 (add icons) ([d8793a4](https://github.com/matsp/material-components-vue/commit/d8793a4))
+* **demo:** Add list component demo ([049bfbc](https://github.com/matsp/material-components-vue/commit/049bfbc))
+
+
+
 <a name="0.10.1"></a>
 ## [0.10.1](https://github.com/matsp/material-components-vue/compare/v0.10.0...v0.10.1) (2018-02-19)
 
