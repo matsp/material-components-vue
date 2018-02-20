@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.1"></a>
+## [0.11.1](https://github.com/matsp/material-components-vue/compare/v0.11.0...v0.11.1) (2018-02-20)
+
+
+### Bug Fixes
+
+* **README:** Update mdc-web version ([cac1af9](https://github.com/matsp/material-components-vue/commit/cac1af9))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/matsp/material-components-vue/compare/v0.10.1...v0.11.0) (2018-02-20)
 
