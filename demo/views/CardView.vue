@@ -9,7 +9,7 @@
       </m-typo-body>
     </m-layout-grid-cell>
     <m-layout-grid-cell>
-      <m-card>
+      <m-card primaryAction>
         <m-typo-headline class="demo">
           Title
         </m-typo-headline>

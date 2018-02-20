@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-card>
+<m-card primaryAction>
   <m-typo-headline class="demo">
     Title
   </m-typo-headline>
@@ -37,6 +37,7 @@
 |------|------|---------|-------------|
 | stroked | Boolean | false | renders a hairline stroke |
 | fullBleedAction | Boolean | false | a single action will take up the entire space in the row |
+| primaryAction | Boolean | false | visual support for a primary action on the card |
 
 ### Slots
 

@@ -2,8 +2,10 @@
   <div
     class="mdc-card"
     :class="classes">
-    <slot name="media"/>
-    <slot />
+    <div :class="contentClasses">
+      <slot name="media"/>
+      <slot />
+    </div>
     <div
       class="mdc-card__actions"
       :class="actionClasses"
@@ -32,6 +34,10 @@ export default {
     fullBleedAction: {
       type: Boolean,
       default: false
+    },
+    primaryAction: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -40,13 +46,18 @@ export default {
         'mdc-card--stroked': this.stroked
       }
     },
+    contentClasses () {
+      return {
+        'mdc-card__primary-action': this.primaryAction
+      }
+    },
     actionClasses () {
       return {
         'mdc-card__actions--full-bleed': this.fullBleedAction
       }
     }
   },
-  mounted () {
+  mounted () {    
     if (this.$slots.actionButtons) {
       this.$slots.actionButtons.map((n) => {
         n.elm.classList.add('mdc-card__action')
