@@ -1,8 +1,14 @@
 <template>
-  <div class="mdc-chip">
+  <div class="mdc-chip" tabindex="0">
+    <slot
+      name="leadingIcon"
+      v-if="$slots['leadingIcon']"/>
     <div class="mdc-chip__text">
-      <slot />
+      <slot/>
     </div>
+    <slot
+      name="trailingIcon"
+      v-if="$slots['trailingIcon']"/>
   </div>
 </template>
 
@@ -16,6 +22,22 @@ export default {
     }
   },
   mounted () {
+    if (this.$slots.leadingIcon) {
+      this.$slots.leadingIcon.map((n) => {
+        n.elm.classList.add('mdc-chip__icon')
+        n.elm.classList.add('mdc-chip__icon--leading')
+      })
+    }
+    
+    if (this.$slots.trailingIcon) {
+      this.$slots.trailingIcon.map((n) => {
+        n.elm.classList.add('mdc-chip__icon')
+        n.elm.classList.add('mdc-chip__icon--trailing')
+        n.elm.setAttribute('role', 'button')
+        n.elm.setAttribute('tabindex', '0')
+      })
+    }
+
     this.mdcChip = MDCChip.attachTo(this.$el)
   }
 }
