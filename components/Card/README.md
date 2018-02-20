@@ -26,9 +26,9 @@
 ### CSS
 
 ```css
- .demo {
-   padding: 8px 16px;
- }
+.demo {
+  padding: 8px 16px;
+}
 ```
 
 ### Props
