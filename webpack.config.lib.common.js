@@ -1,5 +1,4 @@
 const path = require('path')
-const glob = require('glob')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -48,22 +47,43 @@ module.exports = {
           preserveWhitespace: false,
           loaders: {
             scss: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
               use: [
                 {
-                  loader: 'css-loader'
+                  loader: 'css-loader',
+                  sourceMap: false
                 },
                 {
                   loader: 'sass-loader',
                   options: {
                     sourceMap: false,
-                    includePaths: [nodeModules]
+                    includePaths: [components, nodeModules]
                   }
                 }
-              ]
+              ],
+              fallback: 'style-loader'
             })
           }
         }
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: false
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: false,
+                includePaths: [components, nodeModules]
+              }
+            }
+          ]
+        })
       }
     ]
   },
