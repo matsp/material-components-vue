@@ -1,20 +1,11 @@
 {
-    "comments": false,
-    "presets": [
-        [
-            "env",
-            {
-                "targets": {
-                    "browsers": [
-                        "> 1%",
-                        "last 2 versions",
-                        "ie >= 10"
-                    ]
-                },
-                "modules": false,
-                "useBuiltIns": "entry"
+  "comments": false,
+  "presets": [
+    ["env", {
+              "modules": false,
+              "useBuiltIns": "entry"
             }
-        ],
-        ["stage-0"]
-    ]
+    ],
+    ["stage-0"]
+  ]
 }
