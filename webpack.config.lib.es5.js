@@ -10,9 +10,9 @@ const nodeModules = path.join(root, '/node_modules/')
 module.exports = merge(common, {
   output: {
     path: path.resolve(root + '/dist'),
-    filename: 'material-components-vue.es5.min.js',
+    filename: 'mcv-[name].es5.min.js',
     libraryTarget: 'umd',
-    library: 'material-components-vue'
+    library: 'mcv-[name]'
   },
   module: {
     rules: [

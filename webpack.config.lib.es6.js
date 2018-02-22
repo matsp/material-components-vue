@@ -8,9 +8,9 @@ const root = path.join(__dirname)
 module.exports = merge(common, {
   output: {
     path: path.resolve(root + '/dist'),
-    filename: 'material-components-vue.min.js',
+    filename: 'mcv-[name].min.js',
     libraryTarget: 'umd',
-    library: 'material-components-vue'
+    library: 'mcv-[name]'
   },
   plugins: [
     new UglifyJSPlugin({
