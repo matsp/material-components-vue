@@ -1,7 +1,13 @@
 import Select from './Select.vue'
+import './styles.scss'
 
-export default {
+import { initPlugin } from '../'
+
+const plugin = {
   install (vm) {
     vm.component('m-select', Select)
   }
 }
+export default plugin
+
+initPlugin(plugin)

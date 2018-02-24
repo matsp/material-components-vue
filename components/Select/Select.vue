@@ -72,7 +72,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/select/mdc-select";
-</style>

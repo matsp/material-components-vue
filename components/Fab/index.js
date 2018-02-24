@@ -1,7 +1,13 @@
 import Fab from './Fab.vue'
+import './styles.scss'
 
-export default {
+import { initPlugin } from '../'
+
+const plugin = {
   install (vm) {
     vm.component('m-fab', Fab)
   }
 }
+export default plugin
+
+initPlugin(plugin)

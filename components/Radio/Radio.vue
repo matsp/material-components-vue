@@ -53,7 +53,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/radio/mdc-radio";
-</style>

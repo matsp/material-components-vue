@@ -47,12 +47,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/snackbar/mdc-snackbar";
-@import "@material/button/mdc-button";
-
-.mdc-snackbar {
-    transform: translateY(100%);
-}
-</style>

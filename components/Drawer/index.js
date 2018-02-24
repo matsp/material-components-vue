@@ -4,8 +4,11 @@ import DrawerToolbarSpacer from './DrawerToolbarSpacer.vue'
 import DrawerPermanent from './DrawerPermanent/DrawerPermanent.vue'
 import DrawerPersistent from './DrawerPersistent/DrawerPersistent.vue'
 import DrawerTemporary from './DrawerTemporary/DrawerTemporary.vue'
+import './styles.scss'
 
-export default {
+import { initPlugin } from '../'
+
+const plugin = {
   install (vm) {
     vm.component('m-drawer-content', DrawerContent)
     vm.component('m-drawer-header', DrawerHeader)
@@ -15,3 +18,6 @@ export default {
     vm.component('m-drawer-temporary', DrawerTemporary)
   }
 }
+export default plugin
+
+initPlugin(plugin)

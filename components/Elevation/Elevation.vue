@@ -26,7 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/elevation/mdc-elevation";
-</style>

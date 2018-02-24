@@ -42,7 +42,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/chips/mdc-chips";
-</style>

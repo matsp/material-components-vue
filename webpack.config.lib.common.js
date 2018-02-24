@@ -17,13 +17,13 @@ module.exports = {
     drawer: path.resolve(components + '/Drawer/index.js'),
     elevation: path.resolve(components + '/Elevation/index.js'),
     fab: path.resolve(components + '/Fab/index.js'),
-    formField: path.resolve(components + '/FormField/index.js'),
+    'form-field': path.resolve(components + '/FormField/index.js'),
     gridList: path.resolve(components + '/GridList/index.js'),
     icon: path.resolve(components + '/Icon/index.js'),
-    iconToggle: path.resolve(components + '/IconToggle/index.js'),
-    layoutGrid: path.resolve(components + '/LayoutGrid/index.js'),
-    linearProgress: path.resolve(components + '/LinearProgress/index.js'),
-    lineRipple: path.resolve(components + '/LineRipple/index.js'),
+    'icon-toggle': path.resolve(components + '/IconToggle/index.js'),
+    'layout-grid': path.resolve(components + '/LayoutGrid/index.js'),
+    'linear-progress': path.resolve(components + '/LinearProgress/index.js'),
+    'line-ripple': path.resolve(components + '/LineRipple/index.js'),
     list: path.resolve(components + '/List/index.js'),
     menu: path.resolve(components + '/Menu/index.js'),
     radio: path.resolve(components + '/Radio/index.js'),
@@ -42,28 +42,7 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          preserveWhitespace: false,
-          loaders: {
-            scss: ExtractTextPlugin.extract({
-              use: [
-                {
-                  loader: 'css-loader',
-                  sourceMap: false
-                },
-                {
-                  loader: 'sass-loader',
-                  options: {
-                    sourceMap: false,
-                    includePaths: [components, nodeModules]
-                  }
-                }
-              ],
-              fallback: 'style-loader'
-            })
-          }
-        }
+        loader: 'vue-loader'
       },
       {
         test: /\.(css|scss)$/,

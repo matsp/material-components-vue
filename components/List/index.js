@@ -4,8 +4,11 @@ import ListGroup from './ListGroup.vue'
 import ListGroupDivider from './ListGroupDivider.vue'
 import ListGroupSubheader from './ListGroupSubheader.vue'
 import ListItem from './ListItem.vue'
+import './styles.scss'
 
-export default {
+import { initPlugin } from '../'
+
+const plugin = {
   install (vm) {
     vm.component('m-list', List)
     vm.component('m-list-divider', ListDivider)
@@ -15,3 +18,6 @@ export default {
     vm.component('m-list-item', ListItem)
   }
 }
+export default plugin
+
+initPlugin(plugin)

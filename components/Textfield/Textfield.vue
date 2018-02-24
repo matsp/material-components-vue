@@ -38,7 +38,7 @@
 
 <script>
 import { MDCTextField } from '@material/textfield'
-import { debounce } from '../utils'
+import { debounce } from '../'
 
 export default {
   props: {
@@ -149,7 +149,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" >
-@import "@material/textfield/mdc-text-field";
-</style>

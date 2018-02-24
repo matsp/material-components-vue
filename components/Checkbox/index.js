@@ -1,7 +1,13 @@
 import Checkbox from './Checkbox.vue'
+import './styles.scss'
 
-export default {
+import { initPlugin } from '../'
+
+const plugin = {
   install (vm) {
     vm.component('m-checkbox', Checkbox)
   }
 }
+export default plugin
+
+initPlugin(plugin)

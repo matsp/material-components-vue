@@ -1,7 +1,13 @@
 import Elevation from './Elevation.vue'
+import './styles.scss'
 
-export default {
+import { initPlugin } from '../'
+
+const plugin = {
   install (vm) {
     vm.component('m-elevation', Elevation)
   }
 }
+export default plugin
+
+initPlugin(plugin)

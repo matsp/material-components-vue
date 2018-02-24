@@ -7,7 +7,3 @@
     </div>
   </header>
 </template>
-
-<style lang="scss">
-@import "@material/drawer/mdc-drawer";
-</style>

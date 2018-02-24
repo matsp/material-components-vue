@@ -51,7 +51,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/ripple/mdc-ripple";
-</style>

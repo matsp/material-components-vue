@@ -76,7 +76,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/menu/mdc-menu";
-</style>

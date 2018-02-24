@@ -6,8 +6,11 @@ import Headline from './Headline.vue'
 import Title from './Title.vue'
 import Subheading from './Subheading.vue'
 import Typography from './Typography.vue'
+import './styles.scss'
 
-export default {
+import { initPlugin } from '../'
+
+const plugin = {
   install (vm) {
     vm.component('m-typo-body', Body)
     vm.component('m-typo-button', Button)
@@ -19,3 +22,6 @@ export default {
     vm.component('m-typography', Typography)
   }
 }
+export default plugin
+
+initPlugin(plugin)

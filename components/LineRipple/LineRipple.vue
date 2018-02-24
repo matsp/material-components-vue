@@ -29,7 +29,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/line-ripple/mdc-line-ripple";
-</style>

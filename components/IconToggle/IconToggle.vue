@@ -12,7 +12,7 @@
 
 <script>
 import { MDCIconToggle } from '@material/icon-toggle'
-import { debounce } from '../utils'
+import { debounce } from '../'
 
 export default {
   props: {
@@ -76,7 +76,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" >
-@import "@material/icon-toggle/mdc-icon-toggle";
-</style>

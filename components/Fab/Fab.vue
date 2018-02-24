@@ -57,19 +57,3 @@ export default {
 }
 </script>
 
-<style lang="scss" >
-@import "@material/fab/mdc-fab";
-
-.mdc-fab--absolute-right.mdc-fab--absolute-right {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-}
-
-@media(min-width: 1024px) {
-    .mdc-fab--absolute-right.mdc-fab--absolute-right {
-        bottom: 1.5rem;
-        right: 1.5rem;
-    }
-}
-</style>

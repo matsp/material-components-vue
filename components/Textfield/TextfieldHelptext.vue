@@ -28,7 +28,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "@material/textfield/mdc-text-field";
-</style>
