@@ -18,7 +18,7 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 * keep in sync with changes in the mdc-web repository
 * user friendly component api
 
-## JavaScript distributions
+## Javascript distributions
 
 | Name | ECMA | Minimized |
 |------|------|-----------|
@@ -28,7 +28,7 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 
 All versions are provided as UMD modules.
 
-## CSS / SASS distribution
+## CSS / SASS distributions
 
 | Name | Description |
 |------|-----------|
@@ -116,6 +116,9 @@ Import all SASS files in the root component of your app or external file for max
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 </style>
 ```
+
+Don't forget to include the `@material` directory of your `node_modules` in your sass-loader options.
+Otherwise the components won't compile sucessfully.
 
 #### CSS custom properties
 
