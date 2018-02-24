@@ -22,6 +22,7 @@ deploy:
       tags: true
   - provider: npm
     skip_cleanup: true
+    local_dir: dist
     email: mats.pfeiffer@googlemail.com
     api_key: $NPM_TOKEN
     on:
