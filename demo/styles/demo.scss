@@ -2,7 +2,7 @@ $mdc-theme-primary: #5e35b1;
 $mdc-theme-secondary: #ff5722;
 $mdc-theme-background: #ffffff;
 
-@import "../components/Theme/theme.scss";
+@import "../dist/button/styles";
 @import "~normalize.css/normalize.css";
 // @import url('https://cdnjs.com/libraries/normalize')
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
