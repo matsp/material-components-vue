@@ -2,7 +2,27 @@ $mdc-theme-primary: #5e35b1;
 $mdc-theme-secondary: #ff5722;
 $mdc-theme-background: #ffffff;
 
-@import "../dist/button/styles";
+@import "../../dist/button/styles";
+@import "../../dist/card/styles";
+@import "../../dist/checkbox/styles";
+@import "../../dist/dialog/styles";
+@import "../../dist/drawer/styles";
+@import "../../dist/elevation/styles";
+@import "../../dist/fab/styles";
+@import "../../dist/form-field/styles";
+@import "../../dist/icon-toggle/styles";
+@import "../../dist/layout-grid/styles";
+@import "../../dist/line-ripple/styles";
+@import "../../dist/linear-progress/styles";
+@import "../../dist/list/styles";
+@import "../../dist/menu/styles";
+@import "../../dist/radio/styles";
+@import "../../dist/select/styles";
+@import "../../dist/slider/styles";
+@import "../../dist/textfield/styles";
+@import "../../dist/theme/styles";
+@import "../../dist/toolbar/styles";
+@import "../../dist/typography/styles";
 @import "~normalize.css/normalize.css";
 // @import url('https://cdnjs.com/libraries/normalize')
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
