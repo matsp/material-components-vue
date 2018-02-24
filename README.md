@@ -8,11 +8,9 @@
 [![Build Status](https://travis-ci.org/matsp/material-components-vue.svg?branch=master)](https://travis-ci.org/matsp/material-components-vue) 
 [![Greenkeeper badge](https://badges.greenkeeper.io/matsp/material-components-vue.svg)](https://greenkeeper.io/)
 
-
-
 Material-components-vue integrates the mdc-web vanilla components following the [simple approach](https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md#the-simple-approach-wrapping-mdc-web-vanilla-components).
 
-## main goals
+## TL;DR
 
 * decoupled components
 * implementing just the specs not more or less
@@ -20,15 +18,22 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 * keep in sync with changes in the mdc-web repository
 * user friendly component api
 
-## distributions
+## JavaScript distributions
 
 | Name | ECMA | Minimized |
-| ---- | ---- | --------- |
-| dist/material-components-vue.js | 6 | no |
-| dist/material-components-vue.min.js | 6 | yes |
-| dist/material-components-vue.es5.min.js | 5 | yes | 
+|------|------|-----------|
+| dist/[component]/mcv-[component].js | 6 | no |
+| dist/[component]/mcv-[component].min.js | 6 | yes |
+| dist/[component]/mcv-[component].es5.min.js | 5 | yes | 
 
 All versions are provided as UMD modules.
+
+## CSS / SASS distribution
+
+| Name | Description |
+|------|-----------|
+| dist/[component]/mcv-[component].css | Minified component CSS |
+| dist/[component]/styles.scss | Raw SASS styles (prefered for customization) |
 
 ## quick start
 
@@ -57,7 +62,8 @@ yarn add material-components-vue
     <link rel="stylesheet" href="https://cdnjs.com/libraries/normalize">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/material-components-vue.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/button/mcv-typography.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/button/mcv-button.css">
   </head>
   <body>
     <div id="app">
@@ -68,7 +74,8 @@ yarn add material-components-vue
       </m-typography>
     </div>
     <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/material-components-vue"></script>
+    <script src="https://unpkg.com/dist/typography/mcv-typography.es5.min.js"></script>
+    <script src="https://unpkg.com/dist/button/mcv-button.es5.min.js"></script>
     <script>
       const app = new Vue({
         el: '#app'
@@ -79,35 +86,31 @@ yarn add material-components-vue
 ```
 
 ### bundler
-
-#### import all components
+#### import components
 ```javascript
-import MaterialComponentsVue from 'material-components-vue'
-
-Vue.use(MaterialComponentsVue)
-```
-
-#### cherry pick components
-```javascript
-import Button from 'material-components-vue/components/button'
-import Card from 'material-components-vue/components/card'
+import Button from 'material-components-vue/button/mcv-button.js'
+import Card from 'material-components-vue/card/mcv-button.js'
+// ...
 
 Vue.use(Button)
 Vue.use(Card)
+// ...
 ```
 
 ## theming
 
 #### SASS
 
-Import the SASS file in the root component of app for maximal customization.
+Import all SASS files in the root component of your app or external file for maximal customization:
 
 ```html
 <style lang="scss">
   $mdc-theme-primary: #2196f3;
   $mdc-theme-secondary: #ff1744;
   $mdc-theme-background: #f5f5f5;
-  @import '~material-components-vue/components/material-components-vue.scss';
+  @import "~material-components-vue/theme/styles";
+  @import "~material-components-vue/button/styles";
+  @import "~material-components-vue/card/styles";
   @import url('https://cdnjs.com/libraries/normalize');
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -144,7 +147,7 @@ data() {
 
 ```html
 <style lang="css">
-  @import '~material-components-vue/dist/material-components-vue.css';
+  @import "~material-components-vue/theme/styles";
   @import url('https://cdnjs.com/libraries/normalize');
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
