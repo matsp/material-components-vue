@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const root = path.join(__dirname)
 const components = path.join(root + '/components/')
@@ -9,34 +10,34 @@ const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
-    button: path.resolve(components + '/Button/index.js'),
-    card: path.resolve(components + '/Card/index.js'),
-    checkbox: path.resolve(components + '/Checkbox/index.js'),
-    chips: path.resolve(components + '/Chips/index.js'),
-    dialog: path.resolve(components + '/Dialog/index.js'),
-    drawer: path.resolve(components + '/Drawer/index.js'),
-    elevation: path.resolve(components + '/Elevation/index.js'),
-    fab: path.resolve(components + '/Fab/index.js'),
-    'form-field': path.resolve(components + '/FormField/index.js'),
-    gridList: path.resolve(components + '/GridList/index.js'),
-    icon: path.resolve(components + '/Icon/index.js'),
-    'icon-toggle': path.resolve(components + '/IconToggle/index.js'),
-    'layout-grid': path.resolve(components + '/LayoutGrid/index.js'),
-    'linear-progress': path.resolve(components + '/LinearProgress/index.js'),
-    'line-ripple': path.resolve(components + '/LineRipple/index.js'),
-    list: path.resolve(components + '/List/index.js'),
-    menu: path.resolve(components + '/Menu/index.js'),
-    radio: path.resolve(components + '/Radio/index.js'),
-    ripple: path.resolve(components + '/Ripple/index.js'),
-    select: path.resolve(components + '/Select/index.js'),
-    slider: path.resolve(components + '/Slider/index.js'),
-    snackbar: path.resolve(components + '/Snackbar/index.js'),
-    switch: path.resolve(components + '/Switch/index.js'),
-    tabs: path.resolve(components + '/Tabs/index.js'),
-    textfield: path.resolve(components + '/Textfield/index.js'),
-    theme: path.resolve(components + '/Theme/index.js'),
-    toolbar: path.resolve(components + '/Toolbar/index.js'),
-    typography: path.resolve(components + '/Typography/index.js')
+    button: path.resolve(components + '/button/index.js'),
+    card: path.resolve(components + '/card/index.js'),
+    checkbox: path.resolve(components + '/checkbox/index.js'),
+    chips: path.resolve(components + '/chips/index.js'),
+    dialog: path.resolve(components + '/dialog/index.js'),
+    drawer: path.resolve(components + '/drawer/index.js'),
+    elevation: path.resolve(components + '/elevation/index.js'),
+    fab: path.resolve(components + '/fab/index.js'),
+    'form-field': path.resolve(components + '/form-field/index.js'),
+    'grid-list': path.resolve(components + '/grid-list/index.js'),
+    icon: path.resolve(components + '/icon/index.js'),
+    'icon-toggle': path.resolve(components + '/icon-toggle/index.js'),
+    'layout-grid': path.resolve(components + '/layout-grid/index.js'),
+    'linear-progress': path.resolve(components + '/linear-progress/index.js'),
+    'line-ripple': path.resolve(components + '/line-ripple/index.js'),
+    list: path.resolve(components + '/list/index.js'),
+    menu: path.resolve(components + '/menu/index.js'),
+    radio: path.resolve(components + '/radio/index.js'),
+    ripple: path.resolve(components + '/ripple/index.js'),
+    select: path.resolve(components + '/select/index.js'),
+    slider: path.resolve(components + '/slider/index.js'),
+    snackbar: path.resolve(components + '/snackbar/index.js'),
+    switch: path.resolve(components + '/switch/index.js'),
+    tabs: path.resolve(components + '/tabs/index.js'),
+    textfield: path.resolve(components + '/textfield/index.js'),
+    theme: path.resolve(components + '/theme/index.js'),
+    toolbar: path.resolve(components + '/toolbar/index.js'),
+    typography: path.resolve(components + '/typography/index.js')
   },
   module: {
     rules: [
@@ -81,9 +82,19 @@ module.exports = {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new ExtractTextPlugin({
-      filename: 'mcv-[name].css',
+      filename: '[name]/mcv-[name].css',
       allChunks: true
     }),
+    new CopyWebpackPlugin([
+      {
+        context: 'components/',
+        from: '**/*',
+        to: './',
+        //flatten: true,
+        //toType: 'template',
+        ignore: [ '*.js', '*.vue' ]
+      }
+    ]),
     new OptimizeCssAssetsPlugin(),
     new webpack.BannerPlugin({
       banner: [

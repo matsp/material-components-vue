@@ -8,7 +8,7 @@ const root = path.join(__dirname)
 module.exports = merge(common, {
   output: {
     path: path.resolve(root + '/dist'),
-    filename: 'mcv-[name].min.js',
+    filename: '[name]/mcv-[name].min.js',
     libraryTarget: 'umd',
     library: 'mcv-[name]'
   },

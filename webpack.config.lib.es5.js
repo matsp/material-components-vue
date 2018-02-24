@@ -10,7 +10,7 @@ const nodeModules = path.join(root, '/node_modules/')
 module.exports = merge(common, {
   output: {
     path: path.resolve(root + '/dist'),
-    filename: 'mcv-[name].es5.min.js',
+    filename: '[name]/mcv-[name].es5.min.js',
     libraryTarget: 'umd',
     library: 'mcv-[name]'
   },

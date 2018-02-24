@@ -1,4 +1,5 @@
 import Theme from './Theme.vue'
+import './styles.scss'
 
 import { initPlugin } from '../'
 
