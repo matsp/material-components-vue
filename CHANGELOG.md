@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.1"></a>
+## [0.12.1](https://github.com/matsp/material-components-vue/compare/v0.12.0...v0.12.1) (2018-02-26)
+
+
+### Chores
+
+* Upgrade Babel ([#70](https://github.com/matsp/material-components-vue/issues/70)) & publish ES5 with new transformations (closes [#71](https://github.com/matsp/material-components-vue/issues/71)) ([a944056](https://github.com/matsp/material-components-vue/commit/a944056))
+
+
+### BREAKING CHANGES
+
+* The distribution names changed, please update your build process!
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/matsp/material-components-vue/compare/v0.11.1...v0.12.0) (2018-02-24)
 
