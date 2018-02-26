@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.2"></a>
+## [0.12.2](https://github.com/matsp/material-components-vue/compare/v0.12.1...v0.12.2) (2018-02-26)
+
+
+### Bug Fixes
+
+* **webpack:** Fix CSS distribution name ([55a06ac](https://github.com/matsp/material-components-vue/commit/55a06ac))
+
+
+
 <a name="0.12.1"></a>
 ## [0.12.1](https://github.com/matsp/material-components-vue/compare/v0.12.0...v0.12.1) (2018-02-26)
 
