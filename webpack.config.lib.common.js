@@ -90,7 +90,7 @@ module.exports = {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new ExtractTextPlugin({
-      filename: '[name]/mcv-[name].css',
+      filename: '[name]/mcv-[name].min.css',
       allChunks: true
     }),
     new CopyWebpackPlugin([
