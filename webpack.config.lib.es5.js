@@ -4,27 +4,13 @@ const merge = require('webpack-merge')
 const common = require('./webpack.config.lib.common.js')
 
 const root = path.join(__dirname)
-const components = path.join(root + '/components/')
-const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = merge(common, {
   output: {
     path: path.resolve(root + '/dist'),
-    filename: '[name]/mcv-[name].es5.min.js',
+    filename: '[name]/mcv-[name].min.js',
     libraryTarget: 'umd',
     library: 'mcv-[name]'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [components, path.join(nodeModules, '@material')],
-        options: {
-          cacheDirectory: true
-        }
-      }
-    ]
   },
   plugins: [
     new UglifyJSPlugin({

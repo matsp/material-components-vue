@@ -46,11 +46,9 @@ export default {
       })
       this.$slots.default[0].elm.setAttribute('role', 'menu')
 
-      this.$slots.default[0].componentOptions.children.map(n => {
-        if (n.elm.className.includes('mdc-list-item')) {
-          n.elm.setAttribute('tabindex', '0')
-        }
-      })
+      this.$slots.default[0].componentOptions.children
+        .filter( n => n.elm.className.indexOf('mdc-list-item') > -1)
+        .map( n => n.elm.setAttribute('tabindex', '0'))
     }
 
     this.mdcMenu = MDCMenu.attachTo(this.$el)

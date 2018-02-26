@@ -64,6 +64,14 @@ module.exports = {
             }
           ]
         })
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: [components, path.join(nodeModules, '@material')],
+        options: {
+          cacheDirectory: true
+        }
       }
     ]
   },
@@ -90,8 +98,6 @@ module.exports = {
         context: 'components/',
         from: '**/*',
         to: './',
-        //flatten: true,
-        //toType: 'template',
         ignore: [ '*.js', '*.vue' ]
       }
     ]),

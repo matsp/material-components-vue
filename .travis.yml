@@ -9,7 +9,6 @@ before_script: greenkeeper-lockfile-update
 script: 
   - yarn build:lib
   - yarn build:es5
-  - yarn build:es6
   - yarn build:prod
 after_script: greenkeeper-lockfile-upload
 deploy:

@@ -34,7 +34,7 @@ export default {
     },
     align: {
       type: String,
-      validator: value => ['top', 'left', 'bottom'].includes(value),
+      validator: value => ['top', 'left', 'bottom'].indexOf(value) > -1,
       required: false
     }
   },

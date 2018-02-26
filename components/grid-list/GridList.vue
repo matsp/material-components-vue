@@ -34,7 +34,7 @@ export default {
     },
     ratio: {
       type: String,
-      validator: (value) => ['1x1', '16x9', '2x3', '3x2', '4x3', '3x4'].includes(value),
+      validator: (value) => ['1x1', '16x9', '2x3', '3x2', '4x3', '3x4'].indexOf(value) > -1,
       default: '1x1'
     }
   },

@@ -18,23 +18,22 @@
     "build:prod": "webpack --config webpack.config.prod.js",
     "build:lib": "webpack --config webpack.config.lib.js",
     "build:es5": "webpack --config webpack.config.lib.es5.js",
-    "build:es6": "webpack --config webpack.config.lib.es6.js",
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js",
     "release": "standard-version"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "material-components-web": "^0.31.0",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/plugin-transform-object-assign": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-stage-2": "^7.0.0-beta.40",
     "babel-eslint": "^8.2.2",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "babel-loader": "^8.0.0-beta.2",
     "clean-webpack-plugin": "^0.1.18",
     "copy-webpack-plugin": "^4.4.2",
     "css-loader": "^0.28.10",
@@ -64,5 +63,30 @@
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.2"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 5%",
+    "Firefox ESR",
+    "not ie <= 10",
+    "not ie_mob <= 10",
+    "not android <= 4.4.3"
+  ],
+  "babel": {
+    "comments": false,
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ],
+      [
+        "@babel/preset-stage-2"
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-transform-object-assign"
+    ]
   }
 }

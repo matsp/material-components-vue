@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const root = path.join(__dirname)
 const demo = path.join(root + '/demo/')
-const components = path.join(root + '/components/')
+const dist = path.join(root + '/dist/')
 const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [demo, components, path.join(nodeModules, '@material')],
+        include: [demo, path.join(nodeModules, '@material')],
         options: {
           cacheDirectory: true
         }
@@ -39,7 +39,7 @@ module.exports = {
                 {
                   loader: 'sass-loader',
                   options: {
-                    includePaths: [demo, components, nodeModules]
+                    includePaths: [demo, dist, nodeModules]
                   }
                 }
               ]
@@ -101,7 +101,7 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin({
-      filename: '[name].[chunkhash].css',
+      filename: '[name].[chunkhash].min.css',
       allChunks: true
     })
   ],
