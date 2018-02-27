@@ -1,7 +1,5 @@
 const path = require('path')
-const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const root = path.join(__dirname)
@@ -79,16 +77,6 @@ module.exports = {
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new ExtractTextPlugin({
       filename: '[name]/mcv-[name].min.css',
       allChunks: true
@@ -100,19 +88,7 @@ module.exports = {
         to: './',
         ignore: [ '*.js', '*.vue' ]
       }
-    ]),
-    new OptimizeCssAssetsPlugin(),
-    new webpack.BannerPlugin({
-      banner: [
-        '/*!',
-        ' Material Components for Vue.js',
-        ` Copyright (c) ${new Date().getFullYear()} Mats Pfeiffer`,
-        ' License: MIT',
-        '*/'
-      ].join('\n'),
-      raw: true,
-      entryOnly: true
-    })
+    ])
   ],
   stats: {
     all: false,

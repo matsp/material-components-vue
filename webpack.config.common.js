@@ -75,31 +75,17 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['public']),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'app',
-      children: true
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module) {
-        return module.context && module.context.indexOf('node_modules') !== -1
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      minChunks: Infinity
-    }),
     new HtmlWebpackPlugin({
       template: path.resolve(demo + 'index.html'),
       chunksSortMode: 'dependency'
       // hash: true
     }),
-    new ScriptExtHtmlWebpackPlugin({
-      prefetch: {
-        test: /\.js$/,
-        chunks: 'async'
-      }
-    }),
+    //new ScriptExtHtmlWebpackPlugin({
+      //prefetch: {
+        //test: /\.js$/,
+        //chunks: 'async'
+      //}
+    //}),
     new ExtractTextPlugin({
       filename: '[name].[chunkhash].min.css',
       allChunks: true

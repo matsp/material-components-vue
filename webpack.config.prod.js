@@ -9,23 +9,14 @@ const common = require('./webpack.config.common.js')
 const output = path.resolve('./public')
 
 module.exports = merge(common, {
+  mode: 'production',
   output: {
     path: output,
     filename: '[name].[chunkhash].js',
     chunkFilename: 'chunk.[chunkhash].js'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
-    }),
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new OptimizeCssAssetsPlugin(),
     new UglifyJSPlugin({
       uglifyOptions: {
