@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const root = path.join(__dirname)
@@ -52,8 +51,12 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: false
+                sourceMap: false,
+                importLoaders: 1
               }
+            },
+            {
+              loader: 'postcss-loader'
             },
             {
               loader: 'sass-loader',
@@ -101,7 +104,6 @@ module.exports = {
         ignore: [ '*.js', '*.vue' ]
       }
     ]),
-    new OptimizeCssAssetsPlugin(),
     new webpack.BannerPlugin({
       banner: [
         '/*!',
