@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.5"></a>
+## [0.12.5](https://github.com/matsp/material-components-vue/compare/v0.12.4...v0.12.5) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** Removed dynamic import function (closes [#73](https://github.com/matsp/material-components-vue/issues/73)) ([d1207a1](https://github.com/matsp/material-components-vue/commit/d1207a1))
+
+
+
 <a name="0.12.4"></a>
 ## [0.12.4](https://github.com/matsp/material-components-vue/compare/v0.12.3...v0.12.4) (2018-02-28)
 
