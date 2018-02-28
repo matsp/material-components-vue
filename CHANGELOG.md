@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.6"></a>
+## [0.12.6](https://github.com/matsp/material-components-vue/compare/v0.12.5...v0.12.6) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** Provide Promise poylfill via ProvidePlugin ([47661c3](https://github.com/matsp/material-components-vue/commit/47661c3))
+
+
+
 <a name="0.12.5"></a>
 ## [0.12.5](https://github.com/matsp/material-components-vue/compare/v0.12.4...v0.12.5) (2018-02-28)
 

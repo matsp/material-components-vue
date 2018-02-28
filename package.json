@@ -1,6 +1,6 @@
 {
   "name": "material-components-vue",
-  "version": "0.12.5",
+  "version": "0.12.6",
   "description": "mdc-web integration for Vue.js",
   "author": "Mats Pfeiffer <mats.pfeiffer@googlemail.com>",
   "license": "MIT",
