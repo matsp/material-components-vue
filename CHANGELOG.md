@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.3"></a>
+## [0.12.3](https://github.com/matsp/material-components-vue/compare/v0.12.2...v0.12.3) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** Add promise polyfill if needed ([be8ec36](https://github.com/matsp/material-components-vue/commit/be8ec36))
+
+
+
 <a name="0.12.2"></a>
 ## [0.12.2](https://github.com/matsp/material-components-vue/compare/v0.12.1...v0.12.2) (2018-02-26)
 
