@@ -74,6 +74,9 @@ module.exports = {
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      Promise: 'core-js/fn/promise'
+    }),
     new CleanWebpackPlugin(['public']),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'app',

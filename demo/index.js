@@ -1,4 +1,4 @@
-import './polyfills.js'
+// import './polyfills.js'
 
 import Vue from 'vue'
 import router from './router/'
