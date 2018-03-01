@@ -18,6 +18,7 @@
     "build:prod": "webpack --config webpack.config.prod.js",
     "build:lib": "webpack --config webpack.config.lib.js",
     "build:es5": "webpack --config webpack.config.lib.es5.js",
+    "build:all": "yarn build:lib && yarn build:es5 && yarn build:prod",
     "serve": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js",
     "release": "standard-version"
   },
