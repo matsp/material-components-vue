@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+// const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const root = path.join(__dirname)
@@ -34,7 +34,14 @@ module.exports = {
               fallback: 'style-loader',
               use: [
                 {
-                  loader: 'css-loader'
+                  loader: 'css-loader',
+                  options: {
+                    sourceMap: false,
+                    importLoaders: 1
+                  }
+                },
+                {
+                  loader: 'postcss-loader'
                 },
                 {
                   loader: 'sass-loader',
@@ -74,18 +81,21 @@ module.exports = {
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      Promise: 'core-js/fn/promise'
+    }),
     new CleanWebpackPlugin(['public']),
     new HtmlWebpackPlugin({
       template: path.resolve(demo + 'index.html'),
       chunksSortMode: 'dependency'
       // hash: true
     }),
-    //new ScriptExtHtmlWebpackPlugin({
-      //prefetch: {
-        //test: /\.js$/,
-        //chunks: 'async'
-      //}
-    //}),
+    // new ScriptExtHtmlWebpackPlugin({
+    // prefetch: {
+    // test: /\.js$/,
+    // chunks: 'async'
+    // }
+    // }),
     new ExtractTextPlugin({
       filename: '[name].[chunkhash].min.css',
       allChunks: true

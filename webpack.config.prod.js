@@ -1,6 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const merge = require('webpack-merge')
@@ -16,8 +14,6 @@ module.exports = merge(common, {
     chunkFilename: 'chunk.[chunkhash].js'
   },
   plugins: [
-    new webpack.HashedModuleIdsPlugin(),
-    new OptimizeCssAssetsPlugin(),
     new UglifyJSPlugin({
       uglifyOptions: {
         ecma: 5

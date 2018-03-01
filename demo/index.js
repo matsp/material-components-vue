@@ -1,3 +1,5 @@
+// import './polyfills.js'
+
 import Vue from 'vue'
 import router from './router/'
 import store from './store/'
@@ -48,10 +50,6 @@ Vue.use(Slider)
 Vue.use(Textfield)
 Vue.use(Toolbar)
 Vue.use(Typography)
-
-
-
-
 
 /* eslint-disable no-new */
 new Vue({

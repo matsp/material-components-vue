@@ -50,8 +50,12 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: false
+                sourceMap: false,
+                importLoaders: 1
               }
+            },
+            {
+              loader: 'postcss-loader'
             },
             {
               loader: 'sass-loader',

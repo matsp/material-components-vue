@@ -2,6 +2,71 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.9"></a>
+## [0.12.9](https://github.com/matsp/material-components-vue/compare/v0.12.8...v0.12.9) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** False config ([820af02](https://github.com/matsp/material-components-vue/commit/820af02))
+
+
+
+<a name="0.12.8"></a>
+## [0.12.8](https://github.com/matsp/material-components-vue/compare/v0.12.7...v0.12.8) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** Use postcss for demos ([0557508](https://github.com/matsp/material-components-vue/commit/0557508))
+
+
+
+<a name="0.12.7"></a>
+## [0.12.7](https://github.com/matsp/material-components-vue/compare/v0.12.6...v0.12.7) (2018-02-28)
+
+
+
+<a name="0.12.6"></a>
+## [0.12.6](https://github.com/matsp/material-components-vue/compare/v0.12.5...v0.12.6) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** Provide Promise poylfill via ProvidePlugin ([47661c3](https://github.com/matsp/material-components-vue/commit/47661c3))
+
+
+
+<a name="0.12.5"></a>
+## [0.12.5](https://github.com/matsp/material-components-vue/compare/v0.12.4...v0.12.5) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** Removed dynamic import function (closes [#73](https://github.com/matsp/material-components-vue/issues/73)) ([d1207a1](https://github.com/matsp/material-components-vue/commit/d1207a1))
+
+
+
+<a name="0.12.4"></a>
+## [0.12.4](https://github.com/matsp/material-components-vue/compare/v0.12.3...v0.12.4) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** Tried to use Promise before polyfill ([c61b5a3](https://github.com/matsp/material-components-vue/commit/c61b5a3))
+
+
+
+<a name="0.12.3"></a>
+## [0.12.3](https://github.com/matsp/material-components-vue/compare/v0.12.2...v0.12.3) (2018-02-28)
+
+
+### Bug Fixes
+
+* **demo:** Add promise polyfill if needed ([be8ec36](https://github.com/matsp/material-components-vue/commit/be8ec36))
+
+
+
 <a name="0.12.2"></a>
 ## [0.12.2](https://github.com/matsp/material-components-vue/compare/v0.12.1...v0.12.2) (2018-02-26)
 
