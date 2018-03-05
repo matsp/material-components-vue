@@ -14,11 +14,11 @@ module.exports = merge(common, {
     filename: '[name].[chunkhash].js',
     chunkFilename: 'chunk.[chunkhash].js'
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
-  },
+  //optimization: {
+    //splitChunks: {
+      //chunks: 'all'
+    //}
+  //},
   plugins: [
     new UglifyJSPlugin({
       uglifyOptions: {
