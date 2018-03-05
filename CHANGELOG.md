@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.15"></a>
+## [0.12.15](https://github.com/matsp/material-components-vue/compare/v0.12.14...v0.12.15) (2018-03-05)
+
+
+### Bug Fixes
+
+* **build:** Disable splitting all chunks ([db922f5](https://github.com/matsp/material-components-vue/commit/db922f5))
+
+
+
 <a name="0.12.14"></a>
 ## [0.12.14](https://github.com/matsp/material-components-vue/compare/v0.12.13...v0.12.14) (2018-03-05)
 

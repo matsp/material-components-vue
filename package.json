@@ -1,6 +1,6 @@
 {
   "name": "material-components-vue",
-  "version": "0.12.14",
+  "version": "0.12.15",
   "description": "mdc-web integration for Vue.js",
   "author": "Mats Pfeiffer <mats.pfeiffer@googlemail.com>",
   "license": "MIT",
@@ -9,7 +9,9 @@
     "url": "https://github.com/matsp/material-components-vue.git"
   },
   "homepage": "https://matsp.github.io/material-components-vue",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint --ext .js --ext .vue --fix ./",
     "build:dev": "webpack --config webpack.config.dev.js",
