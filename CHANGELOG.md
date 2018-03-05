@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.13"></a>
+## [0.12.13](https://github.com/matsp/material-components-vue/compare/v0.12.12...v0.12.13) (2018-03-05)
+
+
+### Bug Fixes
+
+* **build:** Fix CSS extract plugin (close [#78](https://github.com/matsp/material-components-vue/issues/78)) ([ec44f3c](https://github.com/matsp/material-components-vue/commit/ec44f3c))
+
+
+
 <a name="0.12.12"></a>
 ## [0.12.12](https://github.com/matsp/material-components-vue/compare/v0.12.11...v0.12.12) (2018-03-05)
 
