@@ -7,7 +7,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const root = path.join(__dirname)
 const demo = path.join(root + '/demo/')
-const dist = path.join(root + '/dist/')
 const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
@@ -98,7 +97,7 @@ module.exports = {
     // }),
     new ExtractTextPlugin({
       filename: '[name].[chunkhash].min.css',
-      allChunks: false
+      allChunks: true
     })
   ],
   stats: {
