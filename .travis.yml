@@ -11,17 +11,17 @@ script:
   - yarn build:es5
   - yarn build:prod
 after_script: greenkeeper-lockfile-upload
+before_deploy: cd dist/
 deploy:
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
-    local_dir: public
+    local_dir: ../public
     skip_cleanup: true
     on:
       tags: true
   - provider: npm
     skip_cleanup: true
-    local_dir: dist
     email: mats.pfeiffer@googlemail.com
     api_key: $NPM_TOKEN
     on:
