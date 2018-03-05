@@ -16,7 +16,7 @@ deploy:
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
-    local_dir: ../public
+    local_dir: public
     skip_cleanup: true
     on:
       tags: true
