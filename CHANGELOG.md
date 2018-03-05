@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.16"></a>
+## [0.12.16](https://github.com/matsp/material-components-vue/compare/v0.12.15...v0.12.16) (2018-03-05)
+
+
+### Bug Fixes
+
+* **demo:** Temporary use webpack's development mode for demos ([a569885](https://github.com/matsp/material-components-vue/commit/a569885))
+
+
+
 <a name="0.12.15"></a>
 ## [0.12.15](https://github.com/matsp/material-components-vue/compare/v0.12.14...v0.12.15) (2018-03-05)
 
