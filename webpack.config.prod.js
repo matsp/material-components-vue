@@ -8,17 +8,17 @@ const common = require('./webpack.config.common.js')
 const output = path.resolve('./public')
 
 module.exports = merge(common, {
-  mode: 'production',
+  mode: 'development',
   output: {
     path: output,
     filename: '[name].[chunkhash].js',
     chunkFilename: 'chunk.[chunkhash].js'
   },
-  //optimization: {
-    //splitChunks: {
-      //chunks: 'all'
-    //}
-  //},
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   plugins: [
     new UglifyJSPlugin({
       uglifyOptions: {
