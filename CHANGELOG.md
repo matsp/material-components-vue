@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.14"></a>
+## [0.12.14](https://github.com/matsp/material-components-vue/compare/v0.12.13...v0.12.14) (2018-03-05)
+
+
+### Bug Fixes
+
+* **build:** Fix split optimization (close [#79](https://github.com/matsp/material-components-vue/issues/79)) ([e21e57a](https://github.com/matsp/material-components-vue/commit/e21e57a))
+
+
+
 <a name="0.12.13"></a>
 ## [0.12.13](https://github.com/matsp/material-components-vue/compare/v0.12.12...v0.12.13) (2018-03-05)
 
