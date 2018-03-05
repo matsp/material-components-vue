@@ -9,9 +9,6 @@
     "url": "https://github.com/matsp/material-components-vue.git"
   },
   "homepage": "https://matsp.github.io/material-components-vue",
-  "style": "dist/material-components-vue.css",
-  "main": "dist/material-components-vue.js",
-  "unpkg": "dist/material-components-vue.es5.min.js",
   "scripts": {
     "lint": "eslint --ext .js --ext .vue --fix ./",
     "build:dev": "webpack --config webpack.config.dev.js",
