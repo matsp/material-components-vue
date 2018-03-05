@@ -23,7 +23,7 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "material-components-web": "^0.31.0",
+    "material-components-web": "^0.32.0",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
