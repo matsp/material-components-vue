@@ -11,8 +11,6 @@ script:
   - yarn build:es5
   - yarn build:prod
 after_script: greenkeeper-lockfile-upload
-before_deploy:
-  - cd dist
 deploy:
   - provider: pages
     skip_cleanup: true
