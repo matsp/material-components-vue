@@ -16,11 +16,8 @@ module.exports = merge(common, {
   },
   optimization: {
     splitChunks: {
-      // chunks: 'all'
+      chunks: 'all'
     }
-    // runtimeChunk: {
-      // name: 'runtime'
-    // }
   },
   plugins: [
     new UglifyJSPlugin({
