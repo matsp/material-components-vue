@@ -9,9 +9,8 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     path: path.resolve(root + '/dist'),
-    filename: '[name]/mcv-[name].min.js',
-    libraryTarget: 'umd',
-    library: 'mcv-[name]'
+    filename: '[name]/[name].min.js',
+    libraryTarget: 'umd'
   },
   plugins: [
     new UglifyJSPlugin({

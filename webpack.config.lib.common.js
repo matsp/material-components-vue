@@ -1,6 +1,7 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const root = path.join(__dirname)
 const components = path.join(root + '/components/')
@@ -82,15 +83,16 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: '[name]/mcv-[name].min.css',
+      filename: '[name]/[name].min.css',
       allChunks: true
     }),
+    new OptimizeCssAssetsPlugin(),
     new CopyWebpackPlugin([
       {
         context: 'components/',
         from: '**/*',
         to: './',
-        ignore: [ '*.js', '*.vue' ]
+        ignore: [ '*.js', '*.vue', '*.css' ]
       }
     ])
   ],

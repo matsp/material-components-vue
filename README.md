@@ -22,8 +22,8 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 
 | Name | ECMA | Minimized |
 |------|------|-----------|
-| dist/[component]/mcv-[component].js | 5 | no |
-| dist/[component]/mcv-[component].min.js | 5 | yes |
+| dist/[component]/index.js | 5 | no |
+| dist/[component]/[component].min.js | 5 | yes |
 
 All versions are provided as UMD modules.
 
@@ -31,7 +31,7 @@ All versions are provided as UMD modules.
 
 | Name | Description |
 |------|-----------|
-| dist/[component]/mcv-[component].min.css | Minified component CSS |
+| dist/[component]/[component].min.css | Minified component CSS |
 | dist/[component]/styles.scss | Raw SASS styles (prefered for customization) |
 
 ## quick start
@@ -61,8 +61,8 @@ yarn add material-components-vue
     <link rel="stylesheet" href="https://cdnjs.com/libraries/normalize">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/button/mcv-typography.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/button/mcv-button.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/button/typography.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/button/button.min.css">
   </head>
   <body>
     <div id="app">
@@ -73,8 +73,8 @@ yarn add material-components-vue
       </m-typography>
     </div>
     <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/dist/typography/mcv-typography.min.js"></script>
-    <script src="https://unpkg.com/dist/button/mcv-button.min.js"></script>
+    <script src="https://unpkg.com/dist/typography/typography.min.js"></script>
+    <script src="https://unpkg.com/dist/button/button.min.js"></script>
     <script>
       const app = new Vue({
         el: '#app'
@@ -87,8 +87,8 @@ yarn add material-components-vue
 ### bundler
 #### import components
 ```javascript
-import Button from 'material-components-vue/button/mcv-button.js'
-import Card from 'material-components-vue/card/mcv-card.js'
+import Button from 'material-components-vue/button'
+import Card from 'material-components-vue/card'
 // ...
 
 Vue.use(Button)

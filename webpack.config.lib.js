@@ -8,8 +8,7 @@ module.exports = merge(common, {
   mode: 'development',
   output: {
     path: path.resolve(root + '/dist'),
-    filename: '[name]/mcv-[name].js',
-    libraryTarget: 'umd',
-    library: 'mcv-[name]'
+    filename: '[name]/index.js',
+    libraryTarget: 'umd'
   }
 })

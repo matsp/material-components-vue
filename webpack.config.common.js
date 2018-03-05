@@ -46,7 +46,7 @@ module.exports = {
                 {
                   loader: 'sass-loader',
                   options: {
-                    includePaths: [demo, dist, nodeModules]
+                    includePaths: [nodeModules]
                   }
                 }
               ]
@@ -98,7 +98,7 @@ module.exports = {
     // }),
     new ExtractTextPlugin({
       filename: '[name].[chunkhash].min.css',
-      allChunks: true
+      allChunks: false
     })
   ],
   stats: {
