@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.10"></a>
+## [0.12.10](https://github.com/matsp/material-components-vue/compare/v0.12.9...v0.12.10) (2018-03-05)
+
+
+
 <a name="0.12.9"></a>
 ## [0.12.9](https://github.com/matsp/material-components-vue/compare/v0.12.8...v0.12.9) (2018-02-28)
 
