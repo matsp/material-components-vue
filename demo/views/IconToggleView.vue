@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">IconToggle</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/IconToggle">
-          https://github.com/matsp/material-components-vue/blob/master/components/IconToggle
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/iconToggle">
+          https://github.com/matsp/material-components-vue/blob/master/components/iconToggle
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -30,6 +30,11 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import IconToggle from  '../../dist/icon-toggle'
+
+Vue.use(IconToggle)
+
 export default {
   data () {
     return {
@@ -39,3 +44,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../dist/icon-toggle/styles";
+</style>

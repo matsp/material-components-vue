@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">Fab</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/Fab">
-          https://github.com/matsp/material-components-vue/blob/master/components/Fab
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/fab">
+          https://github.com/matsp/material-components-vue/blob/master/components/fab
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -30,7 +30,23 @@
   </m-layout-grid-inner>
 </template>
 
-<style>
+<script>
+import Vue from 'vue'
+import Fab from '../../dist/fab'
+import Icon from '../../dist/icon'
+
+Vue.use(Fab)
+Vue.use(Icon)
+
+export default {
+
+}
+</script>
+
+
+<style lang="scss">
+@import "../../dist/fab/styles";
+
 .surface {
   display: flex;
   align-items: center;

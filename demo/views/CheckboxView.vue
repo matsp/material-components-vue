@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">Checkbox</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/Checkbox">
-          https://github.com/matsp/material-components-vue/blob/master/components/Checkbox
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/checkbox">
+          https://github.com/matsp/material-components-vue/blob/master/components/checkbox
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -25,6 +25,11 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Checkbox from '../../dist/checkbox'
+
+Vue.use(Checkbox)
+
 export default {
   data () {
     return {
@@ -33,3 +38,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../dist/checkbox/styles";
+</style>

@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">LinearProgress</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/LinearProgress">
-          https://github.com/matsp/material-components-vue/blob/master/components/LinearProgress
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/linear-progress">
+          https://github.com/matsp/material-components-vue/blob/master/components/linear-progress
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -19,6 +19,13 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Button from '../../dist/button'
+import LinearProgress from '../../dist/linear-progress'
+
+Vue.use(Button)
+Vue.use(LinearProgress)
+
 export default {
   data () {
     return {
@@ -36,3 +43,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../dist/button/styles";
+@import "../../dist/linear-progress/styles";
+</style>

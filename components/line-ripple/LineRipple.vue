@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="mdc-line-ripple"
-    :class="classes"/>
+  <div class="mdc-line-ripple"/>
 </template>
 
 <script>

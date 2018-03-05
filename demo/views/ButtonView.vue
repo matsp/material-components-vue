@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">Button</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/Button">
-          https://github.com/matsp/material-components-vue/blob/master/components/Button
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/button">
+          https://github.com/matsp/material-components-vue/blob/master/components/button
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -170,3 +170,17 @@
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>
+
+<script>
+import Vue from 'vue'
+import Button from '../../dist/button'
+Vue.use(Button)
+
+export default {
+}
+</script>
+
+<style lang="scss">
+@import "../../dist/button/styles"
+</style>
+

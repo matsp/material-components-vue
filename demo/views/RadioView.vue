@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">Radio</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/Radio">
-          https://github.com/matsp/material-components-vue/blob/master/components/Radio
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/radio">
+          https://github.com/matsp/material-components-vue/blob/master/components/radio
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -30,6 +30,13 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import FormField from '../../dist/form-field'
+import Radio from '../../dist/radio'
+
+Vue.use(FormField)
+Vue.use(Radio)
+
 export default {
   data () {
     return {
@@ -47,3 +54,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../dist/form-field/styles";
+@import "../../dist/radio/styles";
+</style>

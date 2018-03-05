@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">Elevation</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/Elevation">
-          https://github.com/matsp/material-components-vue/blob/master/components/Elevation
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/elevation">
+          https://github.com/matsp/material-components-vue/blob/master/components/elevation
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -16,7 +16,20 @@
   </m-layout-grid-inner>
 </template>
 
-<style>
+<script>
+import Vue from 'vue'
+import Elevation from '../../dist/elevation'
+
+Vue.use(Elevation)
+
+export default {
+
+}
+</script>
+
+<style lang="scss">
+@import "../../dist/elevation/styles";
+
 .surface {
   display: flex;
   align-items: center;

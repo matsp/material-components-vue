@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">Card</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/Card">
-          https://github.com/matsp/material-components-vue/blob/master/components/Card
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/card">
+          https://github.com/matsp/material-components-vue/blob/master/components/card
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -24,7 +24,7 @@
         <m-button
           interactive
           slot="actionButtons"
-          href="https://github.com/matsp/material-components-vue/blob/master/components/Card">
+          href="https://github.com/matsp/material-components-vue/blob/master/components/card">
           github
         </m-button>
       </m-card>
@@ -32,8 +32,24 @@
   </m-layout-grid-inner>
 </template>
 
-<style>
- .demo {
+<script>
+import Vue from 'vue'
+import Button from '../../dist/button'
+import Card from '../../dist/card'
+
+Vue.use(Button)
+Vue.use(Card)
+
+export default {
+
+}
+</script>
+
+<style lang="scss">
+@import "../../dist/button/styles";
+@import "../../dist/card/styles";
+
+.demo {
    padding: 8px 16px;
- }
+}
 </style>

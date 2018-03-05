@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">Textfield</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/Textfield">
-          https://github.com/matsp/material-components-vue/blob/master/components/Textfield
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/textfield">
+          https://github.com/matsp/material-components-vue/blob/master/components/textfield
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -68,6 +68,15 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import LineRipple from '../../dist/line-ripple'
+import Icon from '../../dist/icon'
+import Textfield from '../../dist/textfield'
+
+Vue.use(LineRipple)
+Vue.use(Icon)
+Vue.use(Textfield)
+
 export default {
   data () {
     return {
@@ -77,3 +86,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../../dist/line-ripple/styles";
+@import "../../dist/textfield/styles";
+</style>

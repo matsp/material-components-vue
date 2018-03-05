@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">Drawer</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/Drawer">
-          https://github.com/matsp/material-components-vue/blob/master/components/Drawer
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/drawer">
+          https://github.com/matsp/material-components-vue/blob/master/components/drawer
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
@@ -50,3 +50,24 @@
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>
+
+<script>
+import Vue from 'vue'
+import Button from '../../dist/button'
+import Drawer from '../../dist/drawer'
+import List from '../../dist/list'
+
+Vue.use(Button)
+Vue.use(Drawer)
+Vue.use(List)
+
+export default {
+
+}
+</script>
+
+<styles lang="scss">
+@import "../../dist/button/styles";
+@import "../../dist/drawer/styles";
+@import "../../dist/list/styles";
+</styles>
