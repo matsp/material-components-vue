@@ -8,21 +8,31 @@ const common = require('./webpack.config.common.js')
 const output = path.resolve('./public')
 
 module.exports = merge(common, {
-  mode: 'development',
+  mode: 'production',
   output: {
     path: output,
     filename: '[name].[chunkhash].js',
-    chunkFilename: 'chunk.[chunkhash].js'
+    chunkFilename: 'chunk.[chunkhash].async.js'
   },
   optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
+    concatenateModules: false
+    // splitChunks: {
+    // cacheGroups: {
+    // default: false,
+    // dist: {
+    // test: /dist|node_modules/,
+    // chunks: 'all'
+    // }
+    // }
+    // }
   },
   plugins: [
     new UglifyJSPlugin({
       uglifyOptions: {
-        ecma: 5
+        ecma: 5,
+        output: {
+          comments: false
+        }
       },
       cache: true,
       parallel: false

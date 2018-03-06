@@ -36,6 +36,7 @@ module.exports = {
                   loader: 'css-loader',
                   options: {
                     sourceMap: false,
+                    url: false,
                     importLoaders: 1
                   }
                 },
@@ -45,6 +46,7 @@ module.exports = {
                 {
                   loader: 'sass-loader',
                   options: {
+                    sourceMap: false,
                     includePaths: [nodeModules]
                   }
                 }
