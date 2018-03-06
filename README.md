@@ -53,6 +53,20 @@ yarn add material-components-vue
 
 ## usage
 
+### bundler
+
+#### import components
+
+```javascript
+import Button from 'material-components-vue/button'
+import Card from 'material-components-vue/card'
+// ...
+
+Vue.use(Button)
+Vue.use(Card)
+// ...
+```
+
 ### [CDN](https://codepen.io/matsp/pen/baxLOx)
 
 ```html
@@ -61,7 +75,7 @@ yarn add material-components-vue
     <link rel="stylesheet" href="https://cdnjs.com/libraries/normalize">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/button/typography.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/typography/typography.min.css">
     <link rel="stylesheet" href="https://unpkg.com/material-components-vue/dist/button/button.min.css">
   </head>
   <body>
@@ -73,8 +87,8 @@ yarn add material-components-vue
       </m-typography>
     </div>
     <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/dist/typography/typography.min.js"></script>
-    <script src="https://unpkg.com/dist/button/button.min.js"></script>
+    <script src="https://unpkg.com/material-components-vue/dist/typography/typography.min.js"></script>
+    <script src="https://unpkg.com/material-components-vue/dist/button/button.min.js"></script>
     <script>
       const app = new Vue({
         el: '#app'
@@ -82,18 +96,6 @@ yarn add material-components-vue
     </script>
   </body>
  </html>
-```
-
-### bundler
-#### import components
-```javascript
-import Button from 'material-components-vue/button'
-import Card from 'material-components-vue/card'
-// ...
-
-Vue.use(Button)
-Vue.use(Card)
-// ...
 ```
 
 ## theming
