@@ -3299,7 +3299,7 @@ error@^7.0.2:
     string-template "~0.2.1"
     xtend "~4.0.0"
 
-es-abstract@^1.5.1, es-abstract@^1.7.0:
+es-abstract@^1.5.1, es-abstract@^1.6.1, es-abstract@^1.7.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.10.0.tgz#1ecb36c197842a00d8ee4c2dfd8646bb97d60864"
   dependencies:
@@ -3926,7 +3926,7 @@ fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-function-bind@^1.0.2, function-bind@^1.1.1:
+function-bind@^1.0.2, function-bind@^1.1.0, function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
 
@@ -4450,9 +4450,9 @@ html-minifier@^3.2.3, html-minifier@^3.5.8:
     relateurl "0.2.x"
     uglify-js "3.3.x"
 
-html-webpack-plugin@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-3.0.4.tgz#498c10f40f99a339fbf3d87c5a80acf8cbea8e9b"
+html-webpack-plugin@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-3.0.6.tgz#d35b0452aae129a8a9f3fac44a169a625d8cf3fa"
   dependencies:
     html-minifier "^3.2.3"
     loader-utils "^0.2.16"
@@ -5691,6 +5691,13 @@ min-document@^2.19.0:
   dependencies:
     dom-walk "^0.1.0"
 
+mini-css-extract-plugin@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-0.1.0.tgz#913d0358b7f75573554702b773c3851b163c70c4"
+  dependencies:
+    loader-utils "^1.1.0"
+    webpack-sources "^1.1.0"
+
 minimalistic-assert@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/minimalistic-assert/-/minimalistic-assert-1.0.0.tgz#702be2dda6b37f4836bcb3f5db56641b64a1d3d3"
@@ -6091,6 +6098,15 @@ object.pick@^1.3.0:
   resolved "https://registry.yarnpkg.com/object.pick/-/object.pick-1.3.0.tgz#87a10ac4c1694bd2e1cbf53591a66141fb5dd747"
   dependencies:
     isobject "^3.0.1"
+
+object.values@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/object.values/-/object.values-1.0.4.tgz#e524da09b4f66ff05df457546ec72ac99f13069a"
+  dependencies:
+    define-properties "^1.1.2"
+    es-abstract "^1.6.1"
+    function-bind "^1.1.0"
+    has "^1.0.1"
 
 obuf@^1.0.0, obuf@^1.1.1:
   version "1.1.1"
@@ -7074,6 +7090,13 @@ postcss@^6.0, postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.11, postcss@^6.0.14, 
     source-map "^0.6.1"
     supports-color "^5.2.0"
 
+preload-webpack-plugin@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/preload-webpack-plugin/-/preload-webpack-plugin-2.3.0.tgz#2923d8caff44dead93d1fe5eaab31f3b18ca0de9"
+  dependencies:
+    object-assign "^4.1.1"
+    object.values "^1.0.4"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -7831,12 +7854,6 @@ schema-utils@^0.4.0, schema-utils@^0.4.2, schema-utils@^0.4.3, schema-utils@^0.4
 scoped-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
-
-script-ext-html-webpack-plugin@^1.8.8:
-  version "1.8.8"
-  resolved "https://registry.yarnpkg.com/script-ext-html-webpack-plugin/-/script-ext-html-webpack-plugin-1.8.8.tgz#faa888a286ce746fcd06a5e0a9e39ed7b9d24f66"
-  dependencies:
-    debug "^3.1.0"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

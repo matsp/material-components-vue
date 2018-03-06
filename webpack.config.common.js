@@ -2,8 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const PreloadWebpackPlugin = require('preload-webpack-plugin')
 
 const root = path.join(__dirname)
 const demo = path.join(root + '/demo/')
@@ -29,29 +29,27 @@ module.exports = {
         options: {
           preserveWhitespace: false,
           loaders: {
-            scss: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: {
-                    sourceMap: false,
-                    url: false,
-                    importLoaders: 1
-                  }
-                },
-                {
-                  loader: 'postcss-loader'
-                },
-                {
-                  loader: 'sass-loader',
-                  options: {
-                    sourceMap: false,
-                    includePaths: [nodeModules]
-                  }
+            scss: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: false,
+                  url: false,
+                  importLoaders: 1
                 }
-              ]
-            })
+              },
+              {
+                loader: 'postcss-loader'
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: false,
+                  includePaths: [nodeModules]
+                }
+              }
+            ]
           }
         }
       },
@@ -91,16 +89,13 @@ module.exports = {
       chunksSortMode: 'dependency'
       // hash: true
     }),
-    // new ScriptExtHtmlWebpackPlugin({
-    // prefetch: {
-    // test: /\.js$/,
-    // chunks: 'async'
-    // }
-    // }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name].[chunkhash].min.css',
-      allChunks: true
+      chunkFilename: '[name].[chunkhash].async.min.css'
     })
+    // new PreloadWebpackPlugin({
+    // fileWhitelist: [/\.async\./],
+    // })
   ],
   stats: {
     all: false,

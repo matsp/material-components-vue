@@ -15,16 +15,10 @@ module.exports = merge(common, {
     chunkFilename: 'chunk.[chunkhash].async.js'
   },
   optimization: {
-    concatenateModules: false
-    // splitChunks: {
-    // cacheGroups: {
-    // default: false,
-    // dist: {
-    // test: /dist|node_modules/,
-    // chunks: 'all'
-    // }
-    // }
-    // }
+    splitChunks: {
+      chunks: 'all'
+    },
+    minimize: true
   },
   plugins: [
     new UglifyJSPlugin({
