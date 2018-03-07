@@ -23,10 +23,7 @@ module.exports = merge(common, {
   plugins: [
     new UglifyJSPlugin({
       uglifyOptions: {
-        ecma: 5,
-        output: {
-          comments: false
-        }
+        ecma: 5
       },
       cache: true,
       parallel: false

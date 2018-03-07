@@ -1,5 +1,5 @@
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
@@ -46,27 +46,26 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: false,
-                importLoaders: 1
-              }
-            },
-            {
-              loader: 'postcss-loader'
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: false,
-                includePaths: [components, nodeModules]
-              }
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+              importLoaders: 1
             }
-          ]
-        })
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+              includePaths: [components, nodeModules]
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
@@ -82,9 +81,8 @@ module.exports = {
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: '[name]/[name].min.css',
-      allChunks: true
+    new MiniCssExtractPlugin({
+      filename: '[name]/[name].min.css'
     }),
     new OptimizeCssAssetsPlugin(),
     new CopyWebpackPlugin([
