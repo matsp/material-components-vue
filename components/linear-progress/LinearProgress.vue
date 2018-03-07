@@ -1,5 +1,7 @@
 <template>
-  <div role="progressbar" class="mdc-linear-progress">
+  <div
+    role="progressbar"
+    class="mdc-linear-progress">
     <div class="mdc-linear-progress__buffering-dots"/>
     <div class="mdc-linear-progress__buffer"/>
     <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">

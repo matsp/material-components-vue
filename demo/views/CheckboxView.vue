@@ -12,14 +12,21 @@
       <m-checkbox v-model="checkboxValue" />
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
-      <m-checkbox v-model="checkboxValue" disabled />
+      <m-checkbox
+        v-model="checkboxValue"
+        disabled />
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="10" />
     <m-layout-grid-cell :span="1">
-      <m-checkbox v-model="checkboxValue" indeterminate />
+      <m-checkbox
+        v-model="checkboxValue"
+        indeterminate />
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
-      <m-checkbox v-model="checkboxValue" indeterminate disabled />
+      <m-checkbox
+        v-model="checkboxValue"
+        indeterminate
+        disabled />
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>

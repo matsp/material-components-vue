@@ -78,4 +78,3 @@ export default {
 <style lang="scss">
 @import "../../dist/chips/styles";
 </style>
-

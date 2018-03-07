@@ -1,5 +1,7 @@
 <template>
-  <div class="mdc-grid-list" :class="classes">
+  <div
+    class="mdc-grid-list"
+    :class="classes">
     <ul class="mdc-grid-list__tiles">
       <slot />
     </ul>
@@ -43,12 +45,6 @@ export default {
       mdcGridList: null
     }
   },
-  mounted () {
-    this.mdcGridList = MDCGridList.attachTo(this.$el)
-  },
-  beforeDestroy () {
-    this.mdcGridList.destroy()
-  },
   computed: {
     classes () {
       let def = {
@@ -64,6 +60,12 @@ export default {
 
       return Object.assign(def, calc)
     }
+  },
+  mounted () {
+    this.mdcGridList = MDCGridList.attachTo(this.$el)
+  },
+  beforeDestroy () {
+    this.mdcGridList.destroy()
   }
 
 }

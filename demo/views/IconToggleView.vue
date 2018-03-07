@@ -9,29 +9,47 @@
       </m-typo-body>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
-      <m-icon-toggle v-model="iconToggle" icon-on="favorite" icon-off="favorite_border" />
+      <m-icon-toggle
+        v-model="iconToggle"
+        icon-on="favorite"
+        icon-off="favorite_border" />
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
-      <m-icon-toggle v-model="iconToggle" icon-on="favorite" icon-off="favorite_border" />
+      <m-icon-toggle
+        v-model="iconToggle"
+        icon-on="favorite"
+        icon-off="favorite_border" />
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
-      <m-icon-toggle v-model="iconToggle" icon-on="favorite" icon-off="favorite_border" />
+      <m-icon-toggle
+        v-model="iconToggle"
+        icon-on="favorite"
+        icon-off="favorite_border" />
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
-      <m-icon-toggle v-model="cloudToggle" icon-on="cloud_done" icon-off="cloud" />
+      <m-icon-toggle
+        v-model="cloudToggle"
+        icon-on="cloud_done"
+        icon-off="cloud" />
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
-      <m-icon-toggle v-model="cloudToggle" icon-on="cloud_done" icon-off="cloud" />
+      <m-icon-toggle
+        v-model="cloudToggle"
+        icon-on="cloud_done"
+        icon-off="cloud" />
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
-      <m-icon-toggle v-model="cloudToggle" icon-on="cloud_done" icon-off="cloud" />
+      <m-icon-toggle
+        v-model="cloudToggle"
+        icon-on="cloud_done"
+        icon-off="cloud" />
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>
 
 <script>
 import Vue from 'vue'
-import IconToggle from  '../../dist/icon-toggle'
+import IconToggle from '../../dist/icon-toggle'
 
 Vue.use(IconToggle)
 

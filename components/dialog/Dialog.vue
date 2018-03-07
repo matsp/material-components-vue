@@ -1,13 +1,24 @@
 <template>
-  <aside class="mdc-dialog" role="alertdialog" @MDCDialog:accept="onAccept" @MDCDialog:cancel="onCancel">
+  <aside
+    class="mdc-dialog"
+    role="alertdialog"
+    @MDCDialog:accept="onAccept"
+    @MDCDialog:cancel="onCancel">
     <div class="mdc-dialog__surface">
-      <header class="mdc-dialog__header" v-if="$slots['header']">
+      <header
+        class="mdc-dialog__header"
+        v-if="$slots['header']">
         <slot name="header" />
       </header>
-      <section class="mdc-dialog__body" :class="bodyClasses" v-if="$slots['body']">
+      <section
+        class="mdc-dialog__body"
+        :class="bodyClasses"
+        v-if="$slots['body']">
         <slot name="body" />
       </section>
-      <footer class="mdc-dialog__footer" v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']">
+      <footer
+        class="mdc-dialog__footer"
+        v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']">
         <slot name="acceptButton" />
         <slot name="cancelButton" />
         <slot name="dialogButton" />
@@ -30,6 +41,13 @@ export default {
   data () {
     return {
       mdcDialog: null
+    }
+  },
+  computed: {
+    bodyClasses () {
+      return {
+        'mdc-dialog__body--scrollable': this.scrollable
+      }
     }
   },
   mounted () {
@@ -56,13 +74,6 @@ export default {
   },
   beforeDestroy () {
     this.mdcDialog.destroy()
-  },
-  computed: {
-    bodyClasses () {
-      return {
-        'mdc-dialog__body--scrollable': this.scrollable
-      }
-    }
   },
   methods: {
     onAccept () {

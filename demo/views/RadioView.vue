@@ -10,19 +10,26 @@
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
       <m-form-field align-end>
-        <m-radio v-model="radio" id="radio"/>
+        <m-radio
+          v-model="radio"
+          id="radio"/>
         <label for="radio"> Radio </label>
       </m-form-field>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
       <m-form-field align-end>
-        <m-radio v-model="radio2" id="radio2"/>
+        <m-radio
+          v-model="radio2"
+          id="radio2"/>
         <label for="radio2"> Radio 2 </label>
       </m-form-field>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="1">
       <m-form-field align-end>
-        <m-radio disabled id="disabled" :checked="true"/>
+        <m-radio
+          disabled
+          id="disabled"
+          :checked="true"/>
         <label for="disabled"> Disabled </label>
       </m-form-field>
     </m-layout-grid-cell>

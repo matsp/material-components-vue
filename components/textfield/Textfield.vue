@@ -77,7 +77,7 @@ export default {
   data () {
     return {
       mdcTextField: null,
-      mdcRipple: null,
+      mdcRipple: null
     }
   },
   computed: {

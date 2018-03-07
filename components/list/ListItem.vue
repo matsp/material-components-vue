@@ -1,6 +1,6 @@
 <template>
-  <li 
-    class="mdc-list-item" 
+  <li
+    class="mdc-list-item"
     :class="classes"
     v-on="$listeners">
     <slot
@@ -11,7 +11,7 @@
       class="mdc-list-item__text"
       v-if="$slots['text']">
       <slot name="text"/>
-      <div 
+      <div
         class="mdc-list-mdc-list-item__secondary-text"
         v-if="$slots['secondaryText']">
         <slot name="secondaryText"/>
@@ -46,6 +46,14 @@ export default {
       mdcRipple: null
     }
   },
+  computed: {
+    classes () {
+      return {
+        'mdc-list-item--activated': this.activated,
+        'mdc-list-item--selected': this.selected
+      }
+    }
+  },
   mounted () {
     if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
 
@@ -62,14 +70,6 @@ export default {
   },
   beforeDestroy () {
     if (this.interactive) { this.mdcRipple.destroy() }
-  },
-  computed: {
-    classes () {
-      return {
-        'mdc-list-item--activated': this.activated,
-        'mdc-list-item--selected': this.selected
-      }
-    }
   }
 }
 </script>

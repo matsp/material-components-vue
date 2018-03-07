@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mdc-chip-set" 
+    class="mdc-chip-set"
     :class="classes">
     <slot/>
   </div>

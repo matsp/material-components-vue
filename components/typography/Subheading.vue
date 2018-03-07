@@ -1,9 +1,13 @@
 <template>
   <div>
-    <h3 v-if="level < 2" :class="classes">
+    <h3
+      v-if="level < 2"
+      :class="classes">
       <slot />
     </h3>
-    <h4 v-else :class="classes">
+    <h4
+      v-else
+      :class="classes">
       <slot />
     </h4>
   </div>
@@ -36,4 +40,3 @@ export default {
   }
 }
 </script>
-

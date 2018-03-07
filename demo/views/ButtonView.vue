@@ -183,4 +183,3 @@ export default {
 <style lang="scss">
 @import "../../dist/button/styles"
 </style>
-

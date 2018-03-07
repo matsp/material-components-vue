@@ -47,11 +47,6 @@ export default {
       }
     }
   },
-  methods: {
-    onNavigation () {
-      this.$emit('navigation')
-    }
-  },
   mounted () {
     if (this.$slots.default) {
       this.$slots.default.map(n => {
@@ -75,7 +70,11 @@ export default {
   },
   beforeDestroy () {
     this.mdcTopAppBar.destroy()
+  },
+  methods: {
+    onNavigation () {
+      this.$emit('navigation')
+    }
   }
 }
 </script>
-

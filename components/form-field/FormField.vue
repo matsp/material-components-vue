@@ -1,5 +1,7 @@
 <template>
-  <div class="mdc-form-field" :class="classes">
+  <div
+    class="mdc-form-field"
+    :class="classes">
     <slot />
   </div>
 </template>
@@ -19,19 +21,18 @@ export default {
       mdcFormField: null
     }
   },
-  mounted () {
-    this.mdcFormField = MDCFormField.attachTo(this.$el)
-  },
-  beforeDestroy () {
-    this.mdcFormField.destroy()
-  },
   computed: {
     classes () {
       return {
         'mdc-form-field--align-end': this.alignEnd
       }
     }
+  },
+  mounted () {
+    this.mdcFormField = MDCFormField.attachTo(this.$el)
+  },
+  beforeDestroy () {
+    this.mdcFormField.destroy()
   }
 }
 </script>
-

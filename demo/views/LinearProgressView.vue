@@ -8,12 +8,24 @@
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
-    <m-layout-grid-cell :span="8" class="flex">
-      <m-linear-progress ref="progress" open :progress="0.5" :buffer="0.5" indeterminate/>
+    <m-layout-grid-cell
+      :span="8"
+      class="flex">
+      <m-linear-progress
+        ref="progress"
+        open
+        :progress="0.5"
+        :buffer="0.5"
+        indeterminate/>
       <br >
-      <m-button @click="stopProgress" raised interactive> Hide </m-button>
+      <m-button
+        @click="stopProgress"
+        raised
+        interactive> Hide </m-button>
       <p />
-      <m-button @click="startProgress" stroked> Show </m-button>
+      <m-button
+        @click="startProgress"
+        stroked> Show </m-button>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>

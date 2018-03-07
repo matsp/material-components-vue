@@ -9,10 +9,15 @@
       </m-typo-body>
     </m-layout-grid-cell>
     <m-layout-grid-cell>
-      <m-button raised @click="openDialog">openDialog</m-button>
+      <m-button
+        raised
+        @click="openDialog">openDialog</m-button>
     </m-layout-grid-cell>
     <m-layout-grid-cell>
-      <m-dialog ref="dialog" @accepted="dialogAccepted" @canceled="dialogCanceled">
+      <m-dialog
+        ref="dialog"
+        @accepted="dialogAccepted"
+        @canceled="dialogCanceled">
         <m-typo-headline slot="header">Header</m-typo-headline>
         <span slot="body"> Body </span>
         <m-button slot="acceptButton">Accept</m-button>

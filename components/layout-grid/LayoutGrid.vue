@@ -1,5 +1,7 @@
 <template>
-  <div class="mdc-layout-grid" :class="classes">
+  <div
+    class="mdc-layout-grid"
+    :class="classes">
     <slot />
   </div>
 </template>

@@ -1,5 +1,7 @@
 <template>
-  <div class="mdc-layout-grid__cell" :class="classes">
+  <div
+    class="mdc-layout-grid__cell"
+    :class="classes">
     <slot />
   </div>
 </template>
@@ -64,4 +66,3 @@ export default {
   }
 }
 </script>
-

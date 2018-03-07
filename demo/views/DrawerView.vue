@@ -23,7 +23,10 @@
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
       <m-typo-headline>PersistentDrawer</m-typo-headline>
-      <m-button interactive raised @click="$refs.persistentDrawer.toggle()">toggle</m-button>
+      <m-button
+        interactive
+        raised
+        @click="$refs.persistentDrawer.toggle()">toggle</m-button>
       <m-drawer-persistent ref="persistentDrawer">
         <m-drawer-toolbar-spacer slot="toolbarSpacer"/>
         <m-drawer-content>
@@ -37,7 +40,10 @@
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
       <m-typo-headline>TemporaryDrawer</m-typo-headline>
-      <m-button interactive raised @click="$refs.temporaryDrawer.toggle()">toggle</m-button>
+      <m-button
+        interactive
+        raised
+        @click="$refs.temporaryDrawer.toggle()">toggle</m-button>
       <m-drawer-temporary ref="temporaryDrawer">
         <m-drawer-content>
           <m-list>

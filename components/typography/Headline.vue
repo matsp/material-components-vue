@@ -1,5 +1,7 @@
 <template>
-  <h1 class="mdc-typography--headline" :class="classes">
+  <h1
+    class="mdc-typography--headline"
+    :class="classes">
     <slot />
   </h1>
 </template>
@@ -21,4 +23,3 @@ export default {
   }
 }
 </script>
-

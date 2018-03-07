@@ -1,5 +1,7 @@
 <template>
-  <div class="mdc-chip" tabindex="0">
+  <div
+    class="mdc-chip"
+    tabindex="0">
     <slot
       name="leadingIcon"
       v-if="$slots['leadingIcon']"/>
@@ -28,7 +30,7 @@ export default {
         n.elm.classList.add('mdc-chip__icon--leading')
       })
     }
-    
+
     if (this.$slots.trailingIcon) {
       this.$slots.trailingIcon.map((n) => {
         n.elm.classList.add('mdc-chip__icon')
@@ -37,7 +39,7 @@ export default {
         n.elm.setAttribute('tabindex', '0')
       })
     }
-    
+
     // this done by MDCChipSet:
     // this.mdcChip = MDCChip.attachTo(this.$el)
   }

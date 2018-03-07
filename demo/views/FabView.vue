@@ -43,7 +43,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
 @import "../../dist/fab/styles";
 

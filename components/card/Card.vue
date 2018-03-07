@@ -57,7 +57,7 @@ export default {
       }
     }
   },
-  mounted () {    
+  mounted () {
     if (this.$slots.actionButtons) {
       this.$slots.actionButtons.map((n) => {
         n.elm.classList.add('mdc-card__action')
@@ -76,4 +76,3 @@ export default {
   }
 }
 </script>
-

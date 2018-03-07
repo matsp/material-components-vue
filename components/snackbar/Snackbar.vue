@@ -1,8 +1,12 @@
 <template>
-  <div class="mdc-snackbar" :class="classes">
+  <div
+    class="mdc-snackbar"
+    :class="classes">
     <div class="mdc-snackbar__text" />
     <div class="mdc-snackbar__action-wrapper">
-      <button type="button" class="mdc-button mdc-snackbar__action-button" />
+      <button
+        type="button"
+        class="mdc-button mdc-snackbar__action-button" />
     </div>
   </div>
 </template>
@@ -26,11 +30,6 @@ export default {
       mdcSnackbar: null
     }
   },
-  methods: {
-    show (options) {
-      this.mdcSnackbar.show(options)
-    }
-  },
   computed: {
     classes () {
       return {
@@ -44,6 +43,11 @@ export default {
   },
   beforeDestroy () {
     this.mdcSnackbar.destroy()
+  },
+  methods: {
+    show (options) {
+      this.mdcSnackbar.show(options)
+    }
   }
 }
 </script>

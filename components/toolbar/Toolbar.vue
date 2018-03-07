@@ -1,5 +1,7 @@
 <template>
-  <header class="mdc-toolbar" :class="classes">
+  <header
+    class="mdc-toolbar"
+    :class="classes">
     <slot />
   </header>
 </template>
@@ -35,13 +37,6 @@ export default {
       mdcToolbar: null
     }
   },
-  mounted () {
-    this.mdcToolbar = MDCToolbar.attachTo(this.$el)
-    this.mdcToolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust')
-  },
-  beforeDestroy () {
-    this.mdcToolbar.destroy()
-  },
   computed: {
     classes () {
       return {
@@ -52,6 +47,13 @@ export default {
         'mdc-toolbar--flexible-default-behavior': this.flexible && this.flexibleDefault
       }
     }
+  },
+  mounted () {
+    this.mdcToolbar = MDCToolbar.attachTo(this.$el)
+    this.mdcToolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust')
+  },
+  beforeDestroy () {
+    this.mdcToolbar.destroy()
   }
 }
 </script>

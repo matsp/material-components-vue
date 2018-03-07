@@ -15,7 +15,12 @@
       </m-text-field>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-text-field type="password" id="textfield2" required minlength="8" aria-controls="pw-validation">
+      <m-text-field
+        type="password"
+        id="textfield2"
+        required
+        minlength="8"
+        aria-controls="pw-validation">
         <m-floating-label for="textfield2">Password</m-floating-label>
         <m-line-ripple slot="bottomLine"/>
       </m-text-field>
@@ -52,7 +57,9 @@
       </m-text-field>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-text-field placeholder="Fullwidth" full-width>
+      <m-text-field
+        placeholder="Fullwidth"
+        full-width>
         <m-line-ripple slot="bottomLine"/>
       </m-text-field>
     </m-layout-grid-cell>
@@ -64,7 +71,7 @@
       </m-text-field>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-text-field 
+      <m-text-field
         outlined
         id="textfield7">
         <m-floating-label for="textfield7">Outlined</m-floating-label>
