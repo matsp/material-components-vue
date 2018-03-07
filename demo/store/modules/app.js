@@ -13,6 +13,11 @@ const state = {
       route: '/card',
       icon: 'code'
     },
+    chips: {
+      text: 'Chips',
+      route: '/chips',
+      icon: 'code'
+    },
     checkbox: {
       text: 'Checkbox',
       route: '/checkbox',

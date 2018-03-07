@@ -14,6 +14,10 @@ export default new VueRouter({
       component: () => import('views/CardView')
     },
     {
+      path: '/chips',
+      component: () => import('views/ChipsView')
+    },
+    {
       path: '/checkbox',
       component: () => import('views/CheckboxView')
     },
