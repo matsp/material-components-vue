@@ -37,8 +37,9 @@ export default {
         n.elm.setAttribute('tabindex', '0')
       })
     }
-
-    this.mdcChip = MDCChip.attachTo(this.$el)
+    
+    // this done by MDCChipSet:
+    // this.mdcChip = MDCChip.attachTo(this.$el)
   }
 }
 </script>

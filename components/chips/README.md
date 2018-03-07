@@ -14,6 +14,17 @@
 </m-chip-set>
 ```
 
+### Props & methods
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| choice | Boolean | false | single selection chips in set |
+| filter | Boolean | false | multiple selection chips in set |
+
+| Method | Description |
+|--------|-------------|
+| getSelectedChips | returns all selected chips of the set as array |
+
 ## Chip
 
 ### Slots
