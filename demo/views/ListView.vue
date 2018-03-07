@@ -9,7 +9,6 @@
       </m-typo-body>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="4">
-      <m-typo-headline>List</m-typo-headline>
       <m-list>
         <m-list-item interactive> Item #1 (interactive) </m-list-item>
         <m-list-item selected> Item #2 (selected) </m-list-item>

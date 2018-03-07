@@ -125,8 +125,4 @@ $mdc-theme-background: #ffffff;
   margin-right: 5px;
 }
 
-.mdc-theme--dark {
-  background-color: #303030;
-  color: #ffffff;
-}
 </style>
