@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.13.0"></a>
+# [0.13.0](https://github.com/matsp/material-components-vue/compare/v0.12.19...v0.13.0) (2018-03-07)
+
+
+### Features
+
+* **chips:** Synchronise with mdc-web v0.32.0 (add choice and filter) ([224b2e8](https://github.com/matsp/material-components-vue/commit/224b2e8))
+* **demo:** Add chips demo ([7026e5f](https://github.com/matsp/material-components-vue/commit/7026e5f))
+* **floating-label:** Synchronise with mdc-web v0.32.0 (add component) ([c2a13f5](https://github.com/matsp/material-components-vue/commit/c2a13f5))
+* **top-app-bar:** Synchronise with mdc-web v0.32.0 (add component) ([ab379a4](https://github.com/matsp/material-components-vue/commit/ab379a4))
+
+
+
 <a name="0.12.19"></a>
 ## [0.12.19](https://github.com/matsp/material-components-vue/compare/v0.12.18...v0.12.19) (2018-03-07)
 
