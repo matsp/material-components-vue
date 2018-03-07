@@ -15,12 +15,7 @@
       @input="onInput"
       v-bind="$attrs"
       v-if="textarea"/>
-    <label
-      class="mdc-text-field__label"
-      :class="classesLabel"
-      v-if="$slots['default'] && !fullWidth">
-      <slot />
-    </label>
+    <slot v-if="$slots['default'] && !fullWidth"/>
     <div
       v-if="outlined"
       class="mdc-text-field__outline">
@@ -62,10 +57,6 @@ export default {
       type: Boolean,
       default: false
     },
-    labelFloat: {
-      type: Boolean,
-      default: false
-    },
     outlined: {
       type: Boolean,
       default: false
@@ -81,17 +72,12 @@ export default {
     textarea: {
       type: Boolean,
       default: false
-    },
-    shake: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
     return {
       mdcTextField: null,
       mdcRipple: null,
-      float: false
     }
   },
   computed: {
@@ -108,17 +94,6 @@ export default {
         'mdc-text-field--focused': this.focused,
         'mdc-text-field--textarea': this.textarea
       }
-    },
-    classesLabel () {
-      return {
-        'mdc-text-field__label--float-above': this.float,
-        'mdc-text-field__label--shake': this.shake
-      }
-    }
-  },
-  watch: {
-    value () {
-      this.value === '' ? this.float = false : this.float = true
     }
   },
   mounted () {
@@ -135,7 +110,6 @@ export default {
     }
 
     this.mdcTextField = MDCTextField.attachTo(this.$el)
-    this.float = this.labelFloat
   },
   beforeDestroy () {
     this.mdcTextField.destroy()

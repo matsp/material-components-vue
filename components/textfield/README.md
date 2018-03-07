@@ -3,12 +3,12 @@
 ### Markup
 
 ```html
-<m-text-field v-model="text">
-  Textfield
+<m-text-field v-model="text" id="textfield">
+  <m-floating-label for="textfield">Textfield label</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
 </m-text-field>
-<m-text-field v-model="pw" type="password" required minlength="8" aria-controls="pw-validation">
-  Password
+<m-text-field v-model="pw" id="passwordfield" type="password" required minlength="8" aria-controls="pw-validation">
+  <m-floating-label for="passwordfield">Password</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
 </m-text-field>
 <m-text-field-helptext id="pw-validation">
@@ -35,12 +35,10 @@ data() {
 | upgraded | Boolean | false | whether the textfield should be upgraded when it already has a value (FOUC) |
 | fullWidth | Boolean | false | expand the textfield to max width |
 | box | Boolean | false | draws a box around the textfield |
-| labelFloat | Boolean | false | whether the label should float above the input field that already has a value (FOUC) |
 | outlined | Boolean | false | draws an outer line around input field |
 | dense | Boolean | false | whether the textfield should be dense |
 | focused | Boolean | false | whether the textfield should be in focus |
 | textarea | Boolean | false | whether the textfield should be a textarea |
-| shake | Boolean | false | whether the textfield label should shake |
 
 ### Slots
 

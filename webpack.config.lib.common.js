@@ -17,6 +17,7 @@ module.exports = {
     drawer: path.resolve(components + '/drawer/index.js'),
     elevation: path.resolve(components + '/elevation/index.js'),
     fab: path.resolve(components + '/fab/index.js'),
+    'floating-label': path.resolve(components + '/floating-label/index.js'),
     'form-field': path.resolve(components + '/form-field/index.js'),
     'grid-list': path.resolve(components + '/grid-list/index.js'),
     icon: path.resolve(components + '/icon/index.js'),
