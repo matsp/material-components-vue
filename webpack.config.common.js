@@ -91,7 +91,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[chunkhash].min.css',
-      chunkFilename: '[name].[chunkhash].async.min.css'
+      chunkFilename: 'chunk.[chunkhash].min.css'
     })
     // new PreloadWebpackPlugin({
     // fileWhitelist: [/\.async\./],

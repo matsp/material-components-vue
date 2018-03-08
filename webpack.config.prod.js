@@ -1,6 +1,7 @@
 const path = require('path')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CompressionPlugin = require("compression-webpack-plugin")
 
 const merge = require('webpack-merge')
 const common = require('./webpack.config.common.js')
@@ -12,13 +13,17 @@ module.exports = merge(common, {
   output: {
     path: output,
     filename: '[name].[chunkhash].js',
-    chunkFilename: 'chunk.[chunkhash].async.js'
+    chunkFilename: 'chunk.[chunkhash].js'
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    },
-    minimize: true
+      cacheGroups: {
+        vendors: {
+          chunks: 'all',
+          test: /(dist)|(node_modules)/
+        }
+      }
+    }
   },
   plugins: [
     new UglifyJSPlugin({
@@ -28,6 +33,9 @@ module.exports = merge(common, {
       cache: true,
       parallel: false
     }),
-    new OptimizeCssAssetsPlugin()
+    new OptimizeCssAssetsPlugin(),
+    new CompressionPlugin({
+      include: /(\.js)|(\.css)/
+    })
   ]
 })
