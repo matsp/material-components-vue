@@ -18,7 +18,7 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 * keep in sync with changes in the mdc-web repository
 * user friendly component api
 
-## Javascript distributions
+### JavaScript distributions
 
 | Name | ECMA | Minimized |
 |------|------|-----------|
@@ -27,7 +27,7 @@ Material-components-vue integrates the mdc-web vanilla components following the 
 
 All versions are provided as UMD modules.
 
-## CSS / SASS distributions
+### CSS / SASS distributions
 
 | Name | Description |
 |------|-----------|
