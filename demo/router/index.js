@@ -60,6 +60,10 @@ export default new VueRouter({
     {
       path: '/textfield',
       component: () => import('views/TextfieldView')
+    },
+    {
+      path: '/topappbar',
+      component: () => import('views/TopAppBarView')
     }
   ]
 })

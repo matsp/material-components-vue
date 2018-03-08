@@ -72,6 +72,11 @@ const state = {
       text: 'Textfield',
       route: '/textfield',
       icon: 'code'
+    },
+    topappbar: {
+      text: 'TopAppBar',
+      route: '/topappbar',
+      icon: 'code'
     }
   }
 }
@@ -79,15 +84,9 @@ const state = {
 const getters = {}
 
 const mutations = {
-  TOGGLE_DARKTHEME (state) {
-    state.darkTheme ? (state.darkTheme = false) : (state.darkTheme = true)
-  }
 }
 
 const actions = {
-  toggleDarkTheme (context) {
-    context.commit(types.TOGGLE_DARKTHEME)
-  }
 }
 
 export default { state, getters, mutations, actions }
