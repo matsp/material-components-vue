@@ -1,5 +1,9 @@
 ## Theme
 
+This component can be used for runtime theming and avoiding SASS if you don't need the flexibility.
+If you want to create a static customized style than you should consider using SASS - working with
+variables in SASS is easier and faster.
+
 ### Markup
 
 ```html
