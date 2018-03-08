@@ -7,7 +7,7 @@ variables in SASS is easier and faster.
 ### Markup
 
 ```html
-<m-theme :customStyles="customStyle">
+<m-theme :customStyle="customStyle">
   themed content
 </m-theme>
 ```

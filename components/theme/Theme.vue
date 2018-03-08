@@ -7,7 +7,7 @@
 <script>
 export default {
   props: {
-    customStyles: {
+    customStyle: {
       type: Object,
       default: () => {}
     }
