@@ -102,7 +102,7 @@ Vue.use(Card)
 
 #### SASS
 
-Import all SASS files in the root component of your app or external file for maximal customization:
+Import all SASS files for the imported components and override with SASS variables:
 
 ```html
 <style lang="scss">
