@@ -4,6 +4,9 @@ This component can be used for runtime theming and avoiding SASS if you don't ne
 If you want to create a static customized style than you should consider using SASS - working with
 variables in SASS is easier and faster.
 
+All content that will be rendered in a theme component will be styled with the given custom style.
+This way it is possible to have several different themed components grouped together.
+
 ### Markup
 
 ```html

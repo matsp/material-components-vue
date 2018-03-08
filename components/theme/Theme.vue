@@ -1,5 +1,5 @@
 <template>
-  <div :style="customStyles">
+  <div :style="customStyle">
     <slot />
   </div>
 </template>
