@@ -1,5 +1,8 @@
 ## TopAppBar
 
+Actually the mdc-web component enforces users to set a navigation icon, so be sure to set an icon
+in the navigation slot!
+
 ### Markup
 
 ```html
@@ -23,7 +26,7 @@
 
 | Event | Description |
 |------|------|
-| navigation | will be dispatched when navigation item is clicked |
+| onNavigation | will be dispatched when navigation item is clicked |
 
 ### Slots
 

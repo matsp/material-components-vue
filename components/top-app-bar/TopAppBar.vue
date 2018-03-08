@@ -1,13 +1,18 @@
 <template>
   <header
     class="mdc-top-app-bar"
+    :class="classes"
     @MDCTopAppBar:nav="onNavigation()">
     <div class="mdc-top-app-bar__row">
       <section
         class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
         v-if="$slots['navigation'] || $slots['default']">
         <slot name="navigation"/>
-        <slot/>
+        <div
+          v-if="$slots['default']"
+          class="mdc-top-app-bar__title">
+          <slot/>
+        </div>
       </section>
       <section
         class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
@@ -26,7 +31,6 @@ export default {
   props: {
     collapsed: {
       type: Boolean,
-      validator: value => value === this.short ? value : false,
       default: false
     },
     short: {
@@ -43,17 +47,11 @@ export default {
     classes () {
       return {
         'mdc-top-app-bar--short': this.short,
-        'mdc-top-app-bar--short-collapsed': this.collapsed
+        'mdc-top-app-bar--short-collapsed': this.collapsed && this.short
       }
     }
   },
   mounted () {
-    if (this.$slots.default) {
-      this.$slots.default.map(n => {
-        n.elm.classList.add('mdc-top-app-bar__title')
-      })
-    }
-
     if (this.$slots.navigation) {
       this.$slots.navigation.map(n => {
         n.elm.classList.add('mdc-top-app-bar__navigation-icon')
@@ -73,7 +71,7 @@ export default {
   },
   methods: {
     onNavigation () {
-      this.$emit('navigation')
+      this.$emit('onNavigation')
     }
   }
 }
