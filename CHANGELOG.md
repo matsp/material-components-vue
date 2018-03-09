@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.13.1"></a>
+## [0.13.1](https://github.com/matsp/material-components-vue/compare/v0.13.0...v0.13.1) (2018-03-09)
+
+
+### Bug Fixes
+
+* **top-app-bar:** Remove validator & add attribute around default slot ([53f9e80](https://github.com/matsp/material-components-vue/commit/53f9e80))
+
+
+### Features
+
+* **demo:** Add top-app-bar demo ([c29f8e9](https://github.com/matsp/material-components-vue/commit/c29f8e9))
+
+
+
 <a name="0.13.0"></a>
 # [0.13.0](https://github.com/matsp/material-components-vue/compare/v0.12.19...v0.13.0) (2018-03-07)
 
