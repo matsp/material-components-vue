@@ -12,6 +12,8 @@ script:
   - yarn build:prod
 after_script: greenkeeper-lockfile-upload
 deploy:
+  edge:
+    branch: v1.8.47
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
