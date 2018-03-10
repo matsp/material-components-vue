@@ -13,7 +13,7 @@ script:
 after_script: greenkeeper-lockfile-upload
 deploy:
   - edge:
-      branch: v1.8.47
+      branch: pages-ivar-set
     provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
