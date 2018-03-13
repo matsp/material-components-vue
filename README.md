@@ -58,8 +58,8 @@ yarn add material-components-vue
 #### import components
 
 ```javascript
-import Button from 'material-components-vue/button'
-import Card from 'material-components-vue/card'
+import Button from 'material-components-vue/dist/button'
+import Card from 'material-components-vue/dist/card'
 // ...
 
 Vue.use(Button)
@@ -109,9 +109,9 @@ Import all SASS files for the imported components and override with SASS variabl
   $mdc-theme-primary: #2196f3;
   $mdc-theme-secondary: #ff1744;
   $mdc-theme-background: #f5f5f5;
-  @import "~material-components-vue/theme/styles";
-  @import "~material-components-vue/button/styles";
-  @import "~material-components-vue/card/styles";
+  @import "~material-components-vue/dist/theme/styles";
+  @import "~material-components-vue/dist/button/styles";
+  @import "~material-components-vue/dist/card/styles";
   @import url('https://cdnjs.com/libraries/normalize');
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -151,7 +151,7 @@ data() {
 
 ```html
 <style lang="css">
-  @import "~material-components-vue/theme/styles";
+  @import "~material-components-vue/dist/theme/styles";
   @import url('https://cdnjs.com/libraries/normalize');
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
