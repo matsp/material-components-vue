@@ -6,8 +6,8 @@ import { initPlugin } from '../'
 
 const plugin = {
   install (vm) {
-    vm.component('m-text-field', Textfield)
-    vm.component('m-text-field-helptext', TextfieldHelptext)
+    vm.component('m-textfield', Textfield)
+    vm.component('m-textfield-helptext', TextfieldHelptext)
   }
 }
 export default plugin
