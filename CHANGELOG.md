@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.14.0"></a>
+# [0.14.0](https://github.com/matsp/material-components-vue/compare/v0.13.1...v0.14.0) (2018-03-14)
+
+
+### Features
+
+* **textfield:** Change HTML Tag ([05a5c73](https://github.com/matsp/material-components-vue/commit/05a5c73))
+* Add mdc-theme classes mixin (close [#67](https://github.com/matsp/material-components-vue/issues/67)) ([79dc321](https://github.com/matsp/material-components-vue/commit/79dc321))
+
+
+### BREAKING CHANGES
+
+* **textfield:** Please upgrade your textfields from <m-text-field> to
+<m-textfield>
+
+
+
 <a name="0.13.1"></a>
 ## [0.13.1](https://github.com/matsp/material-components-vue/compare/v0.13.0...v0.13.1) (2018-03-09)
 
