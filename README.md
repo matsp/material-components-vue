@@ -131,9 +131,6 @@ Import all SASS files for the imported components and override with SASS variabl
   @import "material-components-vue/dist/theme/styles";
   @import "material-components-vue/dist/button/styles";
   @import "material-components-vue/dist/card/styles";
-  @import url('https://cdnjs.com/libraries/normalize');
-  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 </style>
 ```
 
@@ -169,10 +166,7 @@ data() {
 ```
 
 ```html
-<style lang="css">
-  @import "~material-components-vue/dist/theme/styles";
-  @import url('https://cdnjs.com/libraries/normalize');
-  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
-  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+<style>
+  @import "material-components-vue/dist/theme/theme.min.css";
 </style>
 ```
