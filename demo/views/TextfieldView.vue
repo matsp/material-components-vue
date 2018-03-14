@@ -9,13 +9,13 @@
       </m-typo-body>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-text-field id="textfield1">
+      <m-textfield id="textfield1">
         <m-floating-label for="textfield1">Textfield</m-floating-label>
         <m-line-ripple slot="bottomLine"/>
-      </m-text-field>
+      </m-textfield>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-text-field
+      <m-textfield
         type="password"
         id="textfield2"
         required
@@ -23,59 +23,59 @@
         aria-controls="pw-validation">
         <m-floating-label for="textfield2">Password</m-floating-label>
         <m-line-ripple slot="bottomLine"/>
-      </m-text-field>
-      <m-text-field-helptext id="pw-validation">
+      </m-textfield>
+      <m-textfield-helptext id="pw-validation">
         Password must be at least 8 characters long.
-      </m-text-field-helptext>
+      </m-textfield-helptext>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="8" />
     <m-layout-grid-cell :span="2">
-      <m-text-field
+      <m-textfield
         box
         id="textfield3">
         <m-floating-label for="textfield3">Textfield</m-floating-label>
-      </m-text-field>
+      </m-textfield>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-text-field
+      <m-textfield
         box
         id="textfield4">
         <m-icon
           slot="leadingIcon"
           icon="person"/>
         <m-floating-label for="textfield4">Textfield</m-floating-label>
-      </m-text-field>
+      </m-textfield>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-text-field
+      <m-textfield
         box
         id="textfield5">
         <m-icon
           slot="trailingIcon"
           icon="person"/>
         <m-floating-label for="textfield5">Textfield</m-floating-label>
-      </m-text-field>
+      </m-textfield>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-text-field
+      <m-textfield
         placeholder="Fullwidth"
         full-width>
         <m-line-ripple slot="bottomLine"/>
-      </m-text-field>
+      </m-textfield>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-text-field
+      <m-textfield
         textarea
         id="textfield6">
         <m-floating-label for ="textfield6">Textarea</m-floating-label>
-      </m-text-field>
+      </m-textfield>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-text-field
+      <m-textfield
         outlined
         id="textfield7">
         <m-floating-label for="textfield7">Outlined</m-floating-label>
-      </m-text-field>
+      </m-textfield>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>
