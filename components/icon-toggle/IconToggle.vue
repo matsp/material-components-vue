@@ -14,7 +14,10 @@
 import { MDCIconToggle } from '@material/icon-toggle'
 import { debounce } from '../'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     iconOn: {
       type: String,

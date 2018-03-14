@@ -9,7 +9,11 @@
 
 <script>
 import { MDCRipple } from '@material/ripple'
+
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     mini: {
       type: Boolean,

@@ -14,7 +14,10 @@
 <script>
 import { MDCSnackbar } from '@material/snackbar'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     alignStart: {
       type: Boolean,

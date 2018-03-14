@@ -31,7 +31,10 @@
 <script>
 import { MDCDialog } from '@material/dialog'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     scrollable: {
       type: Boolean,

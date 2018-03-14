@@ -50,7 +50,10 @@
 <script>
 import { MDCSlider } from '@material/slider'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   model: {
     prop: 'value',
     event: 'change'

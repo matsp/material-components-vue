@@ -100,7 +100,26 @@ Vue.use(Card)
 
 ## theming
 
-#### SASS
+### MDC classes
+
+For simple color modifications of components e.g. changing the background color from primary to secondary color it is
+possible to use the `theming` prop on each component to set one of the mdc-theme CSS classes.
+You don't need to set the full name of the css class just the last part (see example). For a complete list of available 
+CSS classes have a look [here](https://github.com/material-components/material-components-web/tree/master/packages/mdc-theme#css-classes).
+
+```html
+<m-button theming="secondary-bg">
+  Secondary-Button
+</m-button>
+```
+
+```html
+<style lang="scss">
+  @import "material-components-vue/dist/theme/styles";
+</style>
+```
+
+### SASS
 
 Import all SASS files for the imported components and override with SASS variables:
 
@@ -109,9 +128,9 @@ Import all SASS files for the imported components and override with SASS variabl
   $mdc-theme-primary: #2196f3;
   $mdc-theme-secondary: #ff1744;
   $mdc-theme-background: #f5f5f5;
-  @import "~material-components-vue/dist/theme/styles";
-  @import "~material-components-vue/dist/button/styles";
-  @import "~material-components-vue/dist/card/styles";
+  @import "material-components-vue/dist/theme/styles";
+  @import "material-components-vue/dist/button/styles";
+  @import "material-components-vue/dist/card/styles";
   @import url('https://cdnjs.com/libraries/normalize');
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
   @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
@@ -121,7 +140,7 @@ Import all SASS files for the imported components and override with SASS variabl
 Don't forget to include the `@material` directory of your `node_modules` in your sass-loader options.
 Otherwise the components won't compile sucessfully.
 
-#### CSS custom properties
+### CSS custom properties
 
 Integrate a theme component in your template and pass in an object with CSS custom properties, but keep browser compatibilty in mind.
 

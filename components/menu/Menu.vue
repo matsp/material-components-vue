@@ -12,7 +12,10 @@
 <script>
 import { MDCMenu } from '@material/menu'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   model: {
     prop: 'selected',
     event: 'change'

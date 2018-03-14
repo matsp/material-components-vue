@@ -7,7 +7,10 @@
 </template>
 
 <script>
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     adjustMargin: {
       type: Boolean,

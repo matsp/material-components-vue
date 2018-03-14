@@ -5,7 +5,10 @@
 <script>
 import { MDCLineRipple } from '@material/line-ripple'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   data () {
     return {
       mdcLineRipple: null

@@ -9,7 +9,10 @@
 <script>
 import { MDCToolbar } from '@material/toolbar'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     flexible: {
       type: Boolean,

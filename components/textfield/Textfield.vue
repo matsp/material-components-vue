@@ -35,7 +35,10 @@
 import { MDCTextField } from '@material/textfield'
 import { debounce } from '../'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     value: {
       type: String,

@@ -27,7 +27,10 @@
 <script>
 import { MDCTopAppBar } from '@material/top-app-bar'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     collapsed: {
       type: Boolean,

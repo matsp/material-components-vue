@@ -17,7 +17,10 @@
 <script>
 import { MDCChip } from '@material/chips'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   data () {
     return {
       mdcChip: null

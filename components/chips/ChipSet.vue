@@ -9,7 +9,10 @@
 <script>
 import { MDCChipSet } from '@material/chips'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     choice: {
       type: Boolean,

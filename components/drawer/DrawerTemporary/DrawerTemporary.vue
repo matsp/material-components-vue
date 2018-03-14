@@ -13,7 +13,10 @@
 <script>
 import { MDCTemporaryDrawer } from '@material/drawer'
 
+import themeClassMixin from '../../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     initialOpen: {
       type: Boolean,

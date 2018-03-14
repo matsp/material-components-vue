@@ -9,7 +9,10 @@
 <script>
 import { MDCFormField } from '@material/form-field'
 
+import themeClassMixin from '../base/themeClassMixin.js'
+
 export default {
+  mixins: [themeClassMixin],
   props: {
     alignEnd: {
       type: Boolean,
