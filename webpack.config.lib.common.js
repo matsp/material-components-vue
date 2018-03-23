@@ -27,6 +27,7 @@ module.exports = {
     'line-ripple': path.resolve(components + '/line-ripple/index.js'),
     list: path.resolve(components + '/list/index.js'),
     menu: path.resolve(components + '/menu/index.js'),
+    'notched-outline': path.resolve(components + '/notched-outline/index.js'),
     radio: path.resolve(components + '/radio/index.js'),
     ripple: path.resolve(components + '/ripple/index.js'),
     select: path.resolve(components + '/select/index.js'),
