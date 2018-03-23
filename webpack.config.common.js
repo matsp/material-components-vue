@@ -10,9 +10,6 @@ const demo = path.join(root + '/demo/')
 const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
-  // output: {
-    // publicPath: path.resolve(root + '/public')
-  // },
   entry: {
     app: [path.resolve(demo + 'index.js')]
   },
@@ -102,13 +99,13 @@ module.exports = {
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
-      include: ['app']
+      include: 'initial'
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
       include: 'allAssets',
-      fileWhitelist: [/\.woff/, /\.woff2/],
-      fileBlacklist: [/\.js/, /\.css/] // only ie11+ needs woff
+      fileWhitelist: [/\.woff2$/],
+      fileBlacklist: [/\.js/, /\.css/, /\.woff$/]
     })
   ],
   stats: {

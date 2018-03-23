@@ -2,6 +2,7 @@ const path = require('path')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const merge = require('webpack-merge')
 const common = require('./webpack.config.common.js')
@@ -36,6 +37,7 @@ module.exports = merge(common, {
     new OptimizeCssAssetsPlugin(),
     new CompressionPlugin({
       include: /(\.js)|(\.css)/
-    })
+    }),
+    // new BundleAnalyzerPlugin()
   ]
 })
