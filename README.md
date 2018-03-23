@@ -18,22 +18,6 @@ Material-components-vue integrates the [mdc-web](https://github.com/material-com
 * keep in sync with changes in the mdc-web repository
 * user friendly component api
 
-### JavaScript distributions
-
-| Name | ECMA | Minimized |
-|------|------|-----------|
-| dist/[component]/index.js | 5 | no |
-| dist/[component]/[component].min.js | 5 | yes |
-
-All versions are provided as UMD modules.
-
-### CSS / SASS distributions
-
-| Name | Description |
-|------|-----------|
-| dist/[component]/[component].min.css | Minified component CSS |
-| dist/[component]/styles.scss | Raw SASS styles (prefered for customization) |
-
 ## quick start
 
 ### links
@@ -50,6 +34,21 @@ npm install --save material-components-vue
 
 yarn add material-components-vue
 ```
+### JavaScript distributions
+
+| Name | ECMA | Minimized |
+|------|------|-----------|
+| dist/[component]/index.js | 5 | no |
+| dist/[component]/[component].min.js | 5 | yes |
+
+All versions are provided as UMD modules.
+
+### CSS / SASS distributions
+
+| Name | Description |
+|------|-----------|
+| dist/[component]/[component].min.css | Minified component CSS |
+| dist/[component]/styles.scss | Raw SASS styles (prefered for customization) |
 
 ## usage
 
