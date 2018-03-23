@@ -7,6 +7,12 @@
   <m-floating-label for="textfield">Textfield label</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
 </m-text-field>
+<m-textfield
+  outlined
+  id="outlined">
+  <m-floating-label for="outlined">Outlined</m-floating-label>
+  <m-notched-outline />
+</m-textfield>
 <m-text-field v-model="pw" id="passwordfield" type="password" required minlength="8" aria-controls="pw-validation">
   <m-floating-label for="passwordfield">Password</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
@@ -35,7 +41,7 @@ data() {
 | upgraded | Boolean | false | whether the textfield should be upgraded when it already has a value (FOUC) |
 | fullWidth | Boolean | false | expand the textfield to max width |
 | box | Boolean | false | draws a box around the textfield |
-| outlined | Boolean | false | draws an outer line around input field |
+| outlined | Boolean | false | draws an outer line around input field (NotchedOutline component also needed)|
 | dense | Boolean | false | whether the textfield should be dense |
 | focused | Boolean | false | whether the textfield should be in focus |
 | textarea | Boolean | false | whether the textfield should be a textarea |

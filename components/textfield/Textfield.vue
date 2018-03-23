@@ -16,16 +16,6 @@
       v-bind="$attrs"
       v-if="textarea"/>
     <slot v-if="$slots['default'] && !fullWidth"/>
-    <div
-      v-if="outlined"
-      class="mdc-text-field__outline">
-      <svg>
-        <path class="mdc-text-field__outline-path"/>
-      </svg>
-    </div>
-    <div
-      v-if="outlined"
-      class="mdc-text-field__idle-outline"/>
     <slot name="trailingIcon"/>
     <slot name="bottomLine"/>
   </div>

@@ -75,6 +75,7 @@
         outlined
         id="textfield7">
         <m-floating-label for="textfield7">Outlined</m-floating-label>
+        <m-notched-outline />
       </m-textfield>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
@@ -85,11 +86,13 @@ import Vue from 'vue'
 import FloatingLabel from '../../dist/floating-label'
 import LineRipple from '../../dist/line-ripple'
 import Icon from '../../dist/icon'
+import NotchedOutline from '../../dist/notched-outline'
 import Textfield from '../../dist/textfield'
 
 Vue.use(FloatingLabel)
 Vue.use(LineRipple)
 Vue.use(Icon)
+Vue.use(NotchedOutline)
 Vue.use(Textfield)
 
 export default {
