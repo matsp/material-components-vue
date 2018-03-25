@@ -21,8 +21,9 @@ in the navigation slot!
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| collapsed | Boolean | false | collapsed bar when short too |
+| collapsed | Boolean | false | collapsed bar (must be short too) |
 | short | Boolean | false | short bar |
+| prominent | Boolean | false | prominent app bar style (could not be short too) |
 
 | Event | Description |
 |------|------|

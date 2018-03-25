@@ -39,6 +39,10 @@ export default {
     short: {
       type: Boolean,
       default: false
+    },
+    prominent: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -50,7 +54,8 @@ export default {
     classes () {
       return {
         'mdc-top-app-bar--short': this.short,
-        'mdc-top-app-bar--short-collapsed': this.collapsed && this.short
+        'mdc-top-app-bar--short-collapsed': this.collapsed && this.short,
+        'mdc-top-app-bar--prominent': this.prominent && !this.short
       }
     }
   },
