@@ -10,6 +10,11 @@
 </m-button>
 <m-button disabled>Button</m-button>
 <m-button interactive href="https://github.com/matsp/material-components-vue">Github</m-button>
+<m-button>
+  <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="...">
+    ...
+  </svg>
+</m-button>
 ```
 ### Props
 
