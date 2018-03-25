@@ -26,9 +26,6 @@
           </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
-          <m-button compact>compact</m-button>
-        </m-layout-grid-cell>
-        <m-layout-grid-cell :span="3">
           <m-button dense>dense</m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
@@ -55,13 +52,6 @@
               slot="icon"
               icon="cloud"/>
             icon
-          </m-button>
-        </m-layout-grid-cell>
-        <m-layout-grid-cell :span="3">
-          <m-button
-            raised
-            compact>
-            compact
           </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">
@@ -104,13 +94,6 @@
         <m-layout-grid-cell :span="3">
           <m-button
             unelevated
-            compact>
-            compact
-          </m-button>
-        </m-layout-grid-cell>
-        <m-layout-grid-cell :span="3">
-          <m-button
-            unelevated
             dense>
             dense
           </m-button>
@@ -143,13 +126,6 @@
               slot="icon"
               icon="cloud"/>
             icon
-          </m-button>
-        </m-layout-grid-cell>
-        <m-layout-grid-cell :span="3">
-          <m-button
-            stroked
-            compact>
-            compact
           </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="3">

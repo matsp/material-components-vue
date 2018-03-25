@@ -19,7 +19,6 @@
 | unelevated | Boolean | false | unelevated button |
 | stroked | Boolean | false | stroked button |
 | dense | Boolean | false | dense button |
-| compact | Boolean | false | compact button |
 | interactive | Boolean | false | button with ripple effect |
 | href | String | ' ' | link button |
 

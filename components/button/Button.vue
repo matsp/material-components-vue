@@ -44,10 +44,6 @@ export default {
       type: Boolean,
       default: false
     },
-    compact: {
-      type: Boolean,
-      default: false
-    },
     interactive: {
       type: Boolean,
       default: false
@@ -68,8 +64,7 @@ export default {
         'mdc-button--raised': this.raised,
         'mdc-button--unelevated': this.unelevated,
         'mdc-button--stroked': this.stroked,
-        'mdc-button--dense': this.dense,
-        'mdc-button--compact': this.compact
+        'mdc-button--dense': this.dense
       }
     }
   },
