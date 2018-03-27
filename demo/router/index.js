@@ -42,6 +42,10 @@ export default new VueRouter({
       component: () => import('views/IconToggleView')
     },
     {
+      path: '/imageList',
+      component: () => import('views/ImageListView')
+    },
+    {
       path: '/linearProgress',
       component: () => import('views/LinearProgressView')
     },

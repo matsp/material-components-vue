@@ -48,6 +48,11 @@ const state = {
       route: '/iconToggle',
       icon: 'code'
     },
+    imageList: {
+      text: 'ImageList',
+      route: '/imageList',
+      icon: 'code'
+    },
     linearProgress: {
       text: 'LinearProgress',
       route: '/linearProgress',
