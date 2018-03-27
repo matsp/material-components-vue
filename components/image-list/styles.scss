@@ -1,0 +1,75 @@
+@import "@material/image-list/mdc-image-list";
+
+.image-list-standard-1 {
+  @include mdc-image-list-standard-columns(1);
+}
+.image-list-standard-2 {
+  @include mdc-image-list-standard-columns(2);
+}
+.image-list-standard-3 {
+  @include mdc-image-list-standard-columns(3);
+}
+.image-list-standard-4 {
+  @include mdc-image-list-standard-columns(4);
+}
+.image-list-standard-5 {
+  @include mdc-image-list-standard-columns(5);
+}
+.image-list-standard-6 {
+  @include mdc-image-list-standard-columns(6);
+}
+.image-list-standard-7 {
+  @include mdc-image-list-standard-columns(7);
+}
+.image-list-standard-8 {
+  @include mdc-image-list-standard-columns(8);
+}
+.image-list-standard-9 {
+  @include mdc-image-list-standard-columns(9);
+}
+.image-list-standard-10 {
+  @include mdc-image-list-standard-columns(10);
+}
+.image-list-standard-11 {
+  @include mdc-image-list-standard-columns(11);
+}
+.image-list-standard-12 {
+  @include mdc-image-list-standard-columns(12);
+}
+
+.image-list-masonry-1 {
+  @include mdc-image-list-masonry-columns(1);
+}
+.image-list-masonry-2 {
+  @include mdc-image-list-masonry-columns(2);
+}
+.image-list-masonry-3 {
+  @include mdc-image-list-masonry-columns(3);
+}
+.image-list-masonry-4 {
+  @include mdc-image-list-masonry-columns(4);
+}
+.image-list-masonry-5 {
+  @include mdc-image-list-masonry-columns(5);
+}
+.image-list-masonry-6 {
+  @include mdc-image-list-masonry-columns(6);
+}
+.image-list-masonry-7 {
+  @include mdc-image-list-masonry-columns(7);
+}
+.image-list-masonry-8 {
+  @include mdc-image-list-masonry-columns(8);
+}
+.image-list-masonry-9 {
+  @include mdc-image-list-masonry-columns(9);
+}
+.image-list-masonry-10 {
+  @include mdc-image-list-masonry-columns(10);
+}
+.image-list-masonry-11 {
+  @include mdc-image-list-masonry-columns(11);
+}
+.image-list-masonry-12 {
+  @include mdc-image-list-masonry-columns(12);
+}
