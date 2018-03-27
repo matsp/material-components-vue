@@ -11,13 +11,11 @@ export default {
   props:  {
     standardColumn: {
       type: Number,
-      validator: (value) => value >= 1 && value <= 12,
-      default: 0
+      validator: (value) => value >= 1 && value <= 12
     },
     masonryColumn: {
       type: Number,
-      validator: (value) => value >= 1 && value <= 12,
-      default: 0
+      validator: (value) => value >= 1 && value <= 12
     },
     textProtection: {
       type: Boolean,
@@ -27,12 +25,12 @@ export default {
   computed: {
     classes () {
       let standard = {}
-      if (this.standardColumn > 0 && this.masonryColumn === 0) {
+      if (this.standardColumn > 0 && typeof this.masonryColumn === 'null') {
         standard['image-list-standard-' + this.standardColumn] = true
       }
 
       let masonry = {}
-      if (this.masonryColumn > 0 && this.standardColumn === 0) {
+      if (this.masonryColumn > 0 && typeof this.standardColumn === 'null') {
         masonry['image-list-masonry-' + this.masonryColumn] = true
         masonry['mdc-image-list--masonry'] = true
       }
