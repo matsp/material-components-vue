@@ -3,8 +3,8 @@
     <m-layout-grid-cell :span="12">
       <m-typo-display :level="1">IconToggle</m-typo-display>
       <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/iconToggle">
-          https://github.com/matsp/material-components-vue/blob/master/components/iconToggle
+        <a href="https://github.com/matsp/material-components-vue/blob/master/components/icon-toggle">
+          https://github.com/matsp/material-components-vue/blob/master/components/icon-toggle
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
