@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/matsp/material-components-vue/compare/v0.14.1...v0.15.0) (2018-03-27)
+
+
+### Bug Fixes
+
+* **demo:** Fix icon-toggle reference link ([4e27023](https://github.com/matsp/material-components-vue/commit/4e27023))
+* **image-list:** Fix prop type in ImageListItem ([b826193](https://github.com/matsp/material-components-vue/commit/b826193))
+* **image-list:** Fix prop validator functions ([1d10870](https://github.com/matsp/material-components-vue/commit/1d10870))
+* **image-list:** Fix type comparison & use image slot in ImageListItem ([f0a7a1b](https://github.com/matsp/material-components-vue/commit/f0a7a1b))
+
+
+### Features
+
+* **chip:** Synchronise with mdc-web v0.33.0 (add checkmark) ([af17558](https://github.com/matsp/material-components-vue/commit/af17558))
+* **demo:** Add image-list demo ([a9fad5e](https://github.com/matsp/material-components-vue/commit/a9fad5e))
+* **demo:** Synchronise with mdc-web v0.33.0 (remove compact style) ([d82594b](https://github.com/matsp/material-components-vue/commit/d82594b))
+* **image-list:** Synchronise with mdc-web v0.33.0 (add component) ([92168d6](https://github.com/matsp/material-components-vue/commit/92168d6))
+* **notched-outline:** Synchronise with mdc-web v0.33.0 (add component) ([bbfa8eb](https://github.com/matsp/material-components-vue/commit/bbfa8eb))
+* **top-app-bar:** Synchronise with mdc-web v0.33.0 (add prominent style) ([1e79429](https://github.com/matsp/material-components-vue/commit/1e79429))
+
+
+
 <a name="0.14.1"></a>
 ## [0.14.1](https://github.com/matsp/material-components-vue/compare/v0.14.0...v0.14.1) (2018-03-23)
 
