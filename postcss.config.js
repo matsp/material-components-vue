@@ -7,7 +7,7 @@ module.exports = {
     // 'add': true
     // }
     // }
-    'postcss-preset-env': {},
+    // 'postcss-preset-env': {},
     'cssnano': {}
   }
 }
