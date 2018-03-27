@@ -3,21 +3,26 @@
 ### Markup
 
 ```html
-<m-image-list
-  :standardColumn="2"
-  textProtection>
-  <m-image-list-item src="assets/images/pic1.png">
-    Pic 1
-  </m-image-list-item>
-  <m-image-list-item src="assets/images/pic2.png">
-    Pic 2
-  </m-image-list-item>
-  <m-image-list-item src="assets/images/pic3.png">
-    Pic 3
-  </m-image-list-item>
-  <m-image-list-item src="assets/images/pic4.png">
-    Pic 4
-  </m-image-list-item>
+  <m-image-list
+    :standardColumn="2"
+    textProtection>
+    <m-image-list-item>
+      <img slot="image" src="../assets/images/cat.jpg">
+      Cat
+    </m-image-list-item>
+    <m-image-list-item> 
+      <img slot="image" src="../assets/images/cat.jpg">
+      Cat
+    </m-image-list-item>
+    <m-image-list-item>
+      <img slot="image" src="../assets/images/cat.jpg">
+      Cat
+    </m-image-list-item>
+    <m-image-list-item>
+      <img slot="image" src="../assets/images/cat.jpg">
+      Cat
+    </m-image-list-item>
+  </m-image-list>
 </m-image-list>
 ```
 
@@ -25,8 +30,8 @@
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| standardColumn | Number | 0 | standard columns per line |
-| masonryColumn | Number | 0 | masonry columns per line |
+| standardColumn | Number | - | standard columns per line |
+| masonryColumn | Number | - | masonry columns per line |
 | textProtection | Boolean | false | label will be positioned in a scrim overlaying each image |
 
 ### Slots
@@ -41,7 +46,6 @@
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| src | String | - | src url of the image |
 | adjustAspectRatio | Boolean | true | adjusts the ratio of images for standard columns |
 
 ### Slots
@@ -49,6 +53,7 @@
 | Slot |Description |
 |------|-------------|
 | default | image label |
+| image | img element |
 
 ### Reference
 
