@@ -7,9 +7,13 @@
   Select
   <m-menu slot="menu">
     <m-list>
-      <m-list-item>Entry 1</m-list-item>
+      <m-list-item id="entry-1">
+        Entry 1
+      </m-list-item>
       <m-list-divider />
-      <m-list-item>Entry 2</m-list-item>
+      <m-list-item id="entry-2">
+        Entry 2
+      </m-list-item>
     </m-list>
   </m-menu>
 </m-select>
@@ -20,7 +24,7 @@
 ```javascript
 data() {
     return {
-        selected: null
+        selected: ''
     }
 }
 ```
@@ -29,6 +33,7 @@ data() {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
+| selected | String | '' | selected item id if available - when not the string of the selected item - otherwise empty string |
 | disabled | Boolean | false | whether the select should be disabled |
 | box | Boolean | false | renders a select box |
 
