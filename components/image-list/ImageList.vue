@@ -25,12 +25,12 @@ export default {
   computed: {
     classes () {
       let standard = {}
-      if (this.standardColumn > 0 && typeof this.masonryColumn === 'null') {
+      if (this.standardColumn > 0 && typeof this.masonryColumn === 'undefined') {
         standard['image-list-standard-' + this.standardColumn] = true
       }
 
       let masonry = {}
-      if (this.masonryColumn > 0 && typeof this.standardColumn === 'null') {
+      if (this.masonryColumn > 0 && typeof this.standardColumn === 'undefined') {
         masonry['image-list-masonry-' + this.masonryColumn] = true
         masonry['mdc-image-list--masonry'] = true
       }

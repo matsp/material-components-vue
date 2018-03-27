@@ -3,14 +3,11 @@
     <div
       v-if="adjustAspectRatio" 
       class="mdc-image-list__image-aspect-container">
-      <img
-        class="mdc-image-list__image"
-        :src="src">
+      <slot name="image"/>
     </div>
-    <img
+    <slot
       v-else
-      class="mdc-image-list__image"
-      :src="src">
+      name="image"/>
     <div
       v-if="$slots['default']"
       class="mdc-image-list__supporting">
@@ -24,13 +21,16 @@
 <script>
 export default  {
   props: {
-    src: {
-      type: String,
-      required: true
-    },
     adjustAspectRatio: {
       type: Boolean,
       default: true
+    }
+  },
+  mounted () {
+    if (this.$slots.image) {
+      this.$slots.image.map(n => {
+        n.elm.classList.add('mdc-image-list__image')
+      })
     }
   }
 }
