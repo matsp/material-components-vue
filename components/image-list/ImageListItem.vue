@@ -11,7 +11,9 @@
       v-else
       class="mdc-image-list__image"
       :src="src">
-    <div class="mdc-image-list__supporting">
+    <div
+      v-if="$slots['default']"
+      class="mdc-image-list__supporting">
       <span class="mdc-image-list__label">
         <slot/>
       </span>
@@ -27,7 +29,7 @@ export default  {
       required: true
     },
     adjustAspectRatio: {
-      type: boolean,
+      type: Boolean,
       default: true
     }
   }
