@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-drawer-persistent ref="drawer">
+<m-drawer-persistent v-model="isDrawerOpen">
   <m-drawer-toolbar-spacer slot="toolbarSpacer"/>
   <m-drawer-content>
     <m-list>
@@ -18,20 +18,18 @@
 ### Script
 
 ```javascript
-this.$refs.drawer.toggle()
+data () {
+  return {
+    isDrawerOpen: false
+  }
+}
 ```
 
-### Props & methods
+### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| initialOpen | Boolean | true | whether the drawer should be open at start |
-
-Non prop events are mapped to the inner button element.
-
-| Method | Description |
-|--------|-------------|
-| toggle | toggles the drawer |
+| open | Boolean | true | whether the drawer should be open at start |
 
 ### Slots
 

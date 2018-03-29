@@ -1,7 +1,7 @@
 <template>
   <aside
     class="mdc-drawer mdc-drawer--persistent"
-    v-on="$listeners">
+    @MDCPersistentDrawer:close="closeDrawer()">
     <nav class="mdc-drawer__drawer">
       <slot name="toolbarSpacer" />
       <slot name="header" />
@@ -18,29 +18,45 @@ import themeClassMixin from '../../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   props: {
-    initialOpen: {
+    open: {
       type: Boolean,
       default: true
     }
   },
+  model: {
+    prop: 'open',
+    event: 'change'
+  },
   data () {
     return {
-      open: null,
       mdcPersistentDrawer: null
+    }
+  },
+  computed: {
+    model: {
+      get () {
+        return this.open
+      },
+      set (value) {
+        this.$emit('change', value)
+      }
     }
   },
   mounted () {
     this.mdcPersistentDrawer = MDCPersistentDrawer.attachTo(this.$el)
-    this.open = this.initialOpen
     this.mdcPersistentDrawer.open = this.open
   },
   beforeDestroy () {
     this.mdcPersistentDrawer.destroy()
   },
   methods: {
-    toggle () {
-      this.open ? this.mdcPersistentDrawer.open = false : this.mdcPersistentDrawer.open = true
-      this.open = !this.open
+    closeDrawer () {
+      this.model = false
+    }
+  },
+  watch: {
+    open () {
+      this.mdcPersistentDrawer.open = this.open
     }
   }
 }

@@ -26,8 +26,10 @@
       <m-button
         interactive
         raised
-        @click="$refs.persistentDrawer.toggle()">toggle</m-button>
-      <m-drawer-persistent ref="persistentDrawer">
+        @click="togglePersistentDrawer()">
+        toggle
+      </m-button>
+      <m-drawer-persistent v-model="persistentDrawerState">
         <m-drawer-toolbar-spacer slot="toolbarSpacer"/>
         <m-drawer-content>
           <m-list>
@@ -43,8 +45,10 @@
       <m-button
         interactive
         raised
-        @click="$refs.temporaryDrawer.toggle()">toggle</m-button>
-      <m-drawer-temporary ref="temporaryDrawer">
+        @click="toggleTemporaryDrawer()">
+        toggle
+      </m-button>
+      <m-drawer-temporary v-model="temporaryDrawerState">
         <m-drawer-content>
           <m-list>
             <m-list-item> Item </m-list-item>
@@ -68,7 +72,20 @@ Vue.use(Drawer)
 Vue.use(List)
 
 export default {
-
+  data () {
+    return {
+      persistentDrawerState: true,
+      temporaryDrawerState: false
+    }
+  },
+  methods: {
+    togglePersistentDrawer () {
+      this.persistentDrawerState ? this.persistentDrawerState = false : this.persistentDrawerState = true
+    },
+    toggleTemporaryDrawer () {
+      this.temporaryDrawerState ? this.temporaryDrawerState = false : this.temporaryDrawerState = true
+    }
+  }
 }
 </script>
 

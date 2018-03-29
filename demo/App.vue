@@ -1,7 +1,6 @@
 <template>
   <m-typography class="demo-body">
     <m-toolbar
-      ref="toolbar"
       fixed
       waterfall>
       <m-toolbar-row shrink-center>
@@ -13,7 +12,7 @@
         Material Components Vue
       </m-toolbar-row>
     </m-toolbar>
-    <m-drawer-temporary ref="drawer">
+    <m-drawer-temporary v-model="isDrawerOpen">
       <m-drawer-toolbar-spacer
         class="mdc-theme--primary-bg"
         slot="toolbarSpacer"/>
@@ -69,6 +68,11 @@ Vue.use(Toolbar)
 Vue.use(Typography)
 
 export default {
+  data () {
+    return {
+      isDrawerOpen: false
+    }
+  },
   computed: {
     listItems () {
       return this.$store.state.app.drawerListItems
@@ -76,7 +80,7 @@ export default {
   },
   methods: {
     toggleDrawer () {
-      this.$refs.drawer.toggle()
+      this.isDrawerOpen ? this.isDrawerOpen = false : this.isDrawerOpen = true
     },
     openRoute (route) {
       this.$router.push(route)

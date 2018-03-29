@@ -1,7 +1,7 @@
 <template>
   <aside
     class="mdc-drawer mdc-drawer--temporary"
-    v-on="$listeners">
+    @MDCTemporaryDrawer:close="closeDrawer()">
     <nav class="mdc-drawer__drawer">
       <slot name="toolbarSpacer"/>
       <slot name="header"/>
@@ -18,29 +18,45 @@ import themeClassMixin from '../../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   props: {
-    initialOpen: {
+    open: {
       type: Boolean,
       default: false
     }
   },
+  model: {
+    prop: 'open',
+    event: 'change'
+  },
   data () {
     return {
-      open: null,
       mdcTemporaryDrawer: null
+    }
+  },
+  computed: {
+    model: {
+      get () {
+        return this.open
+      },
+      set (value) {
+        this.$emit('change', value)
+      }
     }
   },
   mounted () {
     this.mdcTemporaryDrawer = MDCTemporaryDrawer.attachTo(this.$el)
-    this.open = this.initialOpen
     this.mdcTemporaryDrawer.open = this.open
   },
   beforeDestroy () {
     this.mdcTemporaryDrawer.destroy()
   },
   methods: {
-    toggle () {
-      this.open ? this.mdcTemporaryDrawer.open = false : this.mdcTemporaryDrawer.open = true
-      this.open = !this.open
+    closeDrawer () {
+      this.model = false
+    }
+  },
+  watch: {
+    open () {
+      this.mdcTemporaryDrawer.open = this.open
     }
   }
 }
