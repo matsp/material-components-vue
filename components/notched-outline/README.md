@@ -11,3 +11,9 @@
 </m-textfield>
 ```
 
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| notched | Boolean | false | open notch outline |
+

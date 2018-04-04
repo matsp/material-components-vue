@@ -1,19 +1,30 @@
+<template>
+  <div>
+    <div class="mdc-notched-outline" :class="classes">
+      <svg>
+        <path class="mdc-notched-outline__path"/>
+      </svg>
+    </div>
+    <div class="mdc-notched-outline__idle"/>
+  </div>
+</template>
 <script>
 import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
-  functional: true,
   mixins: [themeClassMixin],
-  render (h) {
-    return [
-      h('div', {'class': 'mdc-notched-outline'},
-        [
-          h('svg', [
-            h('path', {'class': 'mdc-notched-outline__path'})
-          ])
-        ]
-      ),
-      h('div', {'class': 'mdc-notched-outline__idle'})]
+  props: {
+    notched: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'mdc-notched-outline--notched': this.notched
+      }
+    }
   }
 }
 </script>
