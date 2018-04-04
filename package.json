@@ -24,7 +24,7 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "material-components-web": "^0.33.0"
+    "material-components-web": "^0.34.1"
   },
   "peerDependencies": {
     "vue": "^2.5.13"
@@ -56,7 +56,7 @@
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
     "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "4.7.2",
+    "node-sass": "4.8.3",
     "normalize.css": "^8.0.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "postcss": "^6.0.21",
