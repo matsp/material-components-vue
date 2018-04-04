@@ -1,7 +1,5 @@
 <template>
-  <span
-    class="mdc-typography--button"
-    :class="classes">
+  <span class="mdc-typography--button">
     <slot />
   </span>
 </template>
@@ -10,19 +8,6 @@
 import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
-  mixins: [themeClassMixin],
-  props: {
-    adjustMargin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    classes () {
-      return {
-        'mdc-typography--adjust-margin': this.adjustMargin
-      }
-    }
-  }
+  mixins: [themeClassMixin]
 }
 </script>

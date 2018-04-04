@@ -1,16 +1,7 @@
 <template>
-  <div>
-    <h3
-      v-if="level < 2"
-      :class="classes">
-      <slot />
-    </h3>
-    <h4
-      v-else
-      :class="classes">
-      <slot />
-    </h4>
-  </div>
+  <span :class="classes">
+    <slot/>
+  </span>
 </template>
 
 <script>
@@ -19,10 +10,6 @@ import themeClassMixin from '../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   props: {
-    adjustMargin: {
-      type: Boolean,
-      default: false
-    },
     level: {
       type: Number,
       required: true,
@@ -31,14 +18,9 @@ export default {
   },
   computed: {
     classes () {
-      let def = {
-        'mdc-typography--adjust-margin': this.adjustMargin
-      }
-
       let calc = {}
       calc['mdc-typography--subheading' + this.level] = true
-
-      return Object.assign(def, calc)
+      return calc
     }
   }
 }

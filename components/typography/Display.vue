@@ -1,7 +1,7 @@
 <template>
-  <h1 :class="classes">
+  <span :class="classes">
     <slot />
-  </h1>
+  </span>
 </template>
 
 <script>
@@ -10,10 +10,6 @@ import themeClassMixin from '../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   props: {
-    adjustMargin: {
-      type: Boolean,
-      default: false
-    },
     level: {
       type: Number,
       required: true,
@@ -22,14 +18,9 @@ export default {
   },
   computed: {
     classes () {
-      let def = {
-        'mdc-typography--adjust-margin': this.adjustMargin
-      }
-
       let calc = {}
       calc['mdc-typography--display' + this.level] = true
-
-      return Object.assign(def, calc)
+      return calc
     }
   }
 }
