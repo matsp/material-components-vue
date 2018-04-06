@@ -150,12 +150,8 @@ Integrate a theme component in your template and pass in an object with CSS cust
 data() {
     return {
         material: {
-            '--mdc-theme-primary-light': '#9162e4',
             '--mdc-theme-primary':  '#5e35b1',
-            '--mdc-theme-primary-dark': '#280680',
             '--mdc-theme-secondary': '#ff5722',
-            '--mdc-theme-secondary-light': '#ff8a50',
-            '--mdc-theme-secondary-dark': '#c41c00',
             '--mdc-theme-background': '#ffffff',
             '--mdc-theme-text-primary-on-primary': '#ffffff',
             '--mdc-theme-text-secondary-on-secondary': '#000000'
