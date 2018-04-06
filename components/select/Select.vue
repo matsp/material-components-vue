@@ -1,21 +1,21 @@
 <template>
   <div
-    class="mdc-select"
     :class="classes"
-    tabindex="0"
-    :aria-disabled="disabled"
-    role="listbox"
-    @MDCSelect:change="onChange">
-    <div
-      class="mdc-select__surface"
-      tabindex="0">
-      <div class="mdc-select__label">
-        <slot />
-      </div>
-      <div class="mdc-select__selected-text" />
-      <div class="mdc-select__bottom-line" />
-    </div>
-    <slot name="menu" />
+    class="mdc-select">
+    <select
+      class="mdc-select__native-control"
+      :disabled="disabled"
+      v-bind="$attrs"
+      @change="onChange">
+      <option
+      value=""
+      disabled
+      selected
+      v-if="$slots['label']"/>
+      <slot/>
+    </select>
+    <slot name="label"/>
+    <slot name="bottomLine"/>
   </div>
 </template>
 
@@ -26,10 +26,6 @@ import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
   mixins: [themeClassMixin],
-  model: {
-    prop: 'selected',
-    event: 'change'
-  },
   props: {
     disabled: {
       type: Boolean,
@@ -40,36 +36,33 @@ export default {
       default: false
     }
   },
+  model: {
+    prop: 'value',
+    event: 'change',
+  },
   data () {
     return {
-      mdcSelect: null
+      mdcSelect: null,
     }
   },
   computed: {
     classes () {
       return {
-        'mdc-select--box': this.box
+        'mdc-select--box': this.box,
+        'mdc-select--disabled': this.disabled
       }
     }
   },
-  mounted () {
-    if (this.$slots.menu) {
-      this.$slots.menu[0].elm.classList.add('mdc-select__menu')
-
-      this.$slots.menu[0].componentOptions.children[0].componentOptions.children
-        .filter(n => n.elm.className.indexOf('mdc-list-item') > -1)
-        .map(n => n.elm.setAttribute('role', 'option'))
-    }
-
-    this.mdcSelect = MDCSelect.attachTo(this.$el)
-  },
-  destroy () {
-    this.mdcSelect.destroy()
-  },
   methods: {
     onChange (event) {
-      this.$emit('change', this.mdcSelect.value)
+      this.$emit('change', event.target.value)
     }
+  },
+  mounted () {
+    this.mdcSelect = MDCSelect.attachTo(this.$el)
+  },
+  beforeDestroy () {
+    this.mdcSelect.destroy()
   }
 }
 </script>

@@ -4,18 +4,15 @@
 
 ```html
 <m-select v-model="selected">
-  Select
-  <m-menu slot="menu">
-    <m-list>
-      <m-list-item id="entry-1">
-        Entry 1
-      </m-list-item>
-      <m-list-divider />
-      <m-list-item id="entry-2">
-        Entry 2
-      </m-list-item>
-    </m-list>
-  </m-menu>
+  <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
+    {{ option.text }}
+  </option>
+ <m-select-label
+   slot="label"
+  :floatAbove="selected !== ''">
+  Pick a food group
+</m-select-label> 
+<m-select-bottom-line slot="bottomLine"/>
 </m-select>
 ```
 
@@ -24,7 +21,20 @@
 ```javascript
 data() {
     return {
-        selected: ''
+      selectOptions: [
+        { text: 'Bread, Cereal, Rice and Pasta',
+          value: 'grains'
+        },
+        {
+          text: 'Vegetables',
+          value: 'vegetables'
+        },
+        {
+          text: 'Fruit',
+          value: 'fruit'
+        }
+      ],
+      selected: ''
     }
 }
 ```
@@ -33,7 +43,6 @@ data() {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| selected | String | '' | selected item id if available - when not the string of the selected item - otherwise empty string |
 | disabled | Boolean | false | whether the select should be disabled |
 | box | Boolean | false | renders a select box |
 
@@ -41,8 +50,9 @@ data() {
 
 | Slot | Description |
 |------|-------------|
-| default | select label |
-| menu | select menu |
+| default | native html select options |
+| label | select label component |
+| bottomLine | select bottom-line component |
 
 ### Reference
 

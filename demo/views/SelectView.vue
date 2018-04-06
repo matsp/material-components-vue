@@ -8,36 +8,28 @@
         </a>
       </m-typo-body>
     </m-layout-grid-cell>
-    <m-layout-grid-cell :span="2">
-      <m-select>
-        Select
-        <m-menu slot="menu">
-          <m-list>
-            <m-list-item>
-              Entry 1
-            </m-list-item>
-            <m-list-divider />
-            <m-list-item>
-              Entry 2
-            </m-list-item>
-          </m-list>
-        </m-menu>
+    <m-layout-grid-cell :span="3">
+      <m-select v-model="selected">
+        <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
+          {{ option.text }}
+        </option>
+        <m-select-label
+          slot="label"
+          :floatAbove="selected !== ''">Pick a food group</m-select-label> 
+        <m-select-bottom-line slot="bottomLine"/>
       </m-select>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="2">
-      <m-select box>
-        Select
-        <m-menu slot="menu">
-          <m-list>
-            <m-list-item>
-              Entry 1
-            </m-list-item>
-            <m-list-divider />
-            <m-list-item>
-              Entry 2
-            </m-list-item>
-          </m-list>
-        </m-menu>
+      <m-select
+        v-model="selected"
+        box>
+        <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
+          {{ option.text }}
+        </option>
+        <m-select-label
+          slot="label"
+          :floatAbove="selected !== ''">Pick a food group</m-select-label> 
+        <m-select-bottom-line slot="bottomLine"/>
       </m-select>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
@@ -54,7 +46,24 @@ Vue.use(Menu)
 Vue.use(Select)
 
 export default {
-
+  data () {
+    return {
+      selectOptions:  [
+        { text: 'Bread, Cereal, Rice and Pasta',
+          value: 'grains'
+        },
+        {
+          text: 'Vegetables',
+          value: 'vegetables'
+        },
+        {
+          text: 'Fruit',
+          value: 'fruit'
+        }
+      ],
+      selected: ''
+    }
+  }
 }
 </script>
 
