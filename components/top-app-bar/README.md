@@ -24,6 +24,7 @@ in the navigation slot!
 | collapsed | Boolean | false | collapsed bar (must be short too) |
 | short | Boolean | false | short bar |
 | prominent | Boolean | false | prominent app bar style (could not be short too) |
+| dense | Boolean | false | dense app bar style (could not be short too) |
 
 | Event | Description |
 |------|------|

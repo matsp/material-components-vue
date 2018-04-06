@@ -43,6 +43,10 @@ export default {
     prominent: {
       type: Boolean,
       default: false
+    },
+    dense: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -55,7 +59,8 @@ export default {
       return {
         'mdc-top-app-bar--short': this.short,
         'mdc-top-app-bar--short-collapsed': this.collapsed && this.short,
-        'mdc-top-app-bar--prominent': this.prominent && !this.short
+        'mdc-top-app-bar--prominent': this.prominent && !this.short,
+        'mdc-top-app-bar--dense': this.dense && !this.short
       }
     }
   },
