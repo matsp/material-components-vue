@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/matsp/material-components-vue/compare/v0.15.1...v0.16.0) (2018-04-08)
+
+
+### Code Refactoring
+
+* **drawer:** Implement two-way binding for open prop ([#83](https://github.com/matsp/material-components-vue/issues/83)) ([fe246f2](https://github.com/matsp/material-components-vue/commit/fe246f2))
+
+
+### Features
+
+* **notched-outline:** Synchronise with mdc-web v0.34.1 (add notched prop) ([e19b0e0](https://github.com/matsp/material-components-vue/commit/e19b0e0))
+* **select:** Synchronise with mdc-web v0.34.1 (rewrite of component) ([a2c94ac](https://github.com/matsp/material-components-vue/commit/a2c94ac))
+* **theme:** Synchronise with mdc-web v0.34.1 (remove tonal variants) ([ad34970](https://github.com/matsp/material-components-vue/commit/ad34970))
+* **top-app-bar:** Synchronise with mdc-web v0.34.1 (add dense style) ([e85c266](https://github.com/matsp/material-components-vue/commit/e85c266))
+* **typography:** Synchronise with mdc-web v0.34.1 (remove adjustMargin prop) ([c333244](https://github.com/matsp/material-components-vue/commit/c333244))
+
+
+### BREAKING CHANGES
+
+* **select:** The select component now use a native html select, so
+please update your templates as discribed in the docs.
+* **typography:** Please remove adjustMargin prop in your templates.
+* **theme:** Don't use tone variants e.g. secondary-light anymore.
+* **drawer:** The toggle methods no longer exist, please use v-model
+instead.
+
+
+
 <a name="0.15.1"></a>
 ## [0.15.1](https://github.com/matsp/material-components-vue/compare/v0.15.0...v0.15.1) (2018-03-29)
 
