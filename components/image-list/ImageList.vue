@@ -1,5 +1,5 @@
 <template>
-  <ul 
+  <ul
     class="mdc-image-list"
     :class="classes">
     <slot/>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  props:  {
+  props: {
     standardColumn: {
       type: Number,
       validator: (value) => value >= 1 && value <= 12
@@ -43,4 +43,3 @@ export default {
   }
 }
 </script>
-

@@ -17,15 +17,15 @@ import themeClassMixin from '../../base/themeClassMixin.js'
 
 export default {
   mixins: [themeClassMixin],
+  model: {
+    prop: 'open',
+    event: 'change'
+  },
   props: {
     open: {
       type: Boolean,
       default: false
     }
-  },
-  model: {
-    prop: 'open',
-    event: 'change'
   },
   data () {
     return {
@@ -42,6 +42,11 @@ export default {
       }
     }
   },
+  watch: {
+    open () {
+      this.mdcTemporaryDrawer.open = this.open
+    }
+  },
   mounted () {
     this.mdcTemporaryDrawer = MDCTemporaryDrawer.attachTo(this.$el)
     this.mdcTemporaryDrawer.open = this.open
@@ -52,11 +57,6 @@ export default {
   methods: {
     closeDrawer () {
       this.model = false
-    }
-  },
-  watch: {
-    open () {
-      this.mdcTemporaryDrawer.open = this.open
     }
   }
 }

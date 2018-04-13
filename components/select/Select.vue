@@ -8,10 +8,10 @@
       v-bind="$attrs"
       @change="onChange">
       <option
-      value=""
-      disabled
-      selected
-      v-if="$slots['label']"/>
+        value=""
+        disabled
+        selected
+        v-if="$slots['label']"/>
       <slot/>
     </select>
     <slot name="label"/>
@@ -26,6 +26,10 @@ import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
   mixins: [themeClassMixin],
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     disabled: {
       type: Boolean,
@@ -36,13 +40,9 @@ export default {
       default: false
     }
   },
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
   data () {
     return {
-      mdcSelect: null,
+      mdcSelect: null
     }
   },
   computed: {
@@ -53,16 +53,16 @@ export default {
       }
     }
   },
-  methods: {
-    onChange (event) {
-      this.$emit('change', event.target.value)
-    }
-  },
   mounted () {
     this.mdcSelect = MDCSelect.attachTo(this.$el)
   },
   beforeDestroy () {
     this.mdcSelect.destroy()
+  },
+  methods: {
+    onChange (event) {
+      this.$emit('change', event.target.value)
+    }
   }
 }
 </script>

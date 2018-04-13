@@ -35,6 +35,7 @@ module.exports = {
     slider: path.resolve(components + '/slider/index.js'),
     snackbar: path.resolve(components + '/snackbar/index.js'),
     switch: path.resolve(components + '/switch/index.js'),
+    // tab: path.resolve(components + '/tab/index.js'),
     tabs: path.resolve(components + '/tabs/index.js'),
     textfield: path.resolve(components + '/textfield/index.js'),
     theme: path.resolve(components + '/theme/index.js'),

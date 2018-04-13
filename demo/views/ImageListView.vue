@@ -5,22 +5,30 @@
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="3">
           <m-image-list
-            :standardColumn="2"
-            textProtection>
+            :standard-column="2"
+            text-protection>
             <m-image-list-item>
-              <img slot="image" src="../assets/images/cat.jpg">
-              Cat
-            </m-image-list-item>
-            <m-image-list-item> 
-              <img slot="image" src="../assets/images/cat.jpg">
-              Cat
-            </m-image-list-item>
-            <m-image-list-item>
-              <img slot="image" src="../assets/images/cat.jpg">
+              <img
+                slot="image"
+                src="../assets/images/cat.jpg">
               Cat
             </m-image-list-item>
             <m-image-list-item>
-              <img slot="image" src="../assets/images/cat.jpg">
+              <img
+                slot="image"
+                src="../assets/images/cat.jpg">
+              Cat
+            </m-image-list-item>
+            <m-image-list-item>
+              <img
+                slot="image"
+                src="../assets/images/cat.jpg">
+              Cat
+            </m-image-list-item>
+            <m-image-list-item>
+              <img
+                slot="image"
+                src="../assets/images/cat.jpg">
               Cat
             </m-image-list-item>
           </m-image-list>

@@ -5,12 +5,16 @@
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="3">
           <m-select v-model="selected">
-            <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
+            <option
+              v-for="option in selectOptions"
+              :key="option.text"
+              :value="option.value"
+              :selected="selected === option.value">
               {{ option.text }}
             </option>
             <m-select-label
               slot="label"
-              :floatAbove="selected !== ''">Pick a food group</m-select-label> 
+              :float-above="selected !== ''">Pick a food group</m-select-label>
             <m-select-bottom-line slot="bottomLine"/>
           </m-select>
         </m-layout-grid-cell>
@@ -23,12 +27,16 @@
           <m-select
             v-model="selected"
             box>
-            <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
+            <option
+              v-for="option in selectOptions"
+              :key="option.text"
+              :value="option.value"
+              :selected="selected === option.value">
               {{ option.text }}
             </option>
             <m-select-label
               slot="label"
-              :floatAbove="selected !== ''">Pick a food group</m-select-label> 
+              :float-above="selected !== ''">Pick a food group</m-select-label>
             <m-select-bottom-line slot="bottomLine"/>
           </m-select>
         </m-layout-grid-cell>
@@ -50,7 +58,7 @@ Vue.use(Select)
 export default {
   data () {
     return {
-      selectOptions:  [
+      selectOptions: [
         { text: 'Bread, Cereal, Rice and Pasta',
           value: 'grains'
         },

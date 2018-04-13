@@ -1,7 +1,7 @@
 <template>
   <li class="mdc-image-list__item">
     <div
-      v-if="adjustAspectRatio" 
+      v-if="adjustAspectRatio"
       class="mdc-image-list__image-aspect-container">
       <slot name="image"/>
     </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-export default  {
+export default {
   props: {
     adjustAspectRatio: {
       type: Boolean,

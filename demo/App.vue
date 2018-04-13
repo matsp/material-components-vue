@@ -3,17 +3,17 @@
     <m-toolbar
       fixed
       waterfall>
-      <m-toolbar-row shrinkStart>
+      <m-toolbar-row shrink-start>
         <m-toolbar-icon
           slot="start"
           icon="menu"
           menu-icon
           @click="toggleDrawer()"/>
-          <m-typo-title
-            slot="end"
-            theming="secondary">
-            {{selectedText}}
-          </m-typo-title>   
+        <m-typo-title
+          slot="end"
+          theming="secondary">
+          {{ selectedText }}
+        </m-typo-title>
         Material Components Vue
       </m-toolbar-row>
     </m-toolbar>
@@ -42,7 +42,7 @@
             <m-icon
               slot="graphic"
               :icon="item.icon"/>
-              <label>{{ item.text }}</label>
+            <label>{{ item.text }}</label>
           </m-list-item>
         </m-list>
       </m-drawer-content>

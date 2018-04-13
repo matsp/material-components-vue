@@ -4,9 +4,9 @@
       <m-typo-title>Normal</m-typo-title>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
-        <m-fab interactive>
-          <m-icon icon="add"/>
-        </m-fab>
+          <m-fab interactive>
+            <m-icon icon="add"/>
+          </m-fab>
         </m-layout-grid-cell>
       </m-layout-grid-inner>
     </m-layout-grid-cell>
@@ -14,11 +14,11 @@
       <m-typo-title>Mini</m-typo-title>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
-        <m-fab
-          interactive
-          mini>
-          <m-icon icon="add"/>
-        </m-fab>
+          <m-fab
+            interactive
+            mini>
+            <m-icon icon="add"/>
+          </m-fab>
         </m-layout-grid-cell>
       </m-layout-grid-inner>
     </m-layout-grid-cell>

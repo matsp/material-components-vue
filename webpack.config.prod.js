@@ -37,7 +37,7 @@ module.exports = merge(common, {
     new OptimizeCssAssetsPlugin(),
     new CompressionPlugin({
       include: /(\.js)|(\.css)/
-    }),
+    })
     // new BundleAnalyzerPlugin()
   ]
 })
