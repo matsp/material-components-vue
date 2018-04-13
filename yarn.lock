@@ -8121,9 +8121,9 @@ sass-graph@^2.2.4:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
-sass-loader@^6.0.7:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-6.0.7.tgz#dd2fdb3e7eeff4a53f35ba6ac408715488353d00"
+sass-loader@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-7.0.0.tgz#bdc9653eaf569f0ce77ac01efcaa0b92ca5e0571"
   dependencies:
     clone-deep "^2.0.1"
     loader-utils "^1.0.1"
