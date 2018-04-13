@@ -1,15 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-display :level="1">Chips</m-typo-display>
-      <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/chips">
-          https://github.com/matsp/material-components-vue/blob/master/components/chips
-        </a>
-      </m-typo-body>
-    </m-layout-grid-cell>
-    <m-layout-grid-cell :span="12">
-      <m-typo-headline>Entry Chips</m-typo-headline>
+      <m-typo-title>Entry</m-typo-title>
       <m-chip-set>
         <m-chip>
           <m-icon
@@ -32,7 +24,7 @@
       </m-chip-set>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-headline>Choice Chips</m-typo-headline>
+      <m-typo-title>Choice</m-typo-title>
       <m-chip-set choice>
         <m-chip>Chip #1</m-chip>
         <m-chip>Chip #2</m-chip>
@@ -40,7 +32,7 @@
       </m-chip-set>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-headline>Filter Chips</m-typo-headline>
+      <m-typo-title>Filter</m-typo-title>
       <m-chip-set filter>
         <m-chip>
           Chip #1

@@ -6,82 +6,98 @@ const state = {
     button: {
       text: 'Button',
       route: '/button',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/button'
     },
     card: {
       text: 'Card',
       route: '/card',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/card'
     },
     chips: {
       text: 'Chips',
       route: '/chips',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/chips'
     },
     checkbox: {
       text: 'Checkbox',
       route: '/checkbox',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/checkbox'
     },
     dialog: {
       text: 'Dialog',
       route: '/dialog',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/dialog'
     },
     drawer: {
       text: 'Drawer',
       route: '/drawer',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/drawer'
     },
     elevation: {
       text: 'Elevation',
       route: '/elevation',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/elevation'
     },
     fab: {
       text: 'Fab',
       route: '/fab',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/fab'
     },
     iconToggle: {
       text: 'IconToggle',
       route: '/iconToggle',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/icon-toggle'
     },
     imageList: {
       text: 'ImageList',
       route: '/imageList',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/image-list'
     },
     linearProgress: {
       text: 'LinearProgress',
       route: '/linearProgress',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/linear-progress'
     },
     list: {
       text: 'List',
       route: '/list',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/list'
     },
     radio: {
       text: 'Radio',
       route: '/radio',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/radio'
     },
     select: {
       text: 'Select',
       route: '/select',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/select'
     },
     textfield: {
       text: 'Textfield',
       route: '/textfield',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/textfield'
     },
     topappbar: {
       text: 'TopAppBar',
       route: '/topappbar',
-      icon: 'code'
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/top-app-bar'
     }
   }
 }

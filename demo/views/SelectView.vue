@@ -1,36 +1,38 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-display :level="1">Select</m-typo-display>
-      <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/select">
-          https://github.com/matsp/material-components-vue/blob/master/components/select
-        </a>
-      </m-typo-body>
+      <m-typo-title>Normal</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell :span="3">
+          <m-select v-model="selected">
+            <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
+              {{ option.text }}
+            </option>
+            <m-select-label
+              slot="label"
+              :floatAbove="selected !== ''">Pick a food group</m-select-label> 
+            <m-select-bottom-line slot="bottomLine"/>
+          </m-select>
+        </m-layout-grid-cell>
+      </m-layout-grid-inner>
     </m-layout-grid-cell>
-    <m-layout-grid-cell :span="3">
-      <m-select v-model="selected">
-        <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
-          {{ option.text }}
-        </option>
-        <m-select-label
-          slot="label"
-          :floatAbove="selected !== ''">Pick a food group</m-select-label> 
-        <m-select-bottom-line slot="bottomLine"/>
-      </m-select>
-    </m-layout-grid-cell>
-    <m-layout-grid-cell :span="2">
-      <m-select
-        v-model="selected"
-        box>
-        <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
-          {{ option.text }}
-        </option>
-        <m-select-label
-          slot="label"
-          :floatAbove="selected !== ''">Pick a food group</m-select-label> 
-        <m-select-bottom-line slot="bottomLine"/>
-      </m-select>
+    <m-layout-grid-cell :span="12">
+      <m-typo-title>Box</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell :span="2">
+          <m-select
+            v-model="selected"
+            box>
+            <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
+              {{ option.text }}
+            </option>
+            <m-select-label
+              slot="label"
+              :floatAbove="selected !== ''">Pick a food group</m-select-label> 
+            <m-select-bottom-line slot="bottomLine"/>
+          </m-select>
+        </m-layout-grid-cell>
+      </m-layout-grid-inner>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>

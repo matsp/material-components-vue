@@ -6,6 +6,10 @@ Vue.use(VueRouter)
 export default new VueRouter({
   routes: [
     {
+      path: '/',
+      component: () => import('views/HomeView')
+    },
+    {
       path: '/button',
       component: () => import('views/ButtonView')
     },

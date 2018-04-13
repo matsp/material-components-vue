@@ -1,32 +1,32 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-display :level="1">Checkbox</m-typo-display>
-      <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/checkbox">
-          https://github.com/matsp/material-components-vue/blob/master/components/checkbox
-        </a>
-      </m-typo-body>
+      <m-typo-title>Normal</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell :span="1">
+          <m-checkbox v-model="checkboxValue"/>
+        </m-layout-grid-cell>
+      </m-layout-grid-inner>
     </m-layout-grid-cell>
-    <m-layout-grid-cell :span="1">
-      <m-checkbox v-model="checkboxValue" />
+    <m-layout-grid-cell :span="12">
+      <m-typo-title>Indeterminate</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell :span="1">
+          <m-checkbox
+            v-model="checkboxValue"
+            indeterminate/>
+        </m-layout-grid-cell>
+      </m-layout-grid-inner>
     </m-layout-grid-cell>
-    <m-layout-grid-cell :span="1">
-      <m-checkbox
-        v-model="checkboxValue"
-        disabled />
-    </m-layout-grid-cell>
-    <m-layout-grid-cell :span="10" />
-    <m-layout-grid-cell :span="1">
-      <m-checkbox
-        v-model="checkboxValue"
-        indeterminate />
-    </m-layout-grid-cell>
-    <m-layout-grid-cell :span="1">
-      <m-checkbox
-        v-model="checkboxValue"
-        indeterminate
-        disabled />
+    <m-layout-grid-cell :span="12">
+      <m-typo-title>Disabled</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell :span="1">
+          <m-checkbox
+            v-model="checkboxValue"
+            disabled/>
+        </m-layout-grid-cell>
+      </m-layout-grid-inner>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>

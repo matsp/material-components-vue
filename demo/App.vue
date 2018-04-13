@@ -3,48 +3,58 @@
     <m-toolbar
       fixed
       waterfall>
-      <m-toolbar-row shrink-center>
+      <m-toolbar-row shrinkStart>
         <m-toolbar-icon
           slot="start"
           icon="menu"
           menu-icon
           @click="toggleDrawer()"/>
+          <m-typo-title
+            slot="end"
+            theming="secondary">
+            {{selectedText}}
+          </m-typo-title>   
         Material Components Vue
       </m-toolbar-row>
     </m-toolbar>
-    <m-drawer-temporary v-model="isDrawerOpen">
+    <m-drawer-persistent v-model="isDrawerOpen">
       <m-drawer-toolbar-spacer
-        class="mdc-theme--primary-bg"
+        theming="primary-bg"
         slot="toolbarSpacer"/>
-      <m-drawer-header
-        class="mdc-theme--primary"
-        slot="header">
-        <m-typo-headline>
-          Components
-        </m-typo-headline>
-      </m-drawer-header>
       <m-drawer-content>
-        <m-list dense>
+        <m-list>
+          <m-list-item
+            interactive
+            @click="openRoute('/', 'Home')"
+            :selected="'Home' === selectedText">
+            <m-icon
+              slot="graphic"
+              icon="home"/>
+            <label>Home</label>
+          </m-list-item>
+          <m-list-divider/>
           <m-list-item
             v-for="item in listItems"
             :key="item.text"
-            @click="openRoute(item.route)">
+            @click="openRoute(item.route, item.text)"
+            interactive
+            :selected="item.text === selectedText">
             <m-icon
               slot="graphic"
               :icon="item.icon"/>
-            {{ item.text }}
+              <label>{{ item.text }}</label>
           </m-list-item>
         </m-list>
       </m-drawer-content>
-    </m-drawer-temporary>
+    </m-drawer-persistent>
     <div class="demo-content">
       <m-toolbar-fixed-adjust>
         <main>
-          <m-layout-grid>
-            <keep-alive>
+          <keep-alive>
+            <m-layout-grid>
               <router-view />
-            </keep-alive>
-          </m-layout-grid>
+            </m-layout-grid>
+          </keep-alive>
         </main>
       </m-toolbar-fixed-adjust>
     </div>
@@ -70,7 +80,8 @@ Vue.use(Typography)
 export default {
   data () {
     return {
-      isDrawerOpen: false
+      isDrawerOpen: true,
+      selectedText: 'Home'
     }
   },
   computed: {
@@ -80,11 +91,12 @@ export default {
   },
   methods: {
     toggleDrawer () {
-      this.isDrawerOpen ? this.isDrawerOpen = false : this.isDrawerOpen = true
+      this.isDrawerOpen = !this.isDrawerOpen
     },
-    openRoute (route) {
+    openRoute (route, text) {
       this.$router.push(route)
-      this.toggleDrawer()
+      this.selectedText = text
+      // this.toggleDrawer()
     }
   }
 }

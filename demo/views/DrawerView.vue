@@ -1,28 +1,26 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-display :level="1">Drawer</m-typo-display>
-      <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/drawer">
-          https://github.com/matsp/material-components-vue/blob/master/components/drawer
-        </a>
-      </m-typo-body>
-    </m-layout-grid-cell>
-    <m-layout-grid-cell :span="12">
-      <m-typo-headline>PermanentDrawer</m-typo-headline>
+      <m-typo-title>PermanentDrawer</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell>
       <m-drawer-permanent>
         <m-drawer-toolbar-spacer slot="toolbarSpacer" />
         <m-drawer-content>
           <m-list>
-            <m-list-item> Item </m-list-item>
+            <m-list-item interactive> Item </m-list-item>
             <m-list-divider />
-            <m-list-item> Item 2 </m-list-item>
+            <m-list-item interactive> Item 2 </m-list-item>
           </m-list>
         </m-drawer-content>
       </m-drawer-permanent>
+      </m-layout-grid-cell>
+      </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-headline>PersistentDrawer</m-typo-headline>
+      <m-typo-title>PersistentDrawer</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell>
       <m-button
         interactive
         raised
@@ -39,9 +37,13 @@
           </m-list>
         </m-drawer-content>
       </m-drawer-persistent>
+      </m-layout-grid-cell>
+      </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-headline>TemporaryDrawer</m-typo-headline>
+      <m-typo-title>TemporaryDrawer</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell>
       <m-button
         interactive
         raised
@@ -51,12 +53,14 @@
       <m-drawer-temporary v-model="temporaryDrawerState">
         <m-drawer-content>
           <m-list>
-            <m-list-item> Item </m-list-item>
+            <m-list-item interactive> Item </m-list-item>
             <m-list-divider />
-            <m-list-item> Item 2 </m-list-item>
+            <m-list-item interactive> Item 2 </m-list-item>
           </m-list>
         </m-drawer-content>
       </m-drawer-temporary>
+      </m-layout-grid-cell>
+    </m-layout-grid-inner>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>
@@ -80,10 +84,10 @@ export default {
   },
   methods: {
     togglePersistentDrawer () {
-      this.persistentDrawerState ? this.persistentDrawerState = false : this.persistentDrawerState = true
+      this.persistentDrawerState = !this.persistentDrawerState
     },
     toggleTemporaryDrawer () {
-      this.temporaryDrawerState ? this.temporaryDrawerState = false : this.temporaryDrawerState = true
+      this.temporaryDrawerState = !this.temporaryDrawerState
     }
   }
 }

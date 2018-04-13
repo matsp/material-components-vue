@@ -1,13 +1,5 @@
 <template>
   <m-layout-grid-inner>
-    <m-layout-grid-cell :span="12">
-      <m-typo-display :level="1">Dialog</m-typo-display>
-      <m-typo-body :level="2">
-        <a href="https://github.com/matsp/material-components-vue/blob/master/components/dialog">
-          https://github.com/matsp/material-components-vue/blob/master/components/dialog
-        </a>
-      </m-typo-body>
-    </m-layout-grid-cell>
     <m-layout-grid-cell>
       <m-button
         raised
