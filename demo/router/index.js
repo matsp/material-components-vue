@@ -58,6 +58,10 @@ export default new VueRouter({
       component: () => import('views/ListView')
     },
     {
+      path: '/menu',
+      component: () => import('views/MenuView')
+    },
+    {
       path: '/radio',
       component: () => import('views/RadioView')
     },

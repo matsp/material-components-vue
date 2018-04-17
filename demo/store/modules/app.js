@@ -75,6 +75,12 @@ const state = {
       icon: 'code',
       reference: 'https://github.com/matsp/material-components-vue/tree/master/components/list'
     },
+    list: {
+      text: 'Menu',
+      route: '/menu',
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/menu'
+    },
     radio: {
       text: 'Radio',
       route: '/radio',
