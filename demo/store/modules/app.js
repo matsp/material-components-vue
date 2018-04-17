@@ -93,6 +93,12 @@ const state = {
       icon: 'code',
       reference: 'https://github.com/matsp/material-components-vue/tree/master/components/select'
     },
+    snackbar: {
+      text: 'Snackbar',
+      route: '/snackbar',
+      icon: 'code',
+      reference: 'https://github.com/matsp/material-components-vue/tree/master/components/snackbar'
+    },
     textfield: {
       text: 'Textfield',
       route: '/textfield',

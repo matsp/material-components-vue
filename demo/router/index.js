@@ -70,6 +70,10 @@ export default new VueRouter({
       component: () => import('views/SelectView')
     },
     {
+      path: '/snackbar',
+      component: () => import('views/SnackbarView')
+    },
+    {
       path: '/textfield',
       component: () => import('views/TextfieldView')
     },
