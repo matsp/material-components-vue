@@ -36,7 +36,8 @@ data () {
 |------|------|---------|----------|-------------|
 | alignStart | Boolean | false | - | start-aligned snackbar |
 | dismissesOnAction | Boolean | true | - | keep snackbar when action button is pressed |
-| options | Object | - | true | snackbar options (see script section)|
+| options | Object | - | true | snackbar options (see script section) |
+| open | Boolean | false | - | snackbar starts in open state |
 
 ### Reference
 
