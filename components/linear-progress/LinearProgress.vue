@@ -23,15 +23,15 @@ export default {
   props: {
     open: {
       type: Boolean,
-      required: false
+      default: false
     },
     indeterminate: {
       type: Boolean,
-      required: false
+      default: false
     },
     reverse: {
       type: Boolean,
-      required: false
+      default: false
     },
     progress: {
       type: Number,
@@ -76,14 +76,6 @@ export default {
   },
   beforeDestroy () {
     this.mdcLinearProgress.destroy()
-  },
-  methods: {
-    show () {
-      this.mdcLinearProgress.open()
-    },
-    hide () {
-      this.mdcLinearProgress.close()
-    }
   }
 }
 </script>

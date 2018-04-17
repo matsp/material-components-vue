@@ -3,30 +3,32 @@
 ### Markup
 
 ```html
-<m-linear-progress ref="progress" open :progress="0.5" :buffer="0.5" indeterminate />
+<m-linear-progress
+  :open="isProgressOpen"
+  :progress="0.5"
+  :buffer="0.5"
+  indeterminate/>
 ```
 
 ### Script 
 
 ```javascript
-this.$refs.progress.show()
-this.$refs.progress.hide()
+data () {
+  return {
+    isProgressOpen: true
+  }
+}
 ```
 
-### Props & methods
+### Props
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| open | Boolean | - | false | initial state |
-| indeterminate | Boolean | - | false | indeterminate state |
-| reverse | Boolean | - | false | reverse direction of progress |
+| open | Boolean | false | - | linear progress starts in open state |
+| indeterminate | Boolean | false | - | indeterminate state |
+| reverse | Boolean | false | - | reverse direction of progress |
 | progress | Number | - | false | progress value between 0 and 1 |
 | buffer | Number | - | false | buffer value between 0 and 1 |
-
-| Method | Description |
-|--------|-------------|
-| show | show the progress |
-| hide | hide the progress |
 
 ### Reference
 
