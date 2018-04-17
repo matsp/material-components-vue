@@ -3,7 +3,7 @@
     <m-layout-grid-cell :span="12">
       <m-typo-title>Normal</m-typo-title>
       <m-layout-grid-inner>
-        <m-layout-grid-cell :span="3">
+        <m-layout-grid-cell :span="2">
           <m-select v-model="selected">
             <option
               v-for="option in selectOptions"
