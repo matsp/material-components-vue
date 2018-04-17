@@ -1,12 +1,16 @@
 <template>
   <div
     class="mdc-snackbar"
-    :class="classes">
+    :class="classes"
+    aria-live="assertive"
+    aria-atomic="true"
+    aria-hidden="true"
+    @MDCSnackbar:hide="model = false">
     <div class="mdc-snackbar__text" />
     <div class="mdc-snackbar__action-wrapper">
       <button
         type="button"
-        class="mdc-button mdc-snackbar__action-button" />
+        class="mdc-snackbar__action-button"/>
     </div>
   </div>
 </template>
@@ -18,14 +22,26 @@ import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
   mixins: [themeClassMixin],
+  model: {
+    prop: 'open',
+    event: 'change'
+  },
   props: {
     alignStart: {
       type: Boolean,
-      required: false
+      default: false
     },
     dismissesOnAction: {
       type: Boolean,
       default: true
+    },
+    open :{
+      type: Boolean,
+      default: false
+    },
+    options: {
+      type: Object,
+      required: true
     }
   },
   data () {
@@ -38,18 +54,28 @@ export default {
       return {
         'mdc-snackbar--align-start': this.alignStart
       }
+    },
+    model:  {
+      get () {
+        return this.open
+      },
+      set (value) {
+        this.$emit('change', value)
+      }
     }
   },
   mounted () {
     this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
-    this.mdcSnackbar.dismissesOnAction = this.dismissesOnAction
   },
   beforeDestroy () {
     this.mdcSnackbar.destroy()
   },
-  methods: {
-    show (options) {
-      this.mdcSnackbar.show(options)
+  watch: {
+    dismissesOnAction () {
+      this.mdcSnackbar.dismissesOnAction = this.dismissesOnAction
+    },
+    open () {
+      if (this.open) this.mdcSnackbar.show(this.options)
     }
   }
 }
