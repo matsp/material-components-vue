@@ -3,44 +3,52 @@
 ### Markup
 
 ```html
-<m-dialog ref="dialog" @accepted="dialogAccepted" @canceled="dialogCanceled">
-    <m-typo-headline slot="header">Header</m-typo-headline>
-    <span slot="body"> Body </span>
-    <m-button slot="acceptButton"> Accept </m-button>
-    <m-button slot="cancelButton"> Cancel </m-button>
-    <m-button slot="dialogButton"> Anything </m-button>
+<m-dialog
+  v-model="isDialogOpen"
+  @accept="accepted = true"
+  @cancel="canceled = true">
+  <m-typo-headline slot="header">Header</m-typo-headline>
+  <m-typo-body slot="body">Body</m-typo-body>
+  <m-button slot="acceptButton">Accept</m-button>
+  <m-button slot="cancelButton">Cancel</m-button>
+  <m-button slot="dialogButton">Anything</m-button>
 </m-dialog>
 ```
 
 ### Script
 ```javascript
-this.$refs.dialog.show()
+data () {
+  return {
+    isDialogOpen: false,
+    accepted: false,
+    canceled: false
+  }
+}
 ```
 
-### Props & events & methods
+### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| scrollable | Boolean | - | false | scrollable body |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| scrollable | Boolean | false | scrollable body |
+| open | Boolean | false | dialog starts in open state |
 
-| Event | Description |
-|------|------|
-| accepted | will be dispatched when the accept button will be clicked |
-| canceled | will be dispatched when the cancel button will be clicked |
+### Events
 
-| Method | Description |
-|--------|-------------|
-| show | show the dialog |
+| Event | Payload | Description |
+|-------|---------|-------------|
+| accept | - | emitted when accept button will be clicked |
+| cancel | - | emitted when cancel button will be clicked |
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| header | - | header of dialog |
-| body | - | body of dialog |
-| acceptButton | - | accept button |
-| cancelButton | - | cancel button |
-| dialogButton | - | additional button(s) |
+| Slot | Description |
+|------|-------------|
+| header | header of dialog |
+| body | body of dialog |
+| acceptButton | accept button |
+| cancelButton | cancel button |
+| dialogButton | additional button(s) |
 
 ### Reference
 

@@ -35,10 +35,18 @@ import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
   mixins: [themeClassMixin],
+  model: {
+    prop: 'open',
+    event: 'change'
+  },
   props: {
     scrollable: {
       type: Boolean,
-      required: false
+      default: false
+    },
+    open: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -51,11 +59,18 @@ export default {
       return {
         'mdc-dialog__body--scrollable': this.scrollable
       }
+    },
+    model: {
+      get () {
+        return this.open
+      },
+      set (value) {
+        this.$emit('change', value)
+      }
     }
   },
   mounted () {
     let vm = this
-    vm.mdcDialog = MDCDialog.attachTo(this.$el)
 
     if (vm.$slots.acceptButton) {
       vm.$slots.acceptButton.map(n => {
@@ -74,19 +89,25 @@ export default {
         n.elm.classList.add('mdc-dialog__footer__button')
       })
     }
+    
+    vm.mdcDialog = MDCDialog.attachTo(this.$el)
   },
   beforeDestroy () {
     this.mdcDialog.destroy()
   },
   methods: {
     onAccept () {
-      this.$emit('accepted')
+      this.model = false
+      this.$emit('accept')
     },
     onCancel () {
-      this.$emit('canceled')
-    },
-    show () {
-      this.mdcDialog.show()
+      this.model = false
+      this.$emit('cancel')
+    }
+  },
+  watch: {
+    open () {
+      if (this.open) this.mdcDialog.show()
     }
   }
 }

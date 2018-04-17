@@ -1,21 +1,26 @@
 <template>
   <m-layout-grid-inner>
-    <m-layout-grid-cell>
-      <m-button
-        raised
-        @click="openDialog">openDialog</m-button>
-    </m-layout-grid-cell>
-    <m-layout-grid-cell>
-      <m-dialog
-        ref="dialog"
-        @accepted="dialogAccepted"
-        @canceled="dialogCanceled">
-        <m-typo-headline slot="header">Header</m-typo-headline>
-        <span slot="body"> Body </span>
-        <m-button slot="acceptButton">Accept</m-button>
-        <m-button slot="cancelButton">Cancel</m-button>
-        <m-button slot="dialogButton">Anything</m-button>
-      </m-dialog>
+    <m-layout-grid-cell :span="12">
+      <m-typo-title>Normal</m-typo-title>
+      <m-layout-grid-inner>
+        <m-layout-grid-cell>
+          <m-button
+            raised
+            @click="isDialogOpen = true">open</m-button>
+        </m-layout-grid-cell>
+        <m-layout-grid-cell>
+          <m-dialog
+            v-model="isDialogOpen"
+            @accept="accepted = true"
+            @cancel="canceled = true">
+            <m-typo-headline slot="header">Header</m-typo-headline>
+            <span slot="body"> Body </span>
+            <m-button slot="acceptButton">Accept</m-button>
+            <m-button slot="cancelButton">Cancel</m-button>
+            <m-button slot="dialogButton">Anything</m-button>
+          </m-dialog>
+        </m-layout-grid-cell>
+      </m-layout-grid-inner>
     </m-layout-grid-cell>
   </m-layout-grid-inner>
 </template>
@@ -29,15 +34,11 @@ Vue.use(Button)
 Vue.use(Dialog)
 
 export default {
-  methods: {
-    openDialog () {
-      this.$refs.dialog.show()
-    },
-    dialogAccepted () {
-      console.log('accepted')
-    },
-    dialogCanceled () {
-      console.log('canceled')
+  data () {
+    return {
+      isDialogOpen: false,
+      accepted: false,
+      canceled: false
     }
   }
 }
