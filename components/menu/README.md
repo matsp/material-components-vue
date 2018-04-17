@@ -31,6 +31,7 @@ data() {
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | quickOpen | Boolean | false | deactivates menu animation |
+| open | Boolean | false | starts menu in open state |
 
 ### Events
 
