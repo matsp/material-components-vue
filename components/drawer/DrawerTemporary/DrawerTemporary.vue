@@ -1,7 +1,7 @@
 <template>
   <aside
     class="mdc-drawer mdc-drawer--temporary"
-    @MDCTemporaryDrawer:close="closeDrawer()">
+    @MDCTemporaryDrawer:close="model = false">
     <nav class="mdc-drawer__drawer">
       <slot name="toolbarSpacer"/>
       <slot name="header"/>
@@ -53,11 +53,6 @@ export default {
   },
   beforeDestroy () {
     this.mdcTemporaryDrawer.destroy()
-  },
-  methods: {
-    closeDrawer () {
-      this.model = false
-    }
   }
 }
 </script>
