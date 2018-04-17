@@ -1,7 +1,6 @@
 <template>
   <div
     class="mdc-menu"
-    :class="classes"
     tabindex="-1"
     @MDCMenu:selected="onSelect"
     @MDCMenu:cancel="onCancel">
@@ -17,11 +16,11 @@ import themeClassMixin from '../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   model: {
-    prop: 'selected',
+    prop: 'open',
     event: 'change'
   },
   props: {
-    startOpen: {
+    open: {
       type: Boolean,
       default: false
     },
@@ -36,10 +35,21 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return {
-        'mdc-menu--open': this.startOpen
+    model: {
+      get () {
+        return this.open
+      },
+      set (value) {
+        this.$emit('change', value)
       }
+    }
+  },
+  watch: {
+    open () {
+      this.mdcMenu.open = this.open
+    },
+    quickOpen () {
+      this.mdcMenu.quickOpen = this.quickOpen
     }
   },
   mounted () {
@@ -51,28 +61,25 @@ export default {
 
       this.$slots.default[0].componentOptions.children
         .filter(n => n.elm.className.indexOf('mdc-list-item') > -1)
-        .map(n => n.elm.setAttribute('tabindex', '0'))
+        .map(n => {
+          n.elm.setAttribute('tabindex', '0')
+          n.elm.setAttribute('role', 'menuitem')
+        })
     }
 
     this.mdcMenu = MDCMenu.attachTo(this.$el)
-    this.mdcMenu.open = this.open
-    this.mdcMenu.quickOpen = this.quickOpen
   },
   beforeDestroy () {
     this.mdcMenu.destroy()
   },
   methods: {
-    show () {
-      this.mdcMenu.show()
-    },
-    hide () {
-      this.mdcMenu.hide()
-    },
     onSelect (event) {
-      this.$emit('change', event.detail.index)
+      this.model = false
+      this.$emit('select', event.detail)
     },
-    onCancel (event) {
-      this.$emit('canceled')
+    onCancel () {
+      this.model = false
+      this.$emit('cancel')
     }
   }
 }

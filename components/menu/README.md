@@ -4,51 +4,40 @@
 
 ```html
 <m-menu-anchor>
-    <m-button @click="showMenu">open</m-button>
-    <m-menu ref="menu" v-model="selectedMenuEntry">
-      <m-list>
-        <m-list-item @click="clicked">
-            Entry 1
-        </m-list-item>
-        <m-list-divider />
-        <m-list-item>
-            Entry 2
-        </m-list-item>
-      </m-list>
-    </m-menu>
+  <m-button raised interactive @click="isMenuOpen=true">open</m-button>
+  <m-menu v-model="isMenuOpen">
+    <m-list>
+      <m-list-item interactive>Entry 1</m-list-item>
+      <m-list-divider/>
+      <m-list-item interactive>Entry 2</m-list-item>
+    </m-list>
+  </m-menu>
 </m-menu-anchor>
 ```
 
 ### Script
 
 ```javascript
-methods: {
-    clicked() {
-        // do something
-    },
-    showMenu() {
-        this.$refs.menu.show()
-    }
-},
 data() {
     return {
-        selectedMenuEntry: null
+        isMenuOpen: false
     }
 }
 
 ```
 
-### Props & methods
+### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| startOpen | Boolean | false | whether the menu should be open at start |
 | quickOpen | Boolean | false | deactivates menu animation |
 
-| Method | Description |
-|--------|-------------|
-| show | show the menu |
-| hide | hide the menu |
+### Events
+
+| Event | Payload | Description |
+|-------|---------|-------------|
+| select | { index: Number, item: HTMLElement } | emitted when menu item is selected |
+| cancel | - | emitted when menu interaction is cancelled |
 
 ### Slots
 
@@ -60,9 +49,9 @@ data() {
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | should be the menu |
+| Slot | Description |
+|------|-------------|
+| default | should be the menu |
 
 ### Reference
 
