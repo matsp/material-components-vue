@@ -69,6 +69,11 @@ export default {
       }
     }
   },
+  watch: {
+    open () {
+      if (this.open) this.mdcDialog.show()
+    }
+  },
   mounted () {
     let vm = this
 
@@ -89,7 +94,7 @@ export default {
         n.elm.classList.add('mdc-dialog__footer__button')
       })
     }
-    
+
     vm.mdcDialog = MDCDialog.attachTo(this.$el)
   },
   beforeDestroy () {
@@ -103,11 +108,6 @@ export default {
     onCancel () {
       this.model = false
       this.$emit('cancel')
-    }
-  },
-  watch: {
-    open () {
-      if (this.open) this.mdcDialog.show()
     }
   }
 }

@@ -5,18 +5,21 @@
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="4">
           <m-menu-anchor>
-            <m-button raised interactive @click="isMenuOpen=true">open</m-button>
-              <m-menu v-model="isMenuOpen">
-                <m-list>
-                  <m-list-item interactive>
-                      Entry 1
-                  </m-list-item>
-                  <m-list-divider/>
-                  <m-list-item interactive>
-                      Entry 2
-                  </m-list-item>
-                </m-list>
-              </m-menu>
+            <m-button
+              raised
+              interactive
+              @click="isMenuOpen=true">open</m-button>
+            <m-menu v-model="isMenuOpen">
+              <m-list>
+                <m-list-item interactive>
+                  Entry 1
+                </m-list-item>
+                <m-list-divider/>
+                <m-list-item interactive>
+                  Entry 2
+                </m-list-item>
+              </m-list>
+            </m-menu>
           </m-menu-anchor>
         </m-layout-grid-cell>
       </m-layout-grid-inner>
@@ -26,18 +29,23 @@
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="4">
           <m-menu-anchor>
-            <m-button raised interactive @click="isMenu2Open=true">open</m-button>
-              <m-menu quickOpen v-model="isMenu2Open">
-                <m-list>
-                  <m-list-item interactive>
-                      Entry 1
-                  </m-list-item>
-                  <m-list-divider/>
-                  <m-list-item interactive>
-                      Entry 2
-                  </m-list-item>
-                </m-list>
-              </m-menu>
+            <m-button
+              raised
+              interactive
+              @click="isMenu2Open=true">open</m-button>
+            <m-menu
+              quick-open
+              v-model="isMenu2Open">
+              <m-list>
+                <m-list-item interactive>
+                  Entry 1
+                </m-list-item>
+                <m-list-divider/>
+                <m-list-item interactive>
+                  Entry 2
+                </m-list-item>
+              </m-list>
+            </m-menu>
           </m-menu-anchor>
         </m-layout-grid-cell>
       </m-layout-grid-inner>

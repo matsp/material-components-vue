@@ -35,7 +35,7 @@ export default {
       type: Boolean,
       default: true
     },
-    open :{
+    open: {
       type: Boolean,
       default: false
     },
@@ -55,7 +55,7 @@ export default {
         'mdc-snackbar--align-start': this.alignStart
       }
     },
-    model:  {
+    model: {
       get () {
         return this.open
       },
@@ -64,12 +64,6 @@ export default {
       }
     }
   },
-  mounted () {
-    this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
-  },
-  beforeDestroy () {
-    this.mdcSnackbar.destroy()
-  },
   watch: {
     dismissesOnAction () {
       this.mdcSnackbar.dismissesOnAction = this.dismissesOnAction
@@ -77,6 +71,12 @@ export default {
     open () {
       if (this.open) this.mdcSnackbar.show(this.options)
     }
+  },
+  mounted () {
+    this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
+  },
+  beforeDestroy () {
+    this.mdcSnackbar.destroy()
   }
 }
 </script>

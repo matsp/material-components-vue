@@ -23,7 +23,7 @@
             interactive
             @click="isSnackbar2Open=true">open</m-button>
           <m-snackbar
-            alignStart
+            align-start
             :options="options"
             v-model="isSnackbar2Open"/>
         </m-layout-grid-cell>
