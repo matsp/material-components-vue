@@ -67,7 +67,7 @@
     "preload-webpack-plugin": "^3.0.0-alpha.3",
     "sass-loader": "^7.0.1",
     "standard-version": "^4.3.0",
-    "style-loader": "^0.20.3",
+    "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^1.0.1",
     "vue": "^2.5.16",
