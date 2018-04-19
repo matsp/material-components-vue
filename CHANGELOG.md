@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.17.0"></a>
+# [0.17.0](https://github.com/matsp/material-components-vue/compare/v0.16.1...v0.17.0) (2018-04-19)
+
+
+### Bug Fixes
+
+* **demo:** Fix grid-cell span in SelectView ([e9bfa71](https://github.com/matsp/material-components-vue/commit/e9bfa71))
+
+
+### Code Refactoring
+
+* **dialog:** Implement two-way binding for open prop ([#83](https://github.com/matsp/material-components-vue/issues/83)) ([25ca33b](https://github.com/matsp/material-components-vue/commit/25ca33b))
+* **linear-progress:** Use open prop for showing and hiding linear ([1db78b1](https://github.com/matsp/material-components-vue/commit/1db78b1))
+* **menu:** Implement two-way binding for open prop ([#83](https://github.com/matsp/material-components-vue/issues/83)) ([f1d20a2](https://github.com/matsp/material-components-vue/commit/f1d20a2))
+* **snackbar:** Implement two-way binding for open prop ([#83](https://github.com/matsp/material-components-vue/issues/83)) ([828edff](https://github.com/matsp/material-components-vue/commit/828edff))
+
+
+### Features
+
+* **demo:** Add menu demo ([#20](https://github.com/matsp/material-components-vue/issues/20)) ([d55aeb5](https://github.com/matsp/material-components-vue/commit/d55aeb5))
+* **demo:** Add snackbar demo ([#20](https://github.com/matsp/material-components-vue/issues/20)) ([cc4a4b9](https://github.com/matsp/material-components-vue/commit/cc4a4b9))
+
+
+### BREAKING CHANGES
+
+* **linear-progress:** Public component methods for open / close no longer exist.
+Please change your templates to use v-model instead.
+* **dialog:** Public component methods for open / close no longer
+exist. Please change your templates to use v-model instead.
+* **snackbar:** Public component methods for open / close no longer
+exist. Please change your templates to use v-model instead.
+* **menu:** Public component methods for open / close no longer
+exist. Please change your templates to use v-model instead.
+
+
+
 <a name="0.16.1"></a>
 ## [0.16.1](https://github.com/matsp/material-components-vue/compare/v0.16.0...v0.16.1) (2018-04-13)
 
