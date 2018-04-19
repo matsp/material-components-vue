@@ -46,24 +46,12 @@ export default {
   computed: {
     classes () {
       let temp = {}
-      this.span
-        ? (temp['mdc-layout-grid__cell--span-' + this.span] = true)
-        : (temp['mdc-layout-grid__cell--span-' + this.span] = false)
-      this.spanDesktop
-        ? (temp['mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop'] = true)
-        : (temp['mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop'] = false)
-      this.spanTablet
-        ? (temp['mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet'] = true)
-        : (temp['mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet'] = false)
-      this.spanPhone
-        ? (temp['mdc-layout-grid__cell--span-' + this.phone + '-phone'] = true)
-        : (temp['mdc-layout-grid__cell--span-' + this.phone + '-phone'] = false)
-      this.align
-        ? (temp['mdc-layout-grid__cell--align-' + this.align] = true)
-        : (temp['mdc-layout-grid__cell--align-' + this.align] = false)
-      this.order
-        ? (temp['mdc-layout-grid__cell--order-' + this.order] = true)
-        : (temp['mdc-layout-grid__cell--order-' + this.order] = false)
+      temp['mdc-layout-grid__cell--span-' + this.span] = typeof this.span === 'number'
+      temp['mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop'] = typeof this.spanDesktop === 'number'
+      temp['mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet'] = typeof this.spanTablet === 'number'
+      temp['mdc-layout-grid__cell--span-' + this.phone + '-phone'] = typeof this.phone === 'number'
+      temp['mdc-layout-grid__cell--align-' + this.align] = typeof this.align === 'string'
+      temp['mdc-layout-grid__cell--order-' + this.order] = typeof this.order === 'number'
       return temp
     }
   }
