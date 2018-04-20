@@ -10,5 +10,15 @@ module.exports = {
     sidebar: [
       '/Button'
     ]
-  }
+  },
+  // chainWebpack: config => {
+    // config.module
+      // .rule('sass')
+      // .test(/\.scss$/)
+      // .use('css-loader')
+      // .loader('sass-loader')
+      // .options({
+        // includePaths: ['../../node_modules']
+      // })
+  // }
 }
