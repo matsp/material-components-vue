@@ -34,28 +34,36 @@ export default {
   mixins: [themeClassMixin],
   data () {
     return {
-      mdcChip: null
+      mdcChip: null,
+      slotOberserver: null
     }
   },
   mounted () {
-    if (this.$slots.leadingIcon) {
-      this.$slots.leadingIcon.map((n) => {
-        n.elm.classList.add('mdc-chip__icon')
-        n.elm.classList.add('mdc-chip__icon--leading')
-      })
-    }
+    this.updateSlots()
+    this.slotOberserver = new MutationObserver( () => this.updateSlots())
+    this.slotOberserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
+  },
+  methods:  {
+    updateSlots () {
+      if (this.$slots.leadingIcon) {
+        this.$slots.leadingIcon.map((n) => {
+          n.elm.classList.add('mdc-chip__icon')
+          n.elm.classList.add('mdc-chip__icon--leading')
+        })
+      }
 
-    if (this.$slots.trailingIcon) {
-      this.$slots.trailingIcon.map((n) => {
-        n.elm.classList.add('mdc-chip__icon')
-        n.elm.classList.add('mdc-chip__icon--trailing')
-        n.elm.setAttribute('role', 'button')
-        n.elm.setAttribute('tabindex', '0')
-      })
+      if (this.$slots.trailingIcon) {
+        this.$slots.trailingIcon.map((n) => {
+          n.elm.classList.add('mdc-chip__icon')
+          n.elm.classList.add('mdc-chip__icon--trailing')
+          n.elm.setAttribute('role', 'button')
+          n.elm.setAttribute('tabindex', '0')
+        })
+      }
     }
-
-    // this done by MDCChipSet:
-    // this.mdcChip = MDCChip.attachTo(this.$el)
   }
 }
 </script>
