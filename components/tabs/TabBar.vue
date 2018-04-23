@@ -59,8 +59,8 @@ export default {
   },
   data () {
     return {
-      mdcTabBar: null,
-      mdcTabBarScroller: null
+      mdcTabBar: undefined,
+      mdcTabBarScroller: undefined
     }
   },
   computed: {
@@ -78,9 +78,12 @@ export default {
       : (this.mdcTabBar = MDCTabBar.attachTo(this.$el))
   },
   beforeDestroy () {
-    this.scrollable
-      ? this.mdcTabBarScroller.destroy()
-      : this.mdcTabBar.destroy()
+    if (typeof this.mdcTabBarScroller !== 'undefined') {
+      this.mdcTabBarScroller.destroy()
+    }
+    if (typeof this.mdcTabBar !== 'undefined') {
+      this.mdcTabBar.destroy()
+    }
   }
 }
 </script>

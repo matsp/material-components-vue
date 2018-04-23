@@ -34,7 +34,8 @@ export default {
   },
   data () {
     return {
-      mdcTab: null
+      mdcTab: undefined,
+      slotObserver: undefined
     }
   },
   computed: {
@@ -46,16 +47,27 @@ export default {
     }
   },
   mounted () {
-    if (this.$slots.icon) {
-      this.$slots.icon[0].elm.classList.add('mdc-tab__icon')
-      this.label ? this.$slots.icon[0].elm.setAttribute('aria-label', true)
-        : this.$slots.icon[0].elm.setAttribute('aria-hidden', true)
-    }
+    this.updateSlot()
+    this.slotObserver = new MutationObserver( () => this.updateSlot())
+    this.slotObserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
 
     this.mdcTab = MDCTab.attachTo(this.$el)
   },
   beforeDestroy () {
+    this.slotObserver.disconnect()
     this.mdcTab.destroy()
+  },
+  methods: {
+    updateSlot () {
+      if (this.$slots.icon) {
+        this.$slots.icon[0].elm.classList.add('mdc-tab__icon')
+        this.label ? this.$slots.icon[0].elm.setAttribute('aria-label', true)
+          : this.$slots.icon[0].elm.setAttribute('aria-hidden', true)
+      }
+    }
   }
 }
 </script>
