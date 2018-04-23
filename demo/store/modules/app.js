@@ -75,7 +75,7 @@ const state = {
       icon: 'code',
       reference: 'https://github.com/matsp/material-components-vue/tree/master/components/list'
     },
-    list: {
+    menu: {
       text: 'Menu',
       route: '/menu',
       icon: 'code',
