@@ -26,12 +26,30 @@ export default {
       default: true
     }
   },
-  mounted () {
-    if (this.$slots.image) {
-      this.$slots.image.map(n => {
-        n.elm.classList.add('mdc-image-list__image')
-      })
+  data() {
+    return {
+      slotOberserver: null
     }
+  },
+  mounted () {
+    this.updateSlot ()
+    this.slotOberserver = new MutationObserver( () => this.updateSlot())
+    this.slotOberserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
+  },
+  methods: {
+    updateSlot () {
+      if (this.$slots.image) {
+        this.$slots.image.map(n => {
+          n.elm.classList.add('mdc-image-list__image')
+        })
+      }
+    }
+  },
+  beforeDestroy () {
+    this.slotOberserver.disconnect()
   }
 }
 </script>
