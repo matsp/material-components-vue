@@ -70,7 +70,8 @@ export default {
   data () {
     return {
       mdcTextField: undefined,
-      mdcRipple: undefined
+      mdcRipple: undefined,
+      slotObserver: undefined
     }
   },
   computed: {
@@ -90,21 +91,16 @@ export default {
     }
   },
   mounted () {
-    if (this.$slots.leadingIcon) {
-      this.$slots.leadingIcon.map(n => {
-        n.elm.classList.add('mdc-text-field__icon')
-      })
-    }
-
-    if (this.$slots.trailingIcon) {
-      this.$slots.trailingIcon.map(n => {
-        n.elm.classList.add('mdc-text-field__icon')
-      })
-    }
-
+    this.updateSlots()
+    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
     this.mdcTextField = MDCTextField.attachTo(this.$el)
   },
   beforeDestroy () {
+    this.slotObserver.disconnect()
     this.mdcTextField.destroy()
 
     if (typeof this.mdcRipple !== 'undefined') {
@@ -112,6 +108,18 @@ export default {
     }
   },
   methods: {
+    updateSlots () {
+      if (this.$slots.leadingIcon) {
+        this.$slots.leadingIcon.map(n => {
+          n.elm.classList.add('mdc-text-field__icon')
+        })
+      }
+      if (this.$slots.trailingIcon) {
+        this.$slots.trailingIcon.map(n => {
+          n.elm.classList.add('mdc-text-field__icon')
+        })
+      }
+    },
     onInput (event) {
       debounce(this.$emit('input', event.target.value))
     }
