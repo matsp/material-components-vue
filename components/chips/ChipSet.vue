@@ -25,7 +25,7 @@ export default {
   },
   data () {
     return {
-      mdcChipSet: null
+      mdcChipSet: undefined
     }
   },
   computed: {
@@ -38,11 +38,6 @@ export default {
   },
   mounted () {
     this.mdcChipSet = MDCChipSet.attachTo(this.$el)
-  },
-  methods: {
-    getSelectedChips () {
-      return this.mdcChipSet.foundation_.selectedChips_
-    }
   }
 }
 </script>
