@@ -55,7 +55,7 @@ export default {
   },
   data () {
     return {
-      mdcRipple: null,
+      mdcRipple: undefined,
       slotOberserver: null
     }
   },
@@ -81,7 +81,9 @@ export default {
   },
   beforeDestroy () {
     this.slotOberserver.disconnect()
-    if (typeof this.mdcRipple !== 'null') this.mdcRipple.destroy()
+    if (typeof this.mdcRipple !== 'undefined') {
+      this.mdcRipple.destroy()
+    }
   },
   methods: {
     updateSlot() {

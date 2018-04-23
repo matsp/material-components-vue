@@ -70,7 +70,7 @@ export default {
   data () {
     return {
       mdcTextField: null,
-      mdcRipple: null
+      mdcRipple: undefined
     }
   },
   computed: {
@@ -107,7 +107,9 @@ export default {
   beforeDestroy () {
     this.mdcTextField.destroy()
 
-    if (typeof this.mdcRipple !== 'null') this.mdcRipple.destroy()
+    if (typeof this.mdcRipple !== 'undefined') {
+      this.mdcRipple.destroy()
+    }
   },
   methods: {
     onInput (event) {
