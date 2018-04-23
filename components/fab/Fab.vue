@@ -34,7 +34,8 @@ export default {
   },
   data () {
     return {
-      mdcRipple: null
+      mdcRipple: null,
+      slotOberserver: null
     }
   },
   computed: {
@@ -47,16 +48,26 @@ export default {
     }
   },
   mounted () {
-    if (this.$slots.default) {
-      this.$slots.default.map(n => {
-        n.elm.classList.add('mdc-fab__icon')
-      })
-    }
+    this.updateSlot()
+    this.slotOberserver = new MutationObserver( () => this.updateSlot())
+    this.slotOberserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
 
     if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
   },
   beforeDestroy () {
     if (this.interactive) { this.mdcRipple.destroy() }
+  },
+  methods:  {
+    updateSlot () {
+      if (this.$slots.default) {
+        this.$slots.default.map(n => {
+          n.elm.classList.add('mdc-fab__icon')
+        })
+      }
+    }
   }
 }
 </script>
