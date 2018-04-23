@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.0"></a>
+# [0.18.0](https://github.com/matsp/material-components-vue/compare/v0.17.0...v0.18.0) (2018-04-23)
+
+
+### Bug Fixes
+
+* **card:** Add slotOberserver reference ([e0cac12](https://github.com/matsp/material-components-vue/commit/e0cac12))
+* **card:** Correct data function ([a4946c3](https://github.com/matsp/material-components-vue/commit/a4946c3))
+* Add disconnect before destroyment ([63ccb4a](https://github.com/matsp/material-components-vue/commit/63ccb4a))
+* **demo:** Fix menu item ([3edc907](https://github.com/matsp/material-components-vue/commit/3edc907))
+* Fix type check ([4a667b8](https://github.com/matsp/material-components-vue/commit/4a667b8))
+* Fix typo ([df3c08c](https://github.com/matsp/material-components-vue/commit/df3c08c))
+
+
+### Features
+
+* **button:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([b115d8f](https://github.com/matsp/material-components-vue/commit/b115d8f))
+* **card:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([b24651c](https://github.com/matsp/material-components-vue/commit/b24651c))
+* **chip:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([cfbf749](https://github.com/matsp/material-components-vue/commit/cfbf749))
+* **dialog:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([d6278b5](https://github.com/matsp/material-components-vue/commit/d6278b5))
+* **fab:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([3668145](https://github.com/matsp/material-components-vue/commit/3668145))
+* **grid-list:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([36f83b1](https://github.com/matsp/material-components-vue/commit/36f83b1))
+* **image-list:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([4dc7e4b](https://github.com/matsp/material-components-vue/commit/4dc7e4b))
+* **list:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([64c382d](https://github.com/matsp/material-components-vue/commit/64c382d))
+* **list:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([7804dff](https://github.com/matsp/material-components-vue/commit/7804dff))
+* **menu:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([7085946](https://github.com/matsp/material-components-vue/commit/7085946))
+* **ripple:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([4ac021b](https://github.com/matsp/material-components-vue/commit/4ac021b))
+* **ripple:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([4cea647](https://github.com/matsp/material-components-vue/commit/4cea647))
+* **tabs:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([26b33c3](https://github.com/matsp/material-components-vue/commit/26b33c3))
+* **textfield:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([e1221c5](https://github.com/matsp/material-components-vue/commit/e1221c5))
+* **top-app-bar:** Use MutationObserver for reactive slot updates ([#92](https://github.com/matsp/material-components-vue/issues/92)) ([9a13f7e](https://github.com/matsp/material-components-vue/commit/9a13f7e))
+
+
+
 <a name="0.17.0"></a>
 # [0.17.0](https://github.com/matsp/material-components-vue/compare/v0.16.1...v0.17.0) (2018-04-19)
 

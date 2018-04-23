@@ -1,6 +1,6 @@
 {
   "name": "material-components-vue",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "mdc-web integration for Vue.js",
   "author": "Mats Pfeiffer <mats.pfeiffer@googlemail.com>",
   "license": "MIT",
@@ -100,7 +100,8 @@
         }
       ],
       [
-        "@babel/preset-stage-2", {
+        "@babel/preset-stage-2",
+        {
           "decoratorsLegacy": true
         }
       ]
