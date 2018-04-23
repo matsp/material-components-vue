@@ -51,7 +51,8 @@ export default {
   },
   data () {
     return {
-      mdcDialog: null
+      mdcDialog: null,
+      slotOberserver: null
     }
   },
   computed: {
@@ -75,32 +76,38 @@ export default {
     }
   },
   mounted () {
-    let vm = this
+    this.updateSlots()
+    this.slotOberserver = new MutationObserver( () => this.updateSlots())
+    this.slotOberserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
 
-    if (vm.$slots.acceptButton) {
-      vm.$slots.acceptButton.map(n => {
-        n.elm.classList.add('mdc-dialog__footer__button')
-        n.elm.classList.add('mdc-dialog__footer__button--accept')
-      })
-    }
-    if (vm.$slots.cancelButton) {
-      vm.$slots.cancelButton.map(n => {
-        n.elm.classList.add('mdc-dialog__footer__button')
-        n.elm.classList.add('mdc-dialog__footer__button--cancel')
-      })
-    }
-    if (vm.$slots.dialogButton) {
-      vm.$slots.dialogButton.map(n => {
-        n.elm.classList.add('mdc-dialog__footer__button')
-      })
-    }
-
-    vm.mdcDialog = MDCDialog.attachTo(this.$el)
+    this.mdcDialog = MDCDialog.attachTo(this.$el)
   },
   beforeDestroy () {
     this.mdcDialog.destroy()
   },
   methods: {
+    updateSlots () {
+      if (this.$slots.acceptButton) {
+        this.$slots.acceptButton.map(n => {
+          n.elm.classList.add('mdc-dialog__footer__button')
+          n.elm.classList.add('mdc-dialog__footer__button--accept')
+        })
+      }
+      if (this.$slots.cancelButton) {
+        this.$slots.cancelButton.map(n => {
+          n.elm.classList.add('mdc-dialog__footer__button')
+          n.elm.classList.add('mdc-dialog__footer__button--cancel')
+        })
+      }
+      if (this.$slots.dialogButton) {
+        this.$slots.dialogButton.map(n => {
+          n.elm.classList.add('mdc-dialog__footer__button')
+        })
+      }
+    },
     onAccept () {
       this.model = false
       this.$emit('accept')
