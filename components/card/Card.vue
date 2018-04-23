@@ -44,7 +44,9 @@ export default {
     }
   },
   data () {
-    slotOberserver: null
+    return {
+      slotOberserver: null
+    }
   },
   computed: {
     classes () {
