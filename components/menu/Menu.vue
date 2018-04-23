@@ -31,7 +31,8 @@ export default {
   },
   data () {
     return {
-      mdcMenu: null
+      mdcMenu: null,
+      slotOberserver: null
     }
   },
   computed: {
@@ -53,26 +54,34 @@ export default {
     }
   },
   mounted () {
-    if (this.$slots.default) {
-      this.$slots.default.map(n => {
-        n.elm.classList.add('mdc-menu__items')
-      })
-      this.$slots.default[0].elm.setAttribute('role', 'menu')
-
-      this.$slots.default[0].componentOptions.children
-        .filter(n => n.elm.className.indexOf('mdc-list-item') > -1)
-        .map(n => {
-          n.elm.setAttribute('tabindex', '0')
-          n.elm.setAttribute('role', 'menuitem')
-        })
-    }
-
+    this.updateSlot()
+    this.slotOberserver = new MutationObserver( () => this.updateSlot())
+    this.slotOberserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
     this.mdcMenu = MDCMenu.attachTo(this.$el)
   },
   beforeDestroy () {
+    this.slotOberserver.disconnect()
     this.mdcMenu.destroy()
   },
   methods: {
+    updateSlot () {
+      if (this.$slots.default) {
+        this.$slots.default.map(n => {
+          n.elm.classList.add('mdc-menu__items')
+        })
+        this.$slots.default[0].elm.setAttribute('role', 'menu')
+
+        this.$slots.default[0].componentOptions.children
+          .filter(n => n.elm.className.indexOf('mdc-list-item') > -1)
+          .map(n => {
+            n.elm.setAttribute('tabindex', '0')
+            n.elm.setAttribute('role', 'menuitem')
+          })
+      }
+    },
     onSelect (event) {
       this.model = false
       this.$emit('select', event.detail)
