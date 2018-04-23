@@ -61,20 +61,29 @@ export default {
     }
   },
   mounted () {
-    if (this.$slots.actionButtons) {
-      this.$slots.actionButtons.map((n) => {
-        n.elm.classList.add('mdc-card__action')
-        n.elm.classList.add('mdc-card__action--button')
-      })
-    }
-
-    if (this.$slots.actionIcons) {
-      this.$slots.actionIcons.map((n) => {
-        n.elm.classList.add('mdc-card__action')
-        n.elm.classList.add('mdc-card__action--icon')
-        n.elm.setAttribute('tabindex', '0')
-        n.elm.setAttribute('role', 'button')
-      })
+    this.updateSlots()
+    this.slotOberserver = new MutationObserver( () => this.updateSlots())
+    this.slotOberserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
+  },
+  methods: {
+    updateSlots () {
+      if (this.$slots.actionButtons) {
+        this.$slots.actionButtons.map((n) => {
+          n.elm.classList.add('mdc-card__action')
+          n.elm.classList.add('mdc-card__action--button')
+        })
+      }
+      if (this.$slots.actionIcons) {
+        this.$slots.actionIcons.map((n) => {
+          n.elm.classList.add('mdc-card__action')
+          n.elm.classList.add('mdc-card__action--icon')
+          n.elm.setAttribute('tabindex', '0')
+          n.elm.setAttribute('role', 'button')
+        })
+      }
     }
   }
 }
