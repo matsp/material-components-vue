@@ -4,7 +4,7 @@
 
 
 [![npm version](https://img.shields.io/npm/v/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
-[![mdc-web](https://img.shields.io/badge/mdc--web-0.33.0-orange.svg)](https://www.npmjs.com/package/material-components-web)
+[![mdc-web](https://img.shields.io/badge/mdc--web-0.34.1-orange.svg)](https://www.npmjs.com/package/material-components-web)
 [![Build Status](https://travis-ci.org/matsp/material-components-vue.svg?branch=master)](https://travis-ci.org/matsp/material-components-vue) 
 [![Greenkeeper badge](https://badges.greenkeeper.io/matsp/material-components-vue.svg)](https://greenkeeper.io/)
 
