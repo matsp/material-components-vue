@@ -33,23 +33,38 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      slotOberserver: null
+    }
+  },
   mounted () {
-    if (this.$slots.supporttext) {
-      this.$slots.supporttext.map(n =>
-        n.elm.classList.add('mdc-grid-tile__support-text')
-      )
-    }
+    this.updateSlots()
+    this.slotOberserver = new MutationObserver( () => this.updateSlots())
+    this.slotOberserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
+  },
+  methods: {
+    updateSlots () {
+      if (this.$slots.supporttext) {
+        this.$slots.supporttext.map(n =>
+          n.elm.classList.add('mdc-grid-tile__support-text')
+        )
+      }
 
-    if (this.$slots.icon) {
-      this.$slots.icon.map(n => {
-        n.elm.classList.add('mdc-grid-tile__icon')
-      })
-    }
+      if (this.$slots.icon) {
+        this.$slots.icon.map(n => {
+          n.elm.classList.add('mdc-grid-tile__icon')
+        })
+      }
 
-    if (this.$slots.primary) {
-      this.$slots.primary.map(n =>
-        n.elm.classList.add('mdc-grid-tile__primary-content')
-      )
+      if (this.$slots.primary) {
+        this.$slots.primary.map(n =>
+          n.elm.classList.add('mdc-grid-tile__primary-content')
+        )
+      }
     }
   }
 }
