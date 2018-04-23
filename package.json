@@ -21,6 +21,7 @@
     "build:all": "yarn build:lib && yarn build:es5 && yarn build:prod",
     "serve:dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.dev.js",
     "serve:prod": "yarn build:prod && ./node_modules/.bin/http-server -g",
+    "watch:dev": "webpack --config webpack.config.lib.js -w",
     "release": "standard-version"
   },
   "dependencies": {
