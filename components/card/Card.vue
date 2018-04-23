@@ -43,6 +43,9 @@ export default {
       default: false
     }
   },
+  data () {
+    slotOberserver: null
+  },
   computed: {
     classes () {
       return {
