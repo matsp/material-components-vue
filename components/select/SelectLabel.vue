@@ -21,7 +21,7 @@ export default {
   },
   data () {
     return {
-      mdcSelectLabel: null
+      mdcSelectLabel: undefined
     }
   },
   computed: {

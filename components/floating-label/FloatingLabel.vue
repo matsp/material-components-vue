@@ -25,7 +25,7 @@ export default {
   },
   data () {
     return {
-      mdcFloatingLabel: null
+      mdcFloatingLabel: undefined
     }
   },
   computed: {

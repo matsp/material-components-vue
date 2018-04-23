@@ -29,7 +29,7 @@ export default {
   },
   data () {
     return {
-      mdcPersistentDrawer: null
+      mdcPersistentDrawer: undefined
     }
   },
   computed: {

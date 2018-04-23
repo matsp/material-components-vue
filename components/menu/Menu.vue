@@ -31,8 +31,8 @@ export default {
   },
   data () {
     return {
-      mdcMenu: null,
-      slotObserver: null
+      mdcMenu: undefined,
+      slotObserver: undefined
     }
   },
   computed: {

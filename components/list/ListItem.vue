@@ -47,7 +47,7 @@ export default {
   data () {
     return {
       mdcRipple: undefined,
-      slotObserver: null
+      slotObserver: undefined
     }
   },
   computed: {

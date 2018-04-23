@@ -46,7 +46,7 @@ export default {
   },
   data () {
     return {
-      mdcLinearProgress: null
+      mdcLinearProgress: undefined
     }
   },
   watch: {

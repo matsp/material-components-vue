@@ -42,7 +42,7 @@ export default {
   },
   data () {
     return {
-      mdcSelect: null
+      mdcSelect: undefined
     }
   },
   computed: {

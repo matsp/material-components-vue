@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      slotObserver: null
+      slotObserver: undefined
     }
   },
   mounted () {

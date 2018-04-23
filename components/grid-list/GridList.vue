@@ -45,7 +45,7 @@ export default {
   },
   data () {
     return {
-      mdcGridList: null
+      mdcGridList: undefined
     }
   },
   computed: {

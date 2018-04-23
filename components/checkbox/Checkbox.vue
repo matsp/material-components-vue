@@ -42,7 +42,7 @@ export default {
   },
   data () {
     return {
-      mdcCheckbox: null
+      mdcCheckbox: undefined
     }
   },
   computed: {

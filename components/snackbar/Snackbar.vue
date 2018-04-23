@@ -46,7 +46,7 @@ export default {
   },
   data () {
     return {
-      mdcSnackbar: null
+      mdcSnackbar: undefined
     }
   },
   computed: {

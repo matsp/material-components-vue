@@ -95,7 +95,7 @@ export default {
   },
   data () {
     return {
-      mdcSlider: null
+      mdcSlider: undefined
     }
   },
   computed: {

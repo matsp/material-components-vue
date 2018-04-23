@@ -69,7 +69,7 @@ export default {
   },
   data () {
     return {
-      mdcTextField: null,
+      mdcTextField: undefined,
       mdcRipple: undefined
     }
   },

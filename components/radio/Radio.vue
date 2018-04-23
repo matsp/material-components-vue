@@ -37,7 +37,7 @@ export default {
   },
   data () {
     return {
-      mdcRadio: null
+      mdcRadio: undefined
     }
   },
   computed: {

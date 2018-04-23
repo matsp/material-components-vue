@@ -51,7 +51,7 @@ export default {
   },
   data () {
     return {
-      mdcTopAppBar: null
+      mdcTopAppBar: undefined
     }
   },
   computed: {

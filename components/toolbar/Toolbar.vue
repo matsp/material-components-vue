@@ -37,7 +37,7 @@ export default {
   },
   data () {
     return {
-      mdcToolbar: null
+      mdcToolbar: undefined
     }
   },
   computed: {

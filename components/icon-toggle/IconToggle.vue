@@ -40,7 +40,7 @@ export default {
   },
   data () {
     return {
-      mdcIconToggle: null
+      mdcIconToggle: undefined
     }
   },
   computed: {

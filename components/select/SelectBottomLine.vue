@@ -19,7 +19,7 @@ export default {
   },
   data () {
     return {
-      mdcSelectBottomLine: null
+      mdcSelectBottomLine: undefined
     }
   },
   computed: {

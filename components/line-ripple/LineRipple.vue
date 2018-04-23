@@ -11,7 +11,7 @@ export default {
   mixins: [themeClassMixin],
   data () {
     return {
-      mdcLineRipple: null
+      mdcLineRipple: undefined
     }
   },
   mounted () {

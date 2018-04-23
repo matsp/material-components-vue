@@ -51,8 +51,8 @@ export default {
   },
   data () {
     return {
-      mdcDialog: null,
-      slotObserver: null
+      mdcDialog: undefined,
+      slotObserver: undefined
     }
   },
   computed: {
