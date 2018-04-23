@@ -9,11 +9,6 @@
           icon="menu"
           menu-icon
           @click="toggleDrawer()"/>
-        <m-typo-title
-          slot="end"
-          theming="secondary">
-          {{ selectedText }}
-        </m-typo-title>
         Material Components Vue
       </m-toolbar-row>
     </m-toolbar>
@@ -80,7 +75,7 @@ Vue.use(Typography)
 export default {
   data () {
     return {
-      isDrawerOpen: true,
+      isDrawerOpen: false,
       selectedText: 'Home'
     }
   },
