@@ -23,7 +23,7 @@ export default {
   },
   data () {
     return {
-      mdcRipple: null,
+      mdcRipple: undefined,
       slotOberserver: null
     }
   },
