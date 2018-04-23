@@ -86,6 +86,7 @@ export default {
     this.mdcDialog = MDCDialog.attachTo(this.$el)
   },
   beforeDestroy () {
+    this.slotOberserver.disconnect()
     this.mdcDialog.destroy()
   },
   methods: {

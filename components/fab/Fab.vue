@@ -58,6 +58,7 @@ export default {
     if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
   },
   beforeDestroy () {
+    this.slotOberserver.disconnect()
     if (this.interactive) { this.mdcRipple.destroy() }
   },
   methods:  {

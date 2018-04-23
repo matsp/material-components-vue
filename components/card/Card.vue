@@ -73,6 +73,9 @@ export default {
       subtree: true
     })
   },
+  beforeDestroy () {
+    this.slotOberserver.disconnect()
+  },
   methods: {
     updateSlots () {
       if (this.$slots.actionButtons) {
