@@ -51,7 +51,8 @@ export default {
   },
   data () {
     return {
-      mdcTopAppBar: undefined
+      mdcTopAppBar: undefined,
+      slotObserver: undefined
     }
   },
   computed: {
@@ -65,24 +66,32 @@ export default {
     }
   },
   mounted () {
-    if (this.$slots.navigation) {
-      this.$slots.navigation.map(n => {
-        n.elm.classList.add('mdc-top-app-bar__navigation-icon')
-      })
-    }
-
-    if (this.$slots.actions) {
-      this.$slots.actions.map(n => {
-        n.elm.classList.add('mdc-top-app-bar__action-item')
-      })
-    }
+    this.updateSlots()
+    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
 
     this.mdcTopAppBar = MDCTopAppBar.attachTo(this.$el)
   },
   beforeDestroy () {
+    this.slotObserver.disconnect()
     this.mdcTopAppBar.destroy()
   },
   methods: {
+    updateSlots () {
+      if (this.$slots.navigation) {
+        this.$slots.navigation.map(n => {
+          n.elm.classList.add('mdc-top-app-bar__navigation-icon')
+        })
+      }
+      if (this.$slots.actions) {
+        this.$slots.actions.map(n => {
+          n.elm.classList.add('mdc-top-app-bar__action-item')
+        })
+      }
+    },
     onNavigation () {
       this.$emit('onNavigation')
     }
