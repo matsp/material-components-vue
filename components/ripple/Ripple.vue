@@ -23,33 +23,34 @@ export default {
   },
   data () {
     return {
-      mdcRipple: null
+      mdcRipple: null,
+      slotOberserver: null
     }
   },
   mounted () {
-    if (this.$slots.default) {
-      this.$slots.default.map((n, i) => {
-        if (i === 0) {
-          n.elm.classList.add('mdc-ripple-surface')
-          this.accent ? n.elm.classList.add('mdc-ripple-surface--accent') : n.elm.classList.add('mdc-ripple-surface--primary')
-          this.mdcRipple = MDCRipple.attachTo(n.elm)
-          this.unbounded ? this.mdcRipple.unbounded = true : this.mdcRipple.unbounded = false
-        }
-      })
-    }
+    this.updateSlot()
+    this.slotOberserver = new MutationObserver( () => this.updateSlot())
+    this.slotOberserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
   },
   beforeDestroy () {
+    this.slotOberserver.disconnect()
     if (this.mdcRipple !== null) { this.mdcRipple.destroy() }
   },
   methods: {
-    activate () {
-      this.mdcRipple.activate()
-    },
-    deactivate () {
-      this.mdcRipple.deactivate()
-    },
-    layout () {
-      this.mdcRipple.layout()
+    updateSlot () {
+      if (this.$slots.default) {
+        this.$slots.default.map((n, i) => {
+          if (i === 0) {
+            n.elm.classList.add('mdc-ripple-surface')
+            this.accent ? n.elm.classList.add('mdc-ripple-surface--accent') : n.elm.classList.add('mdc-ripple-surface--primary')
+            this.mdcRipple = MDCRipple.attachTo(n.elm)
+            this.mdcRipple.unbounded = this.unbounded
+          }
+        })
+      }
     }
   }
 }

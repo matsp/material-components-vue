@@ -3,15 +3,9 @@
 ### Markup
 
 ```html
-<m-ripple accent ref="r">
+<m-ripple>
     Ripple
 </m-ripple>
-```
-
-### Script
-
-```javascript
-this.$refs.r.activate()
 ```
 
 ### Props & methods
@@ -20,12 +14,6 @@ this.$refs.r.activate()
 |------|------|---------|-------------|
 | unbounded | Boolean | false | unbounded ripple |
 | accent | Boolean | false | ripple with secondary theme color |
-
-| Method | Description |
-|--------|-------------|
-| activate() | activate the ripple |
-| deactivate() | deactivate the ripple |
-| layout() | recomputes all dimensions and positions |
 
 ### Slots
 
