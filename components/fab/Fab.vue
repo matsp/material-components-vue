@@ -35,7 +35,7 @@ export default {
   data () {
     return {
       mdcRipple: undefined,
-      slotOberserver: null
+      slotObserver: null
     }
   },
   computed: {
@@ -49,8 +49,8 @@ export default {
   },
   mounted () {
     this.updateSlot()
-    this.slotOberserver = new MutationObserver( () => this.updateSlot())
-    this.slotOberserver.observe(this.$el, {
+    this.slotObserver = new MutationObserver( () => this.updateSlot())
+    this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
@@ -58,7 +58,7 @@ export default {
     if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
   },
   beforeDestroy () {
-    this.slotOberserver.disconnect()
+    this.slotObserver.disconnect()
     if (typeof this.mdcRipple !== 'undefined') {
       this.mdcRipple.destroy()
     }

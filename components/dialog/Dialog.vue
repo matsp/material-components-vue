@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       mdcDialog: null,
-      slotOberserver: null
+      slotObserver: null
     }
   },
   computed: {
@@ -77,8 +77,8 @@ export default {
   },
   mounted () {
     this.updateSlots()
-    this.slotOberserver = new MutationObserver( () => this.updateSlots())
-    this.slotOberserver.observe(this.$el, {
+    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
@@ -86,7 +86,7 @@ export default {
     this.mdcDialog = MDCDialog.attachTo(this.$el)
   },
   beforeDestroy () {
-    this.slotOberserver.disconnect()
+    this.slotObserver.disconnect()
     this.mdcDialog.destroy()
   },
   methods: {

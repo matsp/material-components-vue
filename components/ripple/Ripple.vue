@@ -24,19 +24,19 @@ export default {
   data () {
     return {
       mdcRipple: undefined,
-      slotOberserver: null
+      slotObserver: null
     }
   },
   mounted () {
     this.updateSlot()
-    this.slotOberserver = new MutationObserver( () => this.updateSlot())
-    this.slotOberserver.observe(this.$el, {
+    this.slotObserver = new MutationObserver( () => this.updateSlot())
+    this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
   },
   beforeDestroy () {
-    this.slotOberserver.disconnect()
+    this.slotObserver.disconnect()
     if (this.mdcRipple !== null) { this.mdcRipple.destroy() }
   },
   methods: {
