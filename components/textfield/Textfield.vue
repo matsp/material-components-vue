@@ -107,7 +107,7 @@ export default {
   beforeDestroy () {
     this.mdcTextField.destroy()
 
-    if (this.interactive && this.box) { this.mdcRipple.destroy() }
+    if (typeof this.mdcRipple !== 'null') this.mdcRipple.destroy()
   },
   methods: {
     onInput (event) {

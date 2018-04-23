@@ -81,7 +81,7 @@ export default {
   },
   beforeDestroy () {
     this.slotOberserver.disconnect()
-    if (this.interactive) { this.mdcRipple.destroy() }
+    if (typeof this.mdcRipple !== 'null') this.mdcRipple.destroy()
   },
   methods: {
     updateSlot() {
