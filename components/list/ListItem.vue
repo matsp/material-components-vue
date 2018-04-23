@@ -65,8 +65,8 @@ export default {
       childList: true,
       subtree: true
     })
-    if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
 
+    if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
   },
   beforeDestroy () {
     this.slotOberserver.disconnect()
