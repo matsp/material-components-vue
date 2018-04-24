@@ -26,7 +26,7 @@
     <m-layout-grid-cell :span="12">
       <m-typo-title>Choice</m-typo-title>
       <m-chip-set choice>
-        <m-chip>Chip #1</m-chip>
+        <m-chip v-model="choiceSelected">Chip #1</m-chip>
         <m-chip>Chip #2</m-chip>
         <m-chip>Chip #3</m-chip>
       </m-chip-set>
@@ -64,6 +64,11 @@ import Chips from '../../dist/chips'
 Vue.use(Chips)
 
 export default {
+  data () {
+    return {
+      choiceSelected: false
+    }
+  }
 }
 </script>
 

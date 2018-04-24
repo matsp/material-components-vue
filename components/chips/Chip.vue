@@ -1,7 +1,8 @@
 <template>
   <div
     class="mdc-chip"
-    tabindex="0">
+    tabindex="0"
+    @MDCChip:interaction="onInteraction()">
     <slot
       name="leadingIcon"
       v-if="$slots['leadingIcon']"/>
@@ -32,21 +33,47 @@ import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
   mixins: [themeClassMixin],
+  model: {
+    props: 'selected',
+    event: 'change'
+  },
+  props: {
+    selected: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
-      mdcChip: null,
-      slotOberserver: null
+      mdcChip: undefined,
+      slotObserver: undefined
+    }
+  },
+  computed: {
+    model: {
+      get () {
+        return this.selected
+      },
+      set (value) {
+        this.$emit('change', value)
+      }
     }
   },
   mounted () {
     this.updateSlots()
-    this.slotOberserver = new MutationObserver( () => this.updateSlots())
-    this.slotOberserver.observe(this.$el, {
+    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
   },
+  beforeDestroy () {
+    this.slotObserver.disconnect()
+  },
   methods:  {
+    onInteraction () {
+      this.model = this.mdcChip.isSelected()
+    },
     updateSlots () {
       if (this.$slots.leadingIcon) {
         this.$slots.leadingIcon.map((n) => {
