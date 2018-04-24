@@ -112,11 +112,15 @@ export default {
       if (this.$slots.leadingIcon) {
         this.$slots.leadingIcon.map(n => {
           n.elm.classList.add('mdc-text-field__icon')
+          n.elm.setAttribute('tabindex', '0')
+          n.elm.setAttribute('role', 'button')
         })
       }
       if (this.$slots.trailingIcon) {
         this.$slots.trailingIcon.map(n => {
           n.elm.classList.add('mdc-text-field__icon')
+          n.elm.setAttribute('tabindex', '0')
+          n.elm.setAttribute('role', 'button')
         })
       }
     },
