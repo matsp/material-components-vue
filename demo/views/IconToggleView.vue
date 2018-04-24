@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Normal</m-typo-title>
+      <m-typo-headline :level="5">Normal</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="1">
           <m-icon-toggle
@@ -12,7 +12,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Primary</m-typo-title>
+      <m-typo-headline :level="5">Primary</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="1">
           <m-icon-toggle
@@ -24,7 +24,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Secondary</m-typo-title>
+      <m-typo-headline :level="5">Secondary</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="1">
           <m-icon-toggle

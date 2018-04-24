@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>PermanentDrawer</m-typo-title>
+      <m-typo-headline :level="5">PermanentDrawer</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell>
           <m-drawer-permanent>
@@ -18,7 +18,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>PersistentDrawer</m-typo-title>
+      <m-typo-headline :level="5">PersistentDrawer</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell>
           <m-button
@@ -41,7 +41,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>TemporaryDrawer</m-typo-title>
+      <m-typo-headline :level="5">TemporaryDrawer</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell>
           <m-button

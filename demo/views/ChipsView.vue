@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Input</m-typo-title>
+      <m-typo-headline :level="5">Input</m-typo-headline>
       <m-chip-set input>
         <m-chip>
           <m-icon
@@ -24,7 +24,7 @@
       </m-chip-set>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Choice</m-typo-title>
+      <m-typo-headline :level="5">Choice</m-typo-headline>
       <m-chip-set choice>
         <m-chip v-model="choiceSelected">Chip #1</m-chip>
         <m-chip v-model="choiceSelected">Chip #2</m-chip>
@@ -32,7 +32,7 @@
       </m-chip-set>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Filter</m-typo-title>
+      <m-typo-headline :level="5">Filter</m-typo-headline>
       <m-chip-set filter>
         <m-chip v-model="filterSelected">
           Chip #1

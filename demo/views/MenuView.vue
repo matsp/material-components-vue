@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Normal</m-typo-title>
+      <m-typo-headline :level="5">Normal</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="4">
           <m-menu-anchor>
@@ -25,7 +25,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>QuickOpen</m-typo-title>
+      <m-typo-headline :level="5">QuickOpen</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="4">
           <m-menu-anchor>

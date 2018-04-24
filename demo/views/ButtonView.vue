@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Text</m-typo-title>
+      <m-typo-headline :level="5">Text</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
           <m-button>baseline</m-button>
@@ -26,7 +26,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Raised</m-typo-title>
+      <m-typo-headline :level="5">Raised</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
           <m-button raised>baseline</m-button>
@@ -63,7 +63,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Unelevated</m-typo-title>
+      <m-typo-headline :level="5">Unelevated</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
           <m-button unelevated>baseline</m-button>
@@ -100,7 +100,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Outlined</m-typo-title>
+      <m-typo-headline :level="5">Outlined</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
           <m-button outlined>baseline</m-button>

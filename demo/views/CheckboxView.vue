@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Normal</m-typo-title>
+      <m-typo-headline :level="5">Normal</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="1">
           <m-checkbox v-model="checkboxValue"/>
@@ -9,7 +9,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Indeterminate</m-typo-title>
+      <m-typo-headline :level="5">Indeterminate</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="1">
           <m-checkbox
@@ -19,7 +19,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Disabled</m-typo-title>
+      <m-typo-headline :level="5">Disabled</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="1">
           <m-checkbox

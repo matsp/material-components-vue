@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Normal</m-typo-title>
+      <m-typo-headline :level="5">Normal</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="3">
           <m-button
@@ -15,7 +15,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>AlignStart</m-typo-title>
+      <m-typo-headline :level="5">AlignStart</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
           <m-button

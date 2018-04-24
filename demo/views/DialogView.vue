@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Normal</m-typo-title>
+      <m-typo-headline :level="5">Normal</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell>
           <m-button
@@ -13,7 +13,9 @@
             v-model="isDialogOpen"
             @accept="accepted = true"
             @cancel="canceled = true">
-            <m-typo-headline slot="header">Header</m-typo-headline>
+            <m-typo-headline
+              :level="6"
+              slot="header">Header</m-typo-headline>
             <span slot="body"> Body </span>
             <m-button slot="acceptButton">Accept</m-button>
             <m-button slot="cancelButton">Cancel</m-button>

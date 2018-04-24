@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Indeterminate</m-typo-title>
+      <m-typo-headline :level="5">Indeterminate</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="4">
           <m-linear-progress

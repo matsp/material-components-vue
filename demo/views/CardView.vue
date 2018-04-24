@@ -1,11 +1,13 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Normal</m-typo-title>
+      <m-typo-headline :level="5">Normal</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell>
           <m-card primary-action>
-            <m-typo-headline class="demo">
+            <m-typo-headline
+              :level="6"
+              class="demo">
               Title
             </m-typo-headline>
             <m-typo-body

@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Standard</m-typo-title>
+      <m-typo-headline :level="5">Standard</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="3">
           <m-image-list

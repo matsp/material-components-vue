@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Normal</m-typo-title>
+      <m-typo-headline :level="5">Normal</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="1">
           <m-form-field align-end>
@@ -22,7 +22,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Disabled</m-typo-title>
+      <m-typo-headline :level="5">Disabled</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="1">
           <m-form-field align-end>

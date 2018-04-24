@@ -1,7 +1,7 @@
 <template>
   <m-layout-grid-inner>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Normal</m-typo-title>
+      <m-typo-headline :level="5">Normal</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
           <m-textfield id="textfield1">
@@ -26,7 +26,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Box</m-typo-title>
+      <m-typo-headline :level="5">Box</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
           <m-textfield
@@ -58,7 +58,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Fullwidth</m-typo-title>
+      <m-typo-headline :level="5">Fullwidth</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="12">
           <m-textfield
@@ -70,7 +70,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Textarea</m-typo-title>
+      <m-typo-headline :level="5">Textarea</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="12">
           <m-textfield
@@ -82,7 +82,7 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Outlined</m-typo-title>
+      <m-typo-headline :level="5">Outlined</m-typo-headline>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="12">
           <m-textfield
