@@ -3,7 +3,7 @@
     <m-layout-grid-cell :span="12">
       <m-typo-title>Normal</m-typo-title>
       <m-layout-grid-inner>
-        <m-layout-grid-cell :span="8">
+        <m-layout-grid-cell :span="6">
           <m-top-app-bar>
             <m-icon
               icon="menu"

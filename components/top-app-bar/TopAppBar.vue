@@ -47,6 +47,10 @@ export default {
     dense: {
       type: Boolean,
       default: false
+    },
+    fixed:  {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -61,7 +65,8 @@ export default {
         'mdc-top-app-bar--short': this.short,
         'mdc-top-app-bar--short-collapsed': this.collapsed && this.short,
         'mdc-top-app-bar--prominent': this.prominent && !this.short,
-        'mdc-top-app-bar--dense': this.dense && !this.short
+        'mdc-top-app-bar--dense': this.dense && !this.short,
+        'mdc-top-app-bar--fixed': this.fixed && !this.short
       }
     }
   },
