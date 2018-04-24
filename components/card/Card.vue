@@ -30,7 +30,7 @@ import themeClassMixin from '../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   props: {
-    stroked: {
+    outlined: {
       type: Boolean,
       default: false
     },
@@ -51,7 +51,7 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-card--stroked': this.stroked
+        'mdc-card--outlined': this.outlined
       }
     },
     contentClasses () {
