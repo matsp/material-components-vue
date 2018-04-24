@@ -6,6 +6,9 @@
 <m-fab mini absoluteRight>
   <m-icon icon="favorite" @click="..."/>
 </m-fab>
+<m-fab>
+  <svg @click="..."/>
+</m-fab>
 ```
 ### Props
 
