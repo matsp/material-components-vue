@@ -1,8 +1,10 @@
 <template>
   <div
     class="mdc-chip"
+    :class="classes"
     tabindex="0"
-    @MDCChip:interaction="onInteraction()">
+    @MDCChip:interaction="$emit('change', !selected)"
+    @MDCChip:removal="$emit('remove') && $emit('change', false)">
     <slot
       name="leadingIcon"
       v-if="$slots['leadingIcon']"/>
@@ -34,7 +36,7 @@ import themeClassMixin from '../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   model: {
-    props: 'selected',
+    prop: 'selected',
     event: 'change'
   },
   props: {
@@ -45,23 +47,20 @@ export default {
   },
   data () {
     return {
-      mdcChip: undefined,
       slotObserver: undefined
     }
   },
   computed: {
-    model: {
-      get () {
-        return this.selected
-      },
-      set (value) {
-        this.$emit('change', value)
+    classes () {
+      return {
+        'mdc-chip--selected': this.selected,
+        'mdc-chip__icon--leading-hidden': this.selected
       }
     }
   },
   mounted () {
     this.updateSlots()
-    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
@@ -70,10 +69,7 @@ export default {
   beforeDestroy () {
     this.slotObserver.disconnect()
   },
-  methods:  {
-    onInteraction () {
-      this.model = this.mdcChip.isSelected()
-    },
+  methods: {
     updateSlots () {
       if (this.$slots.leadingIcon) {
         this.$slots.leadingIcon.map((n) => {
@@ -81,7 +77,6 @@ export default {
           n.elm.classList.add('mdc-chip__icon--leading')
         })
       }
-
       if (this.$slots.trailingIcon) {
         this.$slots.trailingIcon.map((n) => {
           n.elm.classList.add('mdc-chip__icon')

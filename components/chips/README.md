@@ -5,7 +5,7 @@
 ```html
 <m-chip-set>
   <m-chip>Chip content</m-chip>
-  <m-chip>
+  <m-chip v-model="selected">
     <m-icon
       icon="event"
       slot="leadingIcon"/>
@@ -14,12 +14,23 @@
 </m-chip-set>
 ```
 
-### Props & methods
+### Script
+
+```javascript
+data() {
+  return {
+    selected: false
+  }
+}
+```
+
+### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | choice | Boolean | false | single selection chips in set |
 | filter | Boolean | false | multiple selection chips in set |
+| input | Boolean | false | indicates that the chips in the set are input chips |
 
 ## Chip
 

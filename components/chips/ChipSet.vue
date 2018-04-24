@@ -1,7 +1,7 @@
 <template>
   <div
-    class="mdc-chip-set"
-    :class="classes">
+    :class="classes"
+    class="mdc-chip-set">
     <slot/>
   </div>
 </template>
@@ -21,6 +21,10 @@ export default {
     filter: {
       type: Boolean,
       default: false
+    },
+    input: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -32,12 +36,16 @@ export default {
     classes () {
       return {
         'mdc-chip-set--choice': this.choice,
-        'mdc-chip-set--filter': this.filter
+        'mdc-chip-set--filter': this.filter,
+        'mdc-chip-set--input': this.input
       }
     }
   },
   mounted () {
     this.mdcChipSet = MDCChipSet.attachTo(this.$el)
+  },
+  beforeDestroy () {
+    this.mdcChipSet.destroy()
   }
 }
 </script>
