@@ -32,6 +32,7 @@ module.exports = {
     radio: path.resolve(components + '/radio/index.js'),
     ripple: path.resolve(components + '/ripple/index.js'),
     select: path.resolve(components + '/select/index.js'),
+    shape: path.resolve(components + '/shape/index.js'),
     slider: path.resolve(components + '/slider/index.js'),
     snackbar: path.resolve(components + '/snackbar/index.js'),
     switch: path.resolve(components + '/switch/index.js'),
