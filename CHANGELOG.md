@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.19.0"></a>
+# [0.19.0](https://github.com/matsp/material-components-vue/compare/v0.18.0...v0.19.0) (2018-04-24)
+
+
+* feat(typography):Update mdc-web to v0.35.0 (#96) ([7ddf97a](https://github.com/matsp/material-components-vue/commit/7ddf97a)), closes [#96](https://github.com/matsp/material-components-vue/issues/96)
+
+
+### Bug Fixes
+
+* **demo:** Adapt typography changes ([f0559bf](https://github.com/matsp/material-components-vue/commit/f0559bf))
+
+
+### Code Refactoring
+
+* **select:** Replace Label & BottomLine with FloatingLabel & ([43fe087](https://github.com/matsp/material-components-vue/commit/43fe087)), closes [#96](https://github.com/matsp/material-components-vue/issues/96)
+
+
+### Features
+
+* **button:** Synchronise with mdc-web ([#96](https://github.com/matsp/material-components-vue/issues/96)) ([b90c911](https://github.com/matsp/material-components-vue/commit/b90c911))
+* **card:** Synchronise with mdc-web ([#96](https://github.com/matsp/material-components-vue/issues/96)) ([c69d1a3](https://github.com/matsp/material-components-vue/commit/c69d1a3))
+* **chips:** Synchronise with mdc-web ([#96](https://github.com/matsp/material-components-vue/issues/96)) ([ff93da9](https://github.com/matsp/material-components-vue/commit/ff93da9))
+* **shape:** Add shape component ([f280390](https://github.com/matsp/material-components-vue/commit/f280390))
+* **textfield:** Synchronise with mdc-web ([#96](https://github.com/matsp/material-components-vue/issues/96)) ([fd8ecee](https://github.com/matsp/material-components-vue/commit/fd8ecee))
+* **theme:** Synchronise with mdc-web ([#96](https://github.com/matsp/material-components-vue/issues/96)) ([ae60fb8](https://github.com/matsp/material-components-vue/commit/ae60fb8))
+* **top-app-bar:** Synchronise with mdc-web ([#96](https://github.com/matsp/material-components-vue/issues/96)) ([e8d5e5a](https://github.com/matsp/material-components-vue/commit/e8d5e5a))
+
+
+### BREAKING CHANGES
+
+* **select:** Use FloatingLabel and LineRipple instead of the
+removed SelectLabel and SelectBottomLine.
+* Removed Display and Title, added Overline. Headline
+has now a level between 1 and 6.
+* **theme:** Checkout the docs reference for the new mdc-theme CSS
+classes.
+* **card:** Stroked prop is renamed to outlined.
+* **button:** Stroked prop is renamed to outlined.
+
+
+
 <a name="0.18.0"></a>
 # [0.18.0](https://github.com/matsp/material-components-vue/compare/v0.17.0...v0.18.0) (2018-04-23)
 
