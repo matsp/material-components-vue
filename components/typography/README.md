@@ -4,9 +4,8 @@
 
 ```html
 <m-typography>
-    <m-typo-display :level="4">Display 4</m-typo-display>
-    <m-typo-headline>Headline</m-typo-headline>
-    <m-typo-title>Title</m-typo-title>
+    <m-typo-headline :level="1">Headline</m-typo-headline>
+    <m-typo-overline>Overline</m-typo-overline>
     <m-typo-subheading :level="1">Subheading 1</m-typo-subheading>
     <m-typo-body :level="2">Body 2</m-typo-body>
     <m-typo-caption>Caption</m-typo-caption>
@@ -16,9 +15,9 @@
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | typography content |
+| Slot | Description |
+|------|-------------|
+| default | typography content |
 
 ## Body
 
@@ -27,7 +26,6 @@
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | level | Number | - | body level could be 1 or 2 |
-| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
@@ -37,12 +35,6 @@
 
 ## Button
 
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| adjustMargin | Boolean | false | adjust margins to other elements |
-
 ### Slots
 
 | Slot | Description |
@@ -50,27 +42,6 @@
 | default | content |
 
 ## Caption
-
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| adjustMargin | Boolean | false | adjust margins to other elements |
-
-### Slots
-
-| Slot | Description |
-|------|-------------|
-| default | content |
-
-## Display
-
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| level | Number | - | display level could be between 1 and 4 |
-| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
@@ -84,7 +55,7 @@
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| adjustMargin | Boolean | false | adjust margins to other elements |
+| level | Boolean | false | headline level between 1 and 6 |
 
 ### Slots
 
@@ -99,7 +70,6 @@
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | level | Number | - | subheading level could be 1 or 2 |
-| adjustMargin | Boolean | false | adjust margins to other elements |
 
 ### Slots
 
@@ -107,13 +77,7 @@
 |------|-------------|
 | default | content |
 
-## Title
-
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| adjustMargin | Boolean | false | adjust margins to other elements |
+## Overline
 
 ### Slots
 

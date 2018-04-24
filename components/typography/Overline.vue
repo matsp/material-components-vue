@@ -1,5 +1,5 @@
 <template>
-  <span class="mdc-typography--title">
+  <span class="mdc-typography--overline">
     <slot />
   </span>
 </template>

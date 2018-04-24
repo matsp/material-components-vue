@@ -1,5 +1,5 @@
 <template>
-  <span class="mdc-typography--headline">
+  <span :class="classes">
     <slot />
   </span>
 </template>
@@ -8,6 +8,20 @@
 import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
-  mixins: [themeClassMixin]
+  mixins: [themeClassMixin],
+  props: {
+    level: {
+      type: Number,
+      required: true,
+      validator: (level) => level >= 1 && level <= 6 
+    }
+  },
+  computed: {
+    classes () {
+      let calc = {}
+      calc['mdc-typography--headline' + this.level] = true
+      return calc
+    }
+  }
 }
 </script>
