@@ -22,7 +22,7 @@
 |------|------|---------|-------------|
 | raised | Boolean | false | raised button |
 | unelevated | Boolean | false | unelevated button |
-| stroked | Boolean | false | stroked button |
+| outlined | Boolean | false | outlined button |
 | dense | Boolean | false | dense button |
 | interactive | Boolean | false | button with ripple effect |
 | href | String | ' ' | link button |

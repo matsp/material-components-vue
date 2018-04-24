@@ -100,20 +100,20 @@
       </m-layout-grid-inner>
     </m-layout-grid-cell>
     <m-layout-grid-cell :span="12">
-      <m-typo-title>Stroked</m-typo-title>
+      <m-typo-title>Outlined</m-typo-title>
       <m-layout-grid-inner>
         <m-layout-grid-cell :span="2">
-          <m-button stroked>baseline</m-button>
+          <m-button outlined>baseline</m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="2">
           <m-button
-            stroked
+            outlined
             interactive>
             interactive
           </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="2">
-          <m-button stroked>
+          <m-button outlined>
             <m-icon
               slot="icon"
               icon="cloud"/>
@@ -122,14 +122,14 @@
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="2">
           <m-button
-            stroked
+            outlined
             dense>
             dense
           </m-button>
         </m-layout-grid-cell>
         <m-layout-grid-cell :span="2">
           <m-button
-            stroked
+            outlined
             disabled>
             disabled
           </m-button>

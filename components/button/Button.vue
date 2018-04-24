@@ -36,7 +36,7 @@ export default {
       type: Boolean,
       default: false
     },
-    stroked: {
+    outlined: {
       type: Boolean,
       default: false
     },
@@ -64,7 +64,7 @@ export default {
       return {
         'mdc-button--raised': this.raised,
         'mdc-button--unelevated': this.unelevated,
-        'mdc-button--stroked': this.stroked,
+        'mdc-button--outlined': this.outlined,
         'mdc-button--dense': this.dense
       }
     }
