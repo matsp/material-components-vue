@@ -12,10 +12,10 @@
               :selected="selected === option.value">
               {{ option.text }}
             </option>
-            <m-select-label
+            <m-floating-label
               slot="label"
-              :float-above="selected !== ''">Pick a food group</m-select-label>
-            <m-select-bottom-line slot="bottomLine"/>
+              :float-above="selected !== ''">Pick a food group</m-floating-label>
+            <m-line-ripple slot="bottomLine"/>
           </m-select>
         </m-layout-grid-cell>
       </m-layout-grid-inner>
@@ -34,10 +34,10 @@
               :selected="selected === option.value">
               {{ option.text }}
             </option>
-            <m-select-label
+            <m-floating-label
               slot="label"
-              :float-above="selected !== ''">Pick a food group</m-select-label>
-            <m-select-bottom-line slot="bottomLine"/>
+              :float-above="selected !== ''">Pick a food group</m-floating-label>
+            <m-line-ripple slot="bottomLine"/>
           </m-select>
         </m-layout-grid-cell>
       </m-layout-grid-inner>
@@ -50,10 +50,14 @@ import Vue from 'vue'
 import List from '../../dist/list'
 import Menu from '../../dist/menu'
 import Select from '../../dist/select'
+import FloatingLabel from '../../dist/floating-label'
+import LineRipple from '../../dist/line-ripple'
 
 Vue.use(List)
 Vue.use(Menu)
 Vue.use(Select)
+Vue.use(FloatingLabel)
+Vue.use(LineRipple)
 
 export default {
   data () {

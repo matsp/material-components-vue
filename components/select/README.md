@@ -7,12 +7,12 @@
   <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
     {{ option.text }}
   </option>
- <m-select-label
+ <m-floating-label
    slot="label"
   :floatAbove="selected !== ''">
   Pick a food group
-</m-select-label> 
-<m-select-bottom-line slot="bottomLine"/>
+</m-floating-label> 
+<m-line-ripple slot="bottomLine"/>
 </m-select>
 ```
 
