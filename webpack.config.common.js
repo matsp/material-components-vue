@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 const root = path.join(__dirname)
 const demo = path.join(root + '/demo/')
@@ -16,6 +17,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            preserveWhitespace: false
+          }
+        }
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [demo, path.join(nodeModules, '@material')],
@@ -24,35 +34,27 @@ module.exports = {
         }
       },
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          preserveWhitespace: false,
-          loaders: {
-            js: 'babel-loader',
-            scss: [
-              MiniCssExtractPlugin.loader,
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: false,
-                  // url: false,
-                  importLoaders: 1
-                }
-              },
-              {
-                loader: 'postcss-loader'
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: false,
-                  includePaths: [nodeModules]
-                }
-              }
-            ]
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+              includePaths: [nodeModules]
+            }
           }
-        }
+        ]
       },
       {
         test: /\.html$/,
@@ -81,6 +83,7 @@ module.exports = {
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   },
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.ProvidePlugin({
       Promise: 'core-js/fn/promise'
     }),

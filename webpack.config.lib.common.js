@@ -2,6 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 const root = path.join(__dirname)
 const components = path.join(root + '/components/')
@@ -48,11 +49,14 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: [components, path.join(nodeModules, '@material')],
         options: {
-          loaders: {
-            js: 'babel-loader'
-          }
+          cacheDirectory: true
         }
       },
       {
@@ -77,14 +81,6 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: [components, path.join(nodeModules, '@material')],
-        options: {
-          cacheDirectory: true
-        }
       }
     ]
   },
@@ -92,6 +88,7 @@ module.exports = {
     extensions: ['.js', '.json', '.css', '.scss', '.vue']
   },
   plugins: [
+    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name]/[name].min.css'
     }),
