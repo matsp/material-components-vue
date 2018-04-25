@@ -18,11 +18,9 @@ methods: {
 
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| icon | String | - | true | material icon name |
-
-Events are mapped to the inner element.
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| icon | String | true | material icon name |
 
 ### Reference
 
