@@ -1,4 +1,4 @@
-import './style.scss'
+import './styles.scss'
 
 import Button from '../../dist/button'
 import Icon from '../../dist/icon'

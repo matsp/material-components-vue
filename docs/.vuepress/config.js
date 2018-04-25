@@ -1,3 +1,6 @@
+const path = require('path')
+const nodeModules = path.resolve('node_modules/')
+
 module.exports = {
   title: 'Material Components Vue',
   description: 'Material Design styled components for Vue.js',
@@ -7,18 +10,13 @@ module.exports = {
     }
   },
   themeConfig: {
+    repo: 'matsp/material-components-vue',
     sidebar: [
-      '/Button'
+      '/Button',
+      '/Card'
     ]
   },
-  // chainWebpack: config => {
-    // config.module
-      // .rule('sass')
-      // .test(/\.scss$/)
-      // .use('css-loader')
-      // .loader('sass-loader')
-      // .options({
-        // includePaths: ['../../node_modules']
-      // })
-  // }
+  scss: {
+    includePaths: [nodeModules]
+  }
 }

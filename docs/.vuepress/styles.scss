@@ -2,10 +2,11 @@ $mdc-theme-primary: #5e35b1;
 $mdc-theme-secondary: #ff5722;
 $mdc-theme-background: #ffffff;
 
-@import "../../dist/button/styles";
-@import "../../dist/layout-grid/styles";
 @import "../../dist/theme/styles";
 @import "../../dist/typography/styles";
+@import "../../dist/layout-grid/styles";
+
+@import "../../dist/button/styles";
 
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500"); */
 /* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
