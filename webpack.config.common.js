@@ -29,6 +29,7 @@ module.exports = {
         options: {
           preserveWhitespace: false,
           loaders: {
+            js: 'babel-loader',
             scss: [
               MiniCssExtractPlugin.loader,
               {
