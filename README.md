@@ -152,9 +152,7 @@ data() {
         material: {
             '--mdc-theme-primary':  '#5e35b1',
             '--mdc-theme-secondary': '#ff5722',
-            '--mdc-theme-background': '#ffffff',
-            '--mdc-theme-text-primary-on-primary': '#ffffff',
-            '--mdc-theme-text-secondary-on-secondary': '#000000'
+            '--mdc-theme-background': '#ffffff'
         }
     }
 }
