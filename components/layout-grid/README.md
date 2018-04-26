@@ -24,9 +24,9 @@
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | should be LayoutInnerGrid |
+| Slot | Description |
+|------|-------------|
+| default | should be LayoutInnerGrid |
 
 ## LayoutGridCell
 
@@ -43,17 +43,17 @@
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | content of GridCell |
+| Slot | Description |
+|------|-------------|
+| default | content of GridCell |
 
 ## LayoutGridInner
 
 ### Slots
 
-| Slot | Prop dependencies | Description |
-|------|-------------------|-------------|
-| default | - | should be GridCells |
+| Slot | Description |
+|------|-------------|
+| default | should be GridCells |
 
 ### Reference
 
