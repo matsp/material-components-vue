@@ -93,6 +93,11 @@ export default {
         })
       }
     }
+  },
+  watch: {
+    interactive (value) {
+      value ? this.mdcRipple = MDCRipple.attachTo(this.$el) : this.mdcRipple.destroy() 
+    }
   }
 }
 </script>
