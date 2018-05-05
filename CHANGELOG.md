@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.19.1"></a>
+## [0.19.1](https://github.com/matsp/material-components-vue/compare/v0.19.0...v0.19.1) (2018-05-05)
+
+
+### Bug Fixes
+
+* **build:** Explicitly use babel-loader ([c090124](https://github.com/matsp/material-components-vue/commit/c090124))
+* **button:** Make interactive a reactive prop ([9fd1456](https://github.com/matsp/material-components-vue/commit/9fd1456))
+* **layout-grid:** Correct validator function ([a764c0c](https://github.com/matsp/material-components-vue/commit/a764c0c))
+* **radio:** Correct two-way binding with value ([6e6b80a](https://github.com/matsp/material-components-vue/commit/6e6b80a))
+
+
+
 <a name="0.19.0"></a>
 # [0.19.0](https://github.com/matsp/material-components-vue/compare/v0.18.0...v0.19.0) (2018-04-24)
 
