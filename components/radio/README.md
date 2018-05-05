@@ -3,22 +3,28 @@
 ### Markup
 
 ```html
- <m-radio v-model="radioBox" />
+ <m-radio name="group" value="option1" v-model="radioGroup" />
+ <m-radio name="group" value="option2" v-model="radioGroup" />
+ <m-radio name="group" value="option3" v-model="radioGroup" />
 ```
 ### Script
 
 ```javascript
 data() {
     return {
-        radioBox: false
+        radioGroup: ''
     }
 }
 ```
+
 ### Props
 
-| Prop | Type | Default | Required | Description |
-|------|------|---------|----------|-------------|
-| disabled | Boolean | - | false | disabled radio |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| checked | Boolean | false | whether the radio is selected |
+| disabled | Boolean | false | disabled radio |
+| value | String | '' | value of radio (will be v-modeled) |
+| name | String | '' | radio group name |
 
 Non prop attributes are mapped to the inner input element.
 

@@ -1,11 +1,12 @@
 <template>
   <div class="mdc-radio">
     <input
-      class="mdc-radio__native-control"
       :class="classes"
-      type="radio"
       v-bind="$attrs"
+      :name="name"
       :checked="checked"
+      class="mdc-radio__native-control"
+      type="radio"
       @change="onChange">
     <div class="mdc-radio__background">
       <div class="mdc-radio__outer-circle"/>
@@ -22,17 +23,25 @@ import themeClassMixin from '../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   model: {
-    prop: 'checked',
+    prop: 'picked',
     event: 'change'
   },
   props: {
     checked: {
       type: Boolean,
-      required: false
+      default: false
     },
     disabled: {
       type: Boolean,
-      required: false
+      default: false
+    },
+    value: {
+      type: String,
+      default: ''
+    },
+    name: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -51,13 +60,14 @@ export default {
     this.mdcRadio = MDCRadio.attachTo(this.$el)
     this.mdcRadio.checked = this.checked
     this.mdcRadio.disabled = this.disabled
+    this.mdcRadio.value = this.value
   },
   beforeDestroy () {
     this.mdcRadio.destroy()
   },
   methods: {
     onChange (event) {
-      this.$emit('change', event.target.value === 'on')
+      this.$emit('change', this.mdcRadio.value)
     }
   }
 }
