@@ -66,6 +66,22 @@ Vue.use(Card)
 // ...
 ```
 
+#### import styles
+
+##### global
+
+```javascript
+import 'material-components-vue/dist/button/button.min.css'
+```
+
+##### in .vue components
+
+```css
+<style>
+@import "material-components-vue/dist/button/button.min.css";
+</style>
+```
+
 ### [CDN](https://codepen.io/matsp/pen/baxLOx)
 
 ```html
