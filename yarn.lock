@@ -1095,6 +1095,117 @@
     source-map "^0.5.6"
     vue-template-es2015-compiler "^1.6.0"
 
+"@webassemblyjs/ast@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.3.1.tgz#3081b4b3ff0af733aa5ba573af998f33711293f8"
+  dependencies:
+    "@webassemblyjs/helper-wasm-bytecode" "1.3.1"
+    "@webassemblyjs/wast-parser" "1.3.1"
+    webassemblyjs "1.3.1"
+
+"@webassemblyjs/floating-point-hex-parser@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/floating-point-hex-parser/-/floating-point-hex-parser-1.3.1.tgz#82646903ba25c3e5d88dec41ecb4e4d770615bfc"
+
+"@webassemblyjs/helper-buffer@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/helper-buffer/-/helper-buffer-1.3.1.tgz#aa66bb6c274a7e5610d7468f94a2702186713bc6"
+
+"@webassemblyjs/helper-code-frame@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/helper-code-frame/-/helper-code-frame-1.3.1.tgz#b5eba87cf37992e8a62c402545aed87dfd02be83"
+  dependencies:
+    "@webassemblyjs/wast-printer" "1.3.1"
+
+"@webassemblyjs/helper-fsm@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/helper-fsm/-/helper-fsm-1.3.1.tgz#297113d09a9541613eaeb265d7f948c5e03eb0a2"
+
+"@webassemblyjs/helper-wasm-bytecode@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/helper-wasm-bytecode/-/helper-wasm-bytecode-1.3.1.tgz#53b0308988e3a0cad836c83fc0801255906608f8"
+
+"@webassemblyjs/helper-wasm-section@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/helper-wasm-section/-/helper-wasm-section-1.3.1.tgz#3df13898e89a376ffb89439d216d9f0001bf9632"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/helper-buffer" "1.3.1"
+    "@webassemblyjs/helper-wasm-bytecode" "1.3.1"
+    "@webassemblyjs/wasm-gen" "1.3.1"
+
+"@webassemblyjs/leb128@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/leb128/-/leb128-1.3.1.tgz#e0cf1c585c72955637eeeabab1e2ab37c12c2338"
+  dependencies:
+    leb "^0.3.0"
+
+"@webassemblyjs/validation@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/validation/-/validation-1.3.1.tgz#ed0129d7ccca7858a3f46e7e47a6889008547a39"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+
+"@webassemblyjs/wasm-edit@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/wasm-edit/-/wasm-edit-1.3.1.tgz#a16ca4d9a12144b1b28d4e66ad1ad66ec65e479e"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/helper-buffer" "1.3.1"
+    "@webassemblyjs/helper-wasm-bytecode" "1.3.1"
+    "@webassemblyjs/helper-wasm-section" "1.3.1"
+    "@webassemblyjs/wasm-gen" "1.3.1"
+    "@webassemblyjs/wasm-opt" "1.3.1"
+    "@webassemblyjs/wasm-parser" "1.3.1"
+    "@webassemblyjs/wast-printer" "1.3.1"
+    debug "^3.1.0"
+
+"@webassemblyjs/wasm-gen@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/wasm-gen/-/wasm-gen-1.3.1.tgz#43263fc56a0570e0564e407bbcd4c02e85167398"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/helper-wasm-bytecode" "1.3.1"
+    "@webassemblyjs/leb128" "1.3.1"
+
+"@webassemblyjs/wasm-opt@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/wasm-opt/-/wasm-opt-1.3.1.tgz#172601dcdaaacd6b0b002df1252033198c65eceb"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/helper-buffer" "1.3.1"
+    "@webassemblyjs/wasm-gen" "1.3.1"
+    "@webassemblyjs/wasm-parser" "1.3.1"
+
+"@webassemblyjs/wasm-parser@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/wasm-parser/-/wasm-parser-1.3.1.tgz#76727be6c313a9b775170ed38a126558eed7e8ef"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/helper-wasm-bytecode" "1.3.1"
+    "@webassemblyjs/leb128" "1.3.1"
+    "@webassemblyjs/wasm-parser" "1.3.1"
+    webassemblyjs "1.3.1"
+
+"@webassemblyjs/wast-parser@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/wast-parser/-/wast-parser-1.3.1.tgz#62b6eba09580477868dd394cee3e3f5c64e1f3f8"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/floating-point-hex-parser" "1.3.1"
+    "@webassemblyjs/helper-code-frame" "1.3.1"
+    "@webassemblyjs/helper-fsm" "1.3.1"
+    long "^3.2.0"
+    webassemblyjs "1.3.1"
+
+"@webassemblyjs/wast-printer@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@webassemblyjs/wast-printer/-/wast-printer-1.3.1.tgz#3e75b889e6f1ba2dfa854e4436b4287e7687e82c"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/wast-parser" "1.3.1"
+    long "^3.2.0"
+
 JSONStream@^1.0.4:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.2.tgz#c102371b6ec3a7cf3b847ca00c20bb0fce4c6dea"
@@ -3158,9 +3269,13 @@ copy-webpack-plugin@^4.5.1:
     p-limit "^1.0.0"
     serialize-javascript "^1.4.0"
 
-core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.5.3, core-js@^2.5.5:
+core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.5.3:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.5.tgz#b14dde936c640c0579a6b50cabcc132dd6127e3b"
+
+core-js@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.6.tgz#0fe6d45bf3cac3ac364a9d72de7576f4eb221b9d"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -6085,6 +6200,10 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
+leb@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/leb/-/leb-0.3.0.tgz#32bee9fad168328d6aea8522d833f4180eed1da3"
+
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/levn/-/levn-0.3.0.tgz#3b09924edf9f083c0490fdd4c0bc4421e04764ee"
@@ -6293,6 +6412,10 @@ loglevel@^1.4.1:
 loglevelnext@^1.0.1, loglevelnext@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/loglevelnext/-/loglevelnext-1.0.4.tgz#0d991d9998180991dac8bd81e73a596a8720a645"
+
+long@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
 
 longest@^1.0.1:
   version "1.0.1"
@@ -10170,9 +10293,9 @@ vue-loader@^15.0.0-rc.1:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-loader@^15.0.9:
-  version "15.0.9"
-  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.0.9.tgz#2f3f59ffd395b03e413bbe14db1369c2f57917c8"
+vue-loader@^15.0.10:
+  version "15.0.10"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.0.10.tgz#cbbb43d63492c24bfb1963fb7997d5349ef42e72"
   dependencies:
     "@vue/component-compiler-utils" "^1.2.1"
     hash-sum "^1.0.2"
@@ -10307,15 +10430,25 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   dependencies:
     minimalistic-assert "^1.0.0"
 
+webassemblyjs@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/webassemblyjs/-/webassemblyjs-1.3.1.tgz#2bb8ebc724d0fe09b9562ab20e32ce3f5bac5c74"
+  dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/validation" "1.3.1"
+    "@webassemblyjs/wasm-parser" "1.3.1"
+    "@webassemblyjs/wast-parser" "1.3.1"
+    long "^3.2.0"
+
 webpack-addons@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/webpack-addons/-/webpack-addons-1.1.5.tgz#2b178dfe873fb6e75e40a819fa5c26e4a9bc837a"
   dependencies:
     jscodeshift "^0.4.0"
 
-webpack-bundle-analyzer@^2.11.1:
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.11.1.tgz#b9fbfb6a32c0a8c1c3237223e90890796b950ab9"
+webpack-bundle-analyzer@^2.11.2:
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.11.2.tgz#5ae05bfccffb16683977237bf319323653e44f9f"
   dependencies:
     acorn "^5.3.0"
     bfj-node4 "^5.2.0"
@@ -10336,9 +10469,9 @@ webpack-chain@^4.6.0:
   dependencies:
     deepmerge "^1.5.2"
 
-webpack-cli@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-2.1.2.tgz#9c9a4b90584f7b8acaf591238ef0667e04c817f6"
+webpack-cli@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-2.1.3.tgz#65d166851abaa56067ef3f716b02a97ba6bbe84d"
   dependencies:
     chalk "^2.3.2"
     cross-spawn "^6.0.5"
@@ -10508,10 +10641,13 @@ webpack@^4.5.0:
     watchpack "^1.5.0"
     webpack-sources "^1.0.1"
 
-webpack@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.7.0.tgz#a04f68dab86d5545fd0277d07ffc44e4078154c9"
+webpack@^4.8.1:
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.8.1.tgz#59e38f99f2751c931dd09a035aba7bec4b5f916e"
   dependencies:
+    "@webassemblyjs/ast" "1.3.1"
+    "@webassemblyjs/wasm-edit" "1.3.1"
+    "@webassemblyjs/wasm-parser" "1.3.1"
     acorn "^5.0.0"
     acorn-dynamic-import "^3.0.0"
     ajv "^6.1.0"
