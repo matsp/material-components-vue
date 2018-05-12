@@ -2,8 +2,8 @@
   <div
     class="mdc-card"
     :class="classes">
+    <slot name="media"/>
     <div :class="contentClasses">
-      <slot name="media"/>
       <slot />
     </div>
     <div
