@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.19.2"></a>
+## [0.19.2](https://github.com/matsp/material-components-vue/compare/v0.19.1...v0.19.2) (2018-05-14)
+
+
+### Bug Fixes
+
+* **card:** Add ripple effect on card if primaryAction (closes [#106](https://github.com/matsp/material-components-vue/issues/106)) ([e908e47](https://github.com/matsp/material-components-vue/commit/e908e47))
+* **card:** Move media slot out of content ([c3c8c85](https://github.com/matsp/material-components-vue/commit/c3c8c85))
+* **checkbox:** Make indeterminate a reactive prop ([844576d](https://github.com/matsp/material-components-vue/commit/844576d))
+* **radio:** Watch checked prop (closes [#104](https://github.com/matsp/material-components-vue/issues/104)) ([238000f](https://github.com/matsp/material-components-vue/commit/238000f))
+
+
+
 <a name="0.19.1"></a>
 ## [0.19.1](https://github.com/matsp/material-components-vue/compare/v0.19.0...v0.19.1) (2018-05-05)
 
