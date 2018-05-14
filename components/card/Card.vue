@@ -2,8 +2,10 @@
   <div
     class="mdc-card"
     :class="classes">
-    <slot name="media"/>
-    <div :class="contentClasses">
+    <div
+      ref="content"
+      :class="contentClasses">
+      <slot name="media"/>
       <slot />
     </div>
     <div
@@ -25,6 +27,7 @@
 </template>
 
 <script>
+import { MDCRipple } from '@material/ripple'
 import themeClassMixin from '../base/themeClassMixin.js'
 
 export default {
@@ -45,7 +48,8 @@ export default {
   },
   data () {
     return {
-      slotObserver: undefined
+      slotObserver: undefined,
+      mdcRipple: undefined
     }
   },
   computed: {
@@ -72,9 +76,14 @@ export default {
       childList: true,
       subtree: true
     })
+
+    if (this.primaryAction) { this.mdcRipple = MDCRipple.attachTo(this.$refs.content) }
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
+    if (typeof this.mdcRipple !== 'undefined') {
+      this.mdcRipple.destroy()
+    }
   },
   methods: {
     updateSlots () {
@@ -92,6 +101,11 @@ export default {
           n.elm.setAttribute('role', 'button')
         })
       }
+    }
+  },
+  watch: {
+    primaryAction (value) {
+      value ? this.mdcRipple = MDCRipple.attachTo(this.$refs.content) : this.mdcRipple.destroy() 
     }
   }
 }
