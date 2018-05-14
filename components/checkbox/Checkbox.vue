@@ -58,6 +58,9 @@ export default {
   watch: {
     checked () {
       this.mdcCheckbox.indeterminate = false
+    },
+    indeterminate (value) {
+      this.mdcCheckbox.indeterminate = value
     }
   },
   mounted () {
