@@ -2,11 +2,11 @@
   <div class="mdc-radio">
     <input
       :class="classes"
-      v-bind="$attrs"
       :name="name"
-      :checked="checked"
       class="mdc-radio__native-control"
       type="radio"
+      :checked="checked"
+      :disabled="disabled"
       @change="onChange">
     <div class="mdc-radio__background">
       <div class="mdc-radio__outer-circle"/>
@@ -68,6 +68,14 @@ export default {
   methods: {
     onChange (event) {
       this.$emit('change', this.mdcRadio.value)
+    }
+  },
+  watch: {
+    checked () {
+      this.mdcRadio.checked = this.checked 
+    },
+    disabled () {
+      this.mdcRadio.disabled = this.disabled
     }
   }
 }
