@@ -3,4 +3,3 @@ node_modules/
 yarn-error.log
 reports/
 dist/
-public/
