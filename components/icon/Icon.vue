@@ -1,7 +1,7 @@
 <template>
-  <span class="material-icons">
+  <i class="material-icons">
     {{ icon }}
-  </span>
+  </i>
 </template>
 
 <script>
