@@ -7,6 +7,13 @@ $mdc-theme-background: #ffffff;
 @import "../../dist/layout-grid/styles";
 
 @import "../../dist/button/styles";
+@import "../../dist/radio/styles";
+@import "../../dist/checkbox/styles";
+@import "../../dist/form-field/styles";
+@import "../../dist/select/styles";
+@import "../../dist/card/styles";
+@import "../../dist/chips/styles";
+@import "../../dist/textfield/styles";
 
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500"); */
 /* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
@@ -17,8 +24,8 @@ $mdc-theme-background: #ffffff;
   font-style: normal;
   font-weight: 300;
   src: local('Roboto Light'), local('Roboto-Light'),
-       url('../assets/fonts/roboto-300.woff2') format('woff2'),
-       url('../assets/fonts/roboto-300.woff') format('woff');
+       url('./public/assets/fonts/roboto-300.woff2') format('woff2'),
+       url('./public/assets/fonts/roboto-300.woff') format('woff');
 }
 /* roboto-regular - latin */
 @font-face {
@@ -26,8 +33,8 @@ $mdc-theme-background: #ffffff;
   font-style: normal;
   font-weight: 400;
   src: local('Roboto'), local('Roboto-Regular'),
-       url('../assets/fonts/roboto-regular.woff2') format('woff2'),
-       url('../assets/fonts/roboto-regular.woff') format('woff');
+       url('./public/assets/fonts/roboto-regular.woff2') format('woff2'),
+       url('./public/assets/fonts/roboto-regular.woff') format('woff');
 }
 /* roboto-500 - latin */
 @font-face {
@@ -35,8 +42,8 @@ $mdc-theme-background: #ffffff;
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'),
-       url('../assets/fonts/roboto-500.woff2') format('woff2'),
-       url('../assets/fonts/roboto-500.woff') format('woff');
+       url('./public/assets/fonts/roboto-500.woff2') format('woff2'),
+       url('./public/assets/fonts/roboto-500.woff') format('woff');
      }
 
 @font-face {
@@ -44,8 +51,8 @@ $mdc-theme-background: #ffffff;
   font-style: normal;
   font-weight: 400;
   src: local('Material Icons'), local('MaterialIcons-Regular'),
-       url('../assets/fonts/materialicons-regular.woff2') format('woff2'),
-       url('../assets/fonts/materialicons-regular.woff') format('woff');
+       url('./public/assets/fonts/materialicons-regular.woff2') format('woff2'),
+       url('./public/assets/fonts/materialicons-regular.woff') format('woff');
 }
 
 .material-icons {

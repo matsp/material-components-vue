@@ -11,9 +11,10 @@ module.exports = {
   },
   themeConfig: {
     repo: 'matsp/material-components-vue',
-    sidebar: [
-      '/Button',
-      '/Card'
+    nav: [
+      { text: 'Components', link: '/components/' },
+      // { text: 'API Reference', link: '/api/' },
+      { text: 'Guide', link: '/guide/' }
     ]
   },
   scss: {
