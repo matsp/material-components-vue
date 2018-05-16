@@ -30,9 +30,15 @@ data() {
 |------|------|---------|-------------|
 | choice | Boolean | false | single selection chips in set |
 | filter | Boolean | false | multiple selection chips in set |
-| input | Boolean | false | indicates that the chips in the set are input chips |
+| input | Boolean | false | indicates that the chips in the set are input chips (for converting text in a chip) |
 
 ## Chip
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| selected | Boolean | false | state of chip (could be v-modeled) |
 
 ### Slots
 
@@ -40,7 +46,7 @@ data() {
 |------|-------------|
 | default | chip content |
 | leadingIcon | leading icon |
-| trailingIcon | trailingIcon |
+| trailingIcon | trailing icon |
 
 ### Reference
 

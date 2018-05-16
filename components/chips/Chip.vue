@@ -8,7 +8,9 @@
     <slot
       name="leadingIcon"
       v-if="$slots['leadingIcon']"/>
-    <div class="mdc-chip__checkmark" >
+    <div
+      v-if="mdcChipSet && mdcChipSet.filter"
+      class="mdc-chip__checkmark">
       <svg
         class="mdc-chip__checkmark-svg"
         viewBox="-2 -3 30 30">
@@ -45,6 +47,7 @@ export default {
       default: false
     }
   },
+  inject: ['mdcChipSet'],
   data () {
     return {
       slotObserver: undefined
@@ -53,8 +56,7 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-chip--selected': this.selected,
-        'mdc-chip__icon--leading-hidden': this.selected
+        'mdc-chip--selected': this.selected
       }
     }
   },
@@ -74,7 +76,12 @@ export default {
       if (this.$slots.leadingIcon) {
         this.$slots.leadingIcon.map((n) => {
           n.elm.classList.add('mdc-chip__icon')
-          n.elm.classList.add('mdc-chip__icon--leading')
+          if (this.selected) {
+            n.elm.classList.add('mdc-chip__icon--leading-hidden')
+          } else {
+            n.elm.classList.remove('mdc-chip__icon--leading-hidden')
+            n.elm.classList.add('mdc-chip__icon--leading')
+          }
         })
       }
       if (this.$slots.trailingIcon) {
