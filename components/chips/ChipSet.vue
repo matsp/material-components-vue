@@ -27,6 +27,11 @@ export default {
       default: false
     }
   },
+  provide () {
+    return {
+      mdcChipSet: this
+    }
+  },
   data () {
     return {
       mdcChipSet: undefined
