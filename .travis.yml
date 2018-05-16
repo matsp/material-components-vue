@@ -9,13 +9,13 @@ before_script: greenkeeper-lockfile-update
 script: 
   - yarn build:lib
   - yarn build:es5
-  - yarn build:prod
+  - yarn docs:prod
 after_script: greenkeeper-lockfile-upload
 deploy:
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
-    local_dir: public
+    local_dir: .vuepress/dist
     skip_cleanup: true
     on:
       tags: true
