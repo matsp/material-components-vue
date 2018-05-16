@@ -5,6 +5,7 @@
       :name="name"
       class="mdc-radio__native-control"
       type="radio"
+      v-bind="$attrs"
       :checked="checked"
       :disabled="disabled"
       @change="onChange">
