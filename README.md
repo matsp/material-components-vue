@@ -96,9 +96,9 @@ import 'material-components-vue/dist/button/button.min.css'
   <body>
     <div id="app">
       <m-typography>
-        <m-button interactive>Example</m-button>
-        <m-button interactive raised>Example</m-button>
-        <m-button interactive stroked>Example</m-button>
+        <m-button>Example</m-button>
+        <m-button raised>Example</m-button>
+        <m-button stroked>Example</m-button>
       </m-typography>
     </div>
     <script src="https://unpkg.com/vue"></script>
