@@ -1,25 +1,25 @@
 <template>
   <li
-    class="mdc-list-item"
     :class="classes"
+    class="mdc-list-item"
     v-on="$listeners">
     <slot
-      name="graphic"
-      v-if="$slots['graphic']"/>
+      v-if="$slots['graphic']"
+      name="graphic"/>
     <slot/>
     <span
-      class="mdc-list-item__text"
-      v-if="$slots['text']">
+      v-if="$slots['text']"
+      class="mdc-list-item__text">
       <slot name="text"/>
       <div
-        class="mdc-list-mdc-list-item__secondary-text"
-        v-if="$slots['secondaryText']">
+        v-if="$slots['secondaryText']"
+        class="mdc-list-mdc-list-item__secondary-text">
         <slot name="secondaryText"/>
       </div>
     </span>
     <slot
-      name="meta"
-      v-if="$slots['meta']"/>
+      v-if="$slots['meta']"
+      name="meta"/>
   </li>
 </template>
 
@@ -31,10 +31,6 @@ import themeClassMixin from '../base/themeClassMixin.js'
 export default {
   mixins: [themeClassMixin],
   props: {
-    interactive: {
-      type: Boolean,
-      default: false
-    },
     activated: {
       type: Boolean,
       default: false
@@ -58,23 +54,28 @@ export default {
       }
     }
   },
+  watch: {
+    classes () {
+      this.mdcRipple.destroy()
+      this.mdcRipple = MDCRipple.attachTo(this.$el)
+    }
+  },
   mounted () {
     this.updateSlots()
-    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
-
-    if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
+    this.mdcRipple = MDCRipple.attachTo(this.$el)
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
-    if (typeof this.mdcRipple !== 'undefined') { 
-      this.mdcRipple.destroy() 
+    if (typeof this.mdcRipple !== 'undefined') {
+      this.mdcRipple.destroy()
     }
   },
-  methods:  {
+  methods: {
     updateSlots () {
       if (this.$slots.graphic) {
         this.$slots.graphic.map(n => {

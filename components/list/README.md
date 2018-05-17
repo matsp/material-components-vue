@@ -72,7 +72,6 @@
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| interactive | Boolean | false | ripple effect |
 | activated | Boolean | false | activated item |
 | selected | Boolean | false | selected item |
 
