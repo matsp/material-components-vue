@@ -14,22 +14,18 @@ export default {
   props: {
     avatar: {
       type: Boolean,
-      required: false,
       default: false
     },
     dense: {
       type: Boolean,
-      required: false,
       default: false
     },
     twoLine: {
       type: Boolean,
-      required: false,
       default: false
     },
     nonInteractive: {
       type: Boolean,
-      required: false,
       default: false
     }
   },
