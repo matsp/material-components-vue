@@ -3,7 +3,7 @@
   <ComponentSection>
     <m-button
       :raised="radioProps[1].value"
-      :dense="checkboxProps[3].value"
+      :dense="checkboxProps[2].value"
       :unelevated="radioProps[2].value"
       :outlined="radioProps[3].value"
       :disabled="checkboxProps[1].value"
@@ -34,7 +34,6 @@ export default {
       checkboxProps: [
         { prop: 'icon', value: false },
         { prop: 'disabled', value: false },
-        { prop: 'interactive', value: false },
         { prop: 'dense', value: false }
       ]
     }
