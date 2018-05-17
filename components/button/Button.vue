@@ -1,20 +1,20 @@
 <template>
   <a
     v-if="href"
-    role="button"
-    class="mdc-button"
     :class="classes"
     :href="href"
     v-bind="$attrs"
+    role="button"
+    class="mdc-button"
     v-on="$listeners">
     <slot name="icon"/>
     <slot />
   </a>
   <button
     v-else
-    class="mdc-button"
     :class="classes"
     v-bind="$attrs"
+    class="mdc-button"
     v-on="$listeners">
     <slot name="icon"/>
     <slot />
@@ -44,10 +44,6 @@ export default {
       type: Boolean,
       default: false
     },
-    interactive: {
-      type: Boolean,
-      default: false
-    },
     href: {
       type: String,
       default: ''
@@ -69,15 +65,20 @@ export default {
       }
     }
   },
+  watch: {
+    classes () {
+      this.mdcRipple.destroy()
+      this.mdcRipple = MDCRipple.attachTo(this.$el)
+    }
+  },
   mounted () {
     this.updateSlot()
-    this.slotObserver = new MutationObserver( () => this.updateSlot())
+    this.slotObserver = new MutationObserver(() => this.updateSlot())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
-
-    if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
+    this.mdcRipple = MDCRipple.attachTo(this.$el)
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -86,17 +87,13 @@ export default {
     }
   },
   methods: {
-    updateSlot() {
+    updateSlot () {
       if (this.$slots.icon) {
         this.$slots.icon.map(n => {
           n.elm.classList.add('mdc-button__icon')
+          n.elm.setAttribute('aria-hidden', 'true')
         })
       }
-    }
-  },
-  watch: {
-    interactive (value) {
-      value ? this.mdcRipple = MDCRipple.attachTo(this.$el) : this.mdcRipple.destroy() 
     }
   }
 }

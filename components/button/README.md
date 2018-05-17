@@ -3,13 +3,22 @@
 ### Markup
 
 ```html
-<m-button interactive raised @click="onClick">Button</m-button>
-<m-button unelevated>
-  <m-icon slot="icon" icon="cloud"/>
+<m-button
+  raised
+  @click="onClick">
   Button
 </m-button>
+
+<m-button unelevated>
+  <m-icon
+    slot="icon"
+    icon="cloud"/>
+  Button
+</m-button>
+
 <m-button disabled>Button</m-button>
-<m-button interactive href="https://github.com/matsp/material-components-vue">Github</m-button>
+<m-button href="https://github.com/matsp/material-components-vue">Github</m-button>
+
 <m-button>
   <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="...">
     ...
@@ -24,7 +33,6 @@
 | unelevated | Boolean | false | unelevated button |
 | outlined | Boolean | false | outlined button |
 | dense | Boolean | false | dense button |
-| interactive | Boolean | false | button with ripple effect |
 | href | String | ' ' | link button |
 
 Non prop attributes and events are mapped to the inner button element.
