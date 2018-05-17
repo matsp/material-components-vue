@@ -17,7 +17,6 @@
 | mini | Boolean | false | mini fab button |
 | absoluteRight | Boolean | false | whether the fab should be rendered on the bottom right |
 | exited | Boolean | false | animates the fab out of view |
-| interactive | Boolean | false | fab with ripple effect |
 
 Events are mapped to the inner button element.
 

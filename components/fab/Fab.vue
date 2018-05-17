@@ -1,7 +1,7 @@
 <template>
   <button
-    class="mdc-fab"
     :class="classes"
+    class="mdc-fab"
     v-on="$listeners">
     <slot />
   </button>
@@ -26,10 +26,6 @@ export default {
     exited: {
       type: Boolean,
       default: false
-    },
-    interactive: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
@@ -47,15 +43,20 @@ export default {
       }
     }
   },
+  watch: {
+    classes () {
+      this.mdcRipple.destroy()
+      this.mdcRipple = MDCRipple.attachTo(this.$el)
+    }
+  },
   mounted () {
     this.updateSlot()
-    this.slotObserver = new MutationObserver( () => this.updateSlot())
+    this.slotObserver = new MutationObserver(() => this.updateSlot())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
-
-    if (this.interactive) { this.mdcRipple = MDCRipple.attachTo(this.$el) }
+    this.mdcRipple = MDCRipple.attachTo(this.$el)
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -63,7 +64,7 @@ export default {
       this.mdcRipple.destroy()
     }
   },
-  methods:  {
+  methods: {
     updateSlot () {
       if (this.$slots.default) {
         this.$slots.default.map(n => {
