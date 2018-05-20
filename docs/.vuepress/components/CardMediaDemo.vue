@@ -63,7 +63,7 @@ export default {
 }
 
 .card-media {
-  background-image: url("/assets/images/cat_169.jpg");
+  background-image: url("/material-components-vue/assets/images/cat_169.jpg");
 }
 
 .card-media-content {

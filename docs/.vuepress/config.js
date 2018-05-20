@@ -4,6 +4,7 @@ const nodeModules = path.resolve('node_modules/')
 module.exports = {
   title: 'Material Components Vue',
   description: 'Material Design components for Vue.js',
+  base: '/material-components-vue/',
   head: [
     ['link', { rel: 'icon', href: '/logo.png'}]
   ],
