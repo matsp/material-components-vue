@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.0"></a>
+# [0.20.0](https://github.com/matsp/material-components-vue/compare/v0.19.2...v0.20.0) (2018-05-20)
+
+
+### Bug Fixes
+
+* **button:** Set ripple on class changes ([4ecd765](https://github.com/matsp/material-components-vue/commit/4ecd765))
+* **chips:** Only render checkmark on filter chips ([37f675d](https://github.com/matsp/material-components-vue/commit/37f675d))
+* **fab:** Set ripple on class changes ([f049ab3](https://github.com/matsp/material-components-vue/commit/f049ab3))
+* **list:** Set ripple on class changes ([b921ede](https://github.com/matsp/material-components-vue/commit/b921ede))
+
+
+### Features
+
+* **chips:** Provide mdcChipSet for child chips ([23734b6](https://github.com/matsp/material-components-vue/commit/23734b6))
+* **radio:** Map non prop attributes to the inner input element ([4472ccf](https://github.com/matsp/material-components-vue/commit/4472ccf))
+
+
+### BREAKING CHANGES
+
+* **list:** Removed interactive prop, ripple effect is now default.
+* **fab:** Removed interactive prop, ripple effect is now default.
+* **button:** Removed interactive prop, ripple effect is now default.
+
+
+
 <a name="0.19.2"></a>
 ## [0.19.2](https://github.com/matsp/material-components-vue/compare/v0.19.1...v0.19.2) (2018-05-14)
 
