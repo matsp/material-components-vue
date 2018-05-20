@@ -37,7 +37,7 @@ https://matsp.github.io/material-components-vue
 * [Code of Conduct](https://github.com/matsp/material-components-vue/blob/master/CODE_OF_CONDUCT.md)
 * [Docs](https://matsp.github.io/material-components-vue)
 
-### Distributions
+## Distributions
 
 | Name | ECMA | Minimized |
 |------|-----:|----------:|
