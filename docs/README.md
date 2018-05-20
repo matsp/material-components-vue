@@ -5,7 +5,7 @@ actionText: Get Started →
 actionLink: /guide/
 features:
 - title: Material Design Specs
-  details: This library wraps the official Google mdc-web components which implements Material Design specs.
+  details: This library wraps the official Google mdc-web components which implement the Material Design specs.
 - title: Easy API
   details: Simple and small as possible component APIs, without reinventing HTML.
 - title: Decoupled Components
