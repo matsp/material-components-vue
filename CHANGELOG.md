@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.2"></a>
+## [0.20.2](https://github.com/matsp/material-components-vue/compare/v0.20.1...v0.20.2) (2018-05-20)
+
+
+### Bug Fixes
+
+* **travis:** Not correct docs directory ([57793b5](https://github.com/matsp/material-components-vue/commit/57793b5))
+
+
+
 <a name="0.20.1"></a>
 ## [0.20.1](https://github.com/matsp/material-components-vue/compare/v0.20.0...v0.20.1) (2018-05-20)
 
