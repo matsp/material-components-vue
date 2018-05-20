@@ -26,8 +26,8 @@ export default {
   data () {
     return {
       radioProps: [
-        { prop: 'baseline', value: true},
-        { prop: 'raised', value: false },
+        { prop: 'baseline', value: false},
+        { prop: 'raised', value: true },
         { prop: 'unelevated', value: false },
         { prop: 'outlined', value: false }
       ],
