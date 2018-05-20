@@ -4,6 +4,14 @@
   </a>
 </p>
 
+[![npm](https://img.shields.io/npm/l/material-components-vue.svg)](https://github.com/matsp/material-components-vue/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/dt/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
+[![npm version](https://img.shields.io/npm/v/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
+[![mdc-web](https://img.shields.io/badge/mdc--web-0.35.1-orange.svg)](https://www.npmjs.com/package/material-components-web)
+[![Build Status](https://travis-ci.org/matsp/material-components-vue.svg?branch=master)](https://travis-ci.org/matsp/material-components-vue) 
+[![Greenkeeper badge](https://badges.greenkeeper.io/matsp/material-components-vue.svg)](https://greenkeeper.io/)
+
+
 # Material Components Vue
 
 > Material Design styled components for Vue.js
@@ -11,15 +19,6 @@
 Material-components-vue integrates the [mdc-web](https://github.com/material-components/material-components-web) (by google) vanilla components following the [simple approach](https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md#the-simple-approach-wrapping-mdc-web-vanilla-components).
 
 https://matsp.github.io/material-components-vue
-
-[![npm](https://img.shields.io/npm/l/material-components-vue.svg)](https://github.com/matsp/material-components-vue/blob/master/LICENSE)
-[![npm](https://img.shields.io/npm/dt/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
-
-
-[![npm version](https://img.shields.io/npm/v/material-components-vue.svg)](https://www.npmjs.com/package/material-components-vue)
-[![mdc-web](https://img.shields.io/badge/mdc--web-0.35.1-orange.svg)](https://www.npmjs.com/package/material-components-web)
-[![Build Status](https://travis-ci.org/matsp/material-components-vue.svg?branch=master)](https://travis-ci.org/matsp/material-components-vue) 
-[![Greenkeeper badge](https://badges.greenkeeper.io/matsp/material-components-vue.svg)](https://greenkeeper.io/)
 
 ## Features
 
