@@ -15,7 +15,7 @@ deploy:
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
-    local_dir: .vuepress/dist
+    local_dir: docs/.vuepress/dist
     skip_cleanup: true
     on:
       tags: true
