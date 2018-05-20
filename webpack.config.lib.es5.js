@@ -7,6 +7,7 @@ const root = path.join(__dirname)
 
 module.exports = merge(common, {
   mode: 'production',
+  target: 'web',
   output: {
     path: path.resolve(root + '/dist'),
     filename: '[name]/[name].min.js',
