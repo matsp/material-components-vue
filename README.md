@@ -28,6 +28,7 @@ https://matsp.github.io/material-components-vue
 * keep the components as simple as possible
 * keep in sync with changes in the mdc-web repository
 * user friendly component api
+* SSR (Server Side Rendering) support
 
 
 ## Links
