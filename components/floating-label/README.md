@@ -8,6 +8,7 @@
   <m-floating-label for="textfield">Textfield label</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
 </m-text-field>
+```
 
 ### Props
 
