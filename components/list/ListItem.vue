@@ -13,7 +13,7 @@
       <slot name="text"/>
       <div
         v-if="$slots['secondaryText']"
-        class="mdc-list-mdc-list-item__secondary-text">
+        class="mdc-list-item__secondary-text">
         <slot name="secondaryText"/>
       </div>
     </span>
