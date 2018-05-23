@@ -140,7 +140,21 @@ export default {
 </style>
 ```
 
+In your app root component you should also import the Roboto font and the Material Icons to be fully compatible with the library:
+
+```vue
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+</style>
+```
+
 ### Using SASS Customizations
+
+::: tip
+You can also use the precompiled CSS stylesheets, if you don't need complex customizations.
+You can follow the theming examples at the [CDN usage](#theming) section.
+:::
 
 The original mdc-web components are implemented by using SASS to generate highly customizable stylesheets. SASS can be used to define e.g. custom colors on components or to modify the shape. Please inform yourself at each component subdirectory on the official repository to see what is possible with each component - see [here](https://github.com/material-components/material-components-web/tree/master/packages).
 
