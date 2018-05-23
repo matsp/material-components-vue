@@ -171,3 +171,14 @@ Now you can modify SASS variables to establish your own brand colors:
 Don't forget to include the `@material` directory of your `node_modules` in your sass-loader options.
 Otherwise the components won't compile sucessfully.
 :::
+
+Webpack example:
+
+```javascript
+{
+  loader: 'sass-loader',
+  options: {
+    includePaths: ['./node_modules/@material']
+  }
+}
+```
