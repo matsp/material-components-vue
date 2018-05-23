@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.0"></a>
+# [0.21.0](https://github.com/matsp/material-components-vue/compare/v0.20.3...v0.21.0) (2018-05-23)
+
+
+### Bug Fixes
+
+* **list:** Correct component names for instantiation (close [#111](https://github.com/matsp/material-components-vue/issues/111)) ([f980270](https://github.com/matsp/material-components-vue/commit/f980270))
+* **list:** Correct CSS class for ListItem (close [#110](https://github.com/matsp/material-components-vue/issues/110)) ([404ea70](https://github.com/matsp/material-components-vue/commit/404ea70))
+* **theme:** Add surface color to theming mixin. ([e2879c1](https://github.com/matsp/material-components-vue/commit/e2879c1))
+
+
+### Features
+
+* **build:** Add SSR support for library (close [#107](https://github.com/matsp/material-components-vue/issues/107)) ([cfd1070](https://github.com/matsp/material-components-vue/commit/cfd1070))
+
+
+
 <a name="0.20.3"></a>
 ## [0.20.3](https://github.com/matsp/material-components-vue/compare/v0.20.2...v0.20.3) (2018-05-20)
 
