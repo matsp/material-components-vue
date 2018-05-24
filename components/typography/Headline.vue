@@ -13,7 +13,7 @@ export default {
     level: {
       type: Number,
       required: true,
-      validator: (level) => level >= 1 && level <= 6 
+      validator: (level) => level >= 1 && level <= 6
     }
   },
   computed: {

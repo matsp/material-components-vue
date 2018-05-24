@@ -29,7 +29,7 @@ export default {
   },
   mounted () {
     this.updateSlot()
-    this.slotObserver = new MutationObserver( () => this.updateSlot())
+    this.slotObserver = new MutationObserver(() => this.updateSlot())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true

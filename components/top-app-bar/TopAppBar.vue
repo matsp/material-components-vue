@@ -1,12 +1,12 @@
 <template>
   <header
-    class="mdc-top-app-bar"
     :class="classes"
+    class="mdc-top-app-bar"
     @MDCTopAppBar:nav="onNavigation()">
     <div class="mdc-top-app-bar__row">
       <section
-        class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
-        v-if="$slots['navigation'] || $slots['default']">
+        v-if="$slots['navigation'] || $slots['default']"
+        class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
         <slot name="navigation"/>
         <div
           v-if="$slots['default']"
@@ -15,9 +15,9 @@
         </div>
       </section>
       <section
+        v-if="$slots['actions']"
         class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
-        role="toolbar"
-        v-if="$slots['actions']">
+        role="toolbar">
         <slot name="actions"/>
       </section>
     </div>
@@ -48,7 +48,7 @@ export default {
       type: Boolean,
       default: false
     },
-    fixed:  {
+    fixed: {
       type: Boolean,
       default: false
     }
@@ -72,7 +72,7 @@ export default {
   },
   mounted () {
     this.updateSlots()
-    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true

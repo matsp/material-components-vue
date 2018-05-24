@@ -1,11 +1,11 @@
 <template>
   <i
-    @click="onClick"
-    class="mdc-icon-toggle material-icons"
     :class="classes"
-    role="button"
     :data-toggle-on="dataToggleOn"
-    :data-toggle-off="dataToggleOff" >
+    :data-toggle-off="dataToggleOff"
+    class="mdc-icon-toggle material-icons"
+    role="button"
+    @click="onClick" >
     {{ value?iconOn:iconOff }}
   </i>
 </template>

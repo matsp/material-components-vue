@@ -1,7 +1,7 @@
 <template>
   <div
-    class="mdc-top-app-bar--fixed-adjust"
-    :class="classes">
+    :class="classes"
+    class="mdc-top-app-bar--fixed-adjust">
     <slot />
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
       type: Boolean,
       default: false
     },
-    denseProminent:  {
+    denseProminent: {
       type: Boolean,
       default: false
     }
@@ -32,7 +32,7 @@ export default {
         'mdc-top-app-bar--dense-fixed-adjust': this.dense && !this.short,
         'mdc-top-app-bar--short-fixed-adjust': this.short,
         'mdc-top-app-bar--prominent-fixed-adjust': this.prominent && !this.short,
-        'mdc-top-app-bar--dense-prominent-fixed-adjust': this.denseProminent && !this.short,
+        'mdc-top-app-bar--dense-prominent-fixed-adjust': this.denseProminent && !this.short
       }
     }
   }

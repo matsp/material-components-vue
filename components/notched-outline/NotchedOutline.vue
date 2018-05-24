@@ -1,8 +1,8 @@
 <template>
   <div>
     <div
-      class="mdc-notched-outline"
-      :class="classes">
+      :class="classes"
+      class="mdc-notched-outline">
       <svg>
         <path class="mdc-notched-outline__path"/>
       </svg>

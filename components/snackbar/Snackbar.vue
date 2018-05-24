@@ -1,7 +1,7 @@
 <template>
   <div
-    class="mdc-snackbar"
     :class="classes"
+    class="mdc-snackbar"
     aria-live="assertive"
     aria-atomic="true"
     aria-hidden="true"

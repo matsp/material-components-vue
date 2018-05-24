@@ -9,6 +9,6 @@
 import themeClassMixin from '../../base/themeClassMixin.js'
 
 export default {
-  mixins: [themeClassMixin]
+  mixins: [baseComponentMixin, themeClassMixin]
 }
 </script>

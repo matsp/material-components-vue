@@ -1,26 +1,26 @@
 <template>
   <div class="mdc-toolbar__row">
     <section
-      class="mdc-toolbar__section mdc-toolbar__section--align-start"
+      v-if="$slots['default'] || $slots['start']"
       :class="shrinkClass(shrinkStart)"
-      v-if="$slots['default'] || $slots['start']">
+      class="mdc-toolbar__section mdc-toolbar__section--align-start">
       <slot name="start" />
       <span
-        class="mdc-toolbar__title"
-        v-if="$slots['default']">
+        v-if="$slots['default']"
+        class="mdc-toolbar__title">
         <slot />
       </span>
     </section>
     <section
-      class="mdc-toolbar__section"
+      v-if="$slots['center']"
       :class="shrinkClass(shrinkCenter)"
-      v-if="$slots['center']">
+      class="mdc-toolbar__section">
       <slot name="center" />
     </section>
     <section
-      class="mdc-toolbar__section mdc-toolbar__section--align-end"
+      v-if="$slots['end']"
       :class="shrinkClass(shrinkEnd)"
-      v-if="$slots['end']">
+      class="mdc-toolbar__section mdc-toolbar__section--align-end">
       <slot name="end" />
     </section>
   </div>

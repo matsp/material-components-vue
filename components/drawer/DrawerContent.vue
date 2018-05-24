@@ -1,7 +1,7 @@
 <template>
   <nav
-    class="mdc-drawer__content"
-    v-if="$slots['default']">
+    v-if="$slots['default']"
+    class="mdc-drawer__content">
     <slot />
   </nav>
 </template>
@@ -10,6 +10,6 @@
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [themeClassMixin]
+  mixins: [baseComponentMixin, themeClassMixin]
 }
 </script>

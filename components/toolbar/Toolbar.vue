@@ -1,7 +1,7 @@
 <template>
   <header
-    class="mdc-toolbar"
-    :class="classes">
+    :class="classes"
+    class="mdc-toolbar">
     <slot />
   </header>
 </template>

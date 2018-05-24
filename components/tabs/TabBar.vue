@@ -1,8 +1,8 @@
 <template>
   <nav
     v-if="!scrollable"
-    class="mdc-tab-bar"
-    :class="classes">
+    :class="classes"
+    class="mdc-tab-bar">
     <slot />
     <span class="mdc-tab-bar__indicator"/>
   </nav>
@@ -19,8 +19,8 @@
     </div>
     <div class="mdc-tab-bar-scroller__scroll-frame">
       <nav
-        class="mdc-tab-bar"
-        :class="classes">
+        :class="classes"
+        class="mdc-tab-bar">
         <slot />
         <span class="mdc-tab-bar__indicator"/>
       </nav>

@@ -1,12 +1,12 @@
 <template>
   <div
-    class="mdc-switch"
-    :class="classes">
+    :class="classes"
+    class="mdc-switch">
     <input
       v-model="model"
+      :disabled="disabled"
       type="checkbox"
-      class="mdc-switch__native-control"
-      :disabled="disabled" >
+      class="mdc-switch__native-control" >
     <div class="mdc-switch__background">
       <div class="mdc-switch__knob"/>
     </div>

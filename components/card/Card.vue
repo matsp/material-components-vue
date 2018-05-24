@@ -1,7 +1,7 @@
 <template>
   <div
-    class="mdc-card"
-    :class="classes">
+    :class="classes"
+    class="mdc-card">
     <div
       ref="content"
       :class="contentClasses">
@@ -9,17 +9,17 @@
       <slot />
     </div>
     <div
-      class="mdc-card__actions"
+      v-if="$slots['actionButtons'] || $slots['actionIcons']"
       :class="actionClasses"
-      v-if="$slots['actionButtons'] || $slots['actionIcons']">
+      class="mdc-card__actions">
       <div
-        class="mdc-card__action-buttons"
-        v-if="$slots['actionButtons']">
+        v-if="$slots['actionButtons']"
+        class="mdc-card__action-buttons">
         <slot name="actionButtons"/>
       </div>
       <div
-        class="mdc-card__action-icons"
-        v-if="$slots['actionIcons']">
+        v-if="$slots['actionIcons']"
+        class="mdc-card__action-icons">
         <slot name="actionIcons"/>
       </div>
     </div>
@@ -69,9 +69,14 @@ export default {
       }
     }
   },
+  watch: {
+    primaryAction (value) {
+      value ? this.mdcRipple = MDCRipple.attachTo(this.$refs.content) : this.mdcRipple.destroy()
+    }
+  },
   mounted () {
     this.updateSlots()
-    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
@@ -101,11 +106,6 @@ export default {
           n.elm.setAttribute('role', 'button')
         })
       }
-    }
-  },
-  watch: {
-    primaryAction (value) {
-      value ? this.mdcRipple = MDCRipple.attachTo(this.$refs.content) : this.mdcRipple.destroy() 
     }
   }
 }

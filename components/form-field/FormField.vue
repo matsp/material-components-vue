@@ -1,7 +1,7 @@
 <template>
   <div
-    class="mdc-form-field"
-    :class="classes">
+    :class="classes"
+    class="mdc-form-field">
     <slot/>
   </div>
 </template>

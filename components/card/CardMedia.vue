@@ -1,7 +1,7 @@
 <template>
   <div
-    class="mdc-card__media"
-    :class="classes">
+    :class="classes"
+    class="mdc-card__media">
     <div class="mdc-card__media-content">
       <slot />
     </div>

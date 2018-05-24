@@ -1,7 +1,7 @@
 <template>
   <label
-    class="mdc-floating-label"
-    :class="classes">
+    :class="classes"
+    class="mdc-floating-label">
     <slot/>
   </label>
 </template>

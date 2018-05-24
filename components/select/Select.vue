@@ -3,15 +3,15 @@
     :class="classes"
     class="mdc-select">
     <select
-      class="mdc-select__native-control"
       :disabled="disabled"
       v-bind="$attrs"
+      class="mdc-select__native-control"
       @change="onChange">
       <option
+        v-if="$slots['label']"
         value=""
         disabled
-        selected
-        v-if="$slots['label']"/>
+        selected/>
       <slot/>
     </select>
     <slot name="label"/>

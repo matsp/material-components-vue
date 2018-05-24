@@ -1,13 +1,13 @@
 <template>
   <div
-    class="mdc-chip"
     :class="classes"
+    class="mdc-chip"
     tabindex="0"
     @MDCChip:interaction="$emit('change', !selected)"
     @MDCChip:removal="$emit('remove') && $emit('change', false)">
     <slot
-      name="leadingIcon"
-      v-if="$slots['leadingIcon']"/>
+      v-if="$slots['leadingIcon']"
+      name="leadingIcon"/>
     <div
       v-if="mdcChipSet && mdcChipSet.filter"
       class="mdc-chip__checkmark">
@@ -25,8 +25,8 @@
       <slot/>
     </div>
     <slot
-      name="trailingIcon"
-      v-if="$slots['trailingIcon']"/>
+      v-if="$slots['trailingIcon']"
+      name="trailingIcon"/>
   </div>
 </template>
 

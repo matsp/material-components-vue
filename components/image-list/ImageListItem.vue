@@ -26,18 +26,21 @@ export default {
       default: true
     }
   },
-  data() {
+  data () {
     return {
       slotObserver: undefined
     }
   },
   mounted () {
-    this.updateSlot ()
-    this.slotObserver = new MutationObserver( () => this.updateSlot())
+    this.updateSlot()
+    this.slotObserver = new MutationObserver(() => this.updateSlot())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
+  },
+  beforeDestroy () {
+    this.slotObserver.disconnect()
   },
   methods: {
     updateSlot () {
@@ -47,9 +50,6 @@ export default {
         })
       }
     }
-  },
-  beforeDestroy () {
-    this.slotObserver.disconnect()
   }
 }
 </script>

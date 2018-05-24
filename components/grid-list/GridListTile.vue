@@ -6,8 +6,8 @@
       <slot name="primary">
         <img
           v-if="imgSrc"
-          class="mdc-grid-tile__primary-content"
-          :src="imgSrc">
+          :src="imgSrc"
+          class="mdc-grid-tile__primary-content">
       </slot>
     </div>
     <span
@@ -40,7 +40,7 @@ export default {
   },
   mounted () {
     this.updateSlots()
-    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true

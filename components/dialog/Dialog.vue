@@ -6,19 +6,19 @@
     @MDCDialog:cancel="onCancel">
     <div class="mdc-dialog__surface">
       <header
-        class="mdc-dialog__header"
-        v-if="$slots['header']">
+        v-if="$slots['header']"
+        class="mdc-dialog__header">
         <slot name="header" />
       </header>
       <section
-        class="mdc-dialog__body"
+        v-if="$slots['body']"
         :class="bodyClasses"
-        v-if="$slots['body']">
+        class="mdc-dialog__body">
         <slot name="body" />
       </section>
       <footer
-        class="mdc-dialog__footer"
-        v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']">
+        v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']"
+        class="mdc-dialog__footer">
         <slot name="acceptButton" />
         <slot name="cancelButton" />
         <slot name="dialogButton" />
@@ -77,7 +77,7 @@ export default {
   },
   mounted () {
     this.updateSlots()
-    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true

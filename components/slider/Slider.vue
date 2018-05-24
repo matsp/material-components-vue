@@ -1,11 +1,11 @@
 <template>
   <div
-    class="mdc-slider"
     :class="classes"
-    tabindex="0"
-    role="slider"
     :aria-label="label"
     :aria-disabled="disabled"
+    class="mdc-slider"
+    tabindex="0"
+    role="slider"
     @MDCSlider:change="onChange">
     <div class="mdc-slider__track-container">
       <div class="mdc-slider__track"/>

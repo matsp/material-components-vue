@@ -1,20 +1,20 @@
 <template>
   <div
-    class="mdc-text-field"
-    :class="classes">
+    :class="classes"
+    class="mdc-text-field">
     <slot name="leadingIcon"/>
     <input
-      class="mdc-text-field__input"
+      v-if="!textarea"
       :value="value"
-      @input="onInput"
       v-bind="$attrs"
-      v-if="!textarea">
+      class="mdc-text-field__input"
+      @input="onInput">
     <textarea
-      class="mdc-text-field__input"
+      v-if="textarea"
       :value="value"
-      @input="onInput"
       v-bind="$attrs"
-      v-if="textarea"/>
+      class="mdc-text-field__input"
+      @input="onInput"/>
     <slot v-if="$slots['default'] && !fullWidth"/>
     <slot name="trailingIcon"/>
     <slot name="bottomLine"/>
@@ -92,7 +92,7 @@ export default {
   },
   mounted () {
     this.updateSlots()
-    this.slotObserver = new MutationObserver( () => this.updateSlots())
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
