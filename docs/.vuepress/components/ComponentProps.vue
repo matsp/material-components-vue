@@ -16,10 +16,10 @@
       <m-radio
         v-model="radioPicked"
         :value="item.prop"
-        :id="item.prop"
+        :id="item.prop + '-' +_uid"
         :checked="item.value"
-        :name="radioGroupName"/>
-        <label :for="item.prop">{{ item.prop }}</label>
+        :name="_uid.toString()"/>
+        <label :for="item.prop + '-' +_uid">{{ item.prop }}</label>
     </m-form-field>
   </m-layout-grid-cell>
   </m-layout-grid-inner>
@@ -34,9 +34,9 @@
     <m-form-field>
       <m-checkbox
         v-model="item.value"
-        :id="item.prop"
+        :id="item.prop + '-' +_uid"
         :disabled="item.disabled"/>
-        <label :for="item.prop">{{ item.prop }}</label>
+        <label :for="item.prop + '-' +_uid">{{ item.prop }}</label>
     </m-form-field>
   </m-layout-grid-cell>
   </m-layout-grid-inner>
@@ -51,10 +51,6 @@ export default {
   props: {
     radioProps: {
       type: Array
-    },
-    radioGroupName:  {
-      type: String,
-      default: () => Math.trunc(Math.random(Date.now())*100000).toString()
     },
     checkboxProps: {
       type: Array
