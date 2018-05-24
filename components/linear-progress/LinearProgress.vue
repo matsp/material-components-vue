@@ -16,10 +16,10 @@
 <script>
 import { MDCLinearProgress } from '@material/linear-progress'
 
-import themeClassMixin from '../base/themeClassMixin.js'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [themeClassMixin],
+  mixins: [baseComponentMixin, themeClassMixin],
   props: {
     open: {
       type: Boolean,

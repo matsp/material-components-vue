@@ -22,10 +22,10 @@
 <script>
 import { MDCSelect } from '@material/select'
 
-import themeClassMixin from '../base/themeClassMixin.js'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [themeClassMixin],
+  mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
     event: 'change'

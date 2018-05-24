@@ -16,7 +16,7 @@ import { MDCTemporaryDrawer } from '@material/drawer'
 import themeClassMixin from '../../base/themeClassMixin.js'
 
 export default {
-  mixins: [themeClassMixin],
+  mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'open',
     event: 'change'

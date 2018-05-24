@@ -9,10 +9,10 @@
 <script>
 import { MDCFloatingLabel } from '@material/floating-label'
 
-import themeClassMixin from '../base/themeClassMixin.js'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [themeClassMixin],
+  mixins: [baseComponentMixin, themeClassMixin],
   props: {
     floatAbove: {
       type: Boolean,

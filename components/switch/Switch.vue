@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import themeClassMixin from '../base/themeClassMixin.js'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [themeClassMixin],
+  mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'checked',
     event: 'change'

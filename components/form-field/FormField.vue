@@ -2,21 +2,21 @@
   <div
     class="mdc-form-field"
     :class="classes">
-    <slot />
+    <slot/>
   </div>
 </template>
 
 <script>
 import { MDCFormField } from '@material/form-field'
 
-import themeClassMixin from '../base/themeClassMixin.js'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [themeClassMixin],
+  mixins: [baseComponentMixin, themeClassMixin],
   props: {
     alignEnd: {
       type: Boolean,
-      required: false
+      default: false
     }
   },
   data () {
@@ -33,6 +33,14 @@ export default {
   },
   mounted () {
     this.mdcFormField = MDCFormField.attachTo(this.$el)
+    // TODO: Better solution to avoid direct children access?!
+    if (this.$children.length === 1) {
+      if (this.$children[0]._data.mdcRadio) {
+        this.mdcFormField.input = this.$children[0]._data.mdcRadio
+      } else if (this.$children[0]._data.mdcCheckbox) {
+        this.mdcFormField.input = this.$children[0]._data.mdcCheckbox
+      }
+    }
   },
   beforeDestroy () {
     this.mdcFormField.destroy()

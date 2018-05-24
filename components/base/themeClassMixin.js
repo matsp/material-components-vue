@@ -20,7 +20,7 @@ const themeProps = [
   'text-icon-on-dark'
 ]
 
-const themeClassMixin = {
+export const themeClassMixin = {
   props: {
     theming: {
       type: String,
@@ -33,4 +33,3 @@ const themeClassMixin = {
     }
   }
 }
-export default themeClassMixin

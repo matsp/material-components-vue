@@ -12,10 +12,10 @@
 
 import { MDCGridList } from '@material/grid-list'
 
-import themeClassMixin from '../base/themeClassMixin.js'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [themeClassMixin],
+  mixins: [baseComponentMixin, themeClassMixin],
   props: {
     headerCaption: {
       type: Boolean,

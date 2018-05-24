@@ -39,10 +39,10 @@
 <script>
 import { MDCTabBar, MDCTabBarScroller } from '@material/tabs'
 
-import themeClassMixin from '../base/themeClassMixin.js'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [themeClassMixin],
+  mixins: [baseComponentMixin, themeClassMixin],
   props: {
     scrollable: {
       type: Boolean,
