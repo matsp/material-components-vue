@@ -1,6 +1,7 @@
 <template>
   <label
     :class="classes"
+    v-bind="$attrs"
     class="mdc-floating-label">
     <slot/>
   </label>
