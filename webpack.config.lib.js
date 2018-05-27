@@ -6,7 +6,7 @@ const root = path.join(__dirname)
 
 module.exports = merge(common, {
   mode: 'development',
-  target: 'node',
+  target: 'web',
   output: {
     path: path.resolve(root + '/dist'),
     filename: '[name]/index.js',
