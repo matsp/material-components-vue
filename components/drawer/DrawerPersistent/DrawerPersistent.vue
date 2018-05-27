@@ -13,7 +13,7 @@
 <script>
 import { MDCPersistentDrawer } from '@material/drawer'
 
-import themeClassMixin from '../../base/themeClassMixin.js'
+import { baseComponentMixin, themeClassMixin } from '../../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
