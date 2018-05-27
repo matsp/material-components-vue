@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.22.0"></a>
+# [0.22.0](https://github.com/matsp/material-components-vue/compare/v0.21.1...v0.22.0) (2018-05-27)
+
+
+### Bug Fixes
+
+* **floating-label): fix(floating-label:** Explicit bind attributes (close [#112](https://github.com/matsp/material-components-vue/issues/112)) ([969a06f](https://github.com/matsp/material-components-vue/commit/969a06f))
+* **webpack:** Change target to web ([2ca9705](https://github.com/matsp/material-components-vue/commit/2ca9705))
+
+
+### Features
+
+* **form-field:** Set radio and checkbox component to input property (close [#105](https://github.com/matsp/material-components-vue/issues/105)) ([6e2eadd](https://github.com/matsp/material-components-vue/commit/6e2eadd))
+
+
+
 <a name="0.21.1"></a>
 ## [0.21.1](https://github.com/matsp/material-components-vue/compare/v0.21.0...v0.21.1) (2018-05-23)
 
