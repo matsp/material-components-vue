@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.22.1"></a>
+## [0.22.1](https://github.com/matsp/material-components-vue/compare/v0.22.0...v0.22.1) (2018-05-27)
+
+
+### Bug Fixes
+
+* **drawer:** Add missing mixin import statements ([732ace2](https://github.com/matsp/material-components-vue/commit/732ace2))
+
+
+
 <a name="0.22.0"></a>
 # [0.22.0](https://github.com/matsp/material-components-vue/compare/v0.21.1...v0.22.0) (2018-05-27)
 
