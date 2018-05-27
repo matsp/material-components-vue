@@ -25,7 +25,7 @@
     "material-components-web": "^0.35.2"
   },
   "peerDependencies": {
-    "vue": "^2.5.13"
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.49",
@@ -56,10 +56,7 @@
     "normalize.css": "^8.0.0",
     "optimize-css-assets-webpack-plugin": "^4.0.2",
     "postcss": "^6.0.22",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.5",
-    "postcss-preset-env": "^5.1.0",
     "sass-loader": "^7.0.1",
     "standard-version": "^4.4.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
@@ -74,12 +71,9 @@
     "webpack-merge": "^4.1.2"
   },
   "browserslist": [
+    "> 1%",
     "last 2 versions",
-    "> 5%",
-    "Firefox ESR",
-    "not ie <= 10",
-    "not ie_mob <= 10",
-    "not android <= 4.4.3"
+    "not ie <= 8"
   ],
   "babel": {
     "comments": false,
@@ -100,5 +94,10 @@
     "plugins": [
       "@babel/plugin-transform-object-assign"
     ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
   }
 }
