@@ -1,5 +1,7 @@
 <template>
-  <i class="material-icons">
+  <i
+    class="material-icons"
+    v-on="$listeners">
     {{ icon }}
   </i>
 </template>
