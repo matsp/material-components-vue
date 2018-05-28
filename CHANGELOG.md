@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.22.5"></a>
+## [0.22.5](https://github.com/matsp/material-components-vue/compare/v0.22.4...v0.22.5) (2018-05-28)
+
+
+### Bug Fixes
+
+* **icon:** Bind listeners (close [#114](https://github.com/matsp/material-components-vue/issues/114)) ([a8ad180](https://github.com/matsp/material-components-vue/commit/a8ad180))
+
+
+
 <a name="0.22.4"></a>
 ## [0.22.4](https://github.com/matsp/material-components-vue/compare/v0.22.3...v0.22.4) (2018-05-28)
 
