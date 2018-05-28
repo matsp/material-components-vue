@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.22.4"></a>
+## [0.22.4](https://github.com/matsp/material-components-vue/compare/v0.22.3...v0.22.4) (2018-05-28)
+
+
+### Bug Fixes
+
+* **babel:** Add workaround for config resolution ([0c401a4](https://github.com/matsp/material-components-vue/commit/0c401a4))
+
+
+
 <a name="0.22.3"></a>
 ## [0.22.3](https://github.com/matsp/material-components-vue/compare/v0.22.2...v0.22.3) (2018-05-28)
 
