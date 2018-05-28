@@ -37,7 +37,6 @@
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
-    "cssnano": "^3.10.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-html": "^4.0.3",
@@ -99,5 +98,34 @@
     "plugins": {
       "autoprefixer": {}
     }
-  }
+  },
+  "eslintConfig": {
+    "root": true,
+    "parserOptions": {
+      "parser": "babel-eslint",
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
+    },
+    "extends": [
+      "standard",
+      "plugin:vue/recommended"
+    ],
+    "plugins": [
+      "html"
+    ],
+    "settings": {
+      "html/html-extensions": [
+        ".html"
+      ]
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    }
+  },
+  "eslintIgnore": [
+    "/dist"
+  ]
 }
