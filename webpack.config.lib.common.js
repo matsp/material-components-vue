@@ -56,6 +56,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [components, path.join(nodeModules, '@material')],
         options: {
+          extends: path.join(root + '/.babelrc'),
           cacheDirectory: true
         }
       },

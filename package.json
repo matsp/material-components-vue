@@ -31,7 +31,6 @@
     "@babel/core": "^7.0.0-beta.49",
     "@babel/plugin-transform-object-assign": "^7.0.0-beta.49",
     "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-stage-2": "^7.0.0-beta.49",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^8.0.0-beta.3",
     "clean-webpack-plugin": "^0.1.19",
@@ -74,26 +73,6 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "babel": {
-    "comments": false,
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "modules": false
-        }
-      ],
-      [
-        "@babel/preset-stage-2",
-        {
-          "decoratorsLegacy": true
-        }
-      ]
-    ],
-    "plugins": [
-      "@babel/plugin-transform-object-assign"
-    ]
-  },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
