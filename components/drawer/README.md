@@ -1,8 +1,8 @@
 ## Drawer
 
-* [PermanentDrawer](PermanentDrawer/README.md)
-* [PersistentDrawer](PersistentDrawer/README.md)
-* [TemporaryDrawer](TemporaryDrawer/README.md)
+* [DrawerPermanent](DrawerPermanent/README.md)
+* [DrawerPersistent](DrawerPersistent/README.md)
+* [DrawerTemporary](DrawerTemporary/README.md)
 
 ## DrawerContent
 
