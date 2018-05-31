@@ -20,6 +20,13 @@
 <m-text-field-helptext id="pw-validation">
   Password must be at least 8 characters long.
 </m-text-field-helptext>
+
+<m-textfield
+  outlined
+  id="outlined">
+  <m-floating-label for="outlined">Outlined</m-floating-label>
+  <m-notched-outline />
+</m-textfield>
 ```
 
 ### Script
