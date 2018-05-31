@@ -1,5 +1,5 @@
 const path = require('path')
-const nodeModules = path.resolve('node_modules/')
+const material = path.resolve('node_modules/@material')
 
 module.exports = {
   title: 'Material Components Vue',
@@ -16,6 +16,6 @@ module.exports = {
     ]
   },
   scss: {
-    includePaths: [nodeModules]
+    includePaths: [material]
   }
 }

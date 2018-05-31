@@ -9,9 +9,13 @@ import Select from '../../components/select'
 import Card from '../../components/card'
 import Chips from '../../components/chips'
 import Textfield from '../../components/textfield'
+import FloatingLabel from '../../components/floating-label'
+import LineRipple from '../../components/line-ripple'
+import NotchedOutline from '../../components/notched-outline'
 // import List from '../../components/list'
 import LayoutGrid from '../../components/layout-grid'
 import Typography from '../../components/typography'
+import Fab from '../../components/fab'
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -28,6 +32,10 @@ export default ({
   Vue.use(Card)
   Vue.use(Chips)
   Vue.use(Textfield)
+  Vue.use(FloatingLabel)
+  Vue.use(LineRipple)
+  Vue.use(NotchedOutline)
   Vue.use(LayoutGrid)
   Vue.use(Typography)
+  Vue.use(Fab)
 }

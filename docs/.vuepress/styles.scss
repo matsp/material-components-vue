@@ -2,18 +2,22 @@ $mdc-theme-primary: #5e35b1;
 $mdc-theme-secondary: #ff5722;
 $mdc-theme-background: #ffffff;
 
-@import "../../dist/theme/styles";
-@import "../../dist/typography/styles";
-@import "../../dist/layout-grid/styles";
+@import "../../components/theme/styles";
+@import "../../components/typography/styles";
+@import "../../components/layout-grid/styles";
 
-@import "../../dist/button/styles";
-@import "../../dist/radio/styles";
-@import "../../dist/checkbox/styles";
-@import "../../dist/form-field/styles";
-@import "../../dist/select/styles";
-@import "../../dist/card/styles";
-@import "../../dist/chips/styles";
-@import "../../dist/textfield/styles";
+@import "../../components/button/styles";
+@import "../../components/radio/styles";
+@import "../../components/checkbox/styles";
+@import "../../components/form-field/styles";
+@import "../../components/select/styles";
+@import "../../components/card/styles";
+@import "../../components/chips/styles";
+@import "../../components/textfield/styles";
+@import "../../components/floating-label/styles";
+@import "../../components/line-ripple/styles";
+@import "../../components/notched-outline/styles";
+@import "../../components/fab/styles";
 
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500"); */
 /* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
