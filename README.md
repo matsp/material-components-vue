@@ -30,6 +30,11 @@ https://matsp.github.io/material-components-vue
 * user friendly component api
 * SSR (Server Side Rendering) support
 
+## Documentation
+
+You will find a API documentation for each component in their corresponding component directory:
+
+*components/[component]/README.md*
 
 ## Links
 
