@@ -19,7 +19,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:prod": "vuepress build docs",
     "watch:dev": "webpack --config webpack.config.lib.js -w",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "jest"
   },
   "dependencies": {
     "material-components-web": "^0.35.2"
@@ -31,8 +32,12 @@
     "@babel/core": "^7.0.0-beta.49",
     "@babel/plugin-transform-object-assign": "^7.0.0-beta.49",
     "@babel/preset-env": "^7.0.0-beta.49",
+    "@vue/test-utils": "^1.0.0-beta.16",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.1",
     "babel-loader": "^8.0.0-beta.3",
+    "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
@@ -49,22 +54,26 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
+    "jest": "^23.1.0",
+    "jest-serializer-vue": "^2.0.2",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "4.9.0",
     "normalize.css": "^8.0.0",
     "optimize-css-assets-webpack-plugin": "^4.0.2",
     "postcss": "^6.0.22",
     "postcss-loader": "^2.1.5",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^7.0.3",
     "standard-version": "^4.4.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
     "vue": "^2.5.16",
-    "vue-loader": "^15.2.2",
+    "vue-jest": "^2.6.0",
+    "vue-loader": "^15.2.4",
+    "vue-server-renderer": "^2.5.16",
     "vue-template-compiler": "^2.5.16",
     "vuepress": "^0.10.0",
-    "webpack": "^4.10.2",
-    "webpack-cli": "^2.1.4",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
   },
@@ -106,5 +115,22 @@
   },
   "eslintIgnore": [
     "/dist"
-  ]
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!material)"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue"
+    ]
+  }
 }
