@@ -10,5 +10,19 @@
   ],
   "plugins": [
     "@babel/plugin-transform-object-assign"
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  }
 }
