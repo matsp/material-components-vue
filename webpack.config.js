@@ -1,6 +1,6 @@
 const path = require('path')
 const merge = require('webpack-merge')
-const common = require('./webpack.config.lib.common.js')
+const common = require('./webpack.config.common')
 
 const root = path.join(__dirname)
 
