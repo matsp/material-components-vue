@@ -14,13 +14,13 @@
   ],
   "scripts": {
     "lint": "eslint --ext .js --ext .vue --fix ./",
-    "build:lib": "webpack --config webpack.config.lib.js",
-    "build:es5": "webpack --config webpack.config.lib.es5.js",
+    "build:lib": "cross-env NODE_ENV=development webpack --config webpack.config.lib.js",
+    "build:es5": "cross-env NODE_ENV=production webpack --config webpack.config.lib.es5.js",
     "docs:dev": "vuepress dev docs",
     "docs:prod": "vuepress build docs",
     "watch:dev": "webpack --config webpack.config.lib.js -w",
     "release": "standard-version",
-    "test": "jest"
+    "test": "cross-env NODE_ENV=testing jest"
   },
   "dependencies": {
     "material-components-web": "^0.35.2"
@@ -40,7 +40,9 @@
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.6",
     "css-loader": "^0.28.11",
+    "dom-testing-library": "^2.5.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-html": "^4.0.3",
