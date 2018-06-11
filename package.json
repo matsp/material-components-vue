@@ -18,10 +18,11 @@
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.lib.es5.js",
     "docs:dev": "vuepress dev docs",
     "docs:prod": "vuepress build docs",
-    "watch:dev": "webpack --config webpack.config.lib.js -w",
+    "watch:dev": "cross-env NODE_ENV=development webpack --config webpack.config.lib.js -w",
     "release": "standard-version",
     "test": "cross-env NODE_ENV=testing jest",
-    "test:watch": "cross-env NODE_ENV=testing jest --watch"
+    "test:watch": "yarn test --watch",
+    "test:updateSnapshot": "yarn test --updateSnapshot"
   },
   "dependencies": {
     "material-components-web": "^0.35.2"
@@ -72,7 +73,6 @@
     "vue": "^2.5.16",
     "vue-jest": "^2.6.0",
     "vue-loader": "^15.2.4",
-    "vue-server-renderer": "^2.5.16",
     "vue-template-compiler": "^2.5.16",
     "vuepress": "^0.10.1",
     "webpack": "^4.12.0",
