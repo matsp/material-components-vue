@@ -21,7 +21,7 @@
     "watch:dev": "webpack --config webpack.config.lib.js -w",
     "release": "standard-version",
     "test": "cross-env NODE_ENV=testing jest",
-    "test:watch": "cross-env NODE_ENV=testing jest"
+    "test:watch": "cross-env NODE_ENV=testing jest --watch"
   },
   "dependencies": {
     "material-components-web": "^0.35.2"
