@@ -32,7 +32,7 @@
     "@babel/core": "^7.0.0-beta.49",
     "@babel/plugin-transform-object-assign": "^7.0.0-beta.49",
     "@babel/preset-env": "^7.0.0-beta.49",
-    "@vue/test-utils": "^1.0.0-beta.16",
+    "@vue/test-utils": "^1.0.0-beta.18",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.0.1",
@@ -71,8 +71,8 @@
     "vue-loader": "^15.2.4",
     "vue-server-renderer": "^2.5.16",
     "vue-template-compiler": "^2.5.16",
-    "vuepress": "^0.10.0",
-    "webpack": "^4.11.1",
+    "vuepress": "^0.10.1",
+    "webpack": "^4.12.0",
     "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
@@ -127,7 +127,7 @@
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
     },
     "transformIgnorePatterns": [
-      "/node_modules/(?!material)"
+      "/node_modules/(?!@material)"
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/jest-serializer-vue"
