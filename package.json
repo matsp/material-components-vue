@@ -14,13 +14,14 @@
   ],
   "scripts": {
     "lint": "eslint --ext .js --ext .vue --fix ./",
-    "build:lib": "cross-env NODE_ENV=development webpack --config webpack.config.lib.js",
-    "build:es5": "cross-env NODE_ENV=production webpack --config webpack.config.lib.es5.js",
+    "build": "cross-env NODE_ENV=development webpack --config webpack.config.lib.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.lib.es5.js",
     "docs:dev": "vuepress dev docs",
     "docs:prod": "vuepress build docs",
     "watch:dev": "webpack --config webpack.config.lib.js -w",
     "release": "standard-version",
-    "test": "cross-env NODE_ENV=testing jest"
+    "test": "cross-env NODE_ENV=testing jest",
+    "test:watch": "cross-env NODE_ENV=testing jest"
   },
   "dependencies": {
     "material-components-web": "^0.35.2"

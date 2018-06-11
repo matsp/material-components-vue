@@ -7,8 +7,8 @@ before_install:
 install: yarn
 before_script: greenkeeper-lockfile-update
 script: 
-  - yarn build:lib
-  - yarn build:es5
+  - yarn build
+  - yarn build:prod
   - yarn docs:prod
 after_script: greenkeeper-lockfile-upload
 deploy:
