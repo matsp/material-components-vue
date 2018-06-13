@@ -22,7 +22,7 @@ module.exports = {
     'grid-list': path.resolve(components + '/grid-list/index.js'),
     icon: path.resolve(components + '/icon/index.js'),
     'image-list': path.resolve(components + '/image-list/index.js'),
-    'icon-toggle': path.resolve(components + '/icon-toggle/index.js'),
+    'icon-button': path.resolve(components + '/icon-button/index.js'),
     'layout-grid': path.resolve(components + '/layout-grid/index.js'),
     'linear-progress': path.resolve(components + '/linear-progress/index.js'),
     'line-ripple': path.resolve(components + '/line-ripple/index.js'),
