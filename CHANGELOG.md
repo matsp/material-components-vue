@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.23.0"></a>
+# [0.23.0](https://github.com/matsp/material-components-vue/compare/v0.22.5...v0.23.0) (2018-06-13)
+
+
+### Bug Fixes
+
+* **docs:** Fix import issue from node_modules ([c68e957](https://github.com/matsp/material-components-vue/commit/c68e957))
+
+
+### Features
+
+* **icon-button:** Add new package ([26771e8](https://github.com/matsp/material-components-vue/commit/26771e8))
+
+
+### BREAKING CHANGES
+
+* **icon-button:** IconToggle has been moved to IconButton. Please refer to the readme for changes and how to update.
+
+
+
 <a name="0.22.5"></a>
 ## [0.22.5](https://github.com/matsp/material-components-vue/compare/v0.22.4...v0.22.5) (2018-05-28)
 
