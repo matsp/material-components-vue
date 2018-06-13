@@ -20,7 +20,6 @@ module.exports = function (api) {
           'modules': false
         }
       ])
-      plugins.push('@babel/plugin-transform-object-assign')
       break
     case 'production':
       presets.push([
@@ -29,7 +28,6 @@ module.exports = function (api) {
           'modules': false
         }
       ])
-      plugins.push('@babel/plugin-transform-object-assign')
   }
 
   return { plugins, presets }

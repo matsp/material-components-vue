@@ -9,7 +9,7 @@ before_script: greenkeeper-lockfile-update
 script: 
   - yarn test
   - yarn build
-  - yarn build:prod
+  - yarn build:min
   - yarn docs:prod
 after_script: greenkeeper-lockfile-upload
 deploy:

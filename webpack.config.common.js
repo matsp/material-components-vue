@@ -1,7 +1,6 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
 const root = path.join(__dirname)
@@ -92,7 +91,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name]/[name].min.css'
     }),
-    new OptimizeCssAssetsPlugin(),
     new CopyWebpackPlugin([
       {
         context: 'components/',
