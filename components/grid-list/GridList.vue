@@ -61,7 +61,7 @@ export default {
       let calc = {}
       if (this.ratio) { calc['mdc-grid-list--tile-aspect-' + this.ratio] = true }
 
-      return Object.assign(def, calc)
+      return {...def, ...calc}
     }
   },
   mounted () {

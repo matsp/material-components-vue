@@ -38,7 +38,7 @@ export default {
       let others = {}
       others['mdc-image-list--with-text-protection'] = this.textProtection
 
-      return Object.assign({}, standard, masonry, others)
+      return {...standard, ...masonry, ...others}
     }
   }
 }
