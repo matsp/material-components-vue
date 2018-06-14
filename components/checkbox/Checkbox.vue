@@ -56,11 +56,16 @@ export default {
     }
   },
   watch: {
-    checked () {
-      this.mdcCheckbox.indeterminate = false
+    checked (value) {
+      if (value) {
+        this.mdcCheckbox.indeterminate = false
+      }
     },
     indeterminate (value) {
       this.mdcCheckbox.indeterminate = value
+      if (this.model && value) {
+        this.model = false
+      }
     }
   },
   mounted () {
