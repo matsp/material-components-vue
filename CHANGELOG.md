@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.23.1"></a>
+## [0.23.1](https://github.com/matsp/material-components-vue/compare/v0.23.0...v0.23.1) (2018-06-14)
+
+
+### Bug Fixes
+
+* **checkbox:** Set indeterminate correctly after state change (close [#123](https://github.com/matsp/material-components-vue/issues/123)) ([bfd2f89](https://github.com/matsp/material-components-vue/commit/bfd2f89))
+
+
+
 <a name="0.23.0"></a>
 # [0.23.0](https://github.com/matsp/material-components-vue/compare/v0.22.5...v0.23.0) (2018-06-13)
 
