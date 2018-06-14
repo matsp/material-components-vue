@@ -4,12 +4,12 @@
 
 ```html
 <m-menu-anchor>
-  <m-button raised interactive @click="isMenuOpen=true">open</m-button>
+  <m-button raised @click="isMenuOpen=true">open</m-button>
   <m-menu v-model="isMenuOpen">
     <m-list>
-      <m-list-item interactive>Entry 1</m-list-item>
+      <m-list-item>Entry 1</m-list-item>
       <m-list-divider/>
-      <m-list-item interactive>Entry 2</m-list-item>
+      <m-list-item>Entry 2</m-list-item>
     </m-list>
   </m-menu>
 </m-menu-anchor>
@@ -31,7 +31,7 @@ data() {
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | quickOpen | Boolean | false | deactivates menu animation |
-| open | Boolean | false | starts menu in open state |
+| open | Boolean | false | open the menu (could be v-modeled) |
 
 ### Events
 
@@ -43,7 +43,7 @@ data() {
 ### Slots
 
 | Slot |  Description |
-|------|-------------|
+|------|--------------|
 | default | menu content (list) |
 
 ## MenuAnchor
