@@ -22,7 +22,7 @@
 ### Props
 
 | Prop | Type | Default | Description |
-|------|------|---------|----------|-------------|
+|------|------|---------|-------------|
 | scrollable | Boolean | false | whether the tab bar should be scrollable |
 | iconTabBar | Boolean | false | should be set when there will be icons in the tab label |
 | withIconAndText | Boolean | false | should be set when there will be icons and text in the tab label |
