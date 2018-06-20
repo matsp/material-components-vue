@@ -45,7 +45,9 @@ export default {
   },
   watch: {
     classes () {
-      this.mdcRipple.destroy()
+      if (typeof this.mdcRipple !== 'undefined') {
+        this.mdcRipple.destroy()
+      }
       this.mdcRipple = MDCRipple.attachTo(this.$el)
     }
   },
