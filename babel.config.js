@@ -14,6 +14,10 @@ module.exports = function (api) {
       ])
       break
     case 'development':
+      plugins.push(
+        '@babel/plugin-proposal-object-rest-spread',
+        '@babel/plugin-transform-object-assign'
+      )
       presets.push([
         '@babel/preset-env',
         {
@@ -22,6 +26,10 @@ module.exports = function (api) {
       ])
       break
     case 'production':
+      plugins.push(
+        '@babel/plugin-proposal-object-rest-spread',
+        '@babel/plugin-transform-object-assign'
+      )
       presets.push([
         '@babel/preset-env',
         {

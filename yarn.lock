@@ -505,7 +505,7 @@
     "@babel/helper-plugin-utils" "7.0.0-beta.47"
     "@babel/plugin-syntax-object-rest-spread" "7.0.0-beta.47"
 
-"@babel/plugin-proposal-object-rest-spread@7.0.0-beta.51":
+"@babel/plugin-proposal-object-rest-spread@7.0.0-beta.51", "@babel/plugin-proposal-object-rest-spread@^7.0.0-beta.51":
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.0.0-beta.51.tgz#5bc469e5e6d1b84a5d6046b59e90ca016c2086d6"
   dependencies:
@@ -890,6 +890,12 @@
 "@babel/plugin-transform-new-target@7.0.0-beta.51":
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-new-target/-/plugin-transform-new-target-7.0.0-beta.51.tgz#7075a106595cbfdd425ed6b830b79f8a7aff5283"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.51"
+
+"@babel/plugin-transform-object-assign@^7.0.0-beta.51":
+  version "7.0.0-beta.51"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-object-assign/-/plugin-transform-object-assign-7.0.0-beta.51.tgz#0d56a3e2d8b06d9de6c6519835a3e028448e13b8"
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.51"
 
