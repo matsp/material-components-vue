@@ -70,7 +70,7 @@ export default {
     updateSlot () {
       if (this.$slots.default) {
         this.$slots.default.map(n => {
-          if (n.elm.tagName !== 'SVG') {
+          if (n.elm.tagName.toUpperCase() !== 'SVG') {
             n.elm.classList.add('mdc-fab__icon')
           }
         })
