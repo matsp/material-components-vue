@@ -70,14 +70,14 @@ export default {
     updateSlot () {
       if (this.$slots.default) {
         this.$slots.default.map(n => {
-          n.elm.classList.add('mdc-menu__items')
-          n.elm.setAttribute('role', 'menu')
-          n.elm.setAttribute('aria-hidden', 'true')
-          n.componentOptions.children
-            .filter(n => n.elm.className.indexOf('mdc-list-item') > -1)
+          n.componentInstance.$el.classList.add('mdc-menu__items')
+          n.componentInstance.$el.setAttribute('role', 'menu')
+          n.componentInstance.$el.setAttribute('aria-hidden', 'true')
+          n.componentInstance.$children
+            .filter(n => n.$el.classList.contains('mdc-list-item'))
             .map(n => {
-              n.elm.setAttribute('tabindex', '0')
-              n.elm.setAttribute('role', 'menuitem')
+              n.$el.setAttribute('tabindex', '0')
+              n.$el.setAttribute('role', 'menuitem')
             })
         })
       }
