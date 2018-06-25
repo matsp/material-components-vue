@@ -22,6 +22,15 @@ Material-components-vue integrates the [mdc-web](https://github.com/material-com
 
 https://matsp.github.io/material-components-vue
 
+## Support
+
+If you want to help feel free to submit issues or pull requests - you can also join the [chat](https://discord.gg/2rXrRb5) for questions. Every information that help to stabilize and improve the library is welcome!
+
+When you want to support me you can buy me a :coffee: here :+1:
+
+<a href="https://www.buymeacoffee.com/udJy54VOU" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 30px !important;width: auto !important;"></a>
+
+
 ## Features
 
 * decoupled components
