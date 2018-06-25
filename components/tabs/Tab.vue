@@ -5,7 +5,7 @@
     v-on="$listeners">
     <slot name="icon"/>
     <span
-      v-if="icon && label"
+      v-if="hasIcon && label"
       class="mdc-tab__icon-text">
       <slot/>
     </span>
@@ -42,8 +42,11 @@ export default {
     classes () {
       return {
         'mdc-tab--active': this.active,
-        'mdc-tab--with-icon-and-text': this.icon && this.label
+        'mdc-tab--with-icon-and-text': this.hasIcon && this.label
       }
+    },
+    hasIcon () {
+      return this.$slots.icon
     }
   },
   mounted () {
@@ -63,9 +66,10 @@ export default {
   methods: {
     updateSlot () {
       if (this.$slots.icon) {
-        this.$slots.icon[0].elm.classList.add('mdc-tab__icon')
-        this.label ? this.$slots.icon[0].elm.setAttribute('aria-label', true)
-          : this.$slots.icon[0].elm.setAttribute('aria-hidden', true)
+        this.$slots.icon.map(n => {
+          n.elm.classList.add('mdc-tab__icon')
+          this.label ? n.elm.setAttribute('aria-label', true) : n.elm.setAttribute('aria-hidden', true)
+        })
       }
     }
   }
