@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.23.7"></a>
+## [0.23.7](https://github.com/matsp/material-components-vue/compare/v0.23.6...v0.23.7) (2018-06-25)
+
+
+### Bug Fixes
+
+* **menu:** Access vue instance instead of rendered node ([#126](https://github.com/matsp/material-components-vue/issues/126)) ([a08936e](https://github.com/matsp/material-components-vue/commit/a08936e))
+* **tab:** Correct conditional rendering (close [#129](https://github.com/matsp/material-components-vue/issues/129)) ([5ddd679](https://github.com/matsp/material-components-vue/commit/5ddd679))
+
+
+
 <a name="0.23.6"></a>
 ## [0.23.6](https://github.com/matsp/material-components-vue/compare/v0.23.5...v0.23.6) (2018-06-21)
 
