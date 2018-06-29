@@ -78,6 +78,10 @@ export default {
             .map(n => {
               n.$el.setAttribute('tabindex', '0')
               n.$el.setAttribute('role', 'menuitem')
+              // TODO: temporary fix to pass events
+              n.$children.map(nc => {
+                nc.$el.setAttribute('style', 'pointer-events: none')
+              })
             })
         })
       }
