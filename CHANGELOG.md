@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.23.8"></a>
+## [0.23.8](https://github.com/matsp/material-components-vue/compare/v0.23.7...v0.23.8) (2018-06-29)
+
+
+### Bug Fixes
+
+* **icon-button:**  Implement instance checks before constructor call (close [#132](https://github.com/matsp/material-components-vue/issues/132)) ([da4fe10](https://github.com/matsp/material-components-vue/commit/da4fe10))
+* **menu:** Pass event to mdc component (close [#131](https://github.com/matsp/material-components-vue/issues/131)) ([ed4ac7e](https://github.com/matsp/material-components-vue/commit/ed4ac7e))
+
+
+
 <a name="0.23.7"></a>
 ## [0.23.7](https://github.com/matsp/material-components-vue/compare/v0.23.6...v0.23.7) (2018-06-25)
 
