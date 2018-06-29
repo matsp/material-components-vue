@@ -94,11 +94,11 @@ export default {
   },
   methods: {
     update () {
-      if (this.isToggleButton() || this.isToggleButtonViaSlots()) {
+      if ((this.isToggleButton() || this.isToggleButtonViaSlots()) && typeof this.mdcIconButtonToggle === 'undefined') {
         this.mdcIconButtonToggle = MDCIconButtonToggle.attachTo(this.$el)
         this.mdcIconButtonToggle.on = this.value
       }
-      if (this.isIconButton()) {
+      if (this.isIconButton() && typeof this.mdcRipple === 'undefined') {
         this.mdcRipple = MDCRipple.attachTo(this.$el)
         this.mdcRipple.unbounded = true
       }
