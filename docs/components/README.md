@@ -51,3 +51,7 @@ The demonstration in this page is a work in progress..
 <!-- ## Textfield
 
 <TextfieldDemo/> -->
+
+## Icon Button
+
+<IconButtonDemo/>
