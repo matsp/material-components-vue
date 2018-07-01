@@ -55,3 +55,7 @@ The demonstration in this page is a work in progress..
 ## Icon Button
 
 <IconButtonDemo/>
+
+## Menu
+
+<MenuDemo/>
