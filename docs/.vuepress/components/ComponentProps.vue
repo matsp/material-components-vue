@@ -1,5 +1,5 @@
 <template>
-<section class="configSection">
+<section class="configSection" v-if="radioProps.length || checkboxProps.length">
   <m-layout-grid>
   <m-layout-grid-inner>
   <m-layout-grid-cell :span="12">

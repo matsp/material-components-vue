@@ -12,10 +12,12 @@ import Textfield from '../../components/textfield'
 import FloatingLabel from '../../components/floating-label'
 import LineRipple from '../../components/line-ripple'
 import NotchedOutline from '../../components/notched-outline'
-// import List from '../../components/list'
+import List from '../../components/list'
+import Menu from '../../components/menu'
 import LayoutGrid from '../../components/layout-grid'
 import Typography from '../../components/typography'
 import Fab from '../../components/fab'
+import IconButton from '../../components/icon-button'
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -38,4 +40,7 @@ export default ({
   Vue.use(LayoutGrid)
   Vue.use(Typography)
   Vue.use(Fab)
+  Vue.use(IconButton)
+  Vue.use(List)
+  Vue.use(Menu)
 }
