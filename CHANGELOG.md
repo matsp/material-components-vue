@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.24.0"></a>
+# [0.24.0](https://github.com/matsp/material-components-vue/compare/v0.23.8...v0.24.0) (2018-07-01)
+
+
+### Bug Fixes
+
+* **icon-button:** Use computed properties for slot toggling ([7aeccfa](https://github.com/matsp/material-components-vue/commit/7aeccfa))
+
+
+### Features
+
+* **demo:** Add IconButton demo ([19008d0](https://github.com/matsp/material-components-vue/commit/19008d0))
+* **demo:** Add Menu demo ([d5c8620](https://github.com/matsp/material-components-vue/commit/d5c8620))
+
+
+
 <a name="0.23.8"></a>
 ## [0.23.8](https://github.com/matsp/material-components-vue/compare/v0.23.7...v0.23.8) (2018-06-29)
 
