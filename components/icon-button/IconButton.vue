@@ -12,10 +12,10 @@
     @MDCIconButtonToggle:change="$emit('change', $event.detail.isOn)">
     <slot v-if="isIconButton"/>
     <slot
-      v-else-if="isToggleButtonViaSlots && !value"
+      v-if="isToggleButtonViaSlots && !value"
       name="toggleOn"/>
     <slot
-      v-else-if="isToggleButtonViaSlots && value"
+      v-if="isToggleButtonViaSlots && value"
       name="toggleOff"/>
   </button>
 </template>
@@ -69,6 +69,17 @@ export default {
       slotObserver: undefined
     }
   },
+  computed: {
+    isToggleButtonViaSlots () {
+      return this.$slots.toggleOn && this.$slots.toggleOff && !this.isIconButton
+    },
+    isIconButton () {
+      return this.$slots.default
+    },
+    isToggleButton () {
+      return this.toggleOnContent !== '' && this.toggleOffContent !== ''
+    }
+  },
   watch: {
     value (value) {
       if (typeof this.mdcIconButtonToggle !== 'undefined') {
@@ -94,26 +105,14 @@ export default {
   },
   methods: {
     update () {
-      if ((this.isToggleButton() || this.isToggleButtonViaSlots()) && typeof this.mdcIconButtonToggle === 'undefined') {
+      if ((this.isToggleButton || this.isToggleButtonViaSlots) && typeof this.mdcIconButtonToggle === 'undefined') {
         this.mdcIconButtonToggle = MDCIconButtonToggle.attachTo(this.$el)
         this.mdcIconButtonToggle.on = this.value
       }
-      if (this.isIconButton() && typeof this.mdcRipple === 'undefined') {
+      if (this.isIconButton && typeof this.mdcRipple === 'undefined') {
         this.mdcRipple = MDCRipple.attachTo(this.$el)
         this.mdcRipple.unbounded = true
       }
-    },
-    isIconButton () {
-      return this.$slots.default
-    },
-    isToggleButton () {
-      return this.toggleOnContent !== '' && this.toggleOffContent !== ''
-    },
-    isToggleButtonViaSlots () {
-      return this.toggleOnContent === '' &&
-             this.toggleOffContent === '' &&
-             this.$slots.toggleOn &&
-             this.$slots.toggleOff
     }
   }
 }
