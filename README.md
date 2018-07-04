@@ -22,6 +22,13 @@ Material-components-vue integrates the [mdc-web](https://github.com/material-com
 
 https://matsp.github.io/material-components-vue
 
+## Links
+
+* [Changelog](https://github.com/matsp/material-components-vue/blob/master/CHANGELOG.md)
+* [Codepen CDN Example](https://codepen.io/matsp/pen/baxLOx)
+* [Code of Conduct](https://github.com/matsp/material-components-vue/blob/master/CODE_OF_CONDUCT.md)
+* [Docs](https://matsp.github.io/material-components-vue)
+
 ## Support
 
 If you want to help feel free to submit issues or pull requests - you can also join the [chat](https://discord.gg/2rXrRb5) for questions. Every information that help to stabilize and improve the library is welcome!
@@ -29,7 +36,6 @@ If you want to help feel free to submit issues or pull requests - you can also j
 When you want to support me you can buy me a :coffee: here :+1:
 
 <a href="https://www.buymeacoffee.com/udJy54VOU" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 30px !important;width: auto !important;"></a>
-
 
 ## Features
 
@@ -45,13 +51,6 @@ When you want to support me you can buy me a :coffee: here :+1:
 You will find a API documentation for each component in their corresponding component directory:
 
 *components/[component]/README.md*
-
-## Links
-
-* [Changelog](https://github.com/matsp/material-components-vue/blob/master/CHANGELOG.md)
-* [Codepen CDN Example](https://codepen.io/matsp/pen/baxLOx)
-* [Code of Conduct](https://github.com/matsp/material-components-vue/blob/master/CODE_OF_CONDUCT.md)
-* [Docs](https://matsp.github.io/material-components-vue)
 
 ## Distributions
 
