@@ -1,5 +1,8 @@
 ## IconButton
 
+This component doesn't contain any icon CSS classes. You can use the slot variant with [Icon](../icon/README.md) or
+e.g. SVGs. When you want to use toggling props you have to provide CSS for your Icons e.g. [Font Awesome](https://fontawesome.com/).
+
 ### Markup
 
 ```html
