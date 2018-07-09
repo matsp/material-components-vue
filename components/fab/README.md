@@ -3,11 +3,18 @@
 ### Markup
 
 ```html
-<m-fab mini absoluteRight>
-  <m-icon icon="favorite" @click="..."/>
+<m-fab
+  mini
+  absoluteRight>
+  <m-icon
+  slot="icon"
+  icon="favorite"
+  @click="..."/>
 </m-fab>
 <m-fab>
-  <svg @click="..."/>
+  <svg
+    slot="icon"
+    @click="..."/>
 </m-fab>
 ```
 ### Props
@@ -17,6 +24,7 @@
 | mini | Boolean | false | mini fab button |
 | absoluteRight | Boolean | false | whether the fab should be rendered on the bottom right |
 | exited | Boolean | false | animates the fab out of view |
+| extended | Boolean | false | extended fab with label |
 
 Events are mapped to the inner button element.
 
@@ -24,7 +32,8 @@ Events are mapped to the inner button element.
 
 | Slot | Description |
 |------|-------------|
-| default | icon component |
+| default | extended fab label |
+| icon | icon component |
 
 ### Reference
 

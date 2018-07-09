@@ -3,7 +3,12 @@
     :class="classes"
     class="mdc-fab"
     v-on="$listeners">
-    <slot />
+    <slot name="icon"/>
+    <div
+      v-if="extended"
+      class="mdc-fab__label">
+      <slot />
+    </div>
   </button>
 </template>
 
@@ -26,6 +31,10 @@ export default {
     exited: {
       type: Boolean,
       default: false
+    },
+    extended: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -39,7 +48,8 @@ export default {
       return {
         'mdc-fab--mini': this.mini,
         'mdc-fab--absolute-right': this.absoluteRight,
-        'mdc-fab--exited': this.exited
+        'mdc-fab--exited': this.exited,
+        'mdc-fab--extended': this.extended
       }
     }
   },
@@ -68,8 +78,8 @@ export default {
   },
   methods: {
     updateSlot () {
-      if (this.$slots.default) {
-        this.$slots.default.map(n => {
+      if (this.$slots.icon) {
+        this.$slots.icon.map(n => {
           if (n.elm.tagName.toUpperCase() !== 'SVG') {
             n.elm.classList.add('mdc-fab__icon')
           }
