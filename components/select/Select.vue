@@ -15,7 +15,7 @@
       <slot/>
     </select>
     <slot name="label"/>
-    <slot name="bottomLine"/>
+    <slot name="line"/>
   </div>
 </template>
 
@@ -38,6 +38,10 @@ export default {
     box: {
       type: Boolean,
       default: false
+    },
+    outlined: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -49,7 +53,8 @@ export default {
     classes () {
       return {
         'mdc-select--box': this.box,
-        'mdc-select--disabled': this.disabled
+        'mdc-select--disabled': this.disabled,
+        'mdc-select--outlined': this.outlined
       }
     }
   },

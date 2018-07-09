@@ -4,15 +4,27 @@
 
 ```html
 <m-select v-model="selected">
-  <option v-for="option in selectOptions" :key="option.text" :value="option.value" :selected="selected === option.value">
+  <option
+    v-for="option in selectOptions"
+    :key="option.text"
+    :value="option.value"
+    :selected="selected === option.value">
     {{ option.text }}
-  </option>
- <m-floating-label
-   slot="label"
-  :floatAbove="selected !== ''">
-  Pick a food group
-</m-floating-label> 
-<m-line-ripple slot="bottomLine"/>
+    </option>
+  <m-floating-label
+    slot="label"
+    :floatAbove="selected !== ''">
+    Pick a food group
+  </m-floating-label> 
+  <m-line-ripple slot="line"/>
+</m-select>
+
+<m-select outlined>
+  <option>...</option>
+  <m-floating-label
+    slot="label">
+    Pick a food group
+  <m-notched-outline slot="line"/>
 </m-select>
 ```
 
@@ -45,6 +57,7 @@ data() {
 |------|------|---------|-------------|
 | disabled | Boolean | false | whether the select should be disabled |
 | box | Boolean | false | renders a select box |
+| outlined | Boolean | false | outlined select |
 
 ### Slots
 
