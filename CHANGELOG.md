@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.25.0"></a>
+# [0.25.0](https://github.com/matsp/material-components-vue/compare/v0.24.1...v0.25.0) (2018-07-09)
+
+
+### Features
+
+* **fab:** Synchronise with mdc-web ([b2cad7f](https://github.com/matsp/material-components-vue/commit/b2cad7f))
+* **select:** Synchronise with mdc-web ([91bc17f](https://github.com/matsp/material-components-vue/commit/91bc17f))
+
+
+### BREAKING CHANGES
+
+* **select:** Renamed slot 'bottomLine' to 'line'.
+* **fab:** Introduced icon slot and replaced default slot for extended fab label.
+
+
+
 <a name="0.24.1"></a>
 ## [0.24.1](https://github.com/matsp/material-components-vue/compare/v0.24.0...v0.24.1) (2018-07-01)
 
