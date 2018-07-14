@@ -8,6 +8,12 @@
     "type": "git",
     "url": "https://github.com/matsp/material-components-vue.git"
   },
+  "keywords": [
+    "material-components-web",
+    "mdc-web",
+    "material-design",
+    "vue"
+  ],
   "homepage": "https://matsp.github.io/material-components-vue",
   "files": [
     "dist"
