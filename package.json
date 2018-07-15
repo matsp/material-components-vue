@@ -69,7 +69,7 @@
     "mutationobserver-shim": "^0.3.2",
     "node-sass": "4.9.2",
     "normalize.css": "^8.0.0",
-    "optimize-css-assets-webpack-plugin": "^4.0.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
     "postcss": "^6.0.23",
     "postcss-loader": "^2.1.5",
     "sass-loader": "^7.0.3",
