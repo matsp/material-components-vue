@@ -108,7 +108,8 @@
       "plugin:vue/recommended"
     ],
     "plugins": [
-      "html"
+      "html",
+      "jest"
     ],
     "settings": {
       "html/html-extensions": [
