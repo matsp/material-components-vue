@@ -8,13 +8,13 @@
       :value="value"
       v-bind="$attrs"
       class="mdc-text-field__input"
-      @input="onInput">
+      @input="$emit('model', $event.target.value)">
     <textarea
       v-if="textarea"
       :value="value"
       v-bind="$attrs"
       class="mdc-text-field__input"
-      @input="onInput"/>
+      @input="$emit('model', $event.target.value)"/>
     <slot v-if="$slots['default'] && !fullWidth"/>
     <slot name="trailingIcon"/>
     <slot name="bottomLine"/>
@@ -23,12 +23,15 @@
 
 <script>
 import { MDCTextField } from '@material/textfield'
-import { debounce } from '../'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  model: {
+    prop: 'value',
+    event: 'model'
+  },
   props: {
     value: {
       type: String,
@@ -123,9 +126,6 @@ export default {
           n.elm.setAttribute('role', 'button')
         })
       }
-    },
-    onInput (event) {
-      debounce(this.$emit('input', event.target.value))
     }
   }
 }

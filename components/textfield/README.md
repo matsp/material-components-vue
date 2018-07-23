@@ -62,7 +62,7 @@ data() {
 | trailingIcon | icon component |
 | bottomLine | line-ripple component |
 
-Non prop attributes are mapped to the inner input element.
+Non prop attributes and events are mapped to the inner input element.
 
 ## TextfieldHelptext
 
