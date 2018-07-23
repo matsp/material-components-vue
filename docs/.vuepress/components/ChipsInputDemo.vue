@@ -5,7 +5,7 @@
     input>
     <m-chip
       v-if="!edit"
-      @click.native="toggleEdit">
+      @click.native="edit=!edit">
         <m-icon
           v-if="checkboxProps[0].value"
           icon="location_city"
@@ -17,7 +17,7 @@
       id="input-chip"
       v-if="edit"
       v-model="city"
-      @keyup.enter.native="toggleEdit"/>
+      @keyup.enter.native="edit=!edit"/>
   </ComponentSection>
   <ComponentProps
     :radioProps="radioProps"
@@ -37,18 +37,6 @@ export default {
       ],
       city: 'Salzburg',
       edit: false
-    }
-  },
-  methods: {
-    toggleEdit () {
-      this.edit = !this.edit
-      if (this.edit) {
-        this.$nextTick().then(this.selectText).catch(e => console.log(e))
-      }
-    },
-    selectText () {
-      let inputs = document.getElementById('input-chip').getElementsByTagName('input')
-      inputs[0].select()
     }
   }
 }
