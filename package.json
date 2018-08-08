@@ -71,7 +71,7 @@
     "normalize.css": "^8.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "postcss": "^7.0.2",
-    "postcss-loader": "^2.1.6",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "standard-version": "^4.4.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
