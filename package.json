@@ -68,7 +68,7 @@
     "jest-serializer-vue": "^2.0.2",
     "mini-css-extract-plugin": "^0.4.1",
     "mutationobserver-shim": "^0.3.2",
-    "node-sass": "4.9.2",
+    "node-sass": "4.9.3",
     "normalize.css": "^8.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "postcss": "^7.0.2",
