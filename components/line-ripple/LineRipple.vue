@@ -17,6 +17,11 @@ export default {
   mounted () {
     this.mdcLineRipple = MDCLineRipple.attachTo(this.$el)
   },
+  beforeDestroy () {
+    if (typeof this.mdcLineRipple !== 'undefined') {
+      this.mdcLineRipple.destroy()
+    }
+  },
   methods: {
     activate () {
       this.mdcLineRipple.activate()
