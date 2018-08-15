@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.26.0"></a>
+# [0.26.0](https://github.com/matsp/material-components-vue/compare/v0.25.1...v0.26.0) (2018-08-15)
+
+
+### Bug Fixes
+
+* **line-ripple:** Remove potential memory leak ([58d297b](https://github.com/matsp/material-components-vue/commit/58d297b))
+* **notched-outline:** Instantiate component ([#149](https://github.com/matsp/material-components-vue/issues/149)) ([34e5f55](https://github.com/matsp/material-components-vue/commit/34e5f55))
+
+
+### Features
+
+* **textfield:** Pass events to inner input (close [#144](https://github.com/matsp/material-components-vue/issues/144)) ([c9df358](https://github.com/matsp/material-components-vue/commit/c9df358))
+
+
+
 <a name="0.25.1"></a>
 ## [0.25.1](https://github.com/matsp/material-components-vue/compare/v0.25.0...v0.25.1) (2018-07-17)
 
