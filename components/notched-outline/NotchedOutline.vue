@@ -1,6 +1,7 @@
 <template>
   <div>
     <div
+      ref="outline"
       :class="classes"
       class="mdc-notched-outline">
       <svg>
@@ -11,6 +12,7 @@
   </div>
 </template>
 <script>
+import { MDCNotchedOutline } from '@material/notched-outline'
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
@@ -21,11 +23,24 @@ export default {
       default: false
     }
   },
+  data () {
+    return {
+      mdcNotchedOutline: undefined
+    }
+  },
   computed: {
     classes () {
       return {
         'mdc-notched-outline--notched': this.notched
       }
+    }
+  },
+  mounted () {
+    this.mdcNotchedOutline = MDCNotchedOutline.attachTo(this.$refs.outline)
+  },
+  beforeDestroy () {
+    if (typeof this.mdcNotchedOutline !== 'undefined') {
+      this.mdcNotchedOutline.destroy()
     }
   }
 }
