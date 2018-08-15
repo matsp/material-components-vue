@@ -56,6 +56,7 @@
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-html": "^4.0.5",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.21.0",
     "eslint-plugin-json": "^1.2.1",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^3.8.0",
