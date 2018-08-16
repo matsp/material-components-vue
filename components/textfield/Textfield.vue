@@ -7,12 +7,14 @@
       v-if="!textarea"
       :value="value"
       v-bind="$attrs"
+      v-on="$listeners"
       class="mdc-text-field__input"
       @input="$emit('model', $event.target.value)">
     <textarea
       v-if="textarea"
       :value="value"
       v-bind="$attrs"
+      v-on="$listeners"
       class="mdc-text-field__input"
       @input="$emit('model', $event.target.value)"/>
     <slot v-if="$slots['default'] && !fullWidth"/>
