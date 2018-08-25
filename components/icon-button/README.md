@@ -11,12 +11,12 @@ e.g. SVGs. When you want to use toggling props you have to provide CSS for your 
 </m-icon-button>
 
 <m-icon-button v-model="iconToggle">
-  <svg slot="toggle-on">...</svg>
-  <svg slot="toggle-off">...</svg>
+  <svg slot="toggleOn">...</svg>
+  <svg slot="toggleOff">...</svg>
 </m-icon-button>
 ```
 
-### Script 
+### Script
 
 ```javascript
 data() {
@@ -45,8 +45,8 @@ Non prop attributes and events are mapped to the inner button element.
 | Slot | Description |
 |------|-------------|
 | default | button icon (will overrule all other slots if set) |
-| toggle-on | toggle icon for 'on' state |
-| toggle-off | toggle icon for 'off' state |
+| toggleOn | toggle icon for 'on' state |
+| toggleOff | toggle icon for 'off' state |
 
 ### Reference
 
