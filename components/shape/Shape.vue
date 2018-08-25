@@ -11,7 +11,7 @@
       v-if="bottomRight"
       class="mdc-shape-container__corner mdc-shape-container__corner--bottom-right"/>
     <div
-      v-if="bottomleft"
+      v-if="bottomLeft"
       class="mdc-shape-container__corner mdc-shape-container__corner--bottom-left"/>
   </div>
 </template>
