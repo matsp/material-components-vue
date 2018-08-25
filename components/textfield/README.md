@@ -3,23 +3,23 @@
 ### Markup
 
 ```html
-<m-text-field v-model="text" id="textfield">
+<m-textfield v-model="text" id="textfield">
   <m-floating-label for="textfield">Textfield label</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
-</m-text-field>
+</m-textfield>
 <m-textfield
   outlined
   id="outlined">
   <m-floating-label for="outlined">Outlined</m-floating-label>
   <m-notched-outline />
 </m-textfield>
-<m-text-field v-model="pw" id="passwordfield" type="password" required minlength="8" aria-controls="pw-validation">
+<m-textfield v-model="pw" id="passwordfield" type="password" required minlength="8" aria-controls="pw-validation">
   <m-floating-label for="passwordfield">Password</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
-</m-text-field>
-<m-text-field-helptext id="pw-validation">
+</m-textfield>
+<m-textfield-helptext id="pw-validation">
   Password must be at least 8 characters long.
-</m-text-field-helptext>
+</m-textfield-helptext>
 
 <m-textfield
   outlined
