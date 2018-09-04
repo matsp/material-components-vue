@@ -49,7 +49,7 @@ export default {
       temp['mdc-layout-grid__cell--span-' + this.span] = typeof this.span === 'number'
       temp['mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop'] = typeof this.spanDesktop === 'number'
       temp['mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet'] = typeof this.spanTablet === 'number'
-      temp['mdc-layout-grid__cell--span-' + this.phone + '-phone'] = typeof this.phone === 'number'
+      temp['mdc-layout-grid__cell--span-' + this.spanPhone + '-phone'] = typeof this.spanPhone === 'number'
       temp['mdc-layout-grid__cell--align-' + this.align] = typeof this.align === 'string'
       temp['mdc-layout-grid__cell--order-' + this.order] = typeof this.order === 'number'
       return temp
