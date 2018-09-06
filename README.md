@@ -32,6 +32,7 @@ of the upstream project: mdc-web.
 * [Changelog](https://github.com/matsp/material-components-vue/blob/master/CHANGELOG.md)
 * [Codepen CDN Example](https://codepen.io/matsp/pen/baxLOx)
 * [Code of Conduct](https://github.com/matsp/material-components-vue/blob/master/CODE_OF_CONDUCT.md)
+* [Contributing Guideline](https://github.com/matsp/material-components-vue/blob/master/CONTRIBUTING.md)
 * [Docs](https://matsp.github.io/material-components-vue)
 
 ## Support
