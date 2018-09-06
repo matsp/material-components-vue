@@ -5,6 +5,10 @@
 The changes should be developed in your own fork and based on branches.
 When you have finished your work you create a PR (pull request) on Github.
 
+## Component development
+
+All components should be placed in the `components` directory. Every component has a `README` in it's root directory that documentate the component. Component tests should placed in the `__tests__` directory in each component. Additionally each component should have a demo in `docs/.vuepress/components` and registered in `docs/.vuepress/README.md`.
+
 ## Setup project
 
 Fork the project on Github and clone your own repository to your machine.
