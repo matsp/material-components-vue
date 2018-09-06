@@ -14,6 +14,10 @@ PRs should be squashed to one commit on master - following the commit [guideline
 
 All components should be placed in the `components` directory. Every component has a `README` in it's root directory that documentate the component. Component tests should placed in the `__tests__` directory in each component. Additionally each component should have a demo in `docs/.vuepress/components` and registered in `docs/.vuepress/README.md`.
 
+## Upgrading mdc-web
+
+Please be sure that you switch to the right versioned tag when you want to upgrade to a specific version of mdc-web.
+
 ## Setup project
 
 Fork the project on Github and clone your own repository to your machine.
