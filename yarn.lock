@@ -7624,8 +7624,8 @@ markdown-it@^8.4.1:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
-material-components-web@^0.37.1:
-  version "0.37.1"
+material-components-web@^0.38.2:
+  version "0.38.2"
   resolved "https://registry.yarnpkg.com/material-components-web/-/material-components-web-0.37.1.tgz#d3c0e3e078bf97d69d1f45b533a38dc8d476bc7d"
   dependencies:
     "@material/animation" "^0.34.0"
