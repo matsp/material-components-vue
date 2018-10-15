@@ -24,8 +24,8 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-textfield-helper-text--persistent': this.persistent,
-        'mdc-textfield-helper-text--validation-msg': this.validationMsg
+        'mdc-text-field-helper-text--persistent': this.persistent,
+        'mdc-text-field-helper-text--validation-msg': this.validationMsg
       }
     }
   }
