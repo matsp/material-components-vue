@@ -21,7 +21,7 @@ e.g. SVGs. When you want to use toggling props you have to provide CSS for your 
 ```javascript
 data() {
     return {
-        iconButton: false
+        iconToggle: false
     }
 }
 ```
