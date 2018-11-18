@@ -1,9 +1,8 @@
 <template>
   <div
-    class="mdc-menu"
+    class="mdc-menu mdc-menu-surface"
     tabindex="-1"
-    @MDCMenu:selected="onSelect"
-    @MDCMenu:cancel="onCancel">
+    @MDCMenu:selected="onSelect">
     <slot />
   </div>
 </template>
@@ -89,10 +88,6 @@ export default {
     onSelect (event) {
       this.model = false
       this.$emit('select', event.detail)
-    },
-    onCancel () {
-      this.model = false
-      this.$emit('cancel')
     }
   }
 }

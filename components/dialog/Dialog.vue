@@ -1,31 +1,36 @@
 <template>
-  <aside
+  <div
     class="mdc-dialog"
     role="alertdialog"
-    @MDCDialog:accept="onAccept"
-    @MDCDialog:cancel="onCancel">
-    <div class="mdc-dialog__surface">
-      <header
-        v-if="$slots['header']"
-        class="mdc-dialog__header">
-        <slot name="header" />
-      </header>
-      <section
-        v-if="$slots['body']"
-        :class="bodyClasses"
-        class="mdc-dialog__body">
-        <slot name="body" />
-      </section>
-      <footer
-        v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']"
-        class="mdc-dialog__footer">
-        <slot name="acceptButton" />
-        <slot name="cancelButton" />
-        <slot name="dialogButton" />
-      </footer>
+    aria-modal="true"
+    aria-labelledby="my-dialog-title"
+    aria-describedby="my-dialog-content"
+    @MDCDialog:closed="onClosed">
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface">
+        <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+        <header
+          v-if="$slots['header']"
+          class="mdc-dialog__title">
+          <!-- --><slot name="header" /><!-- -->
+        </header>
+        <section
+          v-if="$slots['body']"
+          :class="bodyClasses"
+          class="mdc-dialog__content">
+          <slot name="body" />
+        </section>
+        <footer
+          v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']"
+          class="mdc-dialog__actions">
+          <slot name="cancelButton" />
+          <slot name="acceptButton" />
+          <slot name="dialogButton" />
+        </footer>
+      </div>
     </div>
-    <div class="mdc-dialog__backdrop"/>
-  </aside>
+    <div class="mdc-dialog__scrim"/>
+  </div>
 </template>
 
 <script>
@@ -72,50 +77,19 @@ export default {
   },
   watch: {
     open () {
-      if (this.open) this.mdcDialog.show()
+      if (this.open) this.mdcDialog.open()
     }
   },
   mounted () {
-    this.updateSlots()
-    this.slotObserver = new MutationObserver(() => this.updateSlots())
-    this.slotObserver.observe(this.$el, {
-      childList: true,
-      subtree: true
-    })
-
     this.mdcDialog = MDCDialog.attachTo(this.$el)
   },
   beforeDestroy () {
-    this.slotObserver.disconnect()
     this.mdcDialog.destroy()
   },
   methods: {
-    updateSlots () {
-      if (this.$slots.acceptButton) {
-        this.$slots.acceptButton.map(n => {
-          n.elm.classList.add('mdc-dialog__footer__button')
-          n.elm.classList.add('mdc-dialog__footer__button--accept')
-        })
-      }
-      if (this.$slots.cancelButton) {
-        this.$slots.cancelButton.map(n => {
-          n.elm.classList.add('mdc-dialog__footer__button')
-          n.elm.classList.add('mdc-dialog__footer__button--cancel')
-        })
-      }
-      if (this.$slots.dialogButton) {
-        this.$slots.dialogButton.map(n => {
-          n.elm.classList.add('mdc-dialog__footer__button')
-        })
-      }
-    },
-    onAccept () {
+    onClosed (event) {
       this.model = false
-      this.$emit('accept')
-    },
-    onCancel () {
-      this.model = false
-      this.$emit('cancel')
+      this.$emit('closed', event.detail)
     }
   }
 }
