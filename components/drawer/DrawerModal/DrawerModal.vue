@@ -1,17 +1,15 @@
 <template>
   <aside
-    class="mdc-drawer mdc-drawer--temporary"
-    @MDCTemporaryDrawer:close="model = false">
-    <nav class="mdc-drawer__drawer">
-      <slot name="toolbarSpacer"/>
-      <slot name="header"/>
-      <slot />
-    </nav>
+    class="mdc-drawer mdc-drawer--modal"
+    @MDCPersistentDrawer:close="model = false">
+    <slot name="toolbarSpacer" />
+    <slot name="header" />
+    <slot />
   </aside>
 </template>
 
 <script>
-import { MDCTemporaryDrawer } from '@material/drawer'
+import { MDCPersistentDrawer } from '@material/drawer'
 
 import { baseComponentMixin, themeClassMixin } from '../../base'
 
@@ -24,12 +22,12 @@ export default {
   props: {
     open: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data () {
     return {
-      mdcTemporaryDrawer: undefined
+      mdcModalDrawer: undefined
     }
   },
   computed: {
@@ -44,15 +42,15 @@ export default {
   },
   watch: {
     open () {
-      this.mdcTemporaryDrawer.open = this.open
+      this.mdcModalDrawer.open = this.open
     }
   },
   mounted () {
-    this.mdcTemporaryDrawer = MDCTemporaryDrawer.attachTo(this.$el)
-    this.mdcTemporaryDrawer.open = this.open
+    this.mdcModalDrawer = MDCPersistentDrawer.attachTo(this.$el)
+    this.mdcModalDrawer.open = this.open
   },
   beforeDestroy () {
-    this.mdcTemporaryDrawer.destroy()
+    this.mdcModalDrawer.destroy()
   }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
-  <nav class="mdc-drawer mdc-drawer--permanent">
+  <nav class="mdc-drawer">
     <slot name="toolbarSpacer" />
+    <slot name="header" />
     <slot />
   </nav>
 </template>

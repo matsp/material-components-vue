@@ -7,15 +7,17 @@
       v-if="$slots['graphic']"
       name="graphic"/>
     <slot/>
-    <span
-      v-if="$slots['text']"
-      class="mdc-list-item__text">
-      <slot name="text"/>
-      <div
+    <span class="mdc-list-item__text">
+      <span
+        v-if="$slots['primaryText']"
+        class="mdc-list-item__primary-text">
+        <slot name="primaryText"/>
+      </span>
+      <span
         v-if="$slots['secondaryText']"
         class="mdc-list-item__secondary-text">
         <slot name="secondaryText"/>
-      </div>
+      </span>
     </span>
     <slot
       v-if="$slots['meta']"

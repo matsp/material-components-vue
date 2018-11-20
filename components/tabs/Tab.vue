@@ -1,22 +1,32 @@
 <template>
-  <a
+  <button
     :class="classes"
+    :aria-selected="active"
+    :tabindex="tabindex"
     class="mdc-tab"
-    v-on="$listeners">
-    <slot name="icon"/>
+    role="tab">
+    <span class="mdc-tab__content">
+      <span
+        v-if="hasIcon"
+        class="mdc-tab__icon material-icons"
+        aria-hidden="true">
+        <slot name="icon"/>
+      </span>
+      <span class="mdc-tab__text-label">
+        <slot/>
+      </span>
+    </span>
     <span
-      v-if="hasIcon && label"
-      class="mdc-tab__icon-text">
-      <slot/>
+      :class="indicatorClasses"
+      class="mdc-tab-indicator">
+      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"/>
     </span>
-    <span v-else-if="label">
-      <slot/>
-    </span>
-  </a>
+    <span class="mdc-tab__ripple"/>
+  </button>
 </template>
 
 <script>
-import { MDCTab } from '@material/tabs'
+import { MDCTab } from '@material/tab'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
 
@@ -26,10 +36,6 @@ export default {
     active: {
       type: Boolean,
       default: false
-    },
-    label: {
-      type: Boolean,
-      default: true
     }
   },
   data () {
@@ -41,9 +47,16 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-tab--active': this.active,
-        'mdc-tab--with-icon-and-text': this.hasIcon && this.label
+        'mdc-tab--active': this.active
       }
+    },
+    indicatorClasses () {
+      return {
+        'mdc-tab-indicator--active': this.active
+      }
+    },
+    tabindex () {
+      return (this.active) ? '0' : '-1'
     },
     hasIcon () {
       return this.$slots.icon

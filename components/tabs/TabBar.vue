@@ -1,43 +1,19 @@
 <template>
-  <nav
-    v-if="!scrollable"
-    :class="classes"
-    class="mdc-tab-bar">
-    <slot />
-    <span class="mdc-tab-bar__indicator"/>
-  </nav>
   <div
-    v-else
-    class="mdc-tab-bar-scroller">
-    <div class="mdc-tab-bar-scroller__indicator mdc-tab-bar-scroller__indicator--back">
-      <a
-        class="mdc-tab-bar-scroller__indicator__inner material-icons"
-        href="#"
-        aria-label="scroll back button">
-        navigate_before
-      </a>
-    </div>
-    <div class="mdc-tab-bar-scroller__scroll-frame">
-      <nav
-        :class="classes"
-        class="mdc-tab-bar">
-        <slot />
-        <span class="mdc-tab-bar__indicator"/>
-      </nav>
-    </div>
-    <div class="mdc-tab-bar-scroller__indicator mdc-tab-bar-scroller__indicator--forward">
-      <a
-        class="mdc-tab-bar-scroller__indicator__inner material-icons"
-        href="#"
-        aria-label="scroll forward button">
-        navigate_next
-      </a>
+    role="tablist"
+    class="mdc-tab-bar" >
+    <div class="mdc-tab-scroller">
+      <div class="mdc-tab-scroller__scroll-area">
+        <div class="mdc-tab-scroller__scroll-content">
+          <slot/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { MDCTabBar, MDCTabBarScroller } from '@material/tabs'
+import { MDCTabBar } from '@material/tab-bar'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
 
@@ -59,8 +35,7 @@ export default {
   },
   data () {
     return {
-      mdcTabBar: undefined,
-      mdcTabBarScroller: undefined
+      mdcTabBar: undefined
     }
   },
   computed: {
@@ -73,14 +48,9 @@ export default {
     }
   },
   mounted () {
-    this.scrollable
-      ? (this.mdcTabBarScroller = MDCTabBarScroller.attachTo(this.$el))
-      : (this.mdcTabBar = MDCTabBar.attachTo(this.$el))
+    this.mdcTabBar = MDCTabBar.attachTo(this.$el)
   },
   beforeDestroy () {
-    if (typeof this.mdcTabBarScroller !== 'undefined') {
-      this.mdcTabBarScroller.destroy()
-    }
     if (typeof this.mdcTabBar !== 'undefined') {
       this.mdcTabBar.destroy()
     }

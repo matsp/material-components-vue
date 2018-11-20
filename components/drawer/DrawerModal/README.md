@@ -1,19 +1,19 @@
-## DrawerTemporary
+## DrawerModal
 
 ### Markup
 
 ```html
-<m-drawer-temporary v-model="isDrawerOpen">
+<m-drawer-modal v-model="isDrawerOpen">
   <m-drawer-toolbar-spacer slot="toolbarSpacer"/>
   <m-drawer-content>
     <m-list>
       <m-list-item v-for="item in listItems" :key="item.text">
         <m-icon slot="graphic" :icon="item.icon"/>
-          {{item.text}}
+        {{item.text}}
       </m-list-item>
     </m-list>
   </m-drawer-content>
-</m-drawer-temporary>
+</m-drawer-modal>
 ```
 ### Script
 
@@ -29,7 +29,7 @@ data () {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| open | Boolean | false | whether the drawer should be open at start |
+| open | Boolean | true | whether the drawer should be open at start |
 
 ### Slots
 
@@ -38,6 +38,7 @@ data () {
 | default | content section of the drawer |
 | toolbarSpacer | adds space with the same size as the toolbar on top of the drawer |
 | header | header section of the drawer |
+
 
 ### Reference
 

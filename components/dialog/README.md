@@ -3,15 +3,24 @@
 ### Markup
 
 ```html
+<m-button raised @click="isDialogOpen=true">Dialog</m-button>
 <m-dialog
   v-model="isDialogOpen"
-  @accept="accepted = true"
-  @cancel="canceled = true">
-  <m-typo-headline slot="header">Header</m-typo-headline>
-  <m-typo-body slot="body">Body</m-typo-body>
-  <m-button slot="acceptButton">Accept</m-button>
-  <m-button slot="cancelButton">Cancel</m-button>
-  <m-button slot="dialogButton">Anything</m-button>
+  @closed="onDialogClosed">
+  <m-typo-headline :level="5" slot="header">Header</m-typo-headline>
+  <m-typo-body :level="1" slot="body">Body</m-typo-body>
+  <m-button 
+    class="mdc-dialog__button"
+    data-mdc-dialog-action="Cancel"
+    slot="cancelButton">
+    Cancel
+  </m-button>
+  <m-button
+    class="mdc-dialog__button"
+    data-mdc-dialog-action="OK"
+    slot="acceptButton">
+    OK
+  </m-button>
 </m-dialog>
 ```
 
@@ -19,9 +28,12 @@
 ```javascript
 data () {
   return {
-    isDialogOpen: false,
-    accepted: false,
-    canceled: false
+    isDialogOpen: false
+  }
+},
+methods: {
+  onDialogClosed (value) {
+    console.log(value)
   }
 }
 ```
@@ -37,8 +49,7 @@ data () {
 
 | Event | Payload | Description |
 |-------|---------|-------------|
-| accept | - | emitted when accept button will be clicked |
-| cancel | - | emitted when cancel button will be clicked |
+| closed | { action: value } | emitted when dialog is closed |
 
 ### Slots
 
