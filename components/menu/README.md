@@ -5,7 +5,9 @@
 ```html
 <m-menu-anchor>
   <m-button raised @click="isMenuOpen=true">open</m-button>
-  <m-menu v-model="isMenuOpen">
+  <m-menu
+    v-model="isMenuOpen"
+    @cancel="isMenuOpen=false">
     <m-list>
       <m-list-item>Entry 1</m-list-item>
       <m-list-divider/>
@@ -19,9 +21,9 @@
 
 ```javascript
 data() {
-    return {
-        isMenuOpen: false
-    }
+  return {
+    isMenuOpen: false
+  }
 }
 
 ```

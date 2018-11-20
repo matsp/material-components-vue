@@ -50,6 +50,11 @@ export default {
     },
     quickOpen () {
       this.mdcMenu.quickOpen = this.quickOpen
+    },
+    'mdcMenu.open' () {
+      if (!this.mdcMenu.open) {
+        this.$emit('cancel', true)
+      }
     }
   },
   mounted () {
