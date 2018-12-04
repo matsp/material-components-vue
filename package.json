@@ -31,7 +31,7 @@
     "test:updateSnapshot": "yarn test --updateSnapshot"
   },
   "dependencies": {
-    "material-components-web": "^0.41.1"
+    "material-components-web": "^0.42.0"
   },
   "peerDependencies": {
     "vue": "^2.5.17",
