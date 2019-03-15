@@ -6,21 +6,22 @@
     <div class="mdc-switch__thumb-underlay">
       <div class="mdc-switch__thumb">
         <input
-          v-model="model"
-          :disabled="disabled"
-          type="checkbox"
-          class="mdc-switch__native-control"
-          role="switch" >
+                :disabled="disabled"
+                :id="id"
+                class="mdc-switch__native-control"
+                role="switch"
+                type="checkbox"
+                v-model="model">
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { MDCSwitch } from '@material/switch'
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { MDCSwitch } from '@material/switch'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'checked',
@@ -29,11 +30,15 @@ export default {
   props: {
     checked: {
       type: Boolean,
-      required: false
+      default: false
     },
     disabled: {
       type: Boolean,
-      required: false
+      default: false
+    },
+    id: {
+      type: String,
+      default: ''
     }
   },
   data () {

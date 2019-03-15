@@ -1,21 +1,23 @@
 <template>
   <ul
-    :class="classes"
-    class="mdc-image-list">
-    <slot/>
+          :class="classes"
+          class="mdc-image-list"
+  >
+      <slot/>
   </ul>
 </template>
 
 <script>
 export default {
   props: {
-    standardColumn: {
+    column: {
       type: Number,
-      validator: (value) => value >= 1 && value <= 12
+      validator: (value) => value >= 0 && value <= 12,
+      default: 0
     },
-    masonryColumn: {
-      type: Number,
-      validator: (value) => value >= 1 && value <= 12
+    masonry: {
+      type: Boolean,
+      default: false
     },
     textProtection: {
       type: Boolean,
@@ -25,20 +27,20 @@ export default {
   computed: {
     classes () {
       let standard = {}
-      if (this.standardColumn > 0 && typeof this.masonryColumn === 'undefined') {
-        standard['image-list-standard-' + this.standardColumn] = true
+      if (this.column > 0 && !this.masonry) {
+        standard['image-list-standard-' + this.column] = true
       }
 
       let masonry = {}
-      if (this.masonryColumn > 0 && typeof this.standardColumn === 'undefined') {
-        masonry['image-list-masonry-' + this.masonryColumn] = true
+      if (this.column > 0 && this.masonry) {
+        masonry['image-list-masonry-' + this.column] = true
         masonry['mdc-image-list--masonry'] = true
       }
 
       let others = {}
       others['mdc-image-list--with-text-protection'] = this.textProtection
 
-      return {...standard, ...masonry, ...others}
+      return { ...standard, ...masonry, ...others }
     }
   }
 }

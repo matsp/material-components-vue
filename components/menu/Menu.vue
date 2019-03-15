@@ -1,18 +1,18 @@
 <template>
   <div
-    class="mdc-menu mdc-menu-surface"
-    tabindex="-1"
-    @MDCMenu:selected="onSelect">
+          :tabindex="mdcMenu ? (mdcMenu.open ? 0 : -1) : (open ? 0 : -1)"
+          @MDCMenu:selected="onSelect"
+          class="mdc-menu mdc-menu-surface">
     <slot />
   </div>
 </template>
 
 <script>
-import { MDCMenu } from '@material/menu'
+  import { Corner, MDCMenu } from '@material/menu'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'open',
@@ -26,6 +26,26 @@ export default {
     quickOpen: {
       type: Boolean,
       default: false
+    },
+    anchorCorner: {
+      type: String,
+      default: ''
+    },
+    absolutePositionX: {
+      type: Number,
+      default: -1
+    },
+    absolutePositionY: {
+      type: Number,
+      default: -1
+    },
+    fixed: {
+      type: Boolean,
+      default: false
+    },
+    wrapFocus: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -50,6 +70,32 @@ export default {
     },
     quickOpen () {
       this.mdcMenu.quickOpen = this.quickOpen
+    },
+    fixed () {
+      this.mdcMenu.setFixedPosition(this.fixed)
+    },
+    anchorCorner () {
+      if (this.anchorCorner !== '') {
+        this.mdcMenu.setAnchorCorner(Corner[this.anchorCorner.toUpperCase()])
+      } else {
+        this.mdcMenu.setAnchorCorner(Corner.TOP_START)
+      }
+    },
+    absolutePositionX () {
+      if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+        this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
+      }
+    },
+    absolutePositionY () {
+      if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+        this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
+      }
+    },
+    wrapFocus () {
+      this.mdcMenu.wrapFocus = this.wrapFocus
+    },
+    'mdcMenu.open' () {
+      this.model = this.mdcMenu.open
     }
   },
   mounted () {
@@ -60,6 +106,14 @@ export default {
       subtree: true
     })
     this.mdcMenu = MDCMenu.attachTo(this.$el)
+    this.mdcMenu.setFixedPosition(this.fixed)
+    if (this.anchorCorner !== '') {
+      this.mdcMenu.setAnchorCorner(Corner[this.anchorCorner.toUpperCase()])
+    }
+    if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+      this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
+    }
+    this.mdcMenu.wrapFocus = this.wrapFocus
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -69,19 +123,9 @@ export default {
     updateSlot () {
       if (this.$slots.default) {
         this.$slots.default.map(n => {
-          n.componentInstance.$el.classList.add('mdc-menu__items')
           n.componentInstance.$el.setAttribute('role', 'menu')
           n.componentInstance.$el.setAttribute('aria-hidden', 'true')
-          n.componentInstance.$children
-            .filter(n => n.$el.classList.contains('mdc-list-item'))
-            .map(n => {
-              n.$el.setAttribute('tabindex', '0')
-              n.$el.setAttribute('role', 'menuitem')
-              // TODO: temporary fix to pass events
-              n.$children.map(nc => {
-                nc.$el.setAttribute('style', 'pointer-events: none')
-              })
-            })
+          n.componentInstance.$el.setAttribute('aria-orientation', 'vertical')
         })
       }
     },

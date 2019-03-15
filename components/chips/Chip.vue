@@ -1,10 +1,11 @@
 <template>
   <div
-    :class="classes"
-    class="mdc-chip"
-    tabindex="0"
-    @MDCChip:interaction="$emit('change', !selected)"
-    @MDCChip:removal="$emit('remove') && $emit('change', false)">
+          :class="classes"
+          @MDCChip:interaction="$emit('change', !selected)"
+          @MDCChip:removal="$emit('remove') && $emit('change', false)"
+          @MDCChip:trailingIconInteraction="onTrailingIconInteraction"
+          class="mdc-chip"
+          tabindex="0">
     <slot
       v-if="$slots['leadingIcon']"
       name="leadingIcon"/>
@@ -31,9 +32,9 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'selected',
@@ -90,6 +91,9 @@ export default {
           n.elm.setAttribute('tabindex', '0')
         })
       }
+    },
+    onTrailingIconInteraction (e) {
+      this.$emit('onTrailingIconInteraction', e.detail)
     }
   }
 }

@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import { MDCRipple } from '@material/ripple'
+  import { MDCRipple } from '@material/ripple'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     unbounded: {
@@ -37,7 +37,7 @@ export default {
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
-    if (this.mdcRipple !== null) { this.mdcRipple.destroy() }
+    if (this.mdcRipple) { this.mdcRipple.destroy() }
   },
   methods: {
     updateSlot () {

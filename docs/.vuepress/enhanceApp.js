@@ -8,7 +8,7 @@ import Checkbox from '../../components/checkbox'
 import Select from '../../components/select'
 import Card from '../../components/card'
 import Chips from '../../components/chips'
-import Textfield from '../../components/textfield'
+import TextField from '../../components/text-field'
 import FloatingLabel from '../../components/floating-label'
 import LineRipple from '../../components/line-ripple'
 import NotchedOutline from '../../components/notched-outline'
@@ -18,6 +18,15 @@ import LayoutGrid from '../../components/layout-grid'
 import Typography from '../../components/typography'
 import Fab from '../../components/fab'
 import IconButton from '../../components/icon-button'
+import Dialog from '../../components/dialog'
+import Drawer from '../../components/drawer'
+import TopAppBar from '../../components/top-app-bar'
+import ImageList from '../../components/image-list'
+import Slider from '../../components/slider'
+import Switch from '../../components/switch'
+import LinearProgress from '../../components/linear-progress'
+import Snackbar from '../../components/snackbar'
+import Tabs from '../../components/tabs'
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -33,7 +42,7 @@ export default ({
   Vue.use(Select)
   Vue.use(Card)
   Vue.use(Chips)
-  Vue.use(Textfield)
+  Vue.use(TextField)
   Vue.use(FloatingLabel)
   Vue.use(LineRipple)
   Vue.use(NotchedOutline)
@@ -43,4 +52,13 @@ export default ({
   Vue.use(IconButton)
   Vue.use(List)
   Vue.use(Menu)
+  Vue.use(Dialog)
+  Vue.use(Drawer)
+  Vue.use(TopAppBar)
+  Vue.use(ImageList)
+  Vue.use(Slider)
+  Vue.use(Switch)
+  Vue.use(LinearProgress)
+  Vue.use(Snackbar)
+  Vue.use(Tabs)
 }

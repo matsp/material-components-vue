@@ -44,6 +44,7 @@ methods: {
 |------|------|---------|-------------|
 | scrollable | Boolean | false | scrollable body |
 | open | Boolean | false | dialog starts in open state |
+| stacked | Boolean | true | whether the buttons are stacked vertically automatically |
 
 ### Events
 

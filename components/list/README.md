@@ -79,9 +79,9 @@
 
 | Slot | Description |
 |------|-------------|
-| default | list item content |
 | graphic | first tile |
-| text | first row of content when twoline list |
+| text | content when single-line list |
+| primaryText | first row of content when twoline list |
 | secondaryText | second row of content when twoline list |
 | meta | end tile |
 

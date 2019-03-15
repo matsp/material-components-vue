@@ -1,12 +1,12 @@
 <template>
   <div
-    :class="classes"
-    :aria-label="label"
-    :aria-disabled="disabled"
-    class="mdc-slider"
-    tabindex="0"
-    role="slider"
-    @MDCSlider:change="onChange">
+          :aria-disabled="disabled"
+          :aria-label="ariaLabel"
+          :class="classes"
+          @MDCSlider:change="onChange"
+          class="mdc-slider"
+          role="slider"
+          tabindex="0">
     <div class="mdc-slider__track-container">
       <div class="mdc-slider__track"/>
       <div
@@ -48,49 +48,49 @@
 </template>
 
 <script>
-import { MDCSlider } from '@material/slider'
+  import { MDCSlider } from '@material/slider'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
     event: 'change'
   },
   props: {
-    label: {
+    ariaLabel: {
       type: String,
-      required: false
+      default: ''
     },
     displayMarkers: {
       type: Boolean,
-      required: false
+      default: false
     },
     discrete: {
       type: Boolean,
-      required: false
+      default: false
     },
     value: {
       type: Number,
-      required: false
+      default: 0
     },
     min: {
       type: Number,
-      required: true
+      default: 0
     },
     max: {
       type: Number,
-      required: true
+      default: 100
     },
     step: {
       type: Number,
       validator: value => value > 0,
-      required: false
+      default: 1
     },
     disabled: {
       type: Boolean,
-      required: false
+      default: false
     }
   },
   data () {
@@ -103,11 +103,6 @@ export default {
       return {
         'mdc-slider--discrete': this.discrete,
         'mdc-slider--display-markers': this.displayMarkers
-      }
-    },
-    discreteClasses () {
-      return {
-        'mdc-slider__track-marker-container': this.displayMarkers
       }
     }
   },

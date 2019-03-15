@@ -1,15 +1,16 @@
 <template>
-  <nav
-    v-if="$slots['default']"
-    class="mdc-drawer__content">
+    <div
+            class="mdc-drawer__content"
+            v-if="$slots['default']"
+    >
     <slot />
-  </nav>
+    </div>
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin]
 }
 </script>

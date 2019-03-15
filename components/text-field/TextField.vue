@@ -1,34 +1,47 @@
 <template>
   <div
-    :class="classes"
-    class="mdc-text-field">
-    <slot name="leadingIcon"/>
+          :class="classes"
+          class="mdc-text-field"
+  >
+      <slot name="leadingIcon"/>
     <input
-      v-if="!textarea"
-      :value="value"
-      v-bind="$attrs"
-      v-on="$listeners"
-      class="mdc-text-field__input"
-      @input="$emit('model', $event.target.value)">
+            :value="value"
+            @input="$emit('model', $event.target.value)"
+            class="mdc-text-field__input"
+            v-bind="$attrs"
+            v-if="!textarea"
+            v-on="$listeners"
+    >
     <textarea
-      v-if="textarea"
-      :value="value"
-      v-bind="$attrs"
-      v-on="$listeners"
-      class="mdc-text-field__input"
-      @input="$emit('model', $event.target.value)"/>
-    <slot v-if="$slots['default'] && !fullWidth"/>
-    <slot name="trailingIcon"/>
-    <slot name="bottomLine"/>
+            :value="value"
+            @input="$emit('model', $event.target.value)"
+            class="mdc-text-field__input"
+            v-bind="$attrs"
+            v-if="textarea"
+            v-on="$listeners"
+    />
+      <div
+              class="mdc-notched-outline"
+              v-if="textarea || outlined"
+      >
+          <div class="mdc-notched-outline__leading"/>
+          <div class="mdc-notched-outline__notch" v-if="$slots['default']">
+              <slot/>
+          </div>
+          <div class="mdc-notched-outline__trailing"/>
+      </div>
+      <slot v-if="$slots['default'] && !fullWidth && !textarea && !outlined"/>
+      <slot name="trailingIcon"/>
+      <slot name="bottomLine" v-if="!outlined"/>
   </div>
 </template>
 
 <script>
-import { MDCTextField } from '@material/textfield'
+  import { MDCTextField } from '@material/textfield'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
@@ -51,10 +64,6 @@ export default {
       type: Boolean,
       default: false
     },
-    box: {
-      type: Boolean,
-      default: false
-    },
     outlined: {
       type: Boolean,
       default: false
@@ -70,12 +79,19 @@ export default {
     textarea: {
       type: Boolean,
       default: false
+    },
+    useNativeValidation: {
+      type: Boolean,
+      default: true
+    },
+    valid: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
     return {
       mdcTextField: undefined,
-      mdcRipple: undefined,
       slotObserver: undefined
     }
   },
@@ -85,16 +101,24 @@ export default {
         'mdc-text-field--disabled': this.disabled,
         'mdc-text-field--upgraded': this.upgraded,
         'mdc-text-field--fullwidth': this.fullWidth,
-        'mdc-text-field--box': this.box,
         'mdc-text-field--with-leading-icon': this.$slots.leadingIcon,
         'mdc-text-field--with-trailing-icon': this.$slots.trailingIcon,
         'mdc-text-field--outlined': this.outlined,
         'mdc-text-field--dense': this.dense,
         'mdc-text-field--focused': this.focused,
-        'mdc-text-field--textarea': this.textarea
+        'mdc-text-field--textarea': this.textarea,
+        'mdc-text-field--no-label': !this.$slots['default'] && !this.fullWidth
       }
     }
   },
+    watch: {
+      useNativeValidation () {
+        this.mdcTextField.useNativeValidation = this.useNativeValidation
+      },
+      valid () {
+        this.mdcTextField.valid = this.valid
+      }
+    },
   mounted () {
     this.updateSlots()
     this.slotObserver = new MutationObserver(() => this.updateSlots())
@@ -103,14 +127,12 @@ export default {
       subtree: true
     })
     this.mdcTextField = MDCTextField.attachTo(this.$el)
+    this.mdcTextField.useNativeValidation = this.useNativeValidation
+    this.mdcTextField.valid = this.valid
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
     this.mdcTextField.destroy()
-
-    if (typeof this.mdcRipple !== 'undefined') {
-      this.mdcRipple.destroy()
-    }
   },
   methods: {
     updateSlots () {

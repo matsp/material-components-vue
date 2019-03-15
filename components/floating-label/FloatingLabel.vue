@@ -1,18 +1,28 @@
 <template>
-  <label
-    :class="classes"
-    v-bind="$attrs"
-    class="mdc-floating-label">
+  <span
+          :class="classes"
+          class="mdc-floating-label"
+          v-bind="$attrs"
+          v-if="$parent.$options._componentTag === 'm-select'"
+  >
     <slot/>
+  </span>
+  <label
+          :class="classes"
+          class="mdc-floating-label"
+          v-bind="$attrs"
+          v-else
+  >
+      <slot/>
   </label>
 </template>
 
 <script>
-import { MDCFloatingLabel } from '@material/floating-label'
+  import { MDCFloatingLabel } from '@material/floating-label'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     floatAbove: {

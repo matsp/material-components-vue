@@ -1,36 +1,36 @@
 <template>
   <div
-    role="tablist"
-    class="mdc-tab-bar" >
-    <div class="mdc-tab-scroller">
-      <div class="mdc-tab-scroller__scroll-area">
-        <div class="mdc-tab-scroller__scroll-content">
-          <slot/>
-        </div>
-      </div>
-    </div>
+          @MDCTabBar:activated="onActivated"
+          class="mdc-tab-bar"
+          role="tablist"
+  >
+      <slot/>
   </div>
 </template>
 
 <script>
-import { MDCTabBar } from '@material/tab-bar'
+  import { MDCTabBar } from '@material/tab-bar'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
-    scrollable: {
+    focusOnActivate: {
       type: Boolean,
-      default: false
+      default: true
     },
-    iconTabBar: {
+    useAutomaticActivation: {
       type: Boolean,
-      default: false
+      default: true
     },
-    withIconAndText: {
-      type: Boolean,
-      default: false
+    activateTab: {
+      type: Number,
+      default: 0
+    },
+    scrollIntoView: {
+      type: Number,
+      default: 0
     }
   },
   data () {
@@ -38,22 +38,34 @@ export default {
       mdcTabBar: undefined
     }
   },
-  computed: {
-    classes () {
-      return {
-        'mdc-tab-bar-scroller__scroll-frame__tabs': this.scrollable,
-        'mdc-tab-bar--icon-tab-bar': this.iconTabBar,
-        'mdc-tab-bar--icons-with-text': this.withIconAndText
-      }
+    watch: {
+      focusOnActivate () {
+        this.mdcTabBar.focusOnActivate = this.focusOnActivate
+      },
+      useAutomaticActivation () {
+        this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
+      },
+      activateTab () {
+        this.mdcTabBar.activateTab(this.activateTab)
+      },
+      scrollIntoView () {
+        this.mdcTabBar.scrollIntoView(this.scrollIntoView)
     }
   },
   mounted () {
     this.mdcTabBar = MDCTabBar.attachTo(this.$el)
+    this.mdcTabBar.focusOnActivate = this.focusOnActivate
+    this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
   },
   beforeDestroy () {
     if (typeof this.mdcTabBar !== 'undefined') {
       this.mdcTabBar.destroy()
     }
-  }
+  },
+    methods: {
+      onActivated (e) {
+        this.$emit('activated', e.detail)
+      }
+    }
 }
 </script>

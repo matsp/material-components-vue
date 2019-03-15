@@ -38,7 +38,7 @@ module.exports = {
     switch: path.resolve(components + '/switch/index.js'),
     // tab: path.resolve(components + '/tab/index.js'),
     tabs: path.resolve(components + '/tabs/index.js'),
-    textfield: path.resolve(components + '/textfield/index.js'),
+    textfield: path.resolve(components + '/text-field/index.js'),
     theme: path.resolve(components + '/theme/index.js'),
     toolbar: path.resolve(components + '/toolbar/index.js'),
     'top-app-bar': path.resolve(components + '/top-app-bar/index.js'),
