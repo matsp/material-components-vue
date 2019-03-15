@@ -1,22 +1,22 @@
 <template>
   <h6
-          class="mdc-list-group__subheader"
-          v-if="$parent._vnode.tag.toUpperCase() === 'NAV'"
+    v-if="$parent.$options._componentTag === 'm-drawer-list'"
+    class="mdc-list-group__subheader"
   >
     <slot />
   </h6>
   <h3
-          class="mdc-list-group__subheader"
-          v-else
+    v-else
+    class="mdc-list-group__subheader"
   >
-    <slot/>
+    <slot />
   </h3>
 </template>
 
 <script>
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin]
 }
 </script>

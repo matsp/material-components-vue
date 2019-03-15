@@ -1,40 +1,46 @@
 <template>
   <div
-          :class="classes"
-          @MDCChip:interaction="$emit('change', !selected)"
-          @MDCChip:removal="$emit('remove') && $emit('change', false)"
-          @MDCChip:trailingIconInteraction="onTrailingIconInteraction"
-          class="mdc-chip"
-          tabindex="0">
+    :class="classes"
+    class="mdc-chip"
+    tabindex="0"
+    @MDCChip:interaction="$emit('change', !selected)"
+    @MDCChip:removal="$emit('remove') && $emit('change', false)"
+    @MDCChip:trailingIconInteraction="onTrailingIconInteraction"
+  >
     <slot
       v-if="$slots['leadingIcon']"
-      name="leadingIcon"/>
+      name="leadingIcon"
+    />
     <div
       v-if="mdcChipSet && mdcChipSet.filter"
-      class="mdc-chip__checkmark">
+      class="mdc-chip__checkmark"
+    >
       <svg
         class="mdc-chip__checkmark-svg"
-        viewBox="-2 -3 30 30">
+        viewBox="-2 -3 30 30"
+      >
         <path
           class="mdc-chip__checkmark-path"
           fill="none"
           stroke="black"
-          d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+          d="M1.73,12.91 8.1,19.28 22.79,4.59"
+        />
       </svg>
     </div>
     <div class="mdc-chip__text">
-      <slot/>
+      <slot />
     </div>
     <slot
       v-if="$slots['trailingIcon']"
-      name="trailingIcon"/>
+      name="trailingIcon"
+    />
   </div>
 </template>
 
 <script>
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'selected',

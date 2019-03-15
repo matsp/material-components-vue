@@ -1,7 +1,8 @@
 <template>
   <div
     :class="classes"
-    class="mdc-top-app-bar--fixed-adjust">
+    class="mdc-top-app-bar--fixed-adjust"
+  >
     <slot />
   </div>
 </template>

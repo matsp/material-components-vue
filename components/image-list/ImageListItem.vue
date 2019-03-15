@@ -2,17 +2,20 @@
   <li class="mdc-image-list__item">
     <div
       v-if="adjustAspectRatio"
-      class="mdc-image-list__image-aspect-container">
-      <slot name="image"/>
+      class="mdc-image-list__image-aspect-container"
+    >
+      <slot name="image" />
     </div>
     <slot
       v-else
-      name="image"/>
+      name="image"
+    />
     <div
       v-if="$slots['default']"
-      class="mdc-image-list__supporting">
+      class="mdc-image-list__supporting"
+    >
       <span class="mdc-image-list__label">
-        <slot/>
+        <slot />
       </span>
     </div>
   </li>

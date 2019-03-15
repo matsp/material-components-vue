@@ -1,47 +1,53 @@
 <template>
   <div
-          :class="classes"
-          class="mdc-text-field"
+    :class="classes"
+    class="mdc-text-field"
   >
-      <slot name="leadingIcon"/>
+    <slot name="leadingIcon" />
     <input
-            :value="value"
-            @input="$emit('model', $event.target.value)"
-            class="mdc-text-field__input"
-            v-bind="$attrs"
-            v-if="!textarea"
-            v-on="$listeners"
+      v-if="!textarea"
+      :value="value"
+      class="mdc-text-field__input"
+      v-bind="$attrs"
+      @input="$emit('model', $event.target.value)"
+      v-on="$listeners"
     >
     <textarea
-            :value="value"
-            @input="$emit('model', $event.target.value)"
-            class="mdc-text-field__input"
-            v-bind="$attrs"
-            v-if="textarea"
-            v-on="$listeners"
+      v-if="textarea"
+      :value="value"
+      class="mdc-text-field__input"
+      v-bind="$attrs"
+      @input="$emit('model', $event.target.value)"
+      v-on="$listeners"
     />
+    <div
+      v-if="textarea || outlined"
+      class="mdc-notched-outline"
+    >
+      <div class="mdc-notched-outline__leading" />
       <div
-              class="mdc-notched-outline"
-              v-if="textarea || outlined"
+        v-if="$slots['default']"
+        class="mdc-notched-outline__notch"
       >
-          <div class="mdc-notched-outline__leading"/>
-          <div class="mdc-notched-outline__notch" v-if="$slots['default']">
-              <slot/>
-          </div>
-          <div class="mdc-notched-outline__trailing"/>
+        <slot />
       </div>
-      <slot v-if="$slots['default'] && !fullWidth && !textarea && !outlined"/>
-      <slot name="trailingIcon"/>
-      <slot name="bottomLine" v-if="!outlined"/>
+      <div class="mdc-notched-outline__trailing" />
+    </div>
+    <slot v-if="$slots['default'] && !fullWidth && !textarea && !outlined" />
+    <slot name="trailingIcon" />
+    <slot
+      v-if="!outlined"
+      name="bottomLine"
+    />
   </div>
 </template>
 
 <script>
-  import { MDCTextField } from '@material/textfield'
+import { MDCTextField } from '@material/textfield'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
@@ -111,14 +117,14 @@
       }
     }
   },
-    watch: {
-      useNativeValidation () {
-        this.mdcTextField.useNativeValidation = this.useNativeValidation
-      },
-      valid () {
-        this.mdcTextField.valid = this.valid
-      }
+  watch: {
+    useNativeValidation () {
+      this.mdcTextField.useNativeValidation = this.useNativeValidation
     },
+    valid () {
+      this.mdcTextField.valid = this.valid
+    }
+  },
   mounted () {
     this.updateSlots()
     this.slotObserver = new MutationObserver(() => this.updateSlots())

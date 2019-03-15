@@ -1,27 +1,29 @@
 <template>
   <div
     :class="classes"
-    class="mdc-switch">
-    <div class="mdc-switch__track"/>
+    class="mdc-switch"
+  >
+    <div class="mdc-switch__track" />
     <div class="mdc-switch__thumb-underlay">
       <div class="mdc-switch__thumb">
         <input
-                :disabled="disabled"
-                :id="id"
-                class="mdc-switch__native-control"
-                role="switch"
-                type="checkbox"
-                v-model="model">
+          :id="id"
+          v-model="model"
+          :disabled="disabled"
+          class="mdc-switch__native-control"
+          role="switch"
+          type="checkbox"
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { MDCSwitch } from '@material/switch'
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { MDCSwitch } from '@material/switch'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'checked',

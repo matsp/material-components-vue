@@ -1,40 +1,40 @@
 <template>
   <header
-          :class="classes"
-          @MDCTopAppBar:nav="onNavigation()"
-          class="mdc-top-app-bar"
+    :class="classes"
+    class="mdc-top-app-bar"
+    @MDCTopAppBar:nav="onNavigation()"
   >
     <div class="mdc-top-app-bar__row">
       <section
-              class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
-              v-if="$slots['navigation'] || title"
+        v-if="$slots['navigation'] || title"
+        class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
       >
-          <slot name="navigation"/>
-          <span
-                  class="mdc-top-app-bar__title"
-                  v-if="title"
-          >
+        <slot name="navigation" />
+        <span
+          v-if="title"
+          class="mdc-top-app-bar__title"
+        >
           {{ title }}
         </span>
       </section>
-        <slot/>
+      <slot />
       <section
-              class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
-              role="toolbar"
-              v-if="$slots['actions']"
+        v-if="$slots['actions']"
+        class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+        role="toolbar"
       >
-          <slot name="actions"/>
+        <slot name="actions" />
       </section>
     </div>
   </header>
 </template>
 
 <script>
-  import { MDCTopAppBar } from '@material/top-app-bar'
+import { MDCTopAppBar } from '@material/top-app-bar'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     collapsed: {
@@ -83,13 +83,13 @@
       }
     }
   },
-    watch: {
-      scrollTarget () {
-        if (this.mdcTopAppBar && this.scrollTarget) {
-          this.mdcTopAppBar.setScrollTarget(document.getElementById(this.scrollTarget))
-        }
+  watch: {
+    scrollTarget () {
+      if (this.mdcTopAppBar && this.scrollTarget) {
+        this.mdcTopAppBar.setScrollTarget(document.getElementById(this.scrollTarget))
       }
-    },
+    }
+  },
   mounted () {
     this.updateSlots()
     this.slotObserver = new MutationObserver(() => this.updateSlots())

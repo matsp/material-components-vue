@@ -1,13 +1,13 @@
 <template>
-    <div class="mdc-drawer-app-content">
-    <slot/>
+  <div class="mdc-drawer-app-content">
+    <slot />
   </div>
 </template>
 
 <script>
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin]
 }
 </script>

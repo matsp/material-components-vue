@@ -2,11 +2,13 @@
   <button
     :class="classes"
     class="mdc-fab"
-    v-on="$listeners">
-    <slot name="icon"/>
+    v-on="$listeners"
+  >
+    <slot name="icon" />
     <div
       v-if="extended"
-      class="mdc-fab__label">
+      class="mdc-fab__label"
+    >
       <slot />
     </div>
   </button>

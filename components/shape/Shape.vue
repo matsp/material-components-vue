@@ -1,18 +1,22 @@
 <template>
   <div class="mdc-shape-container">
-    <slot/>
+    <slot />
     <div
       v-if="topLeft"
-      class="mdc-shape-container__corner mdc-shape-container__corner--top-left"/>
+      class="mdc-shape-container__corner mdc-shape-container__corner--top-left"
+    />
     <div
       v-if="topRight"
-      class="mdc-shape-container__corner mdc-shape-container__corner--top-right"/>
+      class="mdc-shape-container__corner mdc-shape-container__corner--top-right"
+    />
     <div
       v-if="bottomRight"
-      class="mdc-shape-container__corner mdc-shape-container__corner--bottom-right"/>
+      class="mdc-shape-container__corner mdc-shape-container__corner--bottom-right"
+    />
     <div
       v-if="bottomLeft"
-      class="mdc-shape-container__corner mdc-shape-container__corner--bottom-left"/>
+      class="mdc-shape-container__corner mdc-shape-container__corner--bottom-left"
+    />
   </div>
 </template>
 

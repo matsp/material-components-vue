@@ -1,17 +1,17 @@
 <template>
-    <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading"/>
-        <div class="mdc-notched-outline__notch">
-            <slot/>
+  <div class="mdc-notched-outline">
+    <div class="mdc-notched-outline__leading" />
+    <div class="mdc-notched-outline__notch">
+      <slot />
     </div>
-        <div class="mdc-notched-outline__trailing"/>
+    <div class="mdc-notched-outline__trailing" />
   </div>
 </template>
 <script>
-  import { MDCNotchedOutline } from '@material/notched-outline'
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { MDCNotchedOutline } from '@material/notched-outline'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   data () {
     return {

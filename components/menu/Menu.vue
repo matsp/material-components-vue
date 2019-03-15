@@ -1,18 +1,19 @@
 <template>
   <div
-          :tabindex="mdcMenu ? (mdcMenu.open ? 0 : -1) : (open ? 0 : -1)"
-          @MDCMenu:selected="onSelect"
-          class="mdc-menu mdc-menu-surface">
+    :tabindex="mdcMenu ? (mdcMenu.open ? 0 : -1) : (open ? 0 : -1)"
+    class="mdc-menu mdc-menu-surface"
+    @MDCMenu:selected="onSelect"
+  >
     <slot />
   </div>
 </template>
 
 <script>
-  import { Corner, MDCMenu } from '@material/menu'
+import { Corner, MDCMenu } from '@material/menu'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'open',
