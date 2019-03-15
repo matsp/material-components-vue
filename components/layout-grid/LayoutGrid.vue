@@ -7,19 +7,19 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     fixedColumnWidth: {
       type: Boolean,
-      required: false
+      default: false
     },
     align: {
       type: String,
-      validator: value => ['left', 'right'].indexOf(value) > -1,
-      required: false
+      validator: value => ['left', 'right', ''].indexOf(value) > -1,
+      default: ''
     }
   },
   computed: {

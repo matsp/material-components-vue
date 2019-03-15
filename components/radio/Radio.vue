@@ -1,27 +1,29 @@
 <template>
   <div class="mdc-radio">
     <input
-      :class="classes"
-      :name="name"
-      v-bind="$attrs"
-      :checked="checked"
-      :disabled="disabled"
-      class="mdc-radio__native-control"
-      type="radio"
-      @change="onChange">
+            :checked="checked"
+            :class="classes"
+            :disabled="disabled"
+            :id="id"
+            :name="name"
+            @change="onChange"
+            class="mdc-radio__native-control"
+            type="radio"
+            v-bind="$attrs"
+    >
     <div class="mdc-radio__background">
-      <div class="mdc-radio__outer-circle"/>
-      <div class="mdc-radio__inner-circle"/>
+        <div class="mdc-radio__outer-circle"/>
+        <div class="mdc-radio__inner-circle"/>
     </div>
   </div>
 </template>
 
 <script>
-import { MDCRadio } from '@material/radio'
+  import { MDCRadio } from '@material/radio'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'picked',
@@ -41,6 +43,10 @@ export default {
       default: ''
     },
     name: {
+      type: String,
+      default: ''
+    },
+    id: {
       type: String,
       default: ''
     }

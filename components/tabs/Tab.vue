@@ -1,39 +1,65 @@
 <template>
   <button
-    :class="classes"
-    :aria-selected="active"
-    :tabindex="tabindex"
-    class="mdc-tab"
-    role="tab">
+          :aria-selected="active"
+          :class="classes"
+          :tabindex="tabindex"
+          @MDCTab:interacted="onInteracted"
+          class="mdc-tab"
+          role="tab"
+  >
     <span class="mdc-tab__content">
-      <span
-        v-if="hasIcon"
-        class="mdc-tab__icon material-icons"
-        aria-hidden="true">
-        <slot name="icon"/>
-      </span>
+      <slot name="icon"/>
       <span class="mdc-tab__text-label">
         <slot/>
       </span>
+      <span
+              :class="indicatorClasses"
+              class="mdc-tab-indicator"
+              v-if="spanningOnlyContent"
+      >
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"/>
+      </span>
     </span>
     <span
-      :class="indicatorClasses"
-      class="mdc-tab-indicator">
+            :class="indicatorClasses"
+            class="mdc-tab-indicator"
+            v-if="!spanningOnlyContent"
+    >
       <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"/>
     </span>
-    <span class="mdc-tab__ripple"/>
+      <span class="mdc-tab__ripple"/>
   </button>
 </template>
 
 <script>
-import { MDCTab } from '@material/tab'
+  import { MDCTab } from '@material/tab'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
+    model: {
+      prop: 'active',
+      event: 'change'
+    },
   props: {
     active: {
+      type: Boolean,
+      default: false
+    },
+    spanningOnlyContent: {
+      type: Boolean,
+      default: false
+    },
+    focusOnActivate: {
+      type: Boolean,
+      default: true
+    },
+    stacked: {
+      type: Boolean,
+      default: false
+    },
+    minWidth: {
       type: Boolean,
       default: false
     }
@@ -47,7 +73,9 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-tab--active': this.active
+        'mdc-tab--active': this.active,
+        'mdc-tab--stacked': this.stacked,
+        'mdc-tab--min-width': this.minWidth
       }
     },
     indicatorClasses () {
@@ -58,8 +86,18 @@ export default {
     tabindex () {
       return (this.active) ? '0' : '-1'
     },
-    hasIcon () {
-      return this.$slots.icon
+    model: {
+      get () {
+        return this.active
+      },
+      set (value) {
+        this.$emit('change', value)
+      }
+    }
+  },
+    watch: {
+      focusOnActivate () {
+        this.mdcTab.focusOnActivate = this.focusOnActivate
     }
   },
   mounted () {
@@ -71,6 +109,7 @@ export default {
     })
 
     this.mdcTab = MDCTab.attachTo(this.$el)
+    this.mdcTab.focusOnActivate = this.focusOnActivate
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -84,6 +123,9 @@ export default {
           this.label ? n.elm.setAttribute('aria-label', true) : n.elm.setAttribute('aria-hidden', true)
         })
       }
+    },
+    onInteracted (e) {
+      this.$emit('interacted', e.detail)
     }
   }
 }

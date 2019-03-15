@@ -1,36 +1,78 @@
 <template>
-  <li
-    :class="classes"
-    class="mdc-list-item"
-    v-on="$listeners">
+    <a
+            :aria-selected="activated"
+            :class="classes"
+            :href="href"
+            class="mdc-list-item"
+            v-bind="$attrs"
+            v-if="href"
+            v-on="$listeners"
+    >
     <slot
-      v-if="$slots['graphic']"
-      name="graphic"/>
-    <slot/>
-    <span class="mdc-list-item__text">
+            name="graphic"
+            v-if="$slots['graphic']"
+    />
+        <slot/>
+        <span
+                class="mdc-list-item__text"
+                v-if="$slots['text'] || $slots['primaryText'] || $slots['secondaryText']"
+        >
+      <slot name="text"/>
       <span
-        v-if="$slots['primaryText']"
-        class="mdc-list-item__primary-text">
+              class="mdc-list-item__primary-text"
+              v-if="$slots['primaryText']"
+      >
         <slot name="primaryText"/>
       </span>
       <span
-        v-if="$slots['secondaryText']"
-        class="mdc-list-item__secondary-text">
+              class="mdc-list-item__secondary-text"
+              v-if="$slots['secondaryText']"
+      >
         <slot name="secondaryText"/>
       </span>
     </span>
     <slot
-      v-if="$slots['meta']"
-      name="meta"/>
+            name="meta"
+            v-if="$slots['meta']"
+    />
+    </a>
+    <li
+            :class="classes"
+            class="mdc-list-item"
+            v-bind="$attrs"
+            v-else
+            v-on="$listeners"
+    >
+        <slot name="graphic"/>
+        <slot/>
+        <span
+                class="mdc-list-item__text"
+                v-if="$slots['text'] || $slots['primaryText'] || $slots['secondaryText']"
+        >
+      <slot name="text"/>
+      <span
+              class="mdc-list-item__primary-text"
+              v-if="$slots['primaryText']"
+      >
+        <slot name="primaryText"/>
+      </span>
+      <span
+              class="mdc-list-item__secondary-text"
+              v-if="$slots['secondaryText']"
+      >
+        <slot name="secondaryText"/>
+      </span>
+    </span>
+        <slot name="meta"/>
   </li>
 </template>
 
 <script>
-import { MDCRipple } from '@material/ripple'
+  import { MDCRipple } from '@material/ripple'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     activated: {
@@ -40,6 +82,10 @@ export default {
     selected: {
       type: Boolean,
       default: false
+    },
+    href: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -82,6 +128,9 @@ export default {
       if (this.$slots.graphic) {
         this.$slots.graphic.map(n => {
           n.elm.classList.add('mdc-list-item__graphic')
+          if (this.$el.getAttribute('role') === 'menuitem') {
+            n.elm.classList.add('mdc-menu__selection-group-icon')
+          }
         })
       }
       if (this.$slots.meta) {

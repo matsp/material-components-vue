@@ -7,51 +7,51 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     span: {
       type: Number,
-      validator: value => value >= 1 && value <= 12,
-      required: false
+      validator: value => value >= 0 && value <= 12,
+      default: 0
     },
     spanDesktop: {
       type: Number,
-      validator: value => value >= 1 && value <= 12,
-      required: false
+      validator: value => value >= 0 && value <= 12,
+      default: 0
     },
     spanTablet: {
       type: Number,
-      validator: value => value >= 1 && value <= 12,
-      required: false
+      validator: value => value >= 0 && value <= 12,
+      default: 0
     },
     spanPhone: {
       type: Number,
-      validator: value => value >= 1 && value <= 12,
-      required: false
+      validator: value => value >= 0 && value <= 12,
+      default: 0
     },
     order: {
       type: Number,
-      validator: value => value >= 1 && value <= 12,
-      required: false
+      validator: value => value >= 0 && value <= 12,
+      default: 0
     },
     align: {
       type: String,
-      validator: value => ['top', 'middle', 'bottom'].indexOf(value) > -1,
-      required: false
+      validator: value => ['top', 'middle', 'bottom', ''].indexOf(value) > -1,
+      default: ''
     }
   },
   computed: {
     classes () {
       let temp = {}
-      temp['mdc-layout-grid__cell--span-' + this.span] = typeof this.span === 'number'
-      temp['mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop'] = typeof this.spanDesktop === 'number'
-      temp['mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet'] = typeof this.spanTablet === 'number'
-      temp['mdc-layout-grid__cell--span-' + this.spanPhone + '-phone'] = typeof this.spanPhone === 'number'
-      temp['mdc-layout-grid__cell--align-' + this.align] = typeof this.align === 'string'
-      temp['mdc-layout-grid__cell--order-' + this.order] = typeof this.order === 'number'
+      temp['mdc-layout-grid__cell--span-' + this.span] = this.span > 0
+      temp['mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop'] = this.spanDesktop > 0
+      temp['mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet'] = this.spanTablet > 0
+      temp['mdc-layout-grid__cell--span-' + this.spanPhone + '-phone'] = this.spanPhone > 0
+      temp['mdc-layout-grid__cell--align-' + this.align] = this.align !== ''
+      temp['mdc-layout-grid__cell--order-' + this.order] = this.order > 0
       return temp
     }
   }

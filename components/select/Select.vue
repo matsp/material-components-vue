@@ -1,30 +1,79 @@
 <template>
   <div
-    :class="classes"
-    class="mdc-select">
+          :class="classes"
+          class="mdc-select"
+  >
+      <input
+              :name="name"
+              type="hidden"
+              v-if="enhanced && name"
+      >
+      <i class="mdc-select__dropdown-icon"/>
+      <div
+              :aria-labelledby="ariaLabelledby"
+              :id="id"
+              aria-haspopup="listbox"
+              class="mdc-select__selected-text"
+              role="button"
+              v-if="enhanced"
+      />
+      <div
+              :style="{ width: width }"
+              class="mdc-select__menu mdc-menu mdc-menu-surface"
+              role="listbox"
+              v-if="enhanced"
+      >
+          <ul class="mdc-list">
+              <li
+                      aria-selected="true"
+                      class="mdc-list-item mdc-list-item--selected"
+                      data-value=""
+                      role="option"
+              />
+              <slot/>
+          </ul>
+      </div>
     <select
-      :disabled="disabled"
-      v-bind="$attrs"
-      class="mdc-select__native-control"
-      @change="onChange">
+            :aria-describedby="ariaDescribedby"
+            :disabled="disabled"
+            :id="id"
+            @change="onChange"
+            class="mdc-select__native-control"
+            v-bind="$attrs"
+            v-else
+    >
       <option
-        v-if="$slots['label']"
-        value=""
-        disabled
-        selected/>
-      <slot/>
+              disabled
+              selected
+              v-if="$slots['label']"
+              value=""
+      />
+        <slot/>
     </select>
-    <slot name="label"/>
-    <slot name="line"/>
+      <div
+              class="mdc-notched-outline"
+              v-if="outlined"
+      >
+          <div class="mdc-notched-outline__leading"/>
+          <div class="mdc-notched-outline__notch">
+              <slot name="label"/>
+          </div>
+          <div class="mdc-notched-outline__trailing"/>
+      </div>
+      <slot
+              name="label"
+              v-else
+      />
+      <slot name="line"/>
   </div>
 </template>
 
 <script>
-import { MDCSelect } from '@material/select'
+  import { MDCSelect } from '@material/select'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
@@ -35,38 +84,98 @@ export default {
       type: Boolean,
       default: false
     },
-    box: {
+    outlined: {
       type: Boolean,
       default: false
     },
-    outlined: {
+    enhanced: {
+      type: Boolean,
+      default: false
+    },
+    name: {
+      type: String,
+      default: ''
+    },
+    width: {
+      type: Number,
+      default: 400
+    },
+    id: {
+      type: String,
+      required: true
+    },
+    ariaDescribedby: {
+      type: String,
+      default: ''
+    },
+    valid: {
+      type: Boolean,
+      default: true
+    },
+    required: {
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      mdcSelect: undefined
+      mdcSelect: undefined,
+      slotObserver: undefined
     }
   },
   computed: {
     classes () {
       return {
-        'mdc-select--box': this.box,
         'mdc-select--disabled': this.disabled,
         'mdc-select--outlined': this.outlined
       }
+    },
+    ariaLabelledby () {
+      let ret = this.id
+      if (this.$slots['label'] && this.$slots['label'].length === 1) {
+        ret = ret + ' ' + this.$slots['label'][0].data.attrs.id
+      }
+      return ret
     }
   },
+    watch: {
+      valid () {
+        this.mdcSelect.valid = this.valid
+      },
+      required () {
+        this.mdcSelect.required = this.required
+      }
+    },
   mounted () {
     this.mdcSelect = MDCSelect.attachTo(this.$el)
+    this.mdcSelect.valid = this.valid
+    this.mdcSelect.required = this.required
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
+    this.slotObserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
+    this.updateSlots()
   },
   beforeDestroy () {
     this.mdcSelect.destroy()
+    if (typeof this.mdcNotchedOutline !== 'undefined') {
+      this.mdcNotchedOutline.destroy()
+    }
+    this.slotObserver.disconnect()
   },
   methods: {
     onChange (event) {
       this.$emit('change', event.target.value)
+    },
+    updateSlots () {
+      if (this.enhanced && this.$slots.default) {
+        this.$slots.default.map(n => {
+          if (n.tag) {
+            n.elm.setAttribute('role', 'option')
+          }
+        })
+      }
     }
   }
 }

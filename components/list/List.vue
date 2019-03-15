@@ -1,15 +1,18 @@
 <template>
   <ul
-    :class="classes"
-    class="mdc-list">
+          :class="classes"
+          class="mdc-list"
+          v-bind="$attrs"
+  >
     <slot />
   </ul>
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
+  import { MDCList } from '@material/list'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     avatar: {
@@ -27,8 +30,25 @@ export default {
     nonInteractive: {
       type: Boolean,
       default: false
+    },
+    singleSelection: {
+      type: Boolean,
+      default: false
+    },
+    vertical: {
+      type: Boolean,
+      default: true
+    },
+    wrapFocus: {
+      type: Boolean,
+      default: true
     }
   },
+    data () {
+      return {
+        mdcList: undefined
+      }
+    },
   computed: {
     classes () {
       return {
@@ -38,6 +58,28 @@ export default {
         'mdc-list--non-interactive': this.nonInteractive
       }
     }
-  }
+  },
+    watch: {
+      singleSelection () {
+        if (this.mdcList) { this.mdcList.singleSelection = this.singleSelection }
+      },
+      vertical () {
+        if (this.mdcList) { this.mdcList.vertical = this.vertical }
+      },
+      wrapFocus () {
+        if (this.mdcList) { this.mdcList.wrapFocus = this.wrapFocus }
+      }
+    },
+    mounted () {
+      if (this.$parent.$options._componentTag !== 'm-menu') {
+        this.mdcList = MDCList.attachTo(this.$el)
+        this.mdcList.singleSelection = this.singleSelection
+        this.mdcList.wrapFocus = this.wrapFocus
+        this.mdcList.vertical = this.vertical
+      }
+    },
+    beforeDestroy () {
+      if (this.mdcList) this.mdcList.destroy()
+    }
 }
 </script>

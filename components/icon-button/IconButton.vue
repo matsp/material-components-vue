@@ -21,12 +21,12 @@
 </template>
 
 <script>
-import { MDCRipple } from '@material/ripple'
-import { MDCIconButtonToggle } from '@material/icon-button'
+  import { MDCRipple } from '@material/ripple'
+  import { MDCIconButtonToggle } from '@material/icon-button'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
@@ -102,6 +102,7 @@ export default {
     if (typeof this.mdcRipple !== 'undefined') {
       this.mdcRipple.destroy()
     }
+    this.slotObserver.disconnect()
   },
   methods: {
     update () {

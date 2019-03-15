@@ -1,37 +1,47 @@
 <template>
   <div
-    :class="classes"
-    class="mdc-snackbar"
-    aria-live="assertive"
-    aria-atomic="true"
-    aria-hidden="true"
-    @MDCSnackbar:hide="model = false">
-    <div class="mdc-snackbar__text" />
-    <div class="mdc-snackbar__action-wrapper">
-      <button
-        type="button"
-        class="mdc-snackbar__action-button"/>
+          :class="classes"
+          @MDCSnackbar:closed="onClosed"
+          @MDCSnackbar:closing="onClosing"
+          @MDCSnackbar:opened="onOpened"
+          @MDCSnackbar:opening="onOpening"
+          class="mdc-snackbar"
+  >
+      <div class="mdc-snackbar__surface">
+          <div
+                  aria-live="polite"
+                  class="mdc-snackbar__label"
+                  role="status"
+          >
+              <slot/>
+          </div>
+          <div class="mdc-snackbar__actions">
+              <button
+                      class="mdc-button mdc-snackbar__action"
+                      type="button"
+              />
+          </div>
     </div>
   </div>
 </template>
 
 <script>
-import { MDCSnackbar } from '@material/snackbar'
+  import { MDCSnackbar } from '@material/snackbar'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'open',
     event: 'change'
   },
   props: {
-    alignStart: {
-      type: Boolean,
-      default: false
+    timeoutMs: {
+      type: Number,
+      default: 5000
     },
-    dismissesOnAction: {
+    closeOnEscape: {
       type: Boolean,
       default: true
     },
@@ -39,9 +49,21 @@ export default {
       type: Boolean,
       default: false
     },
-    options: {
-      type: Object,
-      required: true
+    labelText: {
+      type: String,
+      default: ''
+    },
+    actionButtonText: {
+      type: String,
+      default: ''
+    },
+    leading: {
+      type: Boolean,
+      default: false
+    },
+    stacked: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -52,7 +74,8 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-snackbar--align-start': this.alignStart
+        'mdc-snackbar--leading': this.leading,
+        'mdc-snackbar--stacked': this.stacked
       }
     },
     model: {
@@ -65,15 +88,45 @@ export default {
     }
   },
   watch: {
-    dismissesOnAction () {
-      this.mdcSnackbar.dismissesOnAction = this.dismissesOnAction
-    },
     open () {
-      if (this.open) this.mdcSnackbar.show(this.options)
+      if (this.open) this.mdcSnackbar.open()
+    },
+    'mdcSnackbar.isOpen': function () {
+      this.model = this.mdcSnackbar.isOpen
+    },
+    actionButtonText () {
+      this.mdcSnackbar.actionButtonText = this.actionButtonText
+    },
+    labelText () {
+      this.mdcSnackbar.labelText = this.labelText
+    },
+    closeOnEscape () {
+      this.mdcSnackbar.closeOnEscape = this.closeOnEscape
+    },
+    timeoutMs () {
+      this.mdcSnackbar.timeoutMs = this.timeoutMs
+    }
+  },
+    methods: {
+      onClosing (e) {
+        this.$emit('closing', e)
+      },
+      onClosed (e) {
+        this.$emit('closed', e)
+      },
+      onOpening () {
+        this.$emit('opening')
+      },
+      onOpened () {
+        this.$emit('opened')
     }
   },
   mounted () {
     this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
+    this.mdcSnackbar.timeoutMs = this.timeoutMs
+    this.mdcSnackbar.closeOnEscape = this.closeOnEscape
+    this.mdcSnackbar.labelText = this.labelText
+    this.mdcSnackbar.actionButtonText = this.actionButtonText
   },
   beforeDestroy () {
     this.mdcSnackbar.destroy()

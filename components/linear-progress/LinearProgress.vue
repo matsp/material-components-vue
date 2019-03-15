@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import { MDCLinearProgress } from '@material/linear-progress'
+  import { MDCLinearProgress } from '@material/linear-progress'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+  import { baseComponentMixin, themeClassMixin } from '../base'
 
-export default {
+  export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     open: {
@@ -36,12 +36,12 @@ export default {
     progress: {
       type: Number,
       validator: (value) => (value >= 0) && (value <= 1),
-      required: false
+      default: 1
     },
     buffer: {
       type: Number,
       validator: (value) => (value >= 0) && (value <= 1),
-      required: false
+      default: 1
     }
   },
   data () {
@@ -59,8 +59,8 @@ export default {
     indeterminate () {
       this.mdcLinearProgress.determinate = !this.indeterminate
     },
-    reversed () {
-      this.mdcLinearProgress.reverse = this.reversed
+    reverse () {
+      this.mdcLinearProgress.reverse = this.reverse
     },
     open () {
       this.open ? this.mdcLinearProgress.open() : this.mdcLinearProgress.close()
