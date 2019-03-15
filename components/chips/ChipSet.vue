@@ -1,8 +1,9 @@
 <template>
   <div
     :class="classes"
-    class="mdc-chip-set">
-    <slot/>
+    class="mdc-chip-set"
+  >
+    <slot />
   </div>
 </template>
 

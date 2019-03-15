@@ -1,33 +1,33 @@
 <template>
   <div
-          @MDCDialog:closed="onClosed"
-          aria-describedby="my-dialog-content"
-          aria-labelledby="my-dialog-title"
-          aria-modal="true"
-          class="mdc-dialog"
-          role="alertdialog"
+    aria-describedby="my-dialog-content"
+    aria-labelledby="my-dialog-title"
+    aria-modal="true"
+    class="mdc-dialog"
+    role="alertdialog"
+    @MDCDialog:closed="onClosed"
   >
     <div class="mdc-dialog__container">
       <div class="mdc-dialog__surface">
-          <h2
-                  class="mdc-dialog__title"
-                  id="my-dialog-title"
-                  v-if="$slots['header']"
-          >
-              <!-- -->
-              <slot name="header"/><!-- -->
-          </h2>
-          <div
-                  :class="bodyClasses"
-                  class="mdc-dialog__content"
-                  id="my-dialog-content"
-                  v-if="$slots['body']"
-          >
+        <h2
+          v-if="$slots['header']"
+          id="my-dialog-title"
+          class="mdc-dialog__title"
+        >
+          <!-- -->
+          <slot name="header" /><!-- -->
+        </h2>
+        <div
+          v-if="$slots['body']"
+          id="my-dialog-content"
+          :class="bodyClasses"
+          class="mdc-dialog__content"
+        >
           <slot name="body" />
-          </div>
+        </div>
         <footer
-                class="mdc-dialog__actions"
-                v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']"
+          v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']"
+          class="mdc-dialog__actions"
         >
           <slot name="cancelButton" />
           <slot name="acceptButton" />
@@ -35,16 +35,16 @@
         </footer>
       </div>
     </div>
-      <div class="mdc-dialog__scrim"/>
+    <div class="mdc-dialog__scrim" />
   </div>
 </template>
 
 <script>
-  import { MDCDialog } from '@material/dialog'
+import { MDCDialog } from '@material/dialog'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'open',

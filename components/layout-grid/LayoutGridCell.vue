@@ -1,15 +1,16 @@
 <template>
   <div
     :class="classes"
-    class="mdc-layout-grid__cell">
+    class="mdc-layout-grid__cell"
+  >
     <slot />
   </div>
 </template>
 
 <script>
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     span: {

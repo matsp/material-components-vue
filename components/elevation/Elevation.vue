@@ -24,7 +24,7 @@ export default {
     classes () {
       let calc = {}
       calc['mdc-elevation--z' + this.level] = true
-      return {'mdc-elevation-transition': this.transition, ...calc}
+      return { 'mdc-elevation-transition': this.transition, ...calc }
     }
   }
 }

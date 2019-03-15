@@ -1,23 +1,26 @@
 <template>
   <li
     class="mdc-grid-tile"
-    v-on="$listeners">
+    v-on="$listeners"
+  >
     <div class="mdc-grid-tile__primary">
       <slot name="primary">
         <img
           v-if="imgSrc"
           :src="imgSrc"
-          class="mdc-grid-tile__primary-content">
+          class="mdc-grid-tile__primary-content"
+        >
       </slot>
     </div>
     <span
       v-if="$slots['default']"
-      class="mdc-grid-tile__secondary">
+      class="mdc-grid-tile__secondary"
+    >
       <span class="mdc-grid-tile__title">
         <slot />
       </span>
-      <slot name="icon"/>
-      <slot name="supporttext"/>
+      <slot name="icon" />
+      <slot name="supporttext" />
     </span>
   </li>
 </template>

@@ -1,19 +1,19 @@
 <template>
   <div
-          @MDCTabBar:activated="onActivated"
-          class="mdc-tab-bar"
-          role="tablist"
+    class="mdc-tab-bar"
+    role="tablist"
+    @MDCTabBar:activated="onActivated"
   >
-      <slot/>
+    <slot />
   </div>
 </template>
 
 <script>
-  import { MDCTabBar } from '@material/tab-bar'
+import { MDCTabBar } from '@material/tab-bar'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     focusOnActivate: {
@@ -38,18 +38,18 @@
       mdcTabBar: undefined
     }
   },
-    watch: {
-      focusOnActivate () {
-        this.mdcTabBar.focusOnActivate = this.focusOnActivate
-      },
-      useAutomaticActivation () {
-        this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
-      },
-      activateTab () {
-        this.mdcTabBar.activateTab(this.activateTab)
-      },
-      scrollIntoView () {
-        this.mdcTabBar.scrollIntoView(this.scrollIntoView)
+  watch: {
+    focusOnActivate () {
+      this.mdcTabBar.focusOnActivate = this.focusOnActivate
+    },
+    useAutomaticActivation () {
+      this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
+    },
+    activateTab () {
+      this.mdcTabBar.activateTab(this.activateTab)
+    },
+    scrollIntoView () {
+      this.mdcTabBar.scrollIntoView(this.scrollIntoView)
     }
   },
   mounted () {
@@ -62,10 +62,10 @@
       this.mdcTabBar.destroy()
     }
   },
-    methods: {
-      onActivated (e) {
-        this.$emit('activated', e.detail)
-      }
+  methods: {
+    onActivated (e) {
+      this.$emit('activated', e.detail)
     }
+  }
 }
 </script>

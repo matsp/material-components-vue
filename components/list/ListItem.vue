@@ -1,78 +1,78 @@
 <template>
-    <a
-            :aria-selected="activated"
-            :class="classes"
-            :href="href"
-            class="mdc-list-item"
-            v-bind="$attrs"
-            v-if="href"
-            v-on="$listeners"
-    >
+  <a
+    v-if="href"
+    :aria-selected="activated"
+    :class="classes"
+    :href="href"
+    class="mdc-list-item"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <slot
-            name="graphic"
-            v-if="$slots['graphic']"
+      v-if="$slots['graphic']"
+      name="graphic"
     />
-        <slot/>
-        <span
-                class="mdc-list-item__text"
-                v-if="$slots['text'] || $slots['primaryText'] || $slots['secondaryText']"
-        >
-      <slot name="text"/>
+    <slot />
+    <span
+      v-if="$slots['text'] || $slots['primaryText'] || $slots['secondaryText']"
+      class="mdc-list-item__text"
+    >
+      <slot name="text" />
       <span
-              class="mdc-list-item__primary-text"
-              v-if="$slots['primaryText']"
+        v-if="$slots['primaryText']"
+        class="mdc-list-item__primary-text"
       >
-        <slot name="primaryText"/>
+        <slot name="primaryText" />
       </span>
       <span
-              class="mdc-list-item__secondary-text"
-              v-if="$slots['secondaryText']"
+        v-if="$slots['secondaryText']"
+        class="mdc-list-item__secondary-text"
       >
-        <slot name="secondaryText"/>
+        <slot name="secondaryText" />
       </span>
     </span>
     <slot
-            name="meta"
-            v-if="$slots['meta']"
+      v-if="$slots['meta']"
+      name="meta"
     />
-    </a>
-    <li
-            :class="classes"
-            class="mdc-list-item"
-            v-bind="$attrs"
-            v-else
-            v-on="$listeners"
+  </a>
+  <li
+    v-else
+    :class="classes"
+    class="mdc-list-item"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
+    <slot name="graphic" />
+    <slot />
+    <span
+      v-if="$slots['text'] || $slots['primaryText'] || $slots['secondaryText']"
+      class="mdc-list-item__text"
     >
-        <slot name="graphic"/>
-        <slot/>
-        <span
-                class="mdc-list-item__text"
-                v-if="$slots['text'] || $slots['primaryText'] || $slots['secondaryText']"
-        >
-      <slot name="text"/>
+      <slot name="text" />
       <span
-              class="mdc-list-item__primary-text"
-              v-if="$slots['primaryText']"
+        v-if="$slots['primaryText']"
+        class="mdc-list-item__primary-text"
       >
-        <slot name="primaryText"/>
+        <slot name="primaryText" />
       </span>
       <span
-              class="mdc-list-item__secondary-text"
-              v-if="$slots['secondaryText']"
+        v-if="$slots['secondaryText']"
+        class="mdc-list-item__secondary-text"
       >
-        <slot name="secondaryText"/>
+        <slot name="secondaryText" />
       </span>
     </span>
-        <slot name="meta"/>
+    <slot name="meta" />
   </li>
 </template>
 
 <script>
-  import { MDCRipple } from '@material/ripple'
+import { MDCRipple } from '@material/ripple'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     activated: {

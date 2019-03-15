@@ -1,58 +1,66 @@
 <template>
   <div
-          :aria-disabled="disabled"
-          :aria-label="ariaLabel"
-          :class="classes"
-          @MDCSlider:change="onChange"
-          class="mdc-slider"
-          role="slider"
-          tabindex="0">
+    :aria-disabled="disabled"
+    :aria-label="ariaLabel"
+    :class="classes"
+    class="mdc-slider"
+    role="slider"
+    tabindex="0"
+    @MDCSlider:change="onChange"
+  >
     <div class="mdc-slider__track-container">
-      <div class="mdc-slider__track"/>
+      <div class="mdc-slider__track" />
       <div
         v-if="displayMarkers"
-        class="mdc-slider__track-marker-container"/>
+        class="mdc-slider__track-marker-container"
+      />
     </div>
     <div
       v-if="discrete"
-      class="mdc-slider__thumb-container">
+      class="mdc-slider__thumb-container"
+    >
       <div class="mdc-slider__pin">
-        <span class="mdc-slider__pin-value-marker"/>
+        <span class="mdc-slider__pin-value-marker" />
       </div>
       <svg
         class="mdc-slider__thumb"
         width="21"
-        height="21">
+        height="21"
+      >
         <circle
           cx="10.5"
           cy="10.5"
-          r="7.875"/>
+          r="7.875"
+        />
       </svg>
-      <div class="mdc-slider__focus-ring"/>
+      <div class="mdc-slider__focus-ring" />
     </div>
     <div
       v-else
-      class="mdc-slider__thumb-container">
+      class="mdc-slider__thumb-container"
+    >
       <svg
         class="mdc-slider__thumb"
         width="21"
-        height="21">
+        height="21"
+      >
         <circle
           cx="10.5"
           cy="10.5"
-          r="7.875"/>
+          r="7.875"
+        />
       </svg>
-      <div class="mdc-slider__focus-ring"/>
+      <div class="mdc-slider__focus-ring" />
     </div>
   </div>
 </template>
 
 <script>
-  import { MDCSlider } from '@material/slider'
+import { MDCSlider } from '@material/slider'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',

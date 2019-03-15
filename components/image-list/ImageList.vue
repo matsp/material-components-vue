@@ -1,9 +1,9 @@
 <template>
   <ul
-          :class="classes"
-          class="mdc-image-list"
+    :class="classes"
+    class="mdc-image-list"
   >
-      <slot/>
+    <slot />
   </ul>
 </template>
 

@@ -9,24 +9,27 @@
     v-bind="$attrs"
     class="mdc-icon-button"
     v-on="$listeners"
-    @MDCIconButtonToggle:change="$emit('change', $event.detail.isOn)">
-    <slot v-if="isIconButton"/>
+    @MDCIconButtonToggle:change="$emit('change', $event.detail.isOn)"
+  >
+    <slot v-if="isIconButton" />
     <slot
       v-if="isToggleButtonViaSlots && !value"
-      name="toggleOn"/>
+      name="toggleOn"
+    />
     <slot
       v-if="isToggleButtonViaSlots && value"
-      name="toggleOff"/>
+      name="toggleOff"
+    />
   </button>
 </template>
 
 <script>
-  import { MDCRipple } from '@material/ripple'
-  import { MDCIconButtonToggle } from '@material/icon-button'
+import { MDCRipple } from '@material/ripple'
+import { MDCIconButtonToggle } from '@material/icon-button'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',

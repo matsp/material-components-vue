@@ -1,26 +1,31 @@
 <template>
   <div
     :class="classes"
-    class="mdc-card">
+    class="mdc-card"
+  >
     <div
       ref="content"
-      :class="contentClasses">
-      <slot name="media"/>
+      :class="contentClasses"
+    >
+      <slot name="media" />
       <slot />
     </div>
     <div
       v-if="$slots['actionButtons'] || $slots['actionIcons']"
       :class="actionClasses"
-      class="mdc-card__actions">
+      class="mdc-card__actions"
+    >
       <div
         v-if="$slots['actionButtons']"
-        class="mdc-card__action-buttons">
-        <slot name="actionButtons"/>
+        class="mdc-card__action-buttons"
+      >
+        <slot name="actionButtons" />
       </div>
       <div
         v-if="$slots['actionIcons']"
-        class="mdc-card__action-icons">
-        <slot name="actionIcons"/>
+        class="mdc-card__action-icons"
+      >
+        <slot name="actionIcons" />
       </div>
     </div>
   </div>

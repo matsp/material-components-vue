@@ -6,8 +6,9 @@
     v-bind="$attrs"
     role="button"
     class="mdc-button"
-    v-on="$listeners">
-    <slot name="icon"/>
+    v-on="$listeners"
+  >
+    <slot name="icon" />
     <slot />
   </a>
   <button
@@ -15,8 +16,9 @@
     :class="classes"
     v-bind="$attrs"
     class="mdc-button"
-    v-on="$listeners">
-    <slot name="icon"/>
+    v-on="$listeners"
+  >
+    <slot name="icon" />
     <slot />
   </button>
 </template>

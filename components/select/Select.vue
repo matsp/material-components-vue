@@ -1,79 +1,79 @@
 <template>
   <div
-          :class="classes"
-          class="mdc-select"
+    :class="classes"
+    class="mdc-select"
   >
-      <input
-              :name="name"
-              type="hidden"
-              v-if="enhanced && name"
-      >
-      <i class="mdc-select__dropdown-icon"/>
-      <div
-              :aria-labelledby="ariaLabelledby"
-              :id="id"
-              aria-haspopup="listbox"
-              class="mdc-select__selected-text"
-              role="button"
-              v-if="enhanced"
-      />
-      <div
-              :style="{ width: width }"
-              class="mdc-select__menu mdc-menu mdc-menu-surface"
-              role="listbox"
-              v-if="enhanced"
-      >
-          <ul class="mdc-list">
-              <li
-                      aria-selected="true"
-                      class="mdc-list-item mdc-list-item--selected"
-                      data-value=""
-                      role="option"
-              />
-              <slot/>
-          </ul>
-      </div>
+    <input
+      v-if="enhanced && name"
+      :name="name"
+      type="hidden"
+    >
+    <i class="mdc-select__dropdown-icon" />
+    <div
+      v-if="enhanced"
+      :id="id"
+      :aria-labelledby="ariaLabelledby"
+      aria-haspopup="listbox"
+      class="mdc-select__selected-text"
+      role="button"
+    />
+    <div
+      v-if="enhanced"
+      :style="{ width: width }"
+      class="mdc-select__menu mdc-menu mdc-menu-surface"
+      role="listbox"
+    >
+      <ul class="mdc-list">
+        <li
+          aria-selected="true"
+          class="mdc-list-item mdc-list-item--selected"
+          data-value=""
+          role="option"
+        />
+        <slot />
+      </ul>
+    </div>
     <select
-            :aria-describedby="ariaDescribedby"
-            :disabled="disabled"
-            :id="id"
-            @change="onChange"
-            class="mdc-select__native-control"
-            v-bind="$attrs"
-            v-else
+      v-else
+      :id="id"
+      :aria-describedby="ariaDescribedby"
+      :disabled="disabled"
+      class="mdc-select__native-control"
+      v-bind="$attrs"
+      @change="onChange"
     >
       <option
-              disabled
-              selected
-              v-if="$slots['label']"
-              value=""
+        v-if="$slots['label']"
+        disabled
+        selected
+        value=""
       />
-        <slot/>
+      <slot />
     </select>
-      <div
-              class="mdc-notched-outline"
-              v-if="outlined"
-      >
-          <div class="mdc-notched-outline__leading"/>
-          <div class="mdc-notched-outline__notch">
-              <slot name="label"/>
-          </div>
-          <div class="mdc-notched-outline__trailing"/>
+    <div
+      v-if="outlined"
+      class="mdc-notched-outline"
+    >
+      <div class="mdc-notched-outline__leading" />
+      <div class="mdc-notched-outline__notch">
+        <slot name="label" />
       </div>
-      <slot
-              name="label"
-              v-else
-      />
-      <slot name="line"/>
+      <div class="mdc-notched-outline__trailing" />
+    </div>
+    <slot
+      v-else
+      name="label"
+    />
+    <slot name="line" />
   </div>
 </template>
 
 <script>
-  import { MDCSelect } from '@material/select'
+import { MDCSelect } from '@material/select'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
@@ -138,14 +138,14 @@
       return ret
     }
   },
-    watch: {
-      valid () {
-        this.mdcSelect.valid = this.valid
-      },
-      required () {
-        this.mdcSelect.required = this.required
-      }
+  watch: {
+    valid () {
+      this.mdcSelect.valid = this.valid
     },
+    required () {
+      this.mdcSelect.required = this.required
+    }
+  },
   mounted () {
     this.mdcSelect = MDCSelect.attachTo(this.$el)
     this.mdcSelect.valid = this.valid

@@ -1,7 +1,8 @@
 <template>
   <div
     :class="classes"
-    class="mdc-grid-list">
+    class="mdc-grid-list"
+  >
     <ul class="mdc-grid-list__tiles">
       <slot />
     </ul>
@@ -61,7 +62,7 @@ export default {
       let calc = {}
       if (this.ratio) { calc['mdc-grid-list--tile-aspect-' + this.ratio] = true }
 
-      return {...def, ...calc}
+      return { ...def, ...calc }
     }
   },
   mounted () {

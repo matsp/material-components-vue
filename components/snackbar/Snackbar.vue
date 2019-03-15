@@ -1,36 +1,36 @@
 <template>
   <div
-          :class="classes"
-          @MDCSnackbar:closed="onClosed"
-          @MDCSnackbar:closing="onClosing"
-          @MDCSnackbar:opened="onOpened"
-          @MDCSnackbar:opening="onOpening"
-          class="mdc-snackbar"
+    :class="classes"
+    class="mdc-snackbar"
+    @MDCSnackbar:closed="onClosed"
+    @MDCSnackbar:closing="onClosing"
+    @MDCSnackbar:opened="onOpened"
+    @MDCSnackbar:opening="onOpening"
   >
-      <div class="mdc-snackbar__surface">
-          <div
-                  aria-live="polite"
-                  class="mdc-snackbar__label"
-                  role="status"
-          >
-              <slot/>
-          </div>
-          <div class="mdc-snackbar__actions">
-              <button
-                      class="mdc-button mdc-snackbar__action"
-                      type="button"
-              />
-          </div>
+    <div class="mdc-snackbar__surface">
+      <div
+        aria-live="polite"
+        class="mdc-snackbar__label"
+        role="status"
+      >
+        <slot />
+      </div>
+      <div class="mdc-snackbar__actions">
+        <button
+          class="mdc-button mdc-snackbar__action"
+          type="button"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { MDCSnackbar } from '@material/snackbar'
+import { MDCSnackbar } from '@material/snackbar'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'open',
@@ -107,20 +107,6 @@
       this.mdcSnackbar.timeoutMs = this.timeoutMs
     }
   },
-    methods: {
-      onClosing (e) {
-        this.$emit('closing', e)
-      },
-      onClosed (e) {
-        this.$emit('closed', e)
-      },
-      onOpening () {
-        this.$emit('opening')
-      },
-      onOpened () {
-        this.$emit('opened')
-    }
-  },
   mounted () {
     this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
     this.mdcSnackbar.timeoutMs = this.timeoutMs
@@ -130,6 +116,20 @@
   },
   beforeDestroy () {
     this.mdcSnackbar.destroy()
+  },
+  methods: {
+    onClosing (e) {
+      this.$emit('closing', e)
+    },
+    onClosed (e) {
+      this.$emit('closed', e)
+    },
+    onOpening () {
+      this.$emit('opening')
+    },
+    onOpened () {
+      this.$emit('opened')
+    }
   }
 }
 </script>

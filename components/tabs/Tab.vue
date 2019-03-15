@@ -1,47 +1,47 @@
 <template>
   <button
-          :aria-selected="active"
-          :class="classes"
-          :tabindex="tabindex"
-          @MDCTab:interacted="onInteracted"
-          class="mdc-tab"
-          role="tab"
+    :aria-selected="active"
+    :class="classes"
+    :tabindex="tabindex"
+    class="mdc-tab"
+    role="tab"
+    @MDCTab:interacted="onInteracted"
   >
     <span class="mdc-tab__content">
-      <slot name="icon"/>
+      <slot name="icon" />
       <span class="mdc-tab__text-label">
-        <slot/>
+        <slot />
       </span>
       <span
-              :class="indicatorClasses"
-              class="mdc-tab-indicator"
-              v-if="spanningOnlyContent"
+        v-if="spanningOnlyContent"
+        :class="indicatorClasses"
+        class="mdc-tab-indicator"
       >
-        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"/>
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
       </span>
     </span>
     <span
-            :class="indicatorClasses"
-            class="mdc-tab-indicator"
-            v-if="!spanningOnlyContent"
+      v-if="!spanningOnlyContent"
+      :class="indicatorClasses"
+      class="mdc-tab-indicator"
     >
-      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"/>
+      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
     </span>
-      <span class="mdc-tab__ripple"/>
+    <span class="mdc-tab__ripple" />
   </button>
 </template>
 
 <script>
-  import { MDCTab } from '@material/tab'
+import { MDCTab } from '@material/tab'
 
-  import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '../base'
 
-  export default {
+export default {
   mixins: [baseComponentMixin, themeClassMixin],
-    model: {
-      prop: 'active',
-      event: 'change'
-    },
+  model: {
+    prop: 'active',
+    event: 'change'
+  },
   props: {
     active: {
       type: Boolean,
@@ -95,9 +95,9 @@
       }
     }
   },
-    watch: {
-      focusOnActivate () {
-        this.mdcTab.focusOnActivate = this.focusOnActivate
+  watch: {
+    focusOnActivate () {
+      this.mdcTab.focusOnActivate = this.focusOnActivate
     }
   },
   mounted () {
