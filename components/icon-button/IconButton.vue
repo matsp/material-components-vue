@@ -1,5 +1,7 @@
 <template>
-  <button
+  <a
+    v-if="href !== ''"
+    :href="href"
     :data-toggle-on-content="toggleOnContent"
     :data-toggle-on-label="toggleOnLabel"
     :data-toggle-on-class="toggleOnClass"
@@ -8,9 +10,37 @@
     :data-toggle-off-class="toggleOffClass"
     v-bind="$attrs"
     class="mdc-icon-button"
+    :class="classes"
     v-on="$listeners"
     @MDCIconButtonToggle:change="$emit('change', $event.detail.isOn)"
   >
+    <slot v-if="isIconButton" />
+    <slot
+      v-if="isToggleButtonViaSlots && !value"
+      name="toggleOn"
+    />
+    <slot
+      v-if="isToggleButtonViaSlots && value"
+      name="toggleOff"
+    />
+  </a>
+  <button
+    v-else
+    :data-toggle-on-content="toggleOnContent"
+    :data-toggle-on-label="toggleOnLabel"
+    :data-toggle-on-class="toggleOnClass"
+    :data-toggle-off-content="toggleOffContent"
+    :data-toggle-off-label="toggleOffLabel"
+    :data-toggle-off-class="toggleOffClass"
+    v-bind="$attrs"
+    class="mdc-icon-button"
+    :class="classes"
+    v-on="$listeners"
+    @MDCIconButtonToggle:change="$emit('change', $event.detail.isOn)"
+  >
+    <template v-if="this.icon && this.icon !== ''">
+      {{ icon }}
+    </template>
     <slot v-if="isIconButton" />
     <slot
       v-if="isToggleButtonViaSlots && !value"
@@ -63,6 +93,14 @@ export default {
     value: {
       type: Boolean,
       default: false
+    },
+    href: {
+      type: String,
+      default: ''
+    },
+    icon: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -81,6 +119,11 @@ export default {
     },
     isToggleButton () {
       return this.toggleOnContent !== '' && this.toggleOffContent !== ''
+    },
+    classes () {
+      return {
+        'material-icons': this.icon && this.icon !== ''
+      }
     }
   },
   watch: {
