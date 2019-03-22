@@ -16,58 +16,57 @@
 
 # Material Components Vue
 
-> Material Design styled components for Vue.js
+> 为Vue.js而生的Material Design组件
 
-Material-components-vue integrates the [mdc-web](https://github.com/material-components/material-components-web) (by google) vanilla components following the [simple approach](https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md#the-simple-approach-wrapping-mdc-web-vanilla-components).
+Material-components-vue 通过[简单的方式](https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md#the-simple-approach-wrapping-mdc-web-vanilla-components)集成了[mdc-web](https://github.com/material-components/material-components-web)的原始组件
 
 https://matsp.github.io/material-components-vue
 
-## Development
+## 开发
 
-This project is under active developement but I could need any help you can provide. Due a huge workload in my daily job I'am struggling with upgrading to the newest versions
-of the upstream project: mdc-web.
+这个项目仍在开发中。由于日常的工作的巨大工作量，我难以跟随上游项目的更新更新。我希望能得到你的帮助。
 
-## Links
+## 链接
 
 * [Changelog](https://github.com/matsp/material-components-vue/blob/master/CHANGELOG.md)
-* [Codepen CDN Example](https://codepen.io/matsp/pen/baxLOx)
-* [Code of Conduct](https://github.com/matsp/material-components-vue/blob/master/CODE_OF_CONDUCT.md)
-* [Contributing Guideline](https://github.com/matsp/material-components-vue/blob/master/CONTRIBUTING.md)
-* [Docs](https://matsp.github.io/material-components-vue)
+* [Codepen CDN 示例](https://codepen.io/matsp/pen/baxLOx)
+* [贡献者行为准则](https://github.com/matsp/material-components-vue/blob/master/CODE_OF_CONDUCT.md)
+* [贡献指南](https://github.com/matsp/material-components-vue/blob/master/CONTRIBUTING.md)
+* [文档](https://matsp.github.io/material-components-vue)
 
-## Support
+## 支持
 
-If you want to help feel free to submit issues or pull requests - you can also join the [chat](https://discord.gg/2rXrRb5) for questions. Every information that help to stabilize and improve the library is welcome!
+如果你希望提供帮助或支持，可以提交issues或pull request。你也可以加入[聊天室](https://discord.gg/2rXrRb5)来进行提问。我们欢迎任何能够改进这个库的想法。
 
-When you want to support me you can buy me a :coffee: here :+1:
+如果你支持我，可以在这里给我买一杯:coffee:  :+1:
 
 <a href="https://www.buymeacoffee.com/udJy54VOU" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 30px !important;width: auto !important;"></a>
 
-## Features
+## 功能与特性
 
-* decoupled components
-* implementing just the specs not more or less
-* keep the components as simple as possible
-* keep in sync with changes in the mdc-web repository
-* user friendly component api
-* SSR (Server Side Rendering) support
+* 分解组建
+* 原汁原味地遵循规范地实现
+* 尽可能简化组建
+* 与mdc-web保持同步更新
+* 对用户友好的组件API
+* SSR (服务器渲染) 支持
 
-## Documentation
+## 文档
 
-You will find a API documentation for each component in their corresponding component directory:
+你可以在每个组建的的目录下找到对应的API文档
 
 *components/[component]/README.md*
 
-## Distributions
+## 发布
 
-| Name | ECMA | Minimized |
+| 文件名 | ECMA | 是否最小化 |
 |------|-----:|----------:|
-| dist/[component]/index.js | 5 | no |
-| dist/[component]/[component].min.js | 5 | yes |
+| dist/[component]/index.js | 5 | 否 |
+| dist/[component]/[component].min.js | 5 | 是 |
 
-All versions are provided as UMD modules.
+所有版本都以UMD模块提供.
 
-| Name | Description |
+| 文件名 | 描述 |
 |------|-----------|
 | dist/[component]/[component].min.css | Minified component CSS |
 | dist/[component]/styles.scss | Raw SASS styles of mdc-web |

@@ -4,25 +4,31 @@
     class="mdc-card"
   >
     <div
+      v-if="$slots['actionableContent']"
       ref="content"
       :class="contentClasses"
+      tabindex="0"
     >
-      <slot name="media" />
-      <slot />
+      <slot name="actionableContent" />
     </div>
+    <slot />
     <div
-      v-if="$slots['actionButtons'] || $slots['actionIcons']"
+      v-if="$slots['actionButtons'] || $slots['actionIcons'] || $slots['fullBleedButton']"
       :class="actionClasses"
       class="mdc-card__actions"
     >
+      <slot
+        v-if="fullBleedAction"
+        name="fullBleedButton"
+      />
       <div
-        v-if="$slots['actionButtons']"
+        v-if="!fullBleedAction && $slots['actionButtons']"
         class="mdc-card__action-buttons"
       >
         <slot name="actionButtons" />
       </div>
       <div
-        v-if="$slots['actionIcons']"
+        v-if="!fullBleedAction && $slots['actionIcons']"
         class="mdc-card__action-icons"
       >
         <slot name="actionIcons" />
@@ -43,10 +49,6 @@ export default {
       default: false
     },
     fullBleedAction: {
-      type: Boolean,
-      default: false
-    },
-    primaryAction: {
       type: Boolean,
       default: false
     }
@@ -72,6 +74,9 @@ export default {
       return {
         'mdc-card__actions--full-bleed': this.fullBleedAction
       }
+    },
+    primaryAction () {
+      return this.$slots.actionableContent != null
     }
   },
   watch: {
@@ -97,18 +102,28 @@ export default {
   },
   methods: {
     updateSlots () {
+      if (this.$slots.fullBleedButton) {
+        this.$slots.fullBleedButton.map((n) => {
+          if (n.elm && n.elm.classList) {
+            n.elm.classList.add('mdc-card__action')
+            n.elm.classList.add('mdc-card__action--button')
+          }
+        })
+      }
       if (this.$slots.actionButtons) {
-        this.$slots.actionButtons.map((n) => {
-          n.elm.classList.add('mdc-card__action')
-          n.elm.classList.add('mdc-card__action--button')
+        this.$slots.actionButtons.forEach((n) => {
+          if (n.elm && n.elm.classList) {
+            n.elm.classList.add('mdc-card__action')
+            n.elm.classList.add('mdc-card__action--button')
+          }
         })
       }
       if (this.$slots.actionIcons) {
-        this.$slots.actionIcons.map((n) => {
-          n.elm.classList.add('mdc-card__action')
-          n.elm.classList.add('mdc-card__action--icon')
-          n.elm.setAttribute('tabindex', '0')
-          n.elm.setAttribute('role', 'button')
+        this.$slots.actionIcons.forEach((n) => {
+          if (n.elm && n.elm.classList) {
+            n.elm.classList.add('mdc-card__action')
+            n.elm.classList.add('mdc-card__action--icon')
+          }
         })
       }
     }

@@ -5,7 +5,7 @@
     :outlined="radioProps[1].value"
     :fullBleedAction="checkboxProps[0].value"
     :primaryAction="checkboxProps[1].value">
-    <section class="card-section">
+    <section class="card-section" slot="actionableContent">
     <m-typo-headline :level="6">
       Title
     </m-typo-headline>
@@ -16,11 +16,23 @@
       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     </m-typo-body>
     </section>
-    <m-button
-      interactive
-      slot="actionButtons">
-      action
+    <m-button slot="fullBleedButton">
+      full bleed
     </m-button>
+    <template slot="actionButtons">
+      <m-button>
+        action
+      </m-button>
+      <m-button>
+        action
+      </m-button>
+    </template>
+    <template slot="actionIcons">
+      <m-icon-button icon="share">
+      </m-icon-button>
+      <m-icon-button icon="more_vert">
+      </m-icon-button>
+    </template>
   </m-card>
   </ComponentSection>
   <ComponentProps
@@ -42,7 +54,7 @@ export default {
         { prop: 'primaryAction', value: false }
       ]
     }
-  } 
+  }
 }
 </script>
 
@@ -50,7 +62,7 @@ export default {
 .card-section {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   justify-content: flex-start;
   padding: 8px 16px;
   width: 300px;
