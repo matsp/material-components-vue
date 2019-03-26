@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.0.0-alpha.0](https://github.com/matsp/material-components-vue/compare/v0.26.1...v1.0.0-alpha.0) (2019-03-22)
+
+
+### Bug Fixes
+
+* **layout-grid:** Wrong phone identifier on layout grid ([#157](https://github.com/matsp/material-components-vue/issues/157)) ([eb625e5](https://github.com/matsp/material-components-vue/commit/eb625e5))
+* **shape:** Property typo ([481fecc](https://github.com/matsp/material-components-vue/commit/481fecc))
+
+
+
 <a name="0.26.1"></a>
 ## [0.26.1](https://github.com/matsp/material-components-vue/compare/v0.26.0...v0.26.1) (2018-08-16)
 

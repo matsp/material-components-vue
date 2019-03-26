@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Media should render as 16:9 1`] = `
+<div class="mdc-card__media mdc-card__media--square mdc-card__media--16-9">
+  <div class="mdc-card__media-content"></div>
+</div>
+`;
+
+exports[`Card Media should render as square 1`] = `
+<div class="mdc-card__media mdc-card__media--square">
+  <div class="mdc-card__media-content"></div>
+</div>
+`;
+
+exports[`Card Media should render with no prop 1`] = `
+<div class="mdc-card__media mdc-card__media--square">
+  <div class="mdc-card__media-content"></div>
+</div>
+`;
+
+exports[`Card should render as outlined 1`] = `
+<div class="mdc-card mdc-card--outlined">
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Card should render as primary action 1`] = `
+<div class="mdc-card">
+  <div tabindex="0" class="mdc-card__primary-action">content</div>
+  <!---->
+</div>
+`;
+
+exports[`Card should render with action buttons 1`] = `
+<div class="mdc-card">
+  <!---->
+  <div class="mdc-card__actions">
+    <!---->
+    <div class="mdc-card__action-buttons"><button class="mdc-button mdc-card__action mdc-card__action--button"> </button><button class="mdc-button mdc-card__action mdc-card__action--button"> </button></div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card should render with action icons 1`] = `
+<div class="mdc-card">
+  <!---->
+  <div class="mdc-card__actions">
+    <!---->
+    <!---->
+    <div class="mdc-card__action-icons"><button data-toggle-on-content="" data-toggle-on-label="" data-toggle-on-class="" data-toggle-off-content="" data-toggle-off-label="" data-toggle-off-class="" class="mdc-icon-button mdc-card__action mdc-card__action--icon">
+        <!---->
+        <!---->
+        <!---->
+        <!----></button><button data-toggle-on-content="" data-toggle-on-label="" data-toggle-on-class="" data-toggle-off-content="" data-toggle-off-label="" data-toggle-off-class="" class="mdc-icon-button mdc-card__action mdc-card__action--icon">
+        <!---->
+        <!---->
+        <!---->
+        <!----></button></div>
+  </div>
+</div>
+`;
+
+exports[`Card should render with full bleed action 1`] = `
+<div class="mdc-card">
+  <!---->
+  <div class="mdc-card__actions mdc-card__actions--full-bleed"><button class="mdc-button mdc-card__action mdc-card__action--button"> </button>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card should render with no prop 1`] = `
+<div class="mdc-card">
+  <!---->
+  <!---->
+</div>
+`;
