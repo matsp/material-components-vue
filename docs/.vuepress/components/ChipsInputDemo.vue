@@ -13,7 +13,7 @@
           {{city}}
       </m-chip>
     </m-chip-set>
-    <m-textfield
+    <m-text-field
       id="input-chip"
       v-if="edit"
       v-model="city"
