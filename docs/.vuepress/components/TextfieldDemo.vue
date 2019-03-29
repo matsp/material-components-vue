@@ -10,11 +10,11 @@
                         :upgraded="checkboxProps[1].value"
                         :use-native-validation="checkboxProps[4].value"
                         :valid="checkboxProps[3].value"
-                        id="textfield1"
+                        id="text-field1"
                         style="flex: 1; margin: 2px"
                 >
                     <m-floating-label
-                            for="textfield1">Label
+                            for="text-field1">Label
                     </m-floating-label>
                     <m-line-ripple slot="bottomLine"/>
                 </m-text-field>
@@ -25,13 +25,13 @@
                         :upgraded="checkboxProps[1].value"
                         :use-native-validation="checkboxProps[4].value"
                         :valid="checkboxProps[3].value"
-                        id="textfield1-lead"
+                        id="text-field1-lead"
                         style="flex: 1; margin: 2px"
 
                 >
                     <m-icon icon="event" slot="leadingIcon"></m-icon>
                     <m-floating-label
-                            for="textfield1-lead">Label
+                            for="text-field1-lead">Label
                     </m-floating-label>
                     <m-line-ripple slot="bottomLine"/>
                 </m-text-field>
@@ -42,13 +42,13 @@
                         :upgraded="checkboxProps[1].value"
                         :use-native-validation="checkboxProps[4].value"
                         :valid="checkboxProps[3].value"
-                        id="textfield1-trail"
+                        id="text-field1-trail"
                         style="flex: 1; margin: 2px"
 
                 >
                     <m-icon icon="event" slot="trailingIcon"></m-icon>
                     <m-floating-label
-                            for="textfield1-trail">Label
+                            for="text-field1-trail">Label
                     </m-floating-label>
                     <m-line-ripple slot="bottomLine"/>
                 </m-text-field>
@@ -64,12 +64,12 @@
                         :upgraded="checkboxProps[1].value"
                         :use-native-validation="checkboxProps[4].value"
                         :valid="checkboxProps[3].value"
-                        id="textfield2"
+                        id="text-field2"
                         outlined
                         style="flex:1; margin: 2px"
                 >
                     <m-floating-label
-                            for="textfield2">Label
+                            for="text-field2">Label
                     </m-floating-label>
                 </m-text-field>
 
@@ -80,13 +80,13 @@
                         :upgraded="checkboxProps[1].value"
                         :use-native-validation="checkboxProps[4].value"
                         :valid="checkboxProps[3].value"
-                        id="textfield2-lead"
+                        id="text-field2-lead"
                         outlined
                         style="flex:1; margin: 2px"
                 >
                     <m-icon icon="event" slot="leadingIcon"></m-icon>
                     <m-floating-label
-                            for="textfield2-lead">Label
+                            for="text-field2-lead">Label
                     </m-floating-label>
                 </m-text-field>
 
@@ -97,12 +97,12 @@
                         :upgraded="checkboxProps[1].value"
                         :use-native-validation="checkboxProps[4].value"
                         :valid="checkboxProps[3].value"
-                        id="textfield2-trail"
+                        id="text-field2-trail"
                         outlined
                         style="flex:1; margin: 2px"
                 >
                     <m-floating-label
-                            for="textfield2-trail">Label
+                            for="text-field2-trail">Label
                     </m-floating-label>
                     <m-icon icon="event" slot="trailingIcon"></m-icon>
                 </m-text-field>
@@ -117,7 +117,7 @@
                     :use-native-validation="checkboxProps[4].value"
                     :valid="checkboxProps[3].value"
                     full-width
-                    id="textfield3"
+                    id="text-field3"
             >
                 <m-line-ripple slot="bottomLine"/>
             </m-text-field>
@@ -130,11 +130,11 @@
                     :upgraded="checkboxProps[1].value"
                     :use-native-validation="checkboxProps[4].value"
                     :valid="checkboxProps[3].value"
-                    id="textfield4"
+                    id="text-field4"
                     textarea
             >
                 <m-floating-label
-                        for="textfield4">Label
+                        for="text-field4">Label
                 </m-floating-label>
                 <m-line-ripple slot="bottomLine"/>
             </m-text-field>
@@ -147,7 +147,7 @@
                     :upgraded="checkboxProps[1].value"
                     :use-native-validation="checkboxProps[4].value"
                     :valid="checkboxProps[3].value"
-                    id="textfield5"
+                    id="text-field5"
             >
                 <m-line-ripple slot="bottomLine"/>
             </m-text-field>
@@ -160,7 +160,7 @@
                     :upgraded="checkboxProps[1].value"
                     :use-native-validation="checkboxProps[4].value"
                     :valid="checkboxProps[3].value"
-                    id="textfield6"
+                    id="text-field6"
                     outlined
             >
             </m-text-field>
@@ -173,7 +173,7 @@
                     :upgraded="checkboxProps[1].value"
                     :use-native-validation="checkboxProps[4].value"
                     :valid="checkboxProps[3].value"
-                    id="textfield7"
+                    id="text-field7"
                     textarea
             >
                 <m-line-ripple slot="bottomLine"/>
@@ -190,10 +190,10 @@
                         :valid="checkboxProps[3].value"
                         aria-controls="helper-text1"
                         aria-describedby="helper-text1"
-                        id="textfield8"
+                        id="text-field8"
                 >
                     <m-floating-label
-                            for="textfield8">Label
+                            for="text-field8">Label
                     </m-floating-label>
                     <m-line-ripple slot="bottomLine"/>
                 </m-text-field>
@@ -214,11 +214,11 @@
                         :valid="checkboxProps[3].value"
                         aria-controls="helper-text2"
                         aria-describedby="helper-text2"
-                        id="textfield9"
+                        id="text-field9"
                         outlined
                 >
                     <m-floating-label
-                            for="textfield9">Label
+                            for="text-field9">Label
                     </m-floating-label>
                     <m-line-ripple slot="bottomLine"/>
                 </m-text-field>
