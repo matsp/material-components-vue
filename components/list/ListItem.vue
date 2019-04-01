@@ -86,6 +86,10 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -98,7 +102,8 @@ export default {
     classes () {
       return {
         'mdc-list-item--activated': this.activated,
-        'mdc-list-item--selected': this.selected
+        'mdc-list-item--selected': this.selected,
+        'mdc-list-item--disabled': this.disabled
       }
     }
   },
