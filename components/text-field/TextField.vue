@@ -123,6 +123,9 @@ export default {
     },
     valid () {
       this.mdcTextField.valid = this.valid
+    },
+    value () {
+      this.mdcTextField.value = this.value
     }
   },
   mounted () {
