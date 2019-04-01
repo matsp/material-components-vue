@@ -5,9 +5,9 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-grid-list', GridList)
-    vm.component('m-grid-tile', GridListTile)
+  install (Vue) {
+    Vue.component('m-grid-list', GridList)
+    Vue.component('m-grid-tile', GridListTile)
   }
 }
 export default plugin

@@ -4,8 +4,8 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-icon-button', IconButton)
+  install (Vue) {
+    Vue.component('m-icon-button', IconButton)
   }
 }
 export default plugin

@@ -5,9 +5,9 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-chip', Chip)
-    vm.component('m-chip-set', ChipSet)
+  install (Vue) {
+    Vue.component('m-chip', Chip)
+    Vue.component('m-chip-set', ChipSet)
   }
 }
 export default plugin

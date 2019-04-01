@@ -9,13 +9,13 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-list', List)
-    vm.component('m-list-divider', ListDivider)
-    vm.component('m-list-group', ListGroup)
-    vm.component('m-list-group-divider', ListGroupDivider)
-    vm.component('m-list-group-subheader', ListGroupSubheader)
-    vm.component('m-list-item', ListItem)
+  install (Vue) {
+    Vue.component('m-list', List)
+    Vue.component('m-list-divider', ListDivider)
+    Vue.component('m-list-group', ListGroup)
+    Vue.component('m-list-group-divider', ListGroupDivider)
+    Vue.component('m-list-group-subheader', ListGroupSubheader)
+    Vue.component('m-list-item', ListItem)
   }
 }
 export default plugin

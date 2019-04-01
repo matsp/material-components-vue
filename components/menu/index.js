@@ -6,10 +6,10 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-menu', Menu)
-    vm.component('m-menu-anchor', MenuAnchor)
-    vm.component('m-menu-surface', MenuSurface)
+  install (Vue) {
+    Vue.component('m-menu', Menu)
+    Vue.component('m-menu-anchor', MenuAnchor)
+    Vue.component('m-menu-surface', MenuSurface)
   }
 }
 export default plugin

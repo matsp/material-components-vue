@@ -9,13 +9,13 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-drawer-content', DrawerContent)
-    vm.component('m-drawer-header', DrawerHeader)
-    vm.component('m-drawer', Drawer)
-    vm.component('m-drawer-scrim', DrawerScrim)
-    vm.component('m-drawer-app-content', DrawerAppContent)
-    vm.component('m-drawer-list', DrawerList)
+  install (Vue) {
+    Vue.component('m-drawer-content', DrawerContent)
+    Vue.component('m-drawer-header', DrawerHeader)
+    Vue.component('m-drawer', Drawer)
+    Vue.component('m-drawer-scrim', DrawerScrim)
+    Vue.component('m-drawer-app-content', DrawerAppContent)
+    Vue.component('m-drawer-list', DrawerList)
   }
 }
 export default plugin

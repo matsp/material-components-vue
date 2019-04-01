@@ -5,9 +5,9 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-card', Card)
-    vm.component('m-card-media', CardMedia)
+  install (Vue) {
+    Vue.component('m-card', Card)
+    Vue.component('m-card-media', CardMedia)
   }
 }
 export default plugin

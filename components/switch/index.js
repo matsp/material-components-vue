@@ -4,8 +4,8 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-switch', Switch)
+  install (Vue) {
+    Vue.component('m-switch', Switch)
   }
 }
 export default plugin

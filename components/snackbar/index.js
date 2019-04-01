@@ -4,8 +4,8 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-snackbar', Snackbar)
+  install (Vue) {
+    Vue.component('m-snackbar', Snackbar)
   }
 }
 export default plugin

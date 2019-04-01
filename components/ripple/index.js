@@ -4,8 +4,8 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-ripple', Ripple)
+  install (Vue) {
+    Vue.component('m-ripple', Ripple)
   }
 }
 export default plugin

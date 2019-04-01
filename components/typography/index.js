@@ -10,14 +10,14 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-typo-body', Body)
-    vm.component('m-typo-button', Button)
-    vm.component('m-typo-caption', Caption)
-    vm.component('m-typo-headline', Headline)
-    vm.component('m-typo-overline', Overline)
-    vm.component('m-typo-subheading', Subheading)
-    vm.component('m-typography', Typography)
+  install (Vue) {
+    Vue.component('m-typo-body', Body)
+    Vue.component('m-typo-button', Button)
+    Vue.component('m-typo-caption', Caption)
+    Vue.component('m-typo-headline', Headline)
+    Vue.component('m-typo-overline', Overline)
+    Vue.component('m-typo-subheading', Subheading)
+    Vue.component('m-typography', Typography)
   }
 }
 export default plugin

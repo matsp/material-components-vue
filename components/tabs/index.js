@@ -7,11 +7,11 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-tab', Tab)
-    vm.component('m-tab-bar', TabBar)
-    vm.component('m-tab-indicator', TabIndicator)
-    vm.component('m-tab-scroller', TabScroller)
+  install (Vue) {
+    Vue.component('m-tab', Tab)
+    Vue.component('m-tab-bar', TabBar)
+    Vue.component('m-tab-indicator', TabIndicator)
+    Vue.component('m-tab-scroller', TabScroller)
   }
 }
 export default plugin

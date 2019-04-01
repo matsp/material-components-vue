@@ -4,8 +4,8 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-dialog', Dialog)
+  install (Vue) {
+    Vue.component('m-dialog', Dialog)
   }
 }
 export default plugin

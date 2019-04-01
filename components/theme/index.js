@@ -4,8 +4,8 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-theme', Theme)
+  install (Vue) {
+    Vue.component('m-theme', Theme)
   }
 }
 export default plugin

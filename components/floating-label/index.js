@@ -4,8 +4,8 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-floating-label', FloatingLabel)
+  install (Vue) {
+    Vue.component('m-floating-label', FloatingLabel)
   }
 }
 export default plugin

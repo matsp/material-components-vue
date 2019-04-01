@@ -6,10 +6,10 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-layout-grid', LayoutGrid)
-    vm.component('m-layout-grid-cell', LayoutGridCell)
-    vm.component('m-layout-grid-inner', LayoutGridInner)
+  install (Vue) {
+    Vue.component('m-layout-grid', LayoutGrid)
+    Vue.component('m-layout-grid-cell', LayoutGridCell)
+    Vue.component('m-layout-grid-inner', LayoutGridInner)
   }
 }
 export default plugin

@@ -5,9 +5,9 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-text-field', TextField)
-    vm.component('m-text-field-helper-text', TextFieldHelperText)
+  install (Vue) {
+    Vue.component('m-text-field', TextField)
+    Vue.component('m-text-field-helper-text', TextFieldHelperText)
   }
 }
 export default plugin

@@ -5,9 +5,9 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-top-app-bar', TopAppBar)
-    vm.component('m-top-app-bar-fixed-adjust', TopAppBarFixedAdjust)
+  install (Vue) {
+    Vue.component('m-top-app-bar', TopAppBar)
+    Vue.component('m-top-app-bar-fixed-adjust', TopAppBarFixedAdjust)
   }
 }
 export default plugin

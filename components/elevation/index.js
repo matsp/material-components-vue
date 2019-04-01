@@ -4,8 +4,8 @@ import './styles.scss'
 import { initPlugin } from '../'
 
 const plugin = {
-  install (vm) {
-    vm.component('m-elevation', Elevation)
+  install (Vue) {
+    Vue.component('m-elevation', Elevation)
   }
 }
 export default plugin
