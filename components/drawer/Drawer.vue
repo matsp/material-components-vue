@@ -2,7 +2,7 @@
   <aside
     :class="classes"
     class="mdc-drawer"
-    @MDCDrawer:close="model = false"
+    @MDCDrawer:closed="onClosed"
   >
     <slot name="header" />
     <slot />
@@ -73,6 +73,12 @@ export default {
   },
   beforeDestroy () {
     if (this.mdcDrawer) this.mdcDrawer.destroy()
+  },
+  methods: {
+    onClosed () {
+      this.model = false
+      this.$emit('closed')
+    }
   }
 }
 </script>
