@@ -119,10 +119,10 @@ export default {
   },
   methods: {
     onClosing (e) {
-      this.$emit('closing', e)
+      this.$emit('closing', e.detail)
     },
     onClosed (e) {
-      this.$emit('closed', e)
+      this.$emit('closed', e.detail)
     },
     onOpening () {
       this.$emit('opening')
