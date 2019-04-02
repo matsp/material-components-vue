@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.0.0-alpha.1](https://github.com/matsp/material-components-vue/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2019-04-02)
+
+
+### Bug Fixes
+
+* incomplete rename from 'textfield' to 'text-field' ([#206](https://github.com/matsp/material-components-vue/issues/206)) ([2ce1299](https://github.com/matsp/material-components-vue/commit/2ce1299))
+* lack of mdc-button style for the snackbar action button ([#209](https://github.com/matsp/material-components-vue/issues/209)) ([5f31e14](https://github.com/matsp/material-components-vue/commit/5f31e14))
+* missing disabled prop in list item ([#211](https://github.com/matsp/material-components-vue/issues/211)) ([7c013e5](https://github.com/matsp/material-components-vue/commit/7c013e5))
+* misspelled `closed` to `close` on @MDCDrawer:closed event and no closed event emitted after drawer closed ([#207](https://github.com/matsp/material-components-vue/issues/207)) ([d46290c](https://github.com/matsp/material-components-vue/commit/d46290c))
+* pre-filled text field can not be disabled ([#213](https://github.com/matsp/material-components-vue/issues/213)) ([2d55655](https://github.com/matsp/material-components-vue/commit/2d55655))
+* update label position when value is added in an empty text field ([#212](https://github.com/matsp/material-components-vue/issues/212)) ([3b40325](https://github.com/matsp/material-components-vue/commit/3b40325)), closes [#140](https://github.com/matsp/material-components-vue/issues/140)
+* wrong payloads in event `closed` and `closing` emitted by snackbar ([#208](https://github.com/matsp/material-components-vue/issues/208)) ([491f361](https://github.com/matsp/material-components-vue/commit/491f361))
+
+
+
 # [1.0.0-alpha.0](https://github.com/matsp/material-components-vue/compare/v0.26.1...v1.0.0-alpha.0) (2019-03-22)
 
 
