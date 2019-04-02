@@ -104,7 +104,6 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-text-field--disabled': this.disabled,
         'mdc-text-field--upgraded': this.upgraded,
         'mdc-text-field--fullwidth': this.fullWidth,
         'mdc-text-field--with-leading-icon': this.$slots.leadingIcon,
@@ -126,6 +125,9 @@ export default {
     },
     value () {
       this.mdcTextField.value = this.value
+    },
+    disabled () {
+      this.mdcTextField.disabled = this.disabled
     }
   },
   mounted () {
@@ -138,6 +140,7 @@ export default {
     this.mdcTextField = MDCTextField.attachTo(this.$el)
     this.mdcTextField.useNativeValidation = this.useNativeValidation
     this.mdcTextField.valid = this.valid
+    this.mdcTextField.disabled = this.disabled
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
