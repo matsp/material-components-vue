@@ -15,11 +15,22 @@
       >
         <slot />
       </div>
-      <div class="mdc-snackbar__actions">
+      <div
+        v-if="hasDismiss || actionButtonText !== ''"
+        class="mdc-snackbar__actions"
+      >
         <button
+          v-if="actionButtonText !== ''"
           class="mdc-button mdc-snackbar__action"
           type="button"
         />
+        <button
+          v-if="hasDismiss"
+          class="mdc-icon-button mdc-snackbar__dismiss material-icons"
+          title="Dismiss"
+        >
+          close
+        </button>
       </div>
     </div>
   </div>
@@ -62,6 +73,10 @@ export default {
       default: false
     },
     stacked: {
+      type: Boolean,
+      default: false
+    },
+    hasDismiss: {
       type: Boolean,
       default: false
     }
