@@ -80,7 +80,7 @@
     "url-loader": "^1.1.2",
     "vue-jest": "^3.0.4",
     "vue-loader": "^15.7.0",
-    "vuepress": "^0.14.10",
+    "vuepress": "^0.14.11",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
