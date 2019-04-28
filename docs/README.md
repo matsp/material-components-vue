@@ -36,3 +36,13 @@ yarn add material-components-vue
 </style>
 ```
 
+For components like Drawer to work, include the theme, typography and layout grid globally in your App.vue file.
+```
+import Vue from 'vue';
+import Typography from 'material-components-vue/dist/typography';
+import LayoutGrid from 'material-components-vue/dist/layout-grid'
+
+Vue.use(Typography)
+Vue.use(LayoutGrid)
+```
+
