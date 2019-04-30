@@ -41,6 +41,10 @@ export default {
       type: Number,
       default: null
     },
+    hoistToBody: {
+      type: Boolean,
+      default: false
+    },
     fixed: {
       type: Boolean,
       default: false
@@ -103,6 +107,11 @@ export default {
     quickOpen () {
       this.mdcMenu.quickOpen = this.quickOpen
     },
+    hoistToBody () {
+      if (this.hoistToBody) {
+        this.mdcMenu.hoistMenuToBody()
+      }
+    },
     fixed () {
       this.mdcMenu.setFixedPosition(this.fixed)
     },
@@ -143,6 +152,9 @@ export default {
       subtree: true
     })
     this.mdcMenu = MDCMenu.attachTo(this.$el)
+    if (this.hoistToBody) {
+      this.mdcMenu.hoistMenuToBody()
+    }
     this.mdcMenu.setFixedPosition(this.fixed)
     if (this.anchorCorner !== '') {
       this.mdcMenu.setAnchorCorner(Corner[this.anchorCorner.toUpperCase()])

@@ -30,8 +30,15 @@ data() {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| quickOpen | Boolean | false | deactivates menu animation |
-| open | Boolean | false | open the menu (could be v-modeled) |
+| quickOpen | Boolean | false | Deactivates menu animation. |
+| open | Boolean | false | Open the menu (could be v-modeled). |
+| anchorCorner | String | `TOP_START` | Sets the corner that the menu surface will be anchored to. Can be one of the following: `TOP_LEFT`, `TOP_RIGHT`, `BOTTOM_LEFT`, `BOTTOM_RIGHT`, `TOP_START`, `TOP_END`, `BOTTOM_START`, `BOTTOM_END` |
+| absolutePositionX | Number | null | Sets the absolute x position of the menu. Should only be used when the menu is hoisted or using fixed positioning. |
+| absolutePositionY | Number | null | Sets the absolute y position of the menu. Should only be used when the menu is hoisted or using fixed positioning. |
+| hoistToBody | Boolean | false | Removes the menu-surface element from the DOM and appends it to the body element. Should be used to overcome overflow: hidden issues. |
+| fixed | Boolean | false | Sets whether the menu surface is using fixed positioning. |
+| wrapFocus| Boolean| true | Sets the list to allow the up arrow on the first element to focus the last element of the list and vice versa. |
+| defaultFocusState | [Number, String] | null | Sets default focus state where the menu should focus every time when menu is opened. Focuses the list root (`LIST_ROOT`) element by default. Can be one of the following: `NONE`, `LIST_ROOT`, `FIRST_ITEM`, `LAST_ITEM` |
 
 ### Events
 
