@@ -10,6 +10,7 @@
 
 <script>
 import { Corner, MDCMenu } from '@material/menu'
+import { DefaultFocusState } from '@material/menu/constants'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
 
@@ -47,6 +48,10 @@ export default {
     wrapFocus: {
       type: Boolean,
       default: true
+    },
+    defaultFocusState: {
+      type: [Number, String],
+      default: null
     }
   },
   data () {
@@ -63,6 +68,25 @@ export default {
       set (value) {
         this.$emit('change', value)
       }
+    },
+    focusState () {
+      if (!this.defaultFocusState) return null
+
+      const upperCaseFocusState = String(this.defaultFocusState).toUpperCase()
+      if (isNaN(this.defaultFocusState) &&
+        DefaultFocusState.hasOwnProperty(upperCaseFocusState)
+      ) {
+        return DefaultFocusState[upperCaseFocusState]
+      }
+
+      const numberFocusState = Number(this.defaultFocusState)
+      if (!isNaN(this.defaultFocusState) &&
+        DefaultFocusState.hasOwnProperty(numberFocusState)
+      ) {
+        return numberFocusState
+      }
+
+      return null
     },
     tabIndex () {
       if (this.$slots.default[0].componentOptions.tag.toLowerCase() === 'm-list') {
@@ -102,6 +126,11 @@ export default {
     wrapFocus () {
       this.mdcMenu.wrapFocus = this.wrapFocus
     },
+    defaultFocusState () {
+      if (this.focusState !== null) {
+        this.mdcMenu.setDefaultFocusState(this.focusState)
+      }
+    },
     'mdcMenu.open' () {
       this.model = this.mdcMenu.open
     }
@@ -122,6 +151,10 @@ export default {
       this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
     }
     this.mdcMenu.wrapFocus = this.wrapFocus
+
+    if (this.focusState !== null) {
+      this.mdcMenu.setDefaultFocusState(this.focusState)
+    }
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
