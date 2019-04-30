@@ -76,6 +76,8 @@ export default {
       this.mdcList.singleSelection = this.singleSelection
       this.mdcList.wrapFocus = this.wrapFocus
       this.mdcList.vertical = this.vertical
+    } else {
+      this.$el.setAttribute('tabindex', '0')
     }
   },
   beforeDestroy () {

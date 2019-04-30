@@ -1,6 +1,6 @@
 <template>
   <div
-    :tabindex="mdcMenu ? (mdcMenu.open ? 0 : -1) : (open ? 0 : -1)"
+    :tabindex="tabIndex"
     class="mdc-menu mdc-menu-surface"
     @MDCMenu:selected="onSelect"
   >
@@ -63,6 +63,13 @@ export default {
       set (value) {
         this.$emit('change', value)
       }
+    },
+    tabIndex () {
+      if (this.$slots.default[0].componentOptions.tag.toLowerCase() === 'm-list') {
+        return -1
+      }
+
+      return this.mdcMenu ? (this.mdcMenu.open ? 0 : -1) : (this.open ? 0 : -1)
     }
   },
   watch: {
