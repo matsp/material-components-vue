@@ -35,11 +35,11 @@ export default {
     },
     absolutePositionX: {
       type: Number,
-      default: -1
+      default: null
     },
     absolutePositionY: {
       type: Number,
-      default: -1
+      default: null
     },
     fixed: {
       type: Boolean,
@@ -114,12 +114,12 @@ export default {
       }
     },
     absolutePositionX () {
-      if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+      if (this.absolutePositionX !== null) {
         this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
       }
     },
     absolutePositionY () {
-      if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+      if (this.absolutePositionY !== null) {
         this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
       }
     },
@@ -147,7 +147,7 @@ export default {
     if (this.anchorCorner !== '') {
       this.mdcMenu.setAnchorCorner(Corner[this.anchorCorner.toUpperCase()])
     }
-    if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+    if (this.absolutePositionX !== null || this.absolutePositionY !== null) {
       this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
     }
     this.mdcMenu.wrapFocus = this.wrapFocus
