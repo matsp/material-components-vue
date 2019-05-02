@@ -1,6 +1,6 @@
 <template>
   <div
-    :tabindex="mdcMenu ? (mdcMenu.open ? 0 : -1) : (open ? 0 : -1)"
+    :tabindex="tabIndex"
     class="mdc-menu mdc-menu-surface"
     @MDCMenu:selected="onSelect"
   >
@@ -10,6 +10,7 @@
 
 <script>
 import { Corner, MDCMenu } from '@material/menu'
+import { DefaultFocusState } from '@material/menu/constants'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
 
@@ -34,11 +35,15 @@ export default {
     },
     absolutePositionX: {
       type: Number,
-      default: -1
+      default: null
     },
     absolutePositionY: {
       type: Number,
-      default: -1
+      default: null
+    },
+    hoistToBody: {
+      type: Boolean,
+      default: false
     },
     fixed: {
       type: Boolean,
@@ -47,6 +52,10 @@ export default {
     wrapFocus: {
       type: Boolean,
       default: true
+    },
+    defaultFocusState: {
+      type: [Number, String],
+      default: null
     }
   },
   data () {
@@ -63,6 +72,32 @@ export default {
       set (value) {
         this.$emit('change', value)
       }
+    },
+    focusState () {
+      if (!this.defaultFocusState) return null
+
+      const upperCaseFocusState = String(this.defaultFocusState).toUpperCase()
+      if (isNaN(this.defaultFocusState) &&
+        DefaultFocusState.hasOwnProperty(upperCaseFocusState)
+      ) {
+        return DefaultFocusState[upperCaseFocusState]
+      }
+
+      const numberFocusState = Number(this.defaultFocusState)
+      if (!isNaN(this.defaultFocusState) &&
+        DefaultFocusState.hasOwnProperty(numberFocusState)
+      ) {
+        return numberFocusState
+      }
+
+      return null
+    },
+    tabIndex () {
+      if (this.$slots.default[0].componentOptions.tag.toLowerCase() === 'm-list') {
+        return -1
+      }
+
+      return this.mdcMenu ? (this.mdcMenu.open ? 0 : -1) : (this.open ? 0 : -1)
     }
   },
   watch: {
@@ -71,6 +106,11 @@ export default {
     },
     quickOpen () {
       this.mdcMenu.quickOpen = this.quickOpen
+    },
+    hoistToBody () {
+      if (this.hoistToBody) {
+        this.mdcMenu.hoistMenuToBody()
+      }
     },
     fixed () {
       this.mdcMenu.setFixedPosition(this.fixed)
@@ -83,17 +123,22 @@ export default {
       }
     },
     absolutePositionX () {
-      if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+      if (this.absolutePositionX !== null) {
         this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
       }
     },
     absolutePositionY () {
-      if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+      if (this.absolutePositionY !== null) {
         this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
       }
     },
     wrapFocus () {
       this.mdcMenu.wrapFocus = this.wrapFocus
+    },
+    defaultFocusState () {
+      if (this.focusState !== null) {
+        this.mdcMenu.setDefaultFocusState(this.focusState)
+      }
     },
     'mdcMenu.open' () {
       this.model = this.mdcMenu.open
@@ -107,14 +152,21 @@ export default {
       subtree: true
     })
     this.mdcMenu = MDCMenu.attachTo(this.$el)
+    if (this.hoistToBody) {
+      this.mdcMenu.hoistMenuToBody()
+    }
     this.mdcMenu.setFixedPosition(this.fixed)
     if (this.anchorCorner !== '') {
       this.mdcMenu.setAnchorCorner(Corner[this.anchorCorner.toUpperCase()])
     }
-    if (this.absolutePositionX > -1 && this.absolutePositionY > -1) {
+    if (this.absolutePositionX !== null || this.absolutePositionY !== null) {
       this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
     }
     this.mdcMenu.wrapFocus = this.wrapFocus
+
+    if (this.focusState !== null) {
+      this.mdcMenu.setDefaultFocusState(this.focusState)
+    }
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
