@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.0.0-alpha.2](https://github.com/matsp/material-components-vue/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2019-05-02)
+
+
+### Features
+
+* **snackbar:** add dismiss button and make dismiss button and action button optional ([#214](https://github.com/matsp/material-components-vue/issues/214)) ([a90038e](https://github.com/matsp/material-components-vue/commit/a90038e))
+* upgrade material-components-web to v2.0 ([#223](https://github.com/matsp/material-components-vue/issues/223)) ([2e5d6d9](https://github.com/matsp/material-components-vue/commit/2e5d6d9))
+
+
+### BREAKING CHANGES
+
+* MENU
+
+"When using MDC List inside MDC Menu tabindex should be set on list root element where role="menu" is assigned."
+
+* Menu: Implement new setDefaultFocusState() method
+
+The property accepts both integers and strings.
+The map is (case insensitive):
+0 = none
+1 = list_root
+2 = first_item
+3 = last_item
+
+Either one of the values above can be used.
+
+* Allow passing absolute position for either X or Y axis (not requiring to pass them both)
+
+The `setAbsolutePosition` method has a default of `0` in case one value is null.
+Using -1 as the default is not good as it does not allow negative values.
+
+* Add HoistToBody property
+
+
+
 # [1.0.0-alpha.1](https://github.com/matsp/material-components-vue/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2019-04-02)
 
 
