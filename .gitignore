@@ -4,4 +4,3 @@ yarn-error.log
 reports/
 dist/
 .idea/
-yarn.lock
