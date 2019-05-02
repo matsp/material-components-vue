@@ -1,0 +1,9 @@
+test/
+node_modules
+.vscode
+.github
+.travis.yml
+**/coverage
+.circleci/
+renovate.json
+docs
