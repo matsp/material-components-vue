@@ -227,6 +227,63 @@
                     Helper Text
                 </m-text-field-helper-text>
             </div>
+
+            <m-typography>Filled with Helper Text and Character Counter</m-typography>
+            <div>
+                <m-text-field
+                        :disabled="checkboxProps[0].value"
+                        :focused="checkboxProps[2].value"
+                        :required="checkboxProps[5].value"
+                        :upgraded="checkboxProps[1].value"
+                        :use-native-validation="checkboxProps[4].value"
+                        :valid="checkboxProps[3].value"
+                        aria-controls="helper-text3"
+                        aria-describedby="helper-text3"
+                        id="text-field10"
+                        maxlength="20"
+                >
+                    <m-floating-label
+                            for="text-field10">Label
+                    </m-floating-label>
+                    <m-line-ripple slot="bottomLine"/>
+                </m-text-field>
+                <m-text-field-helper-text :persistent="checkboxProps[6].value" :validation-msg="checkboxProps[7].value"
+                                          id="helper-text3">
+                    Helper Text
+                    <template v-slot:characterCounter>
+                        <m-text-field-character-counter/>
+                    </template>
+                </m-text-field-helper-text>
+            </div>
+
+            <m-typography>Outlined with Helper Text and Character Counter</m-typography>
+            <div>
+                <m-text-field
+                        :disabled="checkboxProps[0].value"
+                        :focused="checkboxProps[2].value"
+                        :required="checkboxProps[5].value"
+                        :upgraded="checkboxProps[1].value"
+                        :use-native-validation="checkboxProps[4].value"
+                        :valid="checkboxProps[3].value"
+                        aria-controls="helper-text4"
+                        aria-describedby="helper-text4"
+                        id="text-field11"
+                        maxlength="20"
+                        outlined
+                >
+                    <m-floating-label
+                            for="text-field11">Label
+                    </m-floating-label>
+                    <m-line-ripple slot="bottomLine"/>
+                </m-text-field>
+                <m-text-field-helper-text :persistent="checkboxProps[6].value" :validation-msg="checkboxProps[7].value"
+                                          id="helper-text4">
+                    Helper Text
+                    <template v-slot:characterCounter>
+                        <m-text-field-character-counter/>
+                    </template>
+                </m-text-field-helper-text>
+            </div>
         </ComponentSection>
         <ComponentProps
                 :checkboxProps="checkboxProps"

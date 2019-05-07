@@ -7,6 +7,7 @@
     >
       <slot />
     </div>
+    <slot name="characterCounter" />
   </div>
 </template>
 
