@@ -9,8 +9,7 @@
   <a href="https://www.npmjs.com/package/material-components-vue"><img src="https://img.shields.io/npm/dt/material-components-vue.svg"></a>
   <a href="https://www.npmjs.com/package/material-components-vue"><img src="https://img.shields.io/npm/v/material-components-vue.svg"></a>
   <a href="https://www.npmjs.com/package/material-components-web"><img src="https://img.shields.io/badge/mdc--web-2.1.1-green.svg"></a>
-  <a href="https://travis-ci.org/matsp/material-components-vue"><img src="https://travis-ci.org/matsp/material-components-vue.svg?branch=master"></a>
-  <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/matsp/material-components-vue.svg"></a>
+  <a href="https://circleci.com/gh/matsp/material-components-vue"><img src="https://circleci.com/gh/matsp/material-components-vue.svg?style=svg"></a>
   <a href="https://discord.gg/2rXrRb5"><img src="https://img.shields.io/discord/456727669195800607.svg"></a>
 </p>
 
