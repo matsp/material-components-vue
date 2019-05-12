@@ -43,11 +43,16 @@ jobs:
       - run: gh-pages --dist docs/.vuepress/dist
 workflows:
   version: 2
-  build_test_docs:
+  test_build_docs:
     jobs:
       - test
       - build
-      - docs
+      - docs:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
       - docs_deploy:
           requires:
             - test
