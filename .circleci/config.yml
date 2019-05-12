@@ -37,20 +37,13 @@ jobs:
       - run:
           name: Install and configure dependencies
           command: |
-            yarn global add gh-pages
+            npm install -g gh-pages
             git config user.email "ci-build@circleci.com"
             git config user.name "ci-build"
       - run: gh-pages --dist docs/.vuepress/dist
 workflows:
   version: 2
-  test:
-    jobs:
-      - test
-  build:
-    jobs:
-      - build
-      - docs
-  deploy_docs:
+  build_test_docs:
     jobs:
       - test
       - build
@@ -62,4 +55,4 @@ workflows:
             - docs
           filters:
             tags:
-              only: /^v*/
+              only: /^v.*/
