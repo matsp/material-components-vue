@@ -5,22 +5,22 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
-      - run: yarn
-      - run: yarn build:min
+      - run: npm ci
+      - run: npm run build:min
   test:
     docker:
       - image: circleci/node:lts
     steps:
       - checkout
-      - run: yarn
-      - run: yarn test
+      - run: npm ci
+      - run: npm run test
   docs:
     docker:
       - image: circleci/node:lts
     steps:
       - checkout
-      - run: yarn
-      - run: yarn docs:prod
+      - run: npm ci
+      - run: npm run docs:prod
       - persist_to_workspace:
           root: docs/.vuepress/
           paths: dist
