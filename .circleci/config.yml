@@ -33,7 +33,7 @@ jobs:
           at: docs/.vuepress
       - add_ssh_keys:
           fingerprints:
-            - "7f:05:91:79:6f:f9:26:d4:2d:d9:ff:66:21:8c:62:a8"
+            - "65:d8:ed:b9:bd:96:10:d0:99:95:06:d7:ae:73:7c:58"
       - run:
           name: Install and configure dependencies
           command: |
