@@ -54,7 +54,7 @@
     "css-loader": "2.1.1",
     "eslint": "5.16.0",
     "eslint-config-standard": "12.0.0",
-    "eslint-plugin-html": "5.0.4",
+    "eslint-plugin-html": "5.0.5",
     "eslint-plugin-import": "2.17.2",
     "eslint-plugin-jest": "22.5.1",
     "eslint-plugin-json": "1.4.0",
