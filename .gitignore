@@ -1,6 +1,7 @@
 node_modules/
 .vscode/
 yarn-error.log
+yarn.lock
 reports/
 dist/
 .idea/
