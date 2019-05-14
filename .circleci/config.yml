@@ -54,7 +54,7 @@ workflows:
             - build
             - docs
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              only: master
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*$/
