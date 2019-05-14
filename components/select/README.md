@@ -3,7 +3,7 @@
 ### Markup
 
 ```html
-<m-select v-model="selected">
+<m-select v-model="selected" enhanced>
   <option
     v-for="option in selectOptions"
     :key="option.text"
