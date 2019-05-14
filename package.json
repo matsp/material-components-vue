@@ -25,7 +25,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:prod": "vuepress build docs",
     "watch:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js -w",
-    "release": "standard-version",
+    "release": "npm run build && npm run build:min && standard-version",
     "test": "cross-env NODE_ENV=testing jest",
     "test:watch": "npm run test -- --watch",
     "test:updateSnapshot": "npm run test -- --updateSnapshot"
