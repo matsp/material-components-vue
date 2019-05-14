@@ -2,6 +2,7 @@
   <div
     :class="classes"
     class="mdc-select"
+    @MDCSelect:change="onChange"
   >
     <input
       v-if="enhanced && name"
@@ -40,7 +41,6 @@
       :disabled="disabled"
       class="mdc-select__native-control"
       v-bind="$attrs"
-      @change="onChange"
     >
       <option
         v-if="$slots['label']"
@@ -77,7 +77,7 @@ export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
-    event: 'change'
+    event: 'model'
   },
   props: {
     disabled: {
@@ -166,7 +166,8 @@ export default {
   },
   methods: {
     onChange (event) {
-      this.$emit('change', event.target.value)
+      this.$emit('change', event.detail)
+      this.$emit('model', event.detail.value)
     },
     updateSlots () {
       if (this.enhanced && this.$slots.default) {
