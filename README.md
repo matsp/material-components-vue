@@ -35,7 +35,7 @@ of the upstream project: mdc-web.
 
 ## Support
 
-If you want to help feel free to submit issues or pull requests - you can also join the [chat](https://discord.gg/2rXrRb5) for questions. Every information that help to stabilize and improve the library is welcome!
+If you want to help feel free to submit issues or pull requests. Every information that help to stabilize and improve the library is welcome!
 
 When you want to support me you can buy me a :coffee: here :+1:
 
