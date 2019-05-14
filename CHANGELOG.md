@@ -1,6 +1,21 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.0.0](https://github.com/matsp/material-components-vue/compare/v1.0.0-alpha.2...v1.0.0) (2019-05-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency material-components-web to v2.2.0 ([#231](https://github.com/matsp/material-components-vue/issues/231)) ([938ad5c](https://github.com/matsp/material-components-vue/commit/938ad5c))
+* **select:** v-model doesn't work with enhanced select ([#232](https://github.com/matsp/material-components-vue/issues/232)) ([9a48b88](https://github.com/matsp/material-components-vue/commit/9a48b88))
+
+
+### Features
+
+* **text-field:** add character counter ([#226](https://github.com/matsp/material-components-vue/issues/226)) ([1629619](https://github.com/matsp/material-components-vue/commit/1629619))
+
+
 
 # [1.0.0-alpha.2](https://github.com/matsp/material-components-vue/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2019-05-02)
 
