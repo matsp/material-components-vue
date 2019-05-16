@@ -38,7 +38,7 @@
     v-on="$listeners"
     @MDCIconButtonToggle:change="$emit('change', $event.detail.isOn)"
   >
-    <template v-if="this.icon && this.icon !== ''">
+    <template v-if="icon && icon !== ''">
       {{ icon }}
     </template>
     <slot v-if="isIconButton" />
