@@ -26,10 +26,12 @@ export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     title: {
-      type: String
+      type: String,
+      default: ''
     },
     subTitle: {
-      type: String
+      type: String,
+      default: ''
     }
   }
 }
