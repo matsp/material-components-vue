@@ -182,7 +182,7 @@ Now you can modify SASS variables to establish your own brand colors:
 </style>
 ```
 ::: warning
-Don't forget to include the `@material` directory of your `node_modules` in your sass-loader options.
+Don't forget to include the `node_modules` directory in your sass-loader options.
 Otherwise the components won't compile sucessfully.
 :::
 
@@ -192,7 +192,18 @@ Webpack example:
 {
   loader: 'sass-loader',
   options: {
-    includePaths: ['./node_modules/@material']
+    includePaths: ['./node_modules']
+  }
+}
+```
+
+Vue config example:
+```javascript
+css: {
+  loaderOptions: {
+    sass: {
+      includePaths: ['./node_modules']
+    }
   }
 }
 ```
