@@ -113,7 +113,7 @@ export default {
       this.mdcSnackbar.actionButtonText = this.actionButtonText
     },
     labelText () {
-      this.mdcSnackbar.labelText = this.labelText
+      if (this.labelText && this.labelText !== '') this.mdcSnackbar.labelText = this.labelText
     },
     closeOnEscape () {
       this.mdcSnackbar.closeOnEscape = this.closeOnEscape
@@ -126,7 +126,7 @@ export default {
     this.mdcSnackbar = MDCSnackbar.attachTo(this.$el)
     this.mdcSnackbar.timeoutMs = this.timeoutMs
     this.mdcSnackbar.closeOnEscape = this.closeOnEscape
-    this.mdcSnackbar.labelText = this.labelText
+    if (this.labelText && this.labelText !== '') this.mdcSnackbar.labelText = this.labelText
     this.mdcSnackbar.actionButtonText = this.actionButtonText
   },
   beforeDestroy () {
