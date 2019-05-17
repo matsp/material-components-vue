@@ -90,6 +90,10 @@ The demonstration in this page is a work in progress..
 
 <SelectHelperTextDemo/>
 
+## Select Icon
+
+<SelectIconDemo/>
+
 ## Slider
 
 <SliderDemo/>
