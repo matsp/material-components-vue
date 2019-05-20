@@ -50,7 +50,7 @@
     "babel-preset-env": "1.7.0",
     "clean-webpack-plugin": "2.0.2",
     "copy-webpack-plugin": "5.0.3",
-    "core-js": "2.6.6",
+    "core-js": "3.1.0",
     "cross-env": "5.2.0",
     "css-loader": "2.1.1",
     "eslint": "5.16.0",
