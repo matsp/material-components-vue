@@ -54,10 +54,18 @@ describe('Checkbox', () => {
     let wrapper = mount(Checkbox)
 
     const input = wrapper.find('input')
+
     input.setChecked()
+    expect(wrapper.emitted().change).toBeTruthy()
+    expect(wrapper.emitted().change.length).toBe(1)
+    expect(wrapper.emitted().change[0]).toEqual([true])
     expect(wrapper.vm.$data.mdcCheckbox.checked).toBeTruthy()
     expect(wrapper.find('input').element.checked).toBeTruthy()
+
     input.setChecked(false)
+    expect(wrapper.emitted().change).toBeTruthy()
+    expect(wrapper.emitted().change.length).toBe(2)
+    expect(wrapper.emitted().change[1]).toEqual([false])
     expect(wrapper.vm.$data.mdcCheckbox.checked).toBeFalsy()
     expect(wrapper.find('input').element.checked).toBeFalsy()
   })
