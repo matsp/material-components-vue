@@ -13,9 +13,8 @@ describe('Snackbar', () => {
     let wrapper = mount(Snackbar)
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-snackbar')
-    // todo: why the following doesn't work
-    // expect(wrapper.isVisible()).toBe(false)
     expect(wrapper.find('button').exists()).toBeFalsy()
+    expect(wrapper.vm.$data.mdcSnackbar.isOpen).toBe(false)
   })
 
   it('should render as open', () => {
@@ -67,7 +66,21 @@ describe('Snackbar', () => {
     })
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.vm.$data.mdcSnackbar.actionButtonText).toEqual('button')
-    expect(wrapper.find('button').text()).toEqual('button')
+    const action = wrapper.find('.mdc-snackbar__action')
+    expect(action.exists()).toBe(true)
+    expect(action.text()).toEqual('button')
+  })
+
+  it('should render with dismiss', () => {
+    let wrapper = mount(Snackbar, {
+      propsData: {
+        hasDismiss: true
+      }
+    })
+    expect(wrapper).toMatchSnapshot()
+    const dismiss = wrapper.find('.mdc-snackbar__dismiss')
+
+    expect(dismiss.exists()).toBe(true)
   })
 
   it('should render with optional actionButton', () => {
@@ -76,23 +89,21 @@ describe('Snackbar', () => {
         actionButtonText: 'button'
       }
     })
-    expect(wrapper.find('button').exists()).toBeTruthy()
+    expect(wrapper.find('.mdc-snackbar__action').exists()).toBeTruthy()
 
     wrapper.setProps({ actionButtonText: '' })
-    expect(wrapper.find('button').exists()).toBeFalsy()
+    expect(wrapper.find('.mdc-snackbar__action').exists()).toBeFalsy()
   })
 
-  it('should render and emit', () => {
+  it('should render with optional dismiss', () => {
     let wrapper = mount(Snackbar, {
       propsData: {
-        actionButtonText: 'button'
+        hasDismiss: true
       }
     })
-    expect(wrapper).toMatchSnapshot()
-    expect(wrapper.props().open).toBe(false)
-    wrapper.setProps({ open: true })
-    expect(wrapper.emittedByOrder().map(e => e.name)).toEqual(['change', 'opening', 'change'])
-    expect(wrapper.isVisible()).toBe(true)
-    // todo: how can I wait until the end of opening and get the opened event?
+    expect(wrapper.find('.mdc-snackbar__dismiss').exists()).toBeTruthy()
+
+    wrapper.setProps({ hasDismiss: false })
+    expect(wrapper.find('.mdc-snackbar__dismiss').exists()).toBeFalsy()
   })
 })
