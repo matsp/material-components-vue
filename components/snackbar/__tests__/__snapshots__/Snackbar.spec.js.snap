@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snackbar should render and emit 1`] = `
+<div class="mdc-snackbar">
+  <div class="mdc-snackbar__surface">
+    <div aria-live="polite" role="status" class="mdc-snackbar__label"></div>
+    <div class="mdc-snackbar__actions"><button type="button" class="mdc-button mdc-snackbar__action">button</button>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snackbar should render as leading 1`] = `
+<div class="mdc-snackbar mdc-snackbar--leading">
+  <div class="mdc-snackbar__surface">
+    <div aria-live="polite" role="status" class="mdc-snackbar__label"></div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Snackbar should render as open 1`] = `
+<div class="mdc-snackbar">
+  <div class="mdc-snackbar__surface">
+    <div aria-live="polite" role="status" class="mdc-snackbar__label"></div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Snackbar should render as stacked 1`] = `
+<div class="mdc-snackbar mdc-snackbar--stacked">
+  <div class="mdc-snackbar__surface">
+    <div aria-live="polite" role="status" class="mdc-snackbar__label"></div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Snackbar should render with actionButton 1`] = `
+<div class="mdc-snackbar">
+  <div class="mdc-snackbar__surface">
+    <div aria-live="polite" role="status" class="mdc-snackbar__label"></div>
+    <div class="mdc-snackbar__actions"><button type="button" class="mdc-button mdc-snackbar__action">button</button>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snackbar should render with labelText 1`] = `
+<div class="mdc-snackbar">
+  <div class="mdc-snackbar__surface">
+    <div aria-live="polite" role="status" class="mdc-snackbar__label">label text</div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Snackbar should render with no prop 1`] = `
+<div class="mdc-snackbar">
+  <div class="mdc-snackbar__surface">
+    <div aria-live="polite" role="status" class="mdc-snackbar__label"></div>
+    <!---->
+  </div>
+</div>
+`;
