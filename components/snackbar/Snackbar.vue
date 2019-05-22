@@ -110,7 +110,7 @@ export default {
       this.model = this.mdcSnackbar.isOpen
     },
     actionButtonText () {
-      this.mdcSnackbar.actionButtonText = this.actionButtonText
+      if (this.actionButtonText && this.actionButtonText !== '') this.mdcSnackbar.actionButtonText = this.actionButtonText
     },
     labelText () {
       if (this.labelText && this.labelText !== '') this.mdcSnackbar.labelText = this.labelText
@@ -127,7 +127,7 @@ export default {
     this.mdcSnackbar.timeoutMs = this.timeoutMs
     this.mdcSnackbar.closeOnEscape = this.closeOnEscape
     if (this.labelText && this.labelText !== '') this.mdcSnackbar.labelText = this.labelText
-    this.mdcSnackbar.actionButtonText = this.actionButtonText
+    if (this.actionButtonText && this.actionButtonText !== '') this.mdcSnackbar.actionButtonText = this.actionButtonText
   },
   beforeDestroy () {
     this.mdcSnackbar.destroy()
