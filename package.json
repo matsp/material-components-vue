@@ -38,10 +38,10 @@
     "vue-template-compiler": "^2.6.10"
   },
   "devDependencies": {
-    "@babel/core": "7.4.4",
+    "@babel/core": "7.4.5",
     "@babel/plugin-proposal-object-rest-spread": "7.4.4",
     "@babel/plugin-transform-object-assign": "7.2.0",
-    "@babel/preset-env": "7.4.4",
+    "@babel/preset-env": "7.4.5",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
@@ -50,7 +50,7 @@
     "babel-preset-env": "1.7.0",
     "clean-webpack-plugin": "2.0.2",
     "copy-webpack-plugin": "5.0.3",
-    "core-js": "2.6.5",
+    "core-js": "2.6.8",
     "cross-env": "5.2.0",
     "css-loader": "2.1.1",
     "eslint": "5.16.0",
@@ -82,9 +82,9 @@
     "vue-jest": "3.0.4",
     "vue-loader": "15.7.0",
     "vuepress": "0.14.11",
-    "webpack": "4.31.0",
+    "webpack": "4.32.1",
     "webpack-cli": "3.3.2",
-    "webpack-dev-server": "3.3.1",
+    "webpack-dev-server": "3.4.1",
     "webpack-merge": "4.2.1"
   },
   "browserslist": [

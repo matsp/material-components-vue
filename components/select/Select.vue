@@ -4,6 +4,7 @@
     class="mdc-select"
     @MDCSelect:change="onChange"
   >
+    <slot name="leadingIcon"/>
     <input
       v-if="enhanced && name"
       :name="name"
@@ -127,7 +128,8 @@ export default {
     classes () {
       return {
         'mdc-select--disabled': this.disabled,
-        'mdc-select--outlined': this.outlined
+        'mdc-select--outlined': this.outlined,
+        'mdc-select--with-leading-icon': this.$slots.leadingIcon
       }
     },
     ariaLabelledby () {
