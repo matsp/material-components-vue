@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should render as disabled 1`] = `
+<div class="mdc-radio mdc-radio--disabled"><input type="radio" class="mdc-radio__native-control" disabled="" value="">
+  <div class="mdc-radio__background">
+    <div class="mdc-radio__outer-circle"></div>
+    <div class="mdc-radio__inner-circle"></div>
+  </div>
+</div>
+`;
+
+exports[`Checkbox should render with no prop 1`] = `
+<div class="mdc-radio"><input type="radio" class="mdc-radio__native-control" value="">
+  <div class="mdc-radio__background">
+    <div class="mdc-radio__outer-circle"></div>
+    <div class="mdc-radio__inner-circle"></div>
+  </div>
+</div>
+`;
