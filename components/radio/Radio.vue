@@ -1,11 +1,6 @@
 <template>
   <div class="mdc-radio">
     <input
-      :id="id"
-      :checked="checked"
-      :class="classes"
-      :disabled="disabled"
-      :name="name"
       class="mdc-radio__native-control"
       type="radio"
       v-bind="$attrs"
@@ -41,26 +36,11 @@ export default {
     value: {
       type: String,
       default: ''
-    },
-    name: {
-      type: String,
-      default: ''
-    },
-    id: {
-      type: String,
-      default: ''
     }
   },
   data () {
     return {
       mdcRadio: undefined
-    }
-  },
-  computed: {
-    classes () {
-      return {
-        'mdc-radio--disabled': this.disabled
-      }
     }
   },
   watch: {
@@ -69,6 +49,9 @@ export default {
     },
     disabled () {
       this.mdcRadio.disabled = this.disabled
+    },
+    value () {
+      this.mdcRadio.value = this.value
     }
   },
   mounted () {
