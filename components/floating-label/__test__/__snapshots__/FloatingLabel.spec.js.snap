@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FloatingLabel should render with floatAbove 1`] = `<label class="mdc-floating-label mdc-floating-label--float-above"></label>`;
+
+exports[`FloatingLabel should render with no prop 1`] = `<label class="mdc-floating-label"></label>`;
+
+exports[`FloatingLabel should render with shake 1`] = `<label class="mdc-floating-label mdc-floating-label--shake"></label>`;
