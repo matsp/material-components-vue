@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinearProgress should render as indeterminate 1`] = `
+<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+  <div class="mdc-linear-progress__buffering-dots"></div>
+  <div class="mdc-linear-progress__buffer" style="transform: scaleX(1);"></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar" style="transform: scaleX(1);"><span class="mdc-linear-progress__bar-inner"></span></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div>
+</div>
+`;
+
+exports[`LinearProgress should render as open 1`] = `
+<div role="progressbar" class="mdc-linear-progress">
+  <div class="mdc-linear-progress__buffering-dots"></div>
+  <div class="mdc-linear-progress__buffer" style="transform: scaleX(1);"></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar" style="transform: scaleX(1);"><span class="mdc-linear-progress__bar-inner"></span></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div>
+</div>
+`;
+
+exports[`LinearProgress should render as reversed 1`] = `
+<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--reversed">
+  <div class="mdc-linear-progress__buffering-dots"></div>
+  <div class="mdc-linear-progress__buffer" style="transform: scaleX(1);"></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar" style="transform: scaleX(1);"><span class="mdc-linear-progress__bar-inner"></span></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div>
+</div>
+`;
+
+exports[`LinearProgress should render with no prop 1`] = `
+<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--closed">
+  <div class="mdc-linear-progress__buffering-dots"></div>
+  <div class="mdc-linear-progress__buffer" style="transform: scaleX(1);"></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar" style="transform: scaleX(1);"><span class="mdc-linear-progress__bar-inner"></span></div>
+  <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div>
+</div>
+`;
