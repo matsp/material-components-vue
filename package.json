@@ -57,7 +57,7 @@
     "eslint-config-standard": "12.0.0",
     "eslint-plugin-html": "5.0.5",
     "eslint-plugin-import": "2.17.2",
-    "eslint-plugin-jest": "22.6.2",
+    "eslint-plugin-jest": "22.6.4",
     "eslint-plugin-json": "1.4.0",
     "eslint-plugin-node": "9.0.1",
     "eslint-plugin-promise": "4.1.1",
@@ -82,7 +82,7 @@
     "vue-jest": "3.0.4",
     "vue-loader": "15.7.0",
     "vuepress": "0.14.11",
-    "webpack": "4.32.1",
+    "webpack": "4.32.2",
     "webpack-cli": "3.3.2",
     "webpack-dev-server": "3.4.1",
     "webpack-merge": "4.2.1"
