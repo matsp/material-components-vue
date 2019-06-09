@@ -67,7 +67,8 @@ export default {
   data () {
     return {
       mdcTab: undefined,
-      slotObserver: undefined
+      slotObserver: undefined,
+      classObserver: undefined
     }
   },
   computed: {
@@ -108,11 +109,17 @@ export default {
       subtree: true
     })
 
+    this.classObserver = new MutationObserver(() => this.updateActive())
+    this.classObserver.observe(this.$el, {
+      attributes: true
+    })
+
     this.mdcTab = MDCTab.attachTo(this.$el)
     this.mdcTab.focusOnActivate = this.focusOnActivate
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
+    this.classObserver.disconnect()
     this.mdcTab.destroy()
   },
   methods: {
@@ -122,6 +129,13 @@ export default {
           n.elm.classList.add('mdc-tab__icon')
           this.label ? n.elm.setAttribute('aria-label', true) : n.elm.setAttribute('aria-hidden', true)
         })
+      }
+    },
+    updateActive () {
+      if (this.$el.classList.contains('mdc-tab--active') && !this.active) {
+        this.$emit('change', true)
+      } else if (this.active && !this.$el.classList.contains('mdc-tab--active')) {
+        this.$emit('change', false)
       }
     },
     onInteracted (e) {
