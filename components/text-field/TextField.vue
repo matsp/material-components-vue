@@ -132,11 +132,6 @@ export default {
   },
   mounted () {
     this.updateSlots()
-    this.slotObserver = new MutationObserver(() => this.updateSlots())
-    this.slotObserver.observe(this.$el, {
-      childList: true,
-      subtree: true
-    })
     this.mdcTextField = MDCTextField.attachTo(this.$el)
     this.mdcTextField.useNativeValidation = this.useNativeValidation
     this.mdcTextField.valid = this.valid
@@ -145,24 +140,6 @@ export default {
   beforeDestroy () {
     this.slotObserver.disconnect()
     this.mdcTextField.destroy()
-  },
-  methods: {
-    updateSlots () {
-      if (this.$slots.leadingIcon) {
-        this.$slots.leadingIcon.map(n => {
-          n.elm.classList.add('mdc-text-field__icon')
-          n.elm.setAttribute('tabindex', '0')
-          n.elm.setAttribute('role', 'button')
-        })
-      }
-      if (this.$slots.trailingIcon) {
-        this.$slots.trailingIcon.map(n => {
-          n.elm.classList.add('mdc-text-field__icon')
-          n.elm.setAttribute('tabindex', '0')
-          n.elm.setAttribute('role', 'button')
-        })
-      }
-    }
   }
 }
 </script>
