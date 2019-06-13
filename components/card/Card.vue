@@ -3,14 +3,6 @@
     :class="classes"
     class="mdc-card"
   >
-    <div
-      v-if="$slots['actionableContent']"
-      ref="content"
-      :class="contentClasses"
-      tabindex="0"
-    >
-      <slot name="actionableContent" />
-    </div>
     <slot />
     <div
       v-if="$slots['actionButtons'] || $slots['actionIcons'] || $slots['fullBleedButton']"
@@ -38,7 +30,6 @@
 </template>
 
 <script>
-import { MDCRipple } from '@material/ripple'
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
@@ -55,19 +46,13 @@ export default {
   },
   data () {
     return {
-      slotObserver: undefined,
-      mdcRipple: undefined
+      slotObserver: undefined
     }
   },
   computed: {
     classes () {
       return {
         'mdc-card--outlined': this.outlined
-      }
-    },
-    contentClasses () {
-      return {
-        'mdc-card__primary-action': this.primaryAction
       }
     },
     actionClasses () {
@@ -79,11 +64,6 @@ export default {
       return this.$slots.actionableContent != null
     }
   },
-  watch: {
-    primaryAction (value) {
-      value ? this.mdcRipple = MDCRipple.attachTo(this.$refs.content) : this.mdcRipple.destroy()
-    }
-  },
   mounted () {
     this.updateSlots()
     this.slotObserver = new MutationObserver(() => this.updateSlots())
@@ -91,14 +71,9 @@ export default {
       childList: true,
       subtree: true
     })
-
-    if (this.primaryAction) { this.mdcRipple = MDCRipple.attachTo(this.$refs.content) }
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
-    if (typeof this.mdcRipple !== 'undefined') {
-      this.mdcRipple.destroy()
-    }
   },
   methods: {
     updateSlots () {

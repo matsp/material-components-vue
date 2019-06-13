@@ -4,6 +4,7 @@ import Card from '../Card.vue'
 import CardMedia from '../CardMedia.vue'
 import Button from '../../button/Button.vue'
 import IconButton from '../../icon-button/IconButton.vue'
+import CardPrimaryAction from '../CardPrimaryAction'
 
 describe('Card Media', () => {
   it('should mount', () => {
@@ -61,18 +62,6 @@ describe('Card', () => {
     expect(wrapper.classes()).toContain('mdc-card--outlined')
   })
 
-  it('should render as primary action', () => {
-    let wrapper = mount(Card, {
-      slots: {
-        actionableContent: 'content'
-      }
-    })
-    expect(wrapper).toMatchSnapshot()
-    let content = wrapper.find('.mdc-card__primary-action')
-    expect(content).toBeDefined()
-    expect(content.attributes().tabindex).toBe('0')
-  })
-
   it('should render with full bleed action', () => {
     let wrapper = mount(Card, {
       propsData: {
@@ -115,5 +104,19 @@ describe('Card', () => {
       expect(w.classes()).toContain('mdc-card__action')
       expect(w.classes()).toContain('mdc-card__action--icon')
     })
+  })
+})
+
+describe('CardPrimaryAction', () => {
+  it('should mount', () => {
+    let wrapper = mount(CardPrimaryAction)
+    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.vm.$data.mdcRipple).toBeDefined()
+  })
+
+  it('should render with no prop', () => {
+    let wrapper = mount(CardPrimaryAction)
+    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.classes()).toContain('mdc-card__primary-action')
   })
 })
