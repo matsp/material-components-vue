@@ -131,14 +131,12 @@ export default {
     }
   },
   mounted () {
-    this.updateSlots()
     this.mdcTextField = MDCTextField.attachTo(this.$el)
     this.mdcTextField.useNativeValidation = this.useNativeValidation
     this.mdcTextField.valid = this.valid
     this.mdcTextField.disabled = this.disabled
   },
   beforeDestroy () {
-    this.slotObserver.disconnect()
     this.mdcTextField.destroy()
   }
 }
