@@ -5,7 +5,7 @@
     :outlined="radioProps[1].value"
     :fullBleedAction="checkboxProps[0].value"
     :primaryAction="checkboxProps[1].value">
-    <section class="card-section" slot="actionableContent">
+    <m-card-primary-action class="card-section">
     <m-typo-headline :level="6">
       Title
     </m-typo-headline>
@@ -15,7 +15,7 @@
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     </m-typo-body>
-    </section>
+    </m-card-primary-action>
     <m-button slot="fullBleedButton">
       full bleed
     </m-button>
