@@ -26,10 +26,12 @@
         />
         <button
           v-if="hasDismiss"
-          class="mdc-icon-button mdc-snackbar__dismiss material-icons"
+          class="mdc-icon-button mdc-snackbar__dismiss" :class="dismissClass"
           title="Dismiss"
         >
-          close
+          <slot name="dismiss">
+            close
+          </slot>
         </button>
       </div>
     </div>
@@ -79,6 +81,10 @@ export default {
     hasDismiss: {
       type: Boolean,
       default: false
+    },
+    dismissClass: {
+      type: String,
+      default: 'material-icons'
     }
   },
   data () {
