@@ -15,7 +15,6 @@ import { MDCTabIndicator } from '@material/tab-indicator'
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  name: 'TabIndicator',
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     fade: {

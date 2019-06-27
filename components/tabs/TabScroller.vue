@@ -13,7 +13,6 @@ import { MDCTabScroller } from '@material/tab-scroller'
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  name: 'TabScroller',
   mixins: [baseComponentMixin, themeClassMixin],
   data () {
     return {
