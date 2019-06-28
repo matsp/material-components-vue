@@ -23,7 +23,7 @@ export default {
   },
   data () {
     return {
-      attrs: this.$attrs,
+      attrs: Object.assign({}, this.$attrs),
       mdcTextFieldIcon: undefined
     }
   },
