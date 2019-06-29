@@ -17,9 +17,9 @@
   <m-floating-label for="passwordfield">Password</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
 </m-textfield>
-<m-textfield-helptext id="pw-validation">
+<m-textfield-helper-text id="pw-validation">
   Password must be at least 8 characters long.
-</m-textfield-helptext>
+</m-textfield-helper-text>
 
 <m-textfield
   outlined
@@ -64,20 +64,20 @@ data() {
 
 Non prop attributes and events are mapped to the inner input element.
 
-## TextfieldHelptext
+## TextfieldHelperText
 
 ### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| persistent | Boolean | false | whether the helptext should be persistent |
+| persistent | Boolean | false | whether the helpertext should be persistent |
 | validationMsg | Boolean | false | whether the text should be used as validation message |
 
 ### Slots
 
 | Slot | Description |
 |------|-------------|
-| default | helptext text |
+| default | helpertext text |
 
 ### Reference
 
