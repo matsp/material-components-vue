@@ -3,7 +3,15 @@
     :class="classes"
     class="mdc-card"
   >
-    <slot />
+    <div
+      v-if="primaryAction"
+      class="mdc-card__primary-action"
+      tabindex="0"
+      v-on="$listeners"
+    >
+      <slot />
+    </div>
+    <slot v-else />
     <div
       v-if="$slots['actionButtons'] || $slots['actionIcons'] || $slots['fullBleedButton']"
       :class="actionClasses"
@@ -42,6 +50,10 @@ export default {
     fullBleedAction: {
       type: Boolean,
       default: false
+    },
+    primaryAction: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -59,9 +71,6 @@ export default {
       return {
         'mdc-card__actions--full-bleed': this.fullBleedAction
       }
-    },
-    primaryAction () {
-      return this.$slots.actionableContent != null
     }
   },
   mounted () {
