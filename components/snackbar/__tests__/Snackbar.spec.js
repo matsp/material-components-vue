@@ -106,4 +106,19 @@ describe('Snackbar', () => {
     wrapper.setProps({ hasDismiss: false })
     expect(wrapper.find('.mdc-snackbar__dismiss').exists()).toBeFalsy()
   })
+
+  it('should render with dismiss using mdi', () => {
+    let wrapper = mount(Snackbar, {
+      propsData: {
+        hasDismiss: true,
+        dismissClass: 'mdi mdi-close'
+      }
+    })
+    expect(wrapper).toMatchSnapshot()
+    const dismiss = wrapper.find('.mdc-snackbar__dismiss')
+
+    expect(dismiss.text().trim()).toBe('')
+    expect(dismiss.classes()).toContain('mdi')
+    expect(dismiss.classes()).toContain('mdi-close')
+  })
 })

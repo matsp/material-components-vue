@@ -26,12 +26,20 @@
         />
         <button
           v-if="hasDismiss"
-          class="mdc-icon-button mdc-snackbar__dismiss" :class="dismissClass"
+          class="mdc-icon-button mdc-snackbar__dismiss"
+          :class="dismissClass"
           title="Dismiss"
         >
-          <slot name="dismiss">
+          <slot
+            v-if="dismissClass === 'material-icons'"
+            name="dismiss"
+          >
             close
           </slot>
+          <slot
+            v-else
+            name="dismiss"
+          />
         </button>
       </div>
     </div>
