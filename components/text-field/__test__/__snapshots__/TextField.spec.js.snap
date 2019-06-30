@@ -60,3 +60,10 @@ exports[`Text Field should render with no prop 1`] = `
   <!---->
 </div>
 `;
+
+exports[`Text Field should render with trailing icon 1`] = `
+<div class="mdc-text-field mdc-text-field--with-trailing-icon mdc-text-field--no-label"> <input class="mdc-text-field__input">
+  <!---->
+  <!---->
+  <!----> <i tabindex="0" role="button" class="mdc-text-field__icon"></i> </div>
+`;
