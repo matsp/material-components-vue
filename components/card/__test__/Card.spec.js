@@ -105,6 +105,22 @@ describe('Card', () => {
       expect(w.classes()).toContain('mdc-card__action--icon')
     })
   })
+
+  it('should render with primary action', () => {
+    let wrapper = mount(Card, {
+      slots: {
+        default: [CardMedia]
+      },
+      propsData: {
+        primaryAction: true
+      }
+    })
+    expect(wrapper).toMatchSnapshot()
+
+    let primaryAction = wrapper.find('.mdc-card__primary-action')
+    expect(primaryAction.exists()).toBe(true)
+    expect(primaryAction.find('.mdc-card__media').exists()).toBe(true)
+  })
 })
 
 describe('CardPrimaryAction', () => {
