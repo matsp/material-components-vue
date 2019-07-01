@@ -1,32 +1,32 @@
-## Textfield
+## Text-field
 
 ### Markup
 
 ```html
-<m-textfield v-model="text" id="textfield">
+<m-text-field v-model="text" id="textfield">
   <m-floating-label for="textfield">Textfield label</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
-</m-textfield>
-<m-textfield
+</m-text-field>
+<m-text-field
   outlined
   id="outlined">
   <m-floating-label for="outlined">Outlined</m-floating-label>
   <m-notched-outline />
-</m-textfield>
-<m-textfield v-model="pw" id="passwordfield" type="password" required minlength="8" aria-controls="pw-validation">
+</m-text-field>
+<m-text-field v-model="pw" id="passwordfield" type="password" required minlength="8" aria-controls="pw-validation">
   <m-floating-label for="passwordfield">Password</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
-</m-textfield>
-<m-textfield-helptext id="pw-validation">
+</m-text-field>
+<m-text-field-helper-text id="pw-validation">
   Password must be at least 8 characters long.
-</m-textfield-helptext>
+</m-text-field-helper-text>
 
-<m-textfield
+<m-text-field
   outlined
   id="outlined">
   <m-floating-label for="outlined">Outlined</m-floating-label>
   <m-notched-outline />
-</m-textfield>
+</m-text-field>
 ```
 
 ### Script
@@ -64,20 +64,20 @@ data() {
 
 Non prop attributes and events are mapped to the inner input element.
 
-## TextfieldHelptext
+## TextfieldHelperText
 
 ### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| persistent | Boolean | false | whether the helptext should be persistent |
+| persistent | Boolean | false | whether the helpertext should be persistent |
 | validationMsg | Boolean | false | whether the text should be used as validation message |
 
 ### Slots
 
 | Slot | Description |
 |------|-------------|
-| default | helptext text |
+| default | helpertext text |
 
 ### Reference
 
