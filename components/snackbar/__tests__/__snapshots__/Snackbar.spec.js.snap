@@ -50,6 +50,16 @@ exports[`Snackbar should render with dismiss 1`] = `
 </div>
 `;
 
+exports[`Snackbar should render with dismiss using mdi 1`] = `
+<div class="mdc-snackbar">
+  <div class="mdc-snackbar__surface">
+    <div aria-live="polite" role="status" class="mdc-snackbar__label"></div>
+    <div class="mdc-snackbar__actions">
+      <!----> <button title="Dismiss" class="mdc-icon-button mdc-snackbar__dismiss mdi mdi-close"></button></div>
+  </div>
+</div>
+`;
+
 exports[`Snackbar should render with labelText 1`] = `
 <div class="mdc-snackbar">
   <div class="mdc-snackbar__surface">
