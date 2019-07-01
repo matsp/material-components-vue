@@ -67,4 +67,15 @@ exports[`Card should render with no prop 1`] = `
 </div>
 `;
 
+exports[`Card should render with primary action 1`] = `
+<div class="mdc-card">
+  <div tabindex="0" class="mdc-card__primary-action">
+    <div class="mdc-card__media mdc-card__media--square">
+      <div class="mdc-card__media-content"></div>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
 exports[`CardPrimaryAction should render with no prop 1`] = `<div tabindex="0" class="mdc-card__primary-action"></div>`;
