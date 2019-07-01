@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://circleci.com/gh/matsp/material-components-vue"><img src="https://circleci.com/gh/matsp/material-components-vue.svg?style=svg"></a>
   <a href="https://www.npmjs.com/package/material-components-vue"><img src="https://img.shields.io/npm/v/material-components-vue.svg"></a>
-  <a href="https://www.npmjs.com/package/material-components-web"><img src="https://img.shields.io/badge/mdc--web-2.2.0-green.svg"></a>
+  <a href="https://www.npmjs.com/package/material-components-web"><img src="https://img.shields.io/badge/mdc--web-2.3.1-green.svg"></a>
   <a href="https://github.com/matsp/material-components-vue/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/material-components-vue.svg"></a>
   <a href="https://www.npmjs.com/package/material-components-vue"><img src="https://img.shields.io/npm/dt/material-components-vue.svg"></a>
   <a href="https://www.npmjs.com/package/material-components-vue"><img src="https://img.shields.io/npm/dw/material-components-vue.svg"></a>
