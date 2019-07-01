@@ -29,7 +29,7 @@
                         style="flex: 1; margin: 2px"
 
                 >
-                    <m-icon icon="event" slot="leadingIcon"></m-icon>
+                    <m-text-field-icon slot="leadingIcon" class="material-icons">event</m-text-field-icon>
                     <m-floating-label
                             for="text-field1-lead">Label
                     </m-floating-label>
@@ -46,7 +46,7 @@
                         style="flex: 1; margin: 2px"
 
                 >
-                    <m-icon icon="event" slot="trailingIcon"></m-icon>
+                    <m-text-field-icon slot="trailingIcon" class="material-icons">event</m-text-field-icon>
                     <m-floating-label
                             for="text-field1-trail">Label
                     </m-floating-label>
@@ -84,7 +84,7 @@
                         outlined
                         style="flex:1; margin: 2px"
                 >
-                    <m-icon icon="event" slot="leadingIcon"></m-icon>
+                    <m-text-field-icon slot="leadingIcon" class="material-icons">event</m-text-field-icon>
                     <m-floating-label
                             for="text-field2-lead">Label
                     </m-floating-label>
@@ -104,7 +104,7 @@
                     <m-floating-label
                             for="text-field2-trail">Label
                     </m-floating-label>
-                    <m-icon icon="event" slot="trailingIcon"></m-icon>
+                    <m-text-field-icon slot="trailingIcon" class="material-icons">event</m-text-field-icon>
                 </m-text-field>
             </div>
 
