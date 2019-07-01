@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/matsp/material-components-vue/compare/v1.0.2...v1.1.0) (2019-07-01)
+
+
+### Bug Fixes
+
+* eliminate eslint warnings ([#241](https://github.com/matsp/material-components-vue/issues/241)) ([1ba6f6a](https://github.com/matsp/material-components-vue/commit/1ba6f6a))
+* **card:** bring back prop primaryAction ([#319](https://github.com/matsp/material-components-vue/issues/319)) ([3ad11bc](https://github.com/matsp/material-components-vue/commit/3ad11bc))
+* **checkbox:** lack of disabled prop ([#251](https://github.com/matsp/material-components-vue/issues/251)) ([2fe244f](https://github.com/matsp/material-components-vue/commit/2fe244f))
+* **deps:** update dependency material-components-web to v2.3.1 ([#271](https://github.com/matsp/material-components-vue/issues/271)) ([07bc3e6](https://github.com/matsp/material-components-vue/commit/07bc3e6))
+* **radio:** missing watcher for value ([#262](https://github.com/matsp/material-components-vue/issues/262)) ([cb6bd2d](https://github.com/matsp/material-components-vue/commit/cb6bd2d))
+* **snackbar:** Check empty actionButtonText ([2716a20](https://github.com/matsp/material-components-vue/commit/2716a20))
+* **snackbar:** labelText is empty when using default slot as the label text ([#240](https://github.com/matsp/material-components-vue/issues/240)) ([f0ddd6c](https://github.com/matsp/material-components-vue/commit/f0ddd6c))
+* **tab:** v-model not updating ([#286](https://github.com/matsp/material-components-vue/issues/286)) ([4863d00](https://github.com/matsp/material-components-vue/commit/4863d00))
+* **tab-bar:** add a built-in scroller if the default slot is not a scroller ([#313](https://github.com/matsp/material-components-vue/issues/313)) ([0650e3d](https://github.com/matsp/material-components-vue/commit/0650e3d)), closes [#312](https://github.com/matsp/material-components-vue/issues/312)
+* **text-field docs:** correcting component usage in readme ([#316](https://github.com/matsp/material-components-vue/issues/316)) ([e6d231d](https://github.com/matsp/material-components-vue/commit/e6d231d))
+
+
+### Features
+
+* **card:** add primary action component ([#292](https://github.com/matsp/material-components-vue/issues/292)) ([980e706](https://github.com/matsp/material-components-vue/commit/980e706))
+* **select:** add select icon ([#243](https://github.com/matsp/material-components-vue/issues/243)) ([fb75ae2](https://github.com/matsp/material-components-vue/commit/fb75ae2))
+* **text-field:** add text field icon ([#317](https://github.com/matsp/material-components-vue/issues/317)) ([8f271f1](https://github.com/matsp/material-components-vue/commit/8f271f1))
+
+
+### Tests
+
+* **floating-label:** add snapshots ([#263](https://github.com/matsp/material-components-vue/issues/263)) ([4a2b41f](https://github.com/matsp/material-components-vue/commit/4a2b41f))
+* **linear-progress:** add snapshots ([#264](https://github.com/matsp/material-components-vue/issues/264)) ([25c93e1](https://github.com/matsp/material-components-vue/commit/25c93e1))
+* **snackbar:** add snapshots ([#257](https://github.com/matsp/material-components-vue/issues/257)) ([c335269](https://github.com/matsp/material-components-vue/commit/c335269))
+
+
+
 ### [1.0.2](https://github.com/matsp/material-components-vue/compare/v1.0.1...v1.0.2) (2019-05-14)
 
 
