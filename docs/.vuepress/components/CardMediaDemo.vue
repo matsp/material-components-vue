@@ -6,7 +6,6 @@
     :fullBleedAction="checkboxProps[2].value"
     :primaryAction="checkboxProps[3].value">
     <m-card-media
-      slot="media"
       class="card-media card-media-content"
       :square="checkboxProps[0].value"
       :sixteenNine="checkboxProps[1].value">
@@ -55,7 +54,7 @@ export default {
 .card-section {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: start;
   justify-content: flex-start;
   padding: 8px 16px;
   width: 300px;
