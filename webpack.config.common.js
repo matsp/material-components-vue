@@ -40,7 +40,6 @@ module.exports = {
     tabs: path.resolve(components + '/tabs/index.js'),
     'text-field': path.resolve(components + '/text-field/index.js'),
     theme: path.resolve(components + '/theme/index.js'),
-    toolbar: path.resolve(components + '/toolbar/index.js'),
     'top-app-bar': path.resolve(components + '/top-app-bar/index.js'),
     typography: path.resolve(components + '/typography/index.js')
   },
