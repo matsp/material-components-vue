@@ -64,7 +64,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$slots.default[0].tag)
     this.mdcTabBar = MDCTabBar.attachTo(this.$el)
     this.mdcTabBar.focusOnActivate = this.focusOnActivate
     this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
