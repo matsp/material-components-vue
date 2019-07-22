@@ -144,6 +144,10 @@ The demonstration in this page is a work in progress..
 
 <MenuSurfaceDemo/>
 
+## Ripple
+
+<RippleDemo/>
+
 ## Snackbar
 
 <SnackbarDemo/>
