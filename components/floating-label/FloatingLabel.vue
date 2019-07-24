@@ -45,10 +45,10 @@ export default {
   },
   watch: {
     floatAbove () {
-      this.classes['mdc-floating-label--float-above'] = this.floatAbove
+      this.$set(this.classes, 'mdc-floating-label--float-above', this.floatAbove)
     },
     shake () {
-      this.classes['mdc-floating-label--shake'] = this.shake
+      this.$set(this.classes, 'mdc-floating-label--shake', this.shake)
     }
   },
   mounted () {
