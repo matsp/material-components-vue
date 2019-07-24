@@ -36,15 +36,19 @@ export default {
   },
   data () {
     return {
-      mdcFloatingLabel: undefined
-    }
-  },
-  computed: {
-    classes () {
-      return {
+      mdcFloatingLabel: undefined,
+      classes: {
         'mdc-floating-label--float-above': this.floatAbove,
         'mdc-floating-label--shake': this.shake
       }
+    }
+  },
+  watch: {
+    floatAbove () {
+      this.classes['mdc-floating-label--float-above'] = this.floatAbove
+    },
+    shake () {
+      this.classes['mdc-floating-label--shake'] = this.shake
     }
   },
   mounted () {
