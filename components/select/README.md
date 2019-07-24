@@ -24,6 +24,7 @@
   <m-floating-label
     slot="label">
     Pick a food group
+  </m-floating-label>
   <m-notched-outline slot="line"/>
 </m-select>
 ```
