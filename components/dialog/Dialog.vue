@@ -1,30 +1,33 @@
 <template>
   <div
-    aria-describedby="my-dialog-content"
-    aria-labelledby="my-dialog-title"
+    :aria-describedby="ariaDescribedby"
+    :aria-labelledby="ariaLabelledby"
     aria-modal="true"
     class="mdc-dialog"
+    :class="classes"
     role="alertdialog"
+    @MDCDialog:opening="onOpening"
+    @MDCDialog:opened="onOpened"
+    @MDCDialog:closing="onClosing"
     @MDCDialog:closed="onClosed"
   >
     <div class="mdc-dialog__container">
       <div class="mdc-dialog__surface">
         <h2
           v-if="$slots['header']"
-          id="my-dialog-title"
+          :id="ariaLabelledby"
           class="mdc-dialog__title"
         >
-          <!-- -->
-          <slot name="header" /><!-- -->
+          <slot name="header" />
         </h2>
         <div
           v-if="$slots['body']"
-          id="my-dialog-content"
-          :class="bodyClasses"
+          :id="ariaDescribedby"
           class="mdc-dialog__content"
         >
           <slot name="body" />
         </div>
+        <slot />
         <footer
           v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']"
           class="mdc-dialog__actions"
@@ -62,6 +65,22 @@ export default {
     stacked: {
       type: Boolean,
       default: true
+    },
+    escapeKeyAction: {
+      type: String,
+      default: 'close'
+    },
+    scrimClickAction: {
+      type: String,
+      default: 'close'
+    },
+    ariaDescribedby: {
+      type: String,
+      default: 'my-dialog-content'
+    },
+    ariaLabelledby: {
+      type: String,
+      default: 'my-dialog-title'
     }
   },
   data () {
@@ -71,9 +90,9 @@ export default {
     }
   },
   computed: {
-    bodyClasses () {
+    classes () {
       return {
-        'mdc-dialog__body--scrollable': this.scrollable
+        'mdc-dialog--scrollable': this.scrollable
       }
     },
     model: {
@@ -90,11 +109,22 @@ export default {
       if (this.open) this.mdcDialog.open()
     },
     stacked () {
-      if (!this.stacked) this.mdcDialog.autoStackButtons = false
+      this.mdcDialog.autoStackButtons = this.stacked
+    },
+    escapeKeyAction () {
+      this.mdcDialog.escapeKeyAction = this.escapeKeyAction
+    },
+    scrimClickAction () {
+      this.mdcDialog.scrimClickAction = this.scrimClickAction
     }
+
   },
   mounted () {
     this.mdcDialog = MDCDialog.attachTo(this.$el)
+    this.mdcDialog.autoStackButtons = this.stacked
+    this.mdcDialog.escapeKeyAction = this.escapeKeyAction
+    this.mdcDialog.scrimClickAction = this.scrimClickAction
+
     this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
@@ -107,6 +137,17 @@ export default {
     this.mdcDialog.destroy()
   },
   methods: {
+    onOpening () {
+      this.$emit('opening')
+    },
+    onOpened () {
+      this.$emit('opened')
+      this.$el.setAttribute('aria-hidden', 'true')
+    },
+    onClosing (event) {
+      this.$emit('closing', event.detail)
+      this.$el.removeAttribute('aria-hidden')
+    },
     onClosed (event) {
       this.model = false
       this.$emit('closed', event.detail)
