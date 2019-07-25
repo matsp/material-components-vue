@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog should render and emit 1`] = `
+<div aria-describedby="my-dialog-content" aria-labelledby="my-dialog-title" aria-modal="true" role="alertdialog" class="mdc-dialog mdc-dialog--opening">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>
+`;
+
+exports[`Dialog should render and emit 2`] = `
+<div aria-describedby="my-dialog-content" aria-labelledby="my-dialog-title" aria-modal="true" role="alertdialog" class="mdc-dialog mdc-dialog--opening mdc-dialog--closing">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>
+`;
+
+exports[`Dialog should render as scrollable 1`] = `
+<div aria-describedby="my-dialog-content" aria-labelledby="my-dialog-title" aria-modal="true" role="alertdialog" class="mdc-dialog mdc-dialog--scrollable">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>
+`;
+
+exports[`Dialog should render with no prop 1`] = `
+<div aria-describedby="my-dialog-content" aria-labelledby="my-dialog-title" aria-modal="true" role="alertdialog" class="mdc-dialog">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>
+`;
