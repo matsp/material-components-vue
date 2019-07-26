@@ -49,8 +49,6 @@ Material Components Vue provides a customized directive `v-ripple` to provide an
 
 ### Activate or deactivate using binding value
 
-Notice that this usage can only be applied to Vue components instead of native elements like `<div>`, `<button>`.
-
 ```html
 <template>
     <my-button v-ripple.primary="activate">Button</my-button>

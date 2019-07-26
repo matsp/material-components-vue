@@ -18,17 +18,28 @@ const plugin = {
   install (vm) {
     vm.component('m-ripple', Ripple)
     vm.directive('ripple', {
-      bind: function (el, binding, vnode) {
+      bind: function (el, binding) {
         const mdcRipple = setup(el, binding)
-        if (vnode.componentInstance && !binding.modifiers['css-only']) vnode.componentInstance.mdcRipple = mdcRipple
+        if (!binding.modifiers['css-only']) {
+          Object.defineProperty(el, 'mdcRipple', {
+            configurable: true,
+            enumerable: false,
+            value: mdcRipple,
+            writable: false
+          })
+        }
       },
-      componentUpdated: function (el, binding, vnode) {
-        vnode.componentInstance && typeof binding.oldValue === 'boolean' && typeof binding.value === 'boolean' && binding.oldValue !== binding.value && binding.value
-          ? vnode.componentInstance.mdcRipple.activate()
-          : vnode.componentInstance.mdcRipple.deactivate()
+      componentUpdated: function (el, binding) {
+        if (typeof binding.oldValue === 'boolean' && typeof binding.value === 'boolean' && binding.oldValue !== binding.value && binding.value) {
+          if (el.mdcRipple) el.mdcRipple.activate()
+        } else {
+          if (el.mdcRipple) el.mdcRipple.deactivate()
+        }
       },
-      unbind: function (el, binding, vnode) {
-        if (vnode.componentInstance && vnode.componentInstance.mdcRipple) vnode.componentInstance.mdcRipple.destroy()
+      unbind: function (el) {
+        if (el.mdcRipple) {
+          el.mdcRipple.destroy()
+        }
       }
     })
   }
