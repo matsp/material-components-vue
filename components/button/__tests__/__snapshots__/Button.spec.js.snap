@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should render as dense 1`] = `<button class="mdc-button mdc-button--dense"> </button>`;
+exports[`Button should render as dense 1`] = `<button class="mdc-button mdc-button--dense"> <span class="mdc-button__label"></span> </button>`;
 
-exports[`Button should render as outlined 1`] = `<button class="mdc-button mdc-button--outlined"> </button>`;
+exports[`Button should render as outlined 1`] = `<button class="mdc-button mdc-button--outlined"> <span class="mdc-button__label"></span> </button>`;
 
-exports[`Button should render as raised 1`] = `<button class="mdc-button mdc-button--raised"> </button>`;
+exports[`Button should render as raised 1`] = `<button class="mdc-button mdc-button--raised"> <span class="mdc-button__label"></span> </button>`;
 
-exports[`Button should render as unelevated 1`] = `<button class="mdc-button mdc-button--unelevated"> </button>`;
+exports[`Button should render as unelevated 1`] = `<button class="mdc-button mdc-button--unelevated"> <span class="mdc-button__label"></span> </button>`;
 
-exports[`Button should render with no prop 1`] = `<button class="mdc-button"> </button>`;
+exports[`Button should render with no prop 1`] = `<button class="mdc-button"> <span class="mdc-button__label"></span> </button>`;
+
+exports[`Button should render without ripple 1`] = `<button class="mdc-button"> <span class="mdc-button__label"></span> </button>`;

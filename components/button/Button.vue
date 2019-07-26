@@ -9,7 +9,8 @@
     v-on="$listeners"
   >
     <slot name="icon" />
-    <slot />
+    <span class="mdc-button__label"><slot /></span>
+    <slot name="trailingIcon" />
   </a>
   <button
     v-else
@@ -19,7 +20,8 @@
     v-on="$listeners"
   >
     <slot name="icon" />
-    <slot />
+    <span class="mdc-button__label"><slot /></span>
+    <slot name="trailingIcon" />
   </button>
 </template>
 
@@ -49,6 +51,10 @@ export default {
     href: {
       type: String,
       default: ''
+    },
+    ripple: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -69,8 +75,10 @@ export default {
   },
   watch: {
     classes () {
-      this.mdcRipple.destroy()
-      this.mdcRipple = MDCRipple.attachTo(this.$el)
+      this.reinitRipple()
+    },
+    ripple () {
+      this.reinitRipple()
     }
   },
   mounted () {
@@ -80,11 +88,11 @@ export default {
       childList: true,
       subtree: true
     })
-    this.mdcRipple = MDCRipple.attachTo(this.$el)
+    if (this.ripple) this.mdcRipple = MDCRipple.attachTo(this.$el)
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
-    if (typeof this.mdcRipple !== 'undefined') {
+    if (this.mdcRipple) {
       this.mdcRipple.destroy()
     }
   },
@@ -95,6 +103,18 @@ export default {
           n.elm.classList.add('mdc-button__icon')
           n.elm.setAttribute('aria-hidden', 'true')
         })
+      }
+      if (this.$slots.trailingIcon) {
+        this.$slots.trailingIcon.map(n => {
+          n.elm.classList.add('mdc-button__icon')
+          n.elm.setAttribute('aria-hidden', 'true')
+        })
+      }
+    },
+    reinitRipple () {
+      if (this.mdcRipple) {
+        this.mdcRipple.destroy()
+        if (this.ripple) this.mdcRipple = MDCRipple.attachTo(this.$el)
       }
     }
   }

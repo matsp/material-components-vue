@@ -7,12 +7,16 @@
       :unelevated="radioProps[2].value"
       :outlined="radioProps[3].value"
       :disabled="checkboxProps[1].value"
-      :interactive="checkboxProps[2].value">
+      :ripple="checkboxProps[4].value">
       <m-icon
         v-if="checkboxProps[0].value"
         icon="cloud"
         slot="icon"/>
       Button
+      <m-icon
+              v-if="checkboxProps[3].value"
+              icon="cloud"
+              slot="trailingIcon"/>
     </m-button>
   </ComponentSection>
   <ComponentProps
@@ -34,7 +38,9 @@ export default {
       checkboxProps: [
         { prop: 'icon', value: false },
         { prop: 'disabled', value: false },
-        { prop: 'dense', value: false }
+        { prop: 'dense', value: false },
+        { prop: 'trailingIcon', value: false },
+        { prop: 'ripple', value: true }
       ]
     }
   } 

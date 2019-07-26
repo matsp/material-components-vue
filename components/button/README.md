@@ -33,7 +33,8 @@
 | unelevated | Boolean | false | unelevated button |
 | outlined | Boolean | false | outlined button |
 | dense | Boolean | false | dense button |
-| href | String | ' ' | link button |
+| href | String | '' | link button |
+| ripple | Boolean | true | use js ripple or not |
 
 Non prop attributes and events are mapped to the inner button element.
 
@@ -42,7 +43,8 @@ Non prop attributes and events are mapped to the inner button element.
 | Slot | Description |
 |------|-------------|
 | default | button label |
-| icon | icon component |
+| icon | leading icon component |
+| trailingIcon | trailing icon component |
 
 ### Reference
 
