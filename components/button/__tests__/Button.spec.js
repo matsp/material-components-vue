@@ -4,20 +4,20 @@ import Button from '../Button.vue'
 
 describe('Button', () => {
   it('should mount', () => {
-    let wrapper = mount(Button)
+    const wrapper = mount(Button)
     expect(wrapper.isVueInstance()).toBeTruthy()
     expect(wrapper.vm.$data.mdcRipple).toBeDefined()
     expect(wrapper.vm.$data.slotObserver).toBeDefined()
   })
 
   it('should render with no prop', () => {
-    let wrapper = mount(Button)
+    const wrapper = mount(Button)
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-button')
   })
 
   it('should render as raised', () => {
-    let wrapper = mount(Button, {
+    const wrapper = mount(Button, {
       propsData: {
         raised: true
       }
@@ -27,7 +27,7 @@ describe('Button', () => {
   })
 
   it('should render as unelevated', () => {
-    let wrapper = mount(Button, {
+    const wrapper = mount(Button, {
       propsData: {
         unelevated: true
       }
@@ -37,7 +37,7 @@ describe('Button', () => {
   })
 
   it('should render as outlined', () => {
-    let wrapper = mount(Button, {
+    const wrapper = mount(Button, {
       propsData: {
         outlined: true
       }
@@ -47,12 +47,22 @@ describe('Button', () => {
   })
 
   it('should render as dense', () => {
-    let wrapper = mount(Button, {
+    const wrapper = mount(Button, {
       propsData: {
         dense: true
       }
     })
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-button--dense')
+  })
+
+  it('should render without ripple', () => {
+    const wrapper = mount(Button, {
+      propsData: {
+        ripple: false
+      }
+    })
+    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.vm.$data.mdcRipple).toBeUndefined()
   })
 })
