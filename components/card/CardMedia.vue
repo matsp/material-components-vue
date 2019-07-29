@@ -3,7 +3,10 @@
     :class="classes"
     class="mdc-card__media"
   >
-    <div class="mdc-card__media-content">
+    <div
+      v-if="$slots['default']"
+      class="mdc-card__media-content"
+    >
       <slot />
     </div>
   </div>

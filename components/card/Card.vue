@@ -13,13 +13,16 @@
     </div>
     <slot v-else />
     <div
-      v-if="$slots['actionButtons'] || $slots['actionIcons'] || $slots['fullBleedButton']"
+      v-if="$slots['actionButtons'] || $slots['actionIcons'] || $slots['fullBleedButton'] || $slots['actions']"
       :class="actionClasses"
       class="mdc-card__actions"
     >
       <slot
-        v-if="fullBleedAction"
+        v-if="fullBleedAction && $slots['fullBleedButton']"
         name="fullBleedButton"
+      />
+      <slot
+        name="actions"
       />
       <div
         v-if="!fullBleedAction && $slots['actionButtons']"
@@ -107,6 +110,14 @@ export default {
           if (n.elm && n.elm.classList) {
             n.elm.classList.add('mdc-card__action')
             n.elm.classList.add('mdc-card__action--icon')
+          }
+        })
+      }
+      if (this.$slots.actions) {
+        this.$slots.actions.forEach((n) => {
+          if (n.elm && n.elm.classList) {
+            n.elm.classList.add('mdc-card__action')
+            n.elm.classList.contains('mdc-icon-button') ? n.elm.classList.add('mdc-card__action--icon') : n.elm.classList.add('mdc-card__action--button')
           }
         })
       }

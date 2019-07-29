@@ -8,18 +8,18 @@ import CardPrimaryAction from '../CardPrimaryAction'
 
 describe('Card Media', () => {
   it('should mount', () => {
-    let wrapper = mount(CardMedia)
+    const wrapper = mount(CardMedia)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
   it('should render with no prop', () => {
-    let wrapper = mount(CardMedia)
+    const wrapper = mount(CardMedia)
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-card__media')
   })
 
   it('should render as square', () => {
-    let wrapper = mount(CardMedia, {
+    const wrapper = mount(CardMedia, {
       propsData: {
         square: true
       }
@@ -29,7 +29,7 @@ describe('Card Media', () => {
   })
 
   it('should render as 16:9', () => {
-    let wrapper = mount(CardMedia, {
+    const wrapper = mount(CardMedia, {
       propsData: {
         sixteenNine: true
       }
@@ -41,19 +41,19 @@ describe('Card Media', () => {
 
 describe('Card', () => {
   it('should mount', () => {
-    let wrapper = mount(Card)
+    const wrapper = mount(Card)
     expect(wrapper.isVueInstance()).toBeTruthy()
     expect(wrapper.vm.$data.slotObserver).toBeDefined()
   })
 
   it('should render with no prop', () => {
-    let wrapper = mount(Card)
+    const wrapper = mount(Card)
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-card')
   })
 
   it('should render as outlined', () => {
-    let wrapper = mount(Card, {
+    const wrapper = mount(Card, {
       propsData: {
         outlined: true
       }
@@ -63,7 +63,7 @@ describe('Card', () => {
   })
 
   it('should render with full bleed action', () => {
-    let wrapper = mount(Card, {
+    const wrapper = mount(Card, {
       propsData: {
         fullBleedAction: true
       },
@@ -72,20 +72,20 @@ describe('Card', () => {
       }
     })
     expect(wrapper).toMatchSnapshot()
-    let actions = wrapper.find('.mdc-card__actions')
+    const actions = wrapper.find('.mdc-card__actions')
     expect(actions.classes()).toContain('mdc-card__actions--full-bleed')
     expect(actions.find('.mdc-button').classes()).toContain('mdc-card__action')
     expect(actions.find('.mdc-button').classes()).toContain('mdc-card__action--button')
   })
 
   it('should render with action buttons', () => {
-    let wrapper = mount(Card, {
+    const wrapper = mount(Card, {
       slots: {
         actionButtons: [Button, Button]
       }
     })
     expect(wrapper).toMatchSnapshot()
-    let actions = wrapper.find('.mdc-card__actions')
+    const actions = wrapper.find('.mdc-card__actions')
     actions.findAll('.mdc-button').wrappers.forEach(w => {
       expect(w.classes()).toContain('mdc-card__action')
       expect(w.classes()).toContain('mdc-card__action--button')
@@ -93,13 +93,13 @@ describe('Card', () => {
   })
 
   it('should render with action icons', () => {
-    let wrapper = mount(Card, {
+    const wrapper = mount(Card, {
       slots: {
         actionIcons: [IconButton, IconButton]
       }
     })
     expect(wrapper).toMatchSnapshot()
-    let actions = wrapper.find('.mdc-card__actions')
+    const actions = wrapper.find('.mdc-card__actions')
     actions.findAll('.mdc-icon-button').wrappers.forEach(w => {
       expect(w.classes()).toContain('mdc-card__action')
       expect(w.classes()).toContain('mdc-card__action--icon')
@@ -107,7 +107,7 @@ describe('Card', () => {
   })
 
   it('should render with primary action', () => {
-    let wrapper = mount(Card, {
+    const wrapper = mount(Card, {
       slots: {
         default: [CardMedia]
       },
@@ -117,7 +117,7 @@ describe('Card', () => {
     })
     expect(wrapper).toMatchSnapshot()
 
-    let primaryAction = wrapper.find('.mdc-card__primary-action')
+    const primaryAction = wrapper.find('.mdc-card__primary-action')
     expect(primaryAction.exists()).toBe(true)
     expect(primaryAction.find('.mdc-card__media').exists()).toBe(true)
   })
@@ -125,14 +125,24 @@ describe('Card', () => {
 
 describe('CardPrimaryAction', () => {
   it('should mount', () => {
-    let wrapper = mount(CardPrimaryAction)
+    const wrapper = mount(CardPrimaryAction)
     expect(wrapper.isVueInstance()).toBeTruthy()
-    expect(wrapper.vm.$data.mdcRipple).toBeDefined()
   })
 
   it('should render with no prop', () => {
-    let wrapper = mount(CardPrimaryAction)
+    const wrapper = mount(CardPrimaryAction)
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-card__primary-action')
+    expect(wrapper.vm.$data.mdcRipple).toBeDefined()
+  })
+
+  it('should render without ripple', () => {
+    const wrapper = mount(CardPrimaryAction, {
+      propsData: {
+        ripple: false
+      }
+    })
+    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.vm.$data.mdcRipple).toBeUndefined()
   })
 })
