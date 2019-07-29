@@ -4,14 +4,11 @@ import './styles.scss'
 
 import { initPlugin } from '../'
 
-function setup (el, binding) {
+function setupClasses (el, binding) {
   const mod = binding.modifiers
   mod.customized ? el.classList.remove('mdc-ripple-surface') : el.classList.add('mdc-ripple-surface')
   mod.primary ? el.classList.add('mdc-ripple-surface--primary') : el.classList.remove('mdc-ripple-surface--primary')
-  if (mod.accent) {
-    el.classList.add('mdc-ripple-surface--accent')
-  }
-  return MDCRipple.attachTo(el)
+  mod.accent ? el.classList.add('mdc-ripple-surface--accent') : el.classList.remove('mdc-ripple-surface--accent')
 }
 
 const plugin = {
@@ -19,21 +16,15 @@ const plugin = {
     vm.component('m-ripple', Ripple)
     vm.directive('ripple', {
       bind: function (el, binding) {
-        const mdcRipple = setup(el, binding)
+        setupClasses(el, binding)
         if (!binding.modifiers['css-only']) {
+          const mdcRipple = MDCRipple.attachTo(el)
           Object.defineProperty(el, 'mdcRipple', {
             configurable: true,
             enumerable: false,
             value: mdcRipple,
             writable: false
           })
-        }
-      },
-      componentUpdated: function (el, binding) {
-        if (typeof binding.oldValue === 'boolean' && typeof binding.value === 'boolean' && binding.oldValue !== binding.value && binding.value) {
-          if (el.mdcRipple) el.mdcRipple.activate()
-        } else {
-          if (el.mdcRipple) el.mdcRipple.deactivate()
         }
       },
       unbind: function (el) {

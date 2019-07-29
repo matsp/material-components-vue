@@ -49,21 +49,13 @@ Material Components Vue provides a customized directive `v-ripple` to provide an
 
 ### Activate or deactivate using binding value
 
-```html
-<template>
-    <my-button v-ripple.primary="activate">Button</my-button>
-</template>
 
-<script>
-    export default {
-      mixins: [baseComponentMixin, themeClassMixin],
-      data () {
-        return {
-          activate: false // activate when changed from false to true, otherwise deactivate
-        }
-      }
-    }
-</script>
+```html
+<button ref="ripple">Button</button> <!--ref name can be any string-->
+```
+```js
+this.$refs.ripple.mdcRipple.activated() // activated
+this.$refs.ripple.mdcRipple.deactivated()  // deactivated
 ```
 
 Content below is deprecated, which means they may be removed in the future versions.
