@@ -41,10 +41,6 @@ export default {
     indeterminate: {
       type: Boolean,
       default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
@@ -73,15 +69,11 @@ export default {
       if (this.model && value) {
         this.model = false
       }
-    },
-    disabled (value) {
-      this.mdcCheckbox.disabled = true
     }
   },
   mounted () {
     this.mdcCheckbox = MDCCheckbox.attachTo(this.$el)
     this.mdcCheckbox.indeterminate = this.indeterminate
-    this.mdcCheckbox.disabled = this.disabled
   },
   beforeDestroy () {
     this.mdcCheckbox.destroy()
