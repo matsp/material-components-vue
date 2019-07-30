@@ -2,19 +2,19 @@
 
 exports[`Card Media should render as 16:9 1`] = `
 <div class="mdc-card__media mdc-card__media--square mdc-card__media--16-9">
-  <div class="mdc-card__media-content"></div>
+  <!---->
 </div>
 `;
 
 exports[`Card Media should render as square 1`] = `
 <div class="mdc-card__media mdc-card__media--square">
-  <div class="mdc-card__media-content"></div>
+  <!---->
 </div>
 `;
 
 exports[`Card Media should render with no prop 1`] = `
 <div class="mdc-card__media mdc-card__media--square">
-  <div class="mdc-card__media-content"></div>
+  <!---->
 </div>
 `;
 
@@ -71,7 +71,7 @@ exports[`Card should render with primary action 1`] = `
 <div class="mdc-card">
   <div tabindex="0" class="mdc-card__primary-action">
     <div class="mdc-card__media mdc-card__media--square">
-      <div class="mdc-card__media-content"></div>
+      <!---->
     </div>
   </div>
   <!---->
@@ -79,3 +79,5 @@ exports[`Card should render with primary action 1`] = `
 `;
 
 exports[`CardPrimaryAction should render with no prop 1`] = `<div tabindex="0" class="mdc-card__primary-action"></div>`;
+
+exports[`CardPrimaryAction should render without ripple 1`] = `<div tabindex="0" class="mdc-card__primary-action"></div>`;
