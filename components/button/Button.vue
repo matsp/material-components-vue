@@ -75,10 +75,10 @@ export default {
   },
   watch: {
     classes () {
-      this.reinitRipple()
+      this.reInstantiateRipple()
     },
     ripple () {
-      this.reinitRipple()
+      this.reInstantiateRipple()
     }
   },
   mounted () {
@@ -111,10 +111,17 @@ export default {
         })
       }
     },
-    reinitRipple () {
-      if (this.mdcRipple) {
-        this.mdcRipple.destroy()
-        if (this.ripple) this.mdcRipple = MDCRipple.attachTo(this.$el)
+    reInstantiateRipple () {
+      if (this.ripple) {
+        if (this.mdcRipple) {
+          this.mdcRipple.destroy()
+        }
+        MDCRipple.attachTo(this.$el)
+      } else {
+        if (this.mdcRipple) {
+          this.mdcRipple.destroy()
+        }
+        this.mdcRipple = undefined
       }
     }
   }
