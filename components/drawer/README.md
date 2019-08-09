@@ -70,6 +70,8 @@ Following examples are rendered completely the same.
 </m-drawer>
 ```
 
+You may find the first two ones easier to write and less verbose, and the last two ones great for customization.
+
 #### Dismissible
 
 ```html
