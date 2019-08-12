@@ -106,7 +106,7 @@ export default {
   },
   watch: {
     open () {
-      if (this.open) this.mdcDialog.open()
+      this.open ? this.mdcDialog.open() : this.mdcDialog.close()
     },
     stacked () {
       this.mdcDialog.autoStackButtons = this.stacked
@@ -176,6 +176,7 @@ export default {
           }
         })
       }
+      this.mdcDialog.layout()
     }
   }
 }

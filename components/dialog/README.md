@@ -1,5 +1,7 @@
 ## Dialog
 
+[Codepen example](https://codepen.io/chankcccc/pen/aeYpBJ)
+
 ### Markup
 
 ```html
@@ -25,6 +27,7 @@
 ```
 
 ### Script
+
 ```javascript
 data () {
   return {
@@ -37,6 +40,8 @@ methods: {
   }
 }
 ```
+
+Close via setting `isDialogOpen` to false will emit `closing` and `closed` event without the `action` value in its payload.
 
 ### Props
 
@@ -56,8 +61,11 @@ methods: {
 |-------|---------|-------------|
 | opening | {} | emitted when dialog is opening |
 | opened | {} | emitted when dialog is opened |
-| closing | { action: value } | emitted when dialog is closing |
-| closed | { action: value } | emitted when dialog is closed |
+| closing | { action?: value } | emitted when dialog is closing |
+| closed | { action?: value } | emitted when dialog is closed |
+
+The complete order of events emitted in the open and close process is `opening`, `opened`, `closing`, `change` and `closed`
+
 
 ### Slots
 
@@ -69,6 +77,10 @@ methods: {
 | acceptButton | accept button and the default button |
 | cancelButton | cancel button |
 | dialogButton | additional button(s) |
+
+### Accessibility Concerns
+
+Dialog should have at least one focusable element, e.g. buttons in dialogButton slots. For providing messages, use `<m-snackbar>` instead.
 
 ### Reference
 
