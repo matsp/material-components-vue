@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer should render as dismissible 1`] = `
+<aside class="mdc-drawer mdc-drawer--dismissible">
+  <div class="mdc-drawer__header">
+    <!---->
+    <!---->
+  </div>
+</aside>
+`;
+
+exports[`Drawer should render as modal 1`] = `
+<aside class="mdc-drawer mdc-drawer--modal">
+  <div class="mdc-drawer__header">
+    <!---->
+    <!---->
+  </div>
+</aside>
+`;
+
+exports[`Drawer should render with no prop 1`] = `
+<aside class="mdc-drawer">
+  <div class="mdc-drawer__header">
+    <!---->
+    <!---->
+  </div>
+</aside>
+`;
+
+exports[`Drawer should render with subtitle 1`] = `
+<aside class="mdc-drawer">
+  <div class="mdc-drawer__header">
+    <!---->
+    <h6 class="mdc-drawer__subtitle">
+      title
+    </h6>
+  </div>
+</aside>
+`;
+
+exports[`Drawer should render with title 1`] = `
+<aside class="mdc-drawer">
+  <div class="mdc-drawer__header">
+    <h3 class="mdc-drawer__title">
+      title
+    </h3>
+    <!---->
+  </div>
+</aside>
+`;
+
+exports[`DrawerAppContent should render with no prop 1`] = `<div class="mdc-drawer-app-content"></div>`;
+
+exports[`DrawerContent should render with no prop 1`] = `<div class="mdc-drawer__content">123</div>`;
+
+exports[`DrawerHeader should render with no prop 1`] = `
+<div class="mdc-drawer__header">
+  <!---->
+  <!----> 123</div>
+`;
+
+exports[`DrawerHeader should render with subtitle 1`] = `
+<div class="mdc-drawer__header">
+  <!---->
+  <h6 class="mdc-drawer__subtitle">
+    title
+  </h6>
+</div>
+`;
+
+exports[`DrawerHeader should render with title 1`] = `
+<div class="mdc-drawer__header">
+  <h3 class="mdc-drawer__title">
+    title
+  </h3>
+  <!---->
+</div>
+`;
+
+exports[`DrawerScrim should render with no prop 1`] = `<div class="mdc-drawer-scrim"></div>`;
