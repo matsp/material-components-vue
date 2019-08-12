@@ -25,10 +25,17 @@ export default {
   },
   watch: {
     ripple () {
-      if (!this.ripple && this.mdcRipple) {
-        this.mdcRipple.destroyed()
+      if (this.ripple) {
+        if (this.mdcRipple) {
+          this.mdcRipple.destroy()
+        }
+        MDCRipple.attachTo(this.$el)
+      } else {
+        if (this.mdcRipple) {
+          this.mdcRipple.destroy()
+        }
+        this.mdcRipple = undefined
       }
-      if (this.ripple) this.mdcRipple = MDCRipple.attachTo(this.$el)
     }
   },
   mounted () {
