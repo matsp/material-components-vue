@@ -3,8 +3,30 @@
     :class="classes"
     class="mdc-drawer"
     @MDCDrawer:closed="onClosed"
+    @MDCDrawer:opened="onOpened"
   >
-    <slot name="header" />
+    <div
+      v-if="!hasHeaderClass || title !== '' || subtitle !== ''"
+      class="mdc-drawer__header"
+    >
+      <h3
+        v-if="title !== ''"
+        class="mdc-drawer__title"
+      >
+        {{ title }}
+      </h3>
+      <h6
+        v-if="subtitle !== ''"
+        class="mdc-drawer__subtitle"
+      >
+        {{ subtitle }}
+      </h6>
+      <slot name="header" />
+    </div>
+    <slot
+      v-else
+      name="header"
+    />
     <slot />
   </aside>
 </template>
@@ -31,11 +53,20 @@ export default {
     open: {
       type: Boolean,
       default: false
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    subtitle: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {
-      mdcDrawer: undefined
+      mdcDrawer: undefined,
+      hasHeaderClass: false
     }
   },
   computed: {
@@ -56,17 +87,39 @@ export default {
   },
   watch: {
     modal () {
-      if (!this.mdcDrawer) this.mdcDrawer = new MDCDrawer(this.$el)
+      if (!this.modal) {
+        this.mdcDrawer.destroy()
+        this.mdcDrawer = undefined
+      } else {
+        this.$nextTick(function () {
+          this.mdcDrawer = new MDCDrawer(this.$el)
+        })
+      }
     },
     dismissible () {
-      if (!this.mdcDrawer) this.mdcDrawer = new MDCDrawer(this.$el)
+      if (!this.dismissible) {
+        this.mdcDrawer.destroy()
+        this.mdcDrawer = undefined
+      } else {
+        this.$nextTick(function () {
+          this.mdcDrawer = new MDCDrawer(this.$el)
+        })
+      }
     },
     open () {
-      this.mdcDrawer.open = this.open
+      if (this.mdcDrawer.open !== this.open) this.mdcDrawer.open = this.open
+    },
+    'mdcDrawer.open': function () {
+      this.model = this.mdcDrawer.open
     }
   },
   mounted () {
-    if (!this.mdcDrawer && (this.dismissible || this.modal)) { this.mdcDrawer = new MDCDrawer(this.$el) }
+    // the slots can only be accessible in nextTick
+    this.$nextTick(function () {
+      // judge whether the slots have the header class
+      this.hasHeaderClass = this.$slots.header[0].elm.classList.contains('mdc-drawer__header')
+      if (!this.mdcDrawer && (this.dismissible || this.modal)) { this.mdcDrawer = new MDCDrawer(this.$el) }
+    })
   },
   provide: {
     mdcDrawer: this
@@ -76,8 +129,11 @@ export default {
   },
   methods: {
     onClosed () {
-      this.model = false
+      if (this.model) this.model = false
       this.$emit('closed')
+    },
+    onOpened () {
+      this.$emit('opened')
     }
   }
 }
