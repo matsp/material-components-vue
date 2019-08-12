@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="$slots['default'] || title || subTitle"
+    v-if="$slots['default'] || title || subtitle"
     class="mdc-drawer__header"
   >
     <h3
@@ -10,10 +10,10 @@
       {{ title }}
     </h3>
     <h6
-      v-if="subTitle"
+      v-if="subtitle"
       class="mdc-drawer__subtitle"
     >
-      {{ subTitle }}
+      {{ subtitle }}
     </h6>
     <slot />
   </div>
@@ -29,7 +29,7 @@ export default {
       type: String,
       default: ''
     },
-    subTitle: {
+    subtitle: {
       type: String,
       default: ''
     }
