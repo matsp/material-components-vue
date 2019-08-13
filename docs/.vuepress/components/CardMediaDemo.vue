@@ -34,7 +34,8 @@ export default {
       radioProps: [
         { prop: 'square', value: false },
         { prop: 'sixteenNine', value: true }
-      ]
+      ],
+      checkboxProps: []
     }
   } 
 }
