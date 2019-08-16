@@ -3,17 +3,23 @@
   <ComponentSection>
     <m-menu-anchor>
       <m-button raised @click="isMenuOpen=!isMenuOpen">open</m-button>
-      <m-menu v-model="isMenuOpen">
+      <m-menu v-model="isMenuOpen" :fixed="this.checkboxProps[0].value" :default-focus-state="defaultFocusState"
+              :quickOpen="this.checkboxProps[1].value" :is-hoisted="this.checkboxProps[2].value">
           <m-list>
-              <m-list-item role="menuitem">
+          <li>
+              <m-menu-selection-group>
+              <m-list-item>
                  <m-icon slot="graphic" icon="refresh"></m-icon>
                   <template slot="text">Refresh</template>
               </m-list-item>
-              <m-list-divider></m-list-divider>
-              <m-list-item role="menuitem">
+              <m-list-item>
                  <m-icon slot="graphic" icon="favorite"></m-icon>
                   <template slot="text">Favorite</template>
               </m-list-item>
+              </m-menu-selection-group>
+          </li>
+          <m-list-divider></m-list-divider>
+          <m-list-item>Add space before paragraph</m-list-item>
           </m-list>
       </m-menu>
     </m-menu-anchor>
@@ -30,9 +36,25 @@ export default {
     return {
       isMenuOpen: false,
       radioProps: [
+        { prop: 'defaultFocusState: NONE', value: false },
+        { prop: 'defaultFocusState: LIST_ROOT', value: true },
+        { prop: 'defaultFocusState: FIRST_ITEM', value: false },
+        { prop: 'defaultFocusState: LAST_ITEM', value: false }
       ],
       checkboxProps: [
+        { prop: 'fixed', value: false },
+        { prop: 'quickOpen', value: false },
+        { prop: 'isHoisted', value: false }
       ]
+    }
+  },
+  computed: {
+    defaultFocusState () {
+      for (let i in this.radioProps) {
+        if (this.radioProps[i].value) {
+          return this.radioProps[i].prop.substr(19)
+        }
+      }
     }
   }
 }

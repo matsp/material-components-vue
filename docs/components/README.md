@@ -60,6 +60,10 @@ The demonstration in this page is a work in progress..
 
 <MenuDemo/>
 
+## Menu Surface
+
+<MenuSurfaceDemo/>
+
 ## Dialog
 
 <DialogDemo/>
@@ -139,10 +143,6 @@ The demonstration in this page is a work in progress..
 ### List with Trailing Checkbox
 
 <ListWithTrailingCheckboxDemo/>
-
-## Menu Surface
-
-<MenuSurfaceDemo/>
 
 ## Ripple
 

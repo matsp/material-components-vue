@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should render as fixed 1`] = `<div class="mdc-menu mdc-menu-surface"></div>`;
+
+exports[`Menu should render with no prop 1`] = `<div class="mdc-menu mdc-menu-surface"></div>`;
+
+exports[`MenuAnchor should render with no prop 1`] = `<div class="mdc-menu-surface--anchor"></div>`;
+
+exports[`MenuSelectionGroup should render with no prop 1`] = `<ul class="mdc-menu__selection-group"></ul>`;
+
+exports[`MenuSurface should render as fixed 1`] = `<div class="mdc-menu-surface"></div>`;
+
+exports[`MenuSurface should render with no prop 1`] = `<div class="mdc-menu-surface"></div>`;

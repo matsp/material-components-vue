@@ -1,6 +1,5 @@
 <template>
   <div
-    :tabindex="tabIndex"
     class="mdc-menu mdc-menu-surface"
     @MDCMenu:selected="onSelect"
   >
@@ -30,8 +29,8 @@ export default {
       default: false
     },
     anchorCorner: {
-      type: String,
-      default: ''
+      type: [Number, String],
+      default: 0
     },
     absolutePositionX: {
       type: Number,
@@ -55,7 +54,15 @@ export default {
     },
     defaultFocusState: {
       type: [Number, String],
-      default: null
+      default: 1
+    },
+    selectedIndex: {
+      type: Number,
+      default: -1
+    },
+    isHoisted: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -77,27 +84,31 @@ export default {
       if (!this.defaultFocusState) return null
 
       const upperCaseFocusState = String(this.defaultFocusState).toUpperCase()
-      if (isNaN(this.defaultFocusState) &&
-        DefaultFocusState.hasOwnProperty(upperCaseFocusState)
-      ) {
+      if (isNaN(this.defaultFocusState)) {
         return DefaultFocusState[upperCaseFocusState]
       }
 
       const numberFocusState = Number(this.defaultFocusState)
-      if (!isNaN(this.defaultFocusState) &&
-        DefaultFocusState.hasOwnProperty(numberFocusState)
-      ) {
+      if (!isNaN(this.defaultFocusState)) {
         return numberFocusState
       }
 
       return null
     },
-    tabIndex () {
-      if (this.$slots.default[0].componentOptions.tag.toLowerCase() === 'm-list') {
-        return -1
+    _anchorCorner () {
+      if (!this.anchorCorner) return null
+
+      const upperCaseFocusState = String(this.anchorCorner).toUpperCase()
+      if (isNaN(this.anchorCorner)) {
+        return Corner[upperCaseFocusState]
       }
 
-      return this.mdcMenu ? (this.mdcMenu.open ? 0 : -1) : (this.open ? 0 : -1)
+      const numberFocusState = Number(this.anchorCorner)
+      if (!isNaN(this.anchorCorner)) {
+        return numberFocusState
+      }
+
+      return null
     }
   },
   watch: {
@@ -112,14 +123,15 @@ export default {
         this.mdcMenu.hoistMenuToBody()
       }
     },
+    isHoisted () {
+      this.mdcMenu.setIsHoisted(this.isHoisted)
+    },
     fixed () {
       this.mdcMenu.setFixedPosition(this.fixed)
     },
     anchorCorner () {
-      if (this.anchorCorner !== '') {
-        this.mdcMenu.setAnchorCorner(Corner[this.anchorCorner.toUpperCase()])
-      } else {
-        this.mdcMenu.setAnchorCorner(Corner.TOP_START)
+      if (this._anchorCorner !== null) {
+        this.mdcMenu.setAnchorCorner(this.anchorCorner)
       }
     },
     absolutePositionX () {
@@ -142,31 +154,39 @@ export default {
     },
     'mdcMenu.open' () {
       this.model = this.mdcMenu.open
+    },
+    selectedIndex () {
+      if (this.selectedIndex >= 0) this.mdcMenu.setSelectedIndex(this.selectedIndex)
     }
   },
   mounted () {
-    this.updateSlot()
-    this.slotObserver = new MutationObserver(() => this.updateSlot())
-    this.slotObserver.observe(this.$el, {
-      childList: true,
-      subtree: true
-    })
-    this.mdcMenu = MDCMenu.attachTo(this.$el)
-    if (this.hoistToBody) {
-      this.mdcMenu.hoistMenuToBody()
-    }
-    this.mdcMenu.setFixedPosition(this.fixed)
-    if (this.anchorCorner !== '') {
-      this.mdcMenu.setAnchorCorner(Corner[this.anchorCorner.toUpperCase()])
-    }
-    if (this.absolutePositionX !== null || this.absolutePositionY !== null) {
-      this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
-    }
-    this.mdcMenu.wrapFocus = this.wrapFocus
+    this.$nextTick(() => {
+      this.updateSlot()
+      this.slotObserver = new MutationObserver(() => this.updateSlot())
+      this.slotObserver.observe(this.$el, {
+        childList: true,
+        subtree: true
+      })
+      this.mdcMenu = MDCMenu.attachTo(this.$el)
+      if (this.hoistToBody) {
+        this.mdcMenu.hoistMenuToBody()
+      }
+      this.mdcMenu.setFixedPosition(this.fixed)
+      if (this._anchorCorner) {
+        this.mdcMenu.setAnchorCorner(this._anchorCorner)
+      }
+      if (this.absolutePositionX !== null || this.absolutePositionY !== null) {
+        this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
+      }
+      this.mdcMenu.wrapFocus = this.wrapFocus
 
-    if (this.focusState !== null) {
-      this.mdcMenu.setDefaultFocusState(this.focusState)
-    }
+      if (this.focusState !== null) {
+        this.mdcMenu.setDefaultFocusState(this.focusState)
+      }
+      this.mdcMenu.setIsHoisted(this.isHoisted)
+
+      if (this.selectedIndex >= 0) this.mdcMenu.setSelectedIndex(this.selectedIndex)
+    })
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -176,15 +196,20 @@ export default {
     updateSlot () {
       if (this.$slots.default) {
         this.$slots.default.map(n => {
-          n.componentInstance.$el.setAttribute('role', 'menu')
-          n.componentInstance.$el.setAttribute('aria-hidden', 'true')
-          n.componentInstance.$el.setAttribute('aria-orientation', 'vertical')
+          if (n.elm) {
+            n.elm.setAttribute('role', 'menu')
+            n.elm.setAttribute('aria-hidden', 'true')
+            n.elm.setAttribute('aria-orientation', 'vertical')
+            n.elm.querySelectorAll('.mdc-list-item').forEach(i => {
+              i.setAttribute('role', 'menuitem')
+            })
+          }
         })
       }
     },
     onSelect (event) {
       this.model = false
-      this.$emit('select', event.detail)
+      this.$emit('selected', event.detail)
     }
   }
 }

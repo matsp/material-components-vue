@@ -133,9 +133,6 @@ export default {
       if (this.$slots.graphic) {
         this.$slots.graphic.map(n => {
           n.elm.classList.add('mdc-list-item__graphic')
-          if (this.$el.getAttribute('role') === 'menuitem') {
-            n.elm.classList.add('mdc-menu__selection-group-icon')
-          }
         })
       }
       if (this.$slots.meta) {
