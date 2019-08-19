@@ -83,7 +83,7 @@
     "vue-loader": "15.7.1",
     "vuepress": "0.14.11",
     "webpack": "4.39.2",
-    "webpack-cli": "3.3.6",
+    "webpack-cli": "3.3.7",
     "webpack-dev-server": "3.8.0",
     "webpack-merge": "4.2.1"
   },
