@@ -1,10 +1,12 @@
 <template>
-  <div class="mdc-radio">
+  <div class="mdc-radio" :class="classes">
     <input
       class="mdc-radio__native-control"
       type="radio"
       v-bind="$attrs"
+      v-on="$listeners"
       @change="onChange"
+      ref="input"
     >
     <div class="mdc-radio__background">
       <div class="mdc-radio__outer-circle" />
@@ -25,17 +27,9 @@ export default {
     event: 'change'
   },
   props: {
-    checked: {
+    js: {
       type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    value: {
-      type: String,
-      default: ''
+      default: true
     }
   },
   data () {
@@ -43,29 +37,40 @@ export default {
       mdcRadio: undefined
     }
   },
+  computed: {
+    classes () {
+      return {
+        'mdc-radio--disabled': this.$attrs.disabled != null
+      }
+    }
+  },
   watch: {
-    checked () {
-      this.mdcRadio.checked = this.checked
-    },
-    disabled () {
-      this.mdcRadio.disabled = this.disabled
-    },
-    value () {
-      this.mdcRadio.value = this.value
+    js () {
+      this.reInstantiate()
     }
   },
   mounted () {
-    this.mdcRadio = MDCRadio.attachTo(this.$el)
-    this.mdcRadio.checked = this.checked
-    this.mdcRadio.disabled = this.disabled
-    this.mdcRadio.value = this.value
+    if (this.js) this.mdcRadio = MDCRadio.attachTo(this.$el)
   },
   beforeDestroy () {
-    this.mdcRadio.destroy()
+    if (this.js) this.mdcRadio.destroy()
   },
   methods: {
-    onChange (event) {
-      this.$emit('change', this.mdcRadio.value)
+    onChange () {
+      this.$emit('change', this.$refs.input.value)
+    },
+    reInstantiate () {
+      if (this.js) {
+        if (this.mdcRadio) {
+          this.mdcRadio.destroy()
+        }
+        MDCRadio.attachTo(this.$el)
+      } else {
+        if (this.js) {
+          this.mdcRadio.destroy()
+        }
+        this.mdcRadio = undefined
+      }
     }
   }
 }
