@@ -2,28 +2,19 @@
 
 exports[`Drawer should render as dismissible 1`] = `
 <aside class="mdc-drawer mdc-drawer--dismissible">
-  <div class="mdc-drawer__header">
-    <!---->
-    <!---->
-  </div>
+  <!---->
 </aside>
 `;
 
 exports[`Drawer should render as modal 1`] = `
 <aside class="mdc-drawer mdc-drawer--modal">
-  <div class="mdc-drawer__header">
-    <!---->
-    <!---->
-  </div>
+  <!---->
 </aside>
 `;
 
 exports[`Drawer should render with no prop 1`] = `
 <aside class="mdc-drawer">
-  <div class="mdc-drawer__header">
-    <!---->
-    <!---->
-  </div>
+  <!---->
 </aside>
 `;
 
