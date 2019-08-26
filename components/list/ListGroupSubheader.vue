@@ -1,22 +1,26 @@
-<template>
-  <h6
-    v-if="$parent.$options._componentTag === 'm-drawer-list'"
-    class="mdc-list-group__subheader"
-  >
-    <slot />
-  </h6>
-  <h3
-    v-else
-    class="mdc-list-group__subheader"
-  >
-    <slot />
-  </h3>
-</template>
-
 <script>
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  mixins: [baseComponentMixin, themeClassMixin]
+  mixins: [baseComponentMixin, themeClassMixin],
+  props: {
+    level: {
+      type: Number,
+      default: 3,
+      validator: function (value) {
+        return value > 0 && value < 7
+      }
+    }
+  },
+  render: function (createElement) {
+    return createElement(
+      'h' + this.level, // tag name
+      {
+        class: {
+          'mdc-list-group__subheader': true
+        }
+      }, this.$slots.default // array of children
+    )
+  }
 }
 </script>
