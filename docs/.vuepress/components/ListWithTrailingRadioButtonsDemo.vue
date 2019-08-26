@@ -1,6 +1,6 @@
 <template>
     <ComponentSection>
-        <m-list class="demo-list" role="radiogroup">
+        <m-list class="demo-list" role="radiogroup" v-model="selectedIndex">
             <m-list-item aria-checked="false" role="radio">
                 <m-radio id="demo-list-radio-item-1"
                          name="demo-list-radio-item-group"
@@ -32,7 +32,10 @@
 
 <script>
   export default {
-    name: 'ListWithTrailingRadioButtonsDemo'
+    name: 'ListWithTrailingRadioButtonsDemo',
+    data () {
+      return { selectedIndex: 1 }
+    }
   }
 </script>
 
