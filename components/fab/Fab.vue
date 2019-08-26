@@ -1,17 +1,23 @@
 <template>
   <button
+    v-if="href.length === 0"
     :class="classes"
     class="mdc-fab"
+    v-bind="$attrs"
     v-on="$listeners"
   >
-    <slot name="icon" />
-    <div
-      v-if="extended"
-      class="mdc-fab__label"
-    >
-      <slot />
-    </div>
+    <slot />
   </button>
+  <a
+    v-else
+    :href="href"
+    :class="classes"
+    class="mdc-fab"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
+    <slot />
+  </a>
 </template>
 
 <script>
@@ -34,14 +40,19 @@ export default {
       type: Boolean,
       default: false
     },
-    extended: {
+    ripple: {
       type: Boolean,
-      default: false
+      default: true
+    },
+    href: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {
       mdcRipple: undefined,
+      extended: false,
       slotObserver: undefined
     }
   },
@@ -57,10 +68,10 @@ export default {
   },
   watch: {
     classes () {
-      if (typeof this.mdcRipple !== 'undefined') {
-        this.mdcRipple.destroy()
-      }
-      this.mdcRipple = MDCRipple.attachTo(this.$el)
+      this.reInstantiateRipple()
+    },
+    ripple () {
+      this.reInstantiateRipple()
     }
   },
   mounted () {
@@ -70,22 +81,39 @@ export default {
       childList: true,
       subtree: true
     })
-    this.mdcRipple = MDCRipple.attachTo(this.$el)
+    if (this.ripple) this.mdcRipple = MDCRipple.attachTo(this.$el)
   },
   beforeDestroy () {
-    this.slotObserver.disconnect()
-    if (typeof this.mdcRipple !== 'undefined') {
+    if (this.mdcRipple) {
       this.mdcRipple.destroy()
     }
+    this.slotObserver.disconnect()
   },
   methods: {
     updateSlot () {
-      if (this.$slots.icon) {
-        this.$slots.icon.map(n => {
-          if (n.elm.tagName.toUpperCase() !== 'SVG') {
-            n.elm.classList.add('mdc-fab__icon')
+      if (this.$slots.default) {
+        const defaults = this.$slots.default
+        let i = 0
+        for (; i < defaults.length; i++) {
+          if (defaults[i].elm instanceof Element && defaults[i].elm.classList.contains('mdc-fab__label')) {
+            this.extended = true
+            break
           }
-        })
+        }
+        if (i === defaults.length) this.extended = false // no label found
+      }
+    },
+    reInstantiateRipple () {
+      if (this.ripple) {
+        if (this.mdcRipple) {
+          this.mdcRipple.destroy()
+        }
+        MDCRipple.attachTo(this.$el)
+      } else {
+        if (this.mdcRipple) {
+          this.mdcRipple.destroy()
+        }
+        this.mdcRipple = undefined
       }
     }
   }
