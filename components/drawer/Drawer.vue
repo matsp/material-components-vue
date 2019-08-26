@@ -6,7 +6,7 @@
     @MDCDrawer:opened="onOpened"
   >
     <div
-      v-if="!hasHeaderClass || title !== '' || subtitle !== ''"
+      v-if="$slots.header || title !== '' || subtitle !== ''"
       class="mdc-drawer__header"
     >
       <h3
@@ -23,10 +23,6 @@
       </h6>
       <slot name="header" />
     </div>
-    <slot
-      v-else
-      name="header"
-    />
     <slot />
   </aside>
 </template>
@@ -114,10 +110,8 @@ export default {
     }
   },
   mounted () {
-    // the slots can only be accessible in nextTick
+    // to avoid error throw by focus trap
     this.$nextTick(function () {
-      // judge whether the slots have the header class
-      this.hasHeaderClass = this.$slots.header[0].elm.classList.contains('mdc-drawer__header')
       if (!this.mdcDrawer && (this.dismissible || this.modal)) { this.mdcDrawer = new MDCDrawer(this.$el) }
     })
   },
