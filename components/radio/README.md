@@ -25,6 +25,7 @@ data() {
 | disabled | Boolean | false | disabled radio |
 | value | String | '' | value of radio (will be v-modeled) |
 | name | String | '' | radio group name |
+| js | Boolean | true | Whether or not to use an optional JavaScript component to enhance it with a ripple interaction effect |
 
 Non prop attributes are mapped to the inner input element.
 
