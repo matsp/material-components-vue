@@ -1,6 +1,6 @@
 <template>
     <ComponentSection>
-        <m-list aria-label="List with checkbox items" class="demo-list" role="group">
+        <m-list aria-label="List with checkbox items" class="demo-list" role="group" v-model="selectedIndex">
             <m-list-item aria-checked="false" role="checkbox">
                 <m-checkbox id="demo-list-checkbox-item-1"
                             name="demo-list-checkbox-item-group"
@@ -32,7 +32,10 @@
 
 <script>
   export default {
-    name: 'ListWithTrailingCheckboxDemo'
+    name: 'ListWithTrailingCheckboxDemo',
+    data () {
+      return { selectedIndex: [1] }
+    }
   }
 </script>
 

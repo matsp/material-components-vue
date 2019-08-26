@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Divider should render as inset 1`] = `<li role="separator" class="mdc-list-divider mdc-list-divider--inset"></li>`;
+
+exports[`List Divider should render as padded 1`] = `<li role="separator" class="mdc-list-divider mdc-list-divider--padded"></li>`;
+
+exports[`List Divider should render with no prop 1`] = `<li role="separator" class="mdc-list-divider"></li>`;
+
+exports[`List Group Divider should render as inset 1`] = `<hr class="mdc-list-divider mdc-list-divider--inset">`;
+
+exports[`List Group Divider should render as padded 1`] = `<hr class="mdc-list-divider mdc-list-divider--padded">`;
+
+exports[`List Group Divider should render with no prop 1`] = `<hr class="mdc-list-divider">`;
+
+exports[`List Group Subheader should render as h1 1`] = `<h1 class="mdc-list-group__subheader"></h1>`;
+
+exports[`List Group Subheader should render with no prop 1`] = `<h3 class="mdc-list-group__subheader"></h3>`;
+
+exports[`List Group should render with no prop 1`] = `
+<div class="mdc-list-group">
+  <!---->
+</div>
+`;
+
+exports[`List Item should render as activated 1`] = `
+<li class="mdc-list-item mdc-list-item--activated">
+  <!---->
+</li>
+`;
+
+exports[`List Item should render as disabled 1`] = `
+<li class="mdc-list-item mdc-list-item--disabled">
+  <!---->
+</li>
+`;
+
+exports[`List Item should render as selected 1`] = `
+<li class="mdc-list-item mdc-list-item--selected" aria-selected="true">
+  <!---->
+</li>
+`;
+
+exports[`List Item should render with no prop 1`] = `
+<li class="mdc-list-item">
+  <!---->
+</li>
+`;
+
+exports[`List should render as avatar 1`] = `<ul class="mdc-list mdc-list--avatar-list"></ul>`;
+
+exports[`List should render as dense 1`] = `<ul class="mdc-list mdc-list--dense"></ul>`;
+
+exports[`List should render as div 1`] = `<div class="mdc-list"></div>`;
+
+exports[`List should render as nav 1`] = `<nav class="mdc-list"></nav>`;
+
+exports[`List should render as non interactive 1`] = `<ul class="mdc-list mdc-list--non-interactive"></ul>`;
+
+exports[`List should render as two line 1`] = `<ul class="mdc-list mdc-list--two-line"></ul>`;
+
+exports[`List should render with no prop 1`] = `<ul class="mdc-list"></ul>`;

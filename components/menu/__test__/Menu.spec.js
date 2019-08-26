@@ -3,6 +3,7 @@ import Menu from '../Menu.vue'
 import MenuAnchor from '../MenuAnchor.vue'
 import MenuSurface from '../MenuSurface'
 import MenuSelectionGroup from '../MenuSelectionGroup'
+import 'mutationobserver-shim'
 
 describe('Menu', () => {
   it('should mount', () => {
