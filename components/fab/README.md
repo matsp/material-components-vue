@@ -61,45 +61,6 @@ Developers must position `<m-fab>` as needed within their application’s design
 </m-fab>
 ```
 
-## Fab Icon
-
-```html
-<m-fab-icon class="material-icons">favorite</m-fab-icon>
-```
-
-or use SVG, Font Awesome or any other icon library you wish.
-
-```html
-<m-fab-icon tag="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path fill="none" d="M0 0h24v24H0z"/>
-    <!-- other path -->
-</m-fab-icon>
-```
-
-```html
-<m-fab-icon tag="i" class="far fa-heart"></m-fab-icon>
-```
-
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| tag | String | 'span' | specify which tag to render to, can be `span`, `i`, `img`, or `svg` |
-
-### Slots 
-
-| Slot | Description |
-|------|-------------|
-| default | icon content |
-
-## Fab Label
-
-Applicable only for Extended FAB. A FAB will be automatically extended if includes a FAB label. 
-
-```html
-<m-fab-label>create</m-fab-label>
-```
-
 ### Slots
 
 | Slot | Description |
