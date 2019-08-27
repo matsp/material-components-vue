@@ -6,7 +6,14 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <slot />
+    <slot name="icon" />
+    <div
+      v-if="extended"
+      class="mdc-fab__label"
+    >
+      <slot />
+    </div>
+    <slot name="trailingIcon" />
   </button>
   <a
     v-else
@@ -16,7 +23,14 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <slot />
+    <slot name="icon" />
+    <div
+      v-if="extended"
+      class="mdc-fab__label"
+    >
+      <slot />
+    </div>
+    <slot name="trailingIcon" />
   </a>
 </template>
 
@@ -52,8 +66,8 @@ export default {
   data () {
     return {
       mdcRipple: undefined,
-      extended: false,
-      slotObserver: undefined
+      slotObserver: undefined,
+      extended: false
     }
   },
   computed: {
@@ -91,16 +105,21 @@ export default {
   },
   methods: {
     updateSlot () {
+      if (this.$slots.icon) {
+        this.$slots.icon.map(n => {
+          if (n.elm instanceof Element) n.elm.classList.add('mdc-fab__icon')
+        })
+      }
+      if (this.$slots.trailingIcon) {
+        this.$slots.trailingIcon.map(n => {
+          if (n.elm instanceof Element) n.elm.classList.add('mdc-fab__icon')
+        })
+      }
+      this.extended = false
       if (this.$slots.default) {
-        const defaults = this.$slots.default
-        let i = 0
-        for (; i < defaults.length; i++) {
-          if (defaults[i].elm instanceof Element && defaults[i].elm.classList.contains('mdc-fab__label')) {
-            this.extended = true
-            break
-          }
-        }
-        if (i === defaults.length) this.extended = false // no label found
+        this.$slots.default.map(n => {
+          if (n.elm instanceof Element || n.text.trim().length > 0) this.extended = true
+        })
       }
     },
     reInstantiateRipple () {
