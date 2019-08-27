@@ -1,12 +1,13 @@
 <template>
   <div
     :aria-disabled="disabled"
-    :aria-label="ariaLabel"
     :class="classes"
     class="mdc-slider"
     role="slider"
     tabindex="0"
+    v-bind="$attrs"
     @MDCSlider:change="onChange"
+    @MDCSlider:input="onInput"
   >
     <div class="mdc-slider__track-container">
       <div class="mdc-slider__track" />
@@ -64,13 +65,9 @@ export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'value',
-    event: 'change'
+    event: 'update'
   },
   props: {
-    ariaLabel: {
-      type: String,
-      default: ''
-    },
     displayMarkers: {
       type: Boolean,
       default: false
@@ -143,7 +140,11 @@ export default {
     this.mdcSlider.destroy()
   },
   methods: {
-    onChange (event) {
+    onInput () {
+      this.$emit('input', this.mdcSlider.value)
+      this.$emit('update', this.mdcSlider.value)
+    },
+    onChange () {
       this.$emit('change', this.mdcSlider.value)
     }
   }
