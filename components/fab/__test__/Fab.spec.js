@@ -1,8 +1,6 @@
 import 'mutationobserver-shim'
 import { mount } from '@vue/test-utils'
 import Fab from '../Fab.vue'
-import FabLabel from '../FabLabel'
-import FabIcon from '../FabIcon'
 
 describe('Fab', () => {
   it('should mount', () => {
@@ -41,7 +39,7 @@ describe('Fab', () => {
   it('should render as extended', () => {
     const wrapper = mount(Fab, {
       slots: {
-        default: FabLabel
+        default: 'create'
       }
     })
     expect(wrapper).toMatchSnapshot()
@@ -66,37 +64,5 @@ describe('Fab', () => {
     })
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.vm.$data.mdcRipple).toBeUndefined()
-  })
-})
-
-describe('Fab Icon', () => {
-  it('should mount', () => {
-    const wrapper = mount(FabIcon, {})
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
-  it('should render with no prop', () => {
-    const wrapper = mount(FabIcon, {
-      slots: {
-        default: 'favorite'
-      }
-    })
-    expect(wrapper.isVueInstance()).toBeTruthy()
-    expect(wrapper).toMatchSnapshot()
-    expect(wrapper.classes()).toContain('mdc-fab__icon')
-  })
-})
-
-describe('Fab Label', () => {
-  it('should mount', () => {
-    const wrapper = mount(FabLabel, {})
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
-  it('should render with no prop', () => {
-    const wrapper = mount(FabLabel, {})
-    expect(wrapper.isVueInstance()).toBeTruthy()
-    expect(wrapper).toMatchSnapshot()
-    expect(wrapper.classes()).toContain('mdc-fab__label')
   })
 })
