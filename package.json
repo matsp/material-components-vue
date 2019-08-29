@@ -54,7 +54,7 @@
     "cross-env": "5.2.0",
     "css-loader": "3.2.0",
     "eslint": "6.2.2",
-    "eslint-config-standard": "14.0.1",
+    "eslint-config-standard": "14.1.0",
     "eslint-plugin-html": "6.0.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jest": "22.15.2",
@@ -82,10 +82,10 @@
     "vue-jest": "3.0.4",
     "vue-loader": "15.7.1",
     "vuepress": "0.14.11",
-    "webpack": "4.39.2",
+    "webpack": "4.39.3",
     "webpack-cli": "3.3.7",
     "webpack-dev-server": "3.8.0",
-    "webpack-merge": "4.2.1"
+    "webpack-merge": "4.2.2"
   },
   "browserslist": [
     "> 1%",
