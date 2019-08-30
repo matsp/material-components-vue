@@ -44,6 +44,10 @@ The demonstration in this page is a work in progress..
 
 <ChipsInputDemo/>
 
+## Elevation
+
+<ElevationDemo/>
+
 ## Fab
 
 <FabDemo/>

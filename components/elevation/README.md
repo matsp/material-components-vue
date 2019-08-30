@@ -1,5 +1,29 @@
 ## Elevation
 
+Material Components Vue provides a customized directive `v-elevation` to provide any components with elevation or shadow.
+
+### Minimal Usage
+
+```html
+<m-button raised :v-elevation="1">Button</my-button>
+```
+
+### Add transition between different elevations
+
+```html
+<m-button raised v-elevation.transition="elevation">Button</my-button>
+```
+
+```js
+data () {
+  return {
+    elevation: 1 // change this value to see the transition
+  }
+}
+```
+
+Or you can use a component.
+
 ### Markup
 
 ```html
