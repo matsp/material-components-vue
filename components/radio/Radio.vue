@@ -1,12 +1,15 @@
 <template>
-  <div class="mdc-radio" :class="classes">
+  <div
+    class="mdc-radio"
+    :class="classes"
+  >
     <input
+      ref="input"
       class="mdc-radio__native-control"
       type="radio"
-      v-bind="$attrs"
-      v-on="$listeners"
-      @change="onChange"
-      ref="input"
+      v-bind="attrs"
+      v-on="listeners"
+      @change="$emit('change', $event.target.value)"
     >
     <div class="mdc-radio__background">
       <div class="mdc-radio__outer-circle" />
@@ -42,6 +45,16 @@ export default {
       return {
         'mdc-radio--disabled': this.$attrs.disabled != null
       }
+    },
+    attrs () {
+      const _attrs = this.$attrs
+      delete _attrs.picked
+      return _attrs
+    },
+    listeners () {
+      const _listeners = this.$listeners
+      delete _listeners.change
+      return _listeners
     }
   },
   watch: {
@@ -56,9 +69,6 @@ export default {
     if (this.js) this.mdcRadio.destroy()
   },
   methods: {
-    onChange () {
-      this.$emit('change', this.$refs.input.value)
-    },
     reInstantiate () {
       if (this.js) {
         if (this.mdcRadio) {

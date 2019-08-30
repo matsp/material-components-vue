@@ -75,7 +75,9 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: false,
-              includePaths: [components, nodeModules]
+              sassOptions: {
+                includePaths: [components, nodeModules]
+              }
             }
           }
         ]
