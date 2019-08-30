@@ -16,7 +16,9 @@ module.exports = {
     ]
   },
   scss: {
-    includePaths: [nodeModules]
+    sassOptions: {
+      includePaths: [nodeModules]
+    }
   },
   port: 9090
 }
