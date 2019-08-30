@@ -5,13 +5,13 @@ Material Components Vue provides a customized directive `v-elevation` to provide
 ### Minimal Usage
 
 ```html
-<my-button :v-elevation="1">Button</my-button>
+<m-button raised :v-elevation="1">Button</my-button>
 ```
 
 ### Add transition between different elevations
 
 ```html
-<my-button v-elevation.transition="elevation">Button</my-button>
+<m-button raised v-elevation.transition="elevation">Button</my-button>
 ```
 
 ```js
@@ -22,7 +22,7 @@ data () {
 }
 ```
 
-Content below is deprecated, which means they may be removed in the future versions.
+Or you can use a component.
 
 ### Markup
 
