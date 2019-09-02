@@ -2,7 +2,7 @@
     <div>
         <ComponentSection>
             <div>
-                <m-switch :disabled="checkboxProps[0].value" id="basic-switch"></m-switch>
+                <m-switch :disabled="checkboxProps[0].value" id="basic-switch" v-model="value"></m-switch>
                 <label for="basic-switch">off/on</label>
             </div>
         </ComponentSection>

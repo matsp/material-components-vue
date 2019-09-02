@@ -1,13 +1,12 @@
 <template>
   <div
-    :class="classes"
     class="mdc-switch"
   >
     <div class="mdc-switch__track" />
     <div class="mdc-switch__thumb-underlay">
       <div class="mdc-switch__thumb">
         <input
-          :id="id"
+          v-bind="$attrs"
           v-model="model"
           :disabled="disabled"
           class="mdc-switch__native-control"
@@ -37,10 +36,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    id: {
-      type: String,
-      default: ''
     }
   },
   data () {
@@ -49,11 +44,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return {
-        'mdc-switch--disabled': this.disabled
-      }
-    },
     model: {
       get () {
         return this.checked
@@ -61,6 +51,14 @@ export default {
       set (state) {
         this.$emit('change', state)
       }
+    }
+  },
+  watch: {
+    disabled (newVal) {
+      this.mdcSwitch.disabled = newVal
+    },
+    checked (newVal) {
+      this.mdcSwitch.checked = newVal
     }
   },
   mounted () {
