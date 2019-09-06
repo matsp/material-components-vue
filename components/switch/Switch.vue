@@ -6,8 +6,8 @@
     <div class="mdc-switch__thumb-underlay">
       <div class="mdc-switch__thumb">
         <input
-          v-bind="$attrs"
           v-model="model"
+          v-bind="$attrs"
           :disabled="disabled"
           class="mdc-switch__native-control"
           role="switch"
