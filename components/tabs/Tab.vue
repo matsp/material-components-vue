@@ -1,9 +1,10 @@
 <template>
   <button
-    :aria-selected="active"
+    v-if="href.length === 0"
     :class="classes"
-    :tabindex="tabindex"
     class="mdc-tab"
+    tabindex="-1"
+    aria-selected="false"
     role="tab"
     @MDCTab:interacted="onInteracted"
   >
@@ -13,22 +14,82 @@
         <slot />
       </span>
       <span
-        v-if="spanningOnlyContent"
+        v-if="spanningOnlyContent && !$slots.indicator"
         :class="indicatorClasses"
         class="mdc-tab-indicator"
       >
-        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
+        <span
+          class="mdc-tab-indicator__content"
+          :class="indicatorContentClasses"
+        >{{ indicatorIcon }}</span>
       </span>
+      <slot
+        v-if="spanningOnlyContent"
+        name="indicator"
+      />
     </span>
     <span
-      v-if="!spanningOnlyContent"
+      v-if="!spanningOnlyContent && !$slots.indicator"
       :class="indicatorClasses"
       class="mdc-tab-indicator"
     >
-      <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
+      <span
+        class="mdc-tab-indicator__content"
+        :class="indicatorContentClasses"
+      >{{ indicatorIcon }}</span>
     </span>
+    <slot
+      v-if="!spanningOnlyContent"
+      name="indicator"
+    />
     <span class="mdc-tab__ripple" />
   </button>
+  <a
+    v-else
+    :href="href"
+    :class="classes"
+    class="mdc-tab"
+    tabindex="-1"
+    aria-selected="false"
+    role="tab"
+    @MDCTab:interacted="onInteracted"
+  >
+    <span class="mdc-tab__content">
+      <slot name="icon" />
+      <span class="mdc-tab__text-label">
+        <slot />
+      </span>
+      <span
+        v-if="spanningOnlyContent && !$slots.indicator"
+        :class="indicatorClasses"
+        class="mdc-tab-indicator"
+      >
+        <span
+          class="mdc-tab-indicator__content"
+          :class="indicatorContentClasses"
+        >{{ indicatorIcon }}</span>
+      </span>
+      <slot
+        v-if="spanningOnlyContent"
+        name="indicator"
+      />
+    </span>
+    <span
+      v-if="!spanningOnlyContent && !$slots.indicator"
+      :class="indicatorClasses"
+      class="mdc-tab-indicator"
+    >
+      <span
+        class="mdc-tab-indicator__content"
+        :class="indicatorContentClasses"
+      >{{ indicatorIcon }}</span>
+    </span>
+    <slot
+      v-if="!spanningOnlyContent"
+      name="indicator"
+    />
+    <span class="mdc-tab__ripple" />
+  </a>
 </template>
 
 <script>
@@ -62,6 +123,26 @@ export default {
     minWidth: {
       type: Boolean,
       default: false
+    },
+    id: {
+      type: String,
+      default: ''
+    },
+    fade: {
+      type: Boolean,
+      default: false
+    },
+    indicatorIcon: {
+      type: String,
+      default: ''
+    },
+    indicatorIconClass: {
+      type: String,
+      default: 'material-icons'
+    },
+    href: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -74,18 +155,25 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-tab--active': this.active,
         'mdc-tab--stacked': this.stacked,
         'mdc-tab--min-width': this.minWidth
       }
     },
     indicatorClasses () {
       return {
-        'mdc-tab-indicator--active': this.active
+        'mdc-tab-indicator--fade': this.fade
       }
     },
-    tabindex () {
-      return (this.active) ? '0' : '-1'
+    indicatorContentClasses () {
+      const isUnderline = this.indicatorIcon === '' && this.indicatorIconClass === 'material-icons'
+      const result = {
+        'mdc-tab-indicator__content--underline': isUnderline,
+        'mdc-tab-indicator__content--icon': !isUnderline
+      }
+      this.indicatorIconClass.split(' ').filter(c => c.length > 0).forEach(c => {
+        result[c] = true
+      })
+      return result
     },
     model: {
       get () {
@@ -97,8 +185,18 @@ export default {
     }
   },
   watch: {
-    focusOnActivate () {
-      this.mdcTab.focusOnActivate = this.focusOnActivate
+    focusOnActivate (val) {
+      this.mdcTab.focusOnActivate = val
+    },
+    id (val) {
+      if (val.length > 0) this.mdcTab.id = val
+    },
+    active (val) {
+      if (val) {
+        this.mdcTab.activate()
+      } else {
+        this.mdcTab.deactivate()
+      }
     }
   },
   mounted () {
@@ -114,8 +212,15 @@ export default {
       attributes: true
     })
 
+    // todo: tab bar also instantiates it, which may results in instantiating twice
     this.mdcTab = MDCTab.attachTo(this.$el)
     this.mdcTab.focusOnActivate = this.focusOnActivate
+    if (this.id.length > 0) this.mdcTab.id = this.id
+    if (this.active) {
+      this.mdcTabIndicator.activate()
+    } else {
+      this.mdcTabIndicator.deactivate()
+    }
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -126,11 +231,13 @@ export default {
     updateSlot () {
       if (this.$slots.icon) {
         this.$slots.icon.map(n => {
-          n.elm.classList.add('mdc-tab__icon')
-          this.label ? n.elm.setAttribute('aria-label', true) : n.elm.setAttribute('aria-hidden', true)
+          if (n.elm) n.elm.classList.add('mdc-tab__icon')
         })
       }
     },
+    /**
+     * use for v-model
+     */
     updateActive () {
       if (this.$el.classList.contains('mdc-tab--active') && !this.active) {
         this.$emit('change', true)

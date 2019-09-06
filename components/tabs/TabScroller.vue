@@ -1,5 +1,8 @@
 <template>
-  <div class="mdc-tab-scroller">
+  <div
+    class="mdc-tab-scroller"
+    :class="classes"
+  >
     <div class="mdc-tab-scroller__scroll-area">
       <div class="mdc-tab-scroller__scroll-content">
         <slot />
@@ -14,16 +17,35 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  props: {
+    align: {
+      type: String,
+      default: '',
+      validator: function (value) {
+        return ['start', 'end', 'center', ''].indexOf(value) !== -1
+      }
+    }
+  },
   data () {
     return {
       mdcTabScroller: undefined
+    }
+  },
+  computed: {
+    classes () {
+      const result = {}
+      if (this.align !== '') {
+        const className = `mdc-tab-scroller--align-${this.align}`
+        result[className] = true
+      }
+      return result
     }
   },
   mounted () {
     this.mdcTabScroller = MDCTabScroller.attachTo(this.$el)
   },
   beforeDestroy () {
-    this.mdcTabScroller.destroy()
+    if (this.mdcTabScroller) this.mdcTabScroller.destroy()
   }
 }
 </script>

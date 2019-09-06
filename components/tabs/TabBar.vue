@@ -4,11 +4,11 @@
     role="tablist"
     @MDCTabBar:activated="onActivated"
   >
-    <slot v-if="$slots.default[0].tag.includes('m-tab-scroller')" />
-    <!-- todo: it doesn't work with <div class='mdc-tab-scroller'> but only work with our own m-tab-scroller component. This need to be enhanced. -->
+    <slot v-if="hasScroller" />
     <div
       v-else
       class="mdc-tab-scroller"
+      :class="scrollerClass"
     >
       <div class="mdc-tab-scroller__scroll-area">
         <div class="mdc-tab-scroller__scroll-content">
@@ -42,31 +42,62 @@ export default {
     scrollIntoView: {
       type: Number,
       default: 0
+    },
+    align: {
+      type: String,
+      default: '',
+      validator: function (value) {
+        return ['start', 'end', 'center', ''].indexOf(value) !== -1
+      }
     }
   },
   data () {
     return {
-      mdcTabBar: undefined
+      mdcTabBar: undefined,
+      slotObserver: undefined,
+      hasScroller: true
+    }
+  },
+  computed: {
+    scrollerClass () {
+      const result = {}
+      if (this.align !== '') {
+        const className = `mdc-tab-scroller--align-${this.align}`
+        result[className] = true
+      }
+      return result
     }
   },
   watch: {
-    focusOnActivate () {
-      this.mdcTabBar.focusOnActivate = this.focusOnActivate
+    focusOnActivate (val) {
+      this.mdcTabBar.focusOnActivate = val
     },
-    useAutomaticActivation () {
-      this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
+    useAutomaticActivation (val) {
+      this.mdcTabBar.useAutomaticActivation = val
     },
-    activateTab () {
-      this.mdcTabBar.activateTab(this.activateTab)
+    activateTab (val) {
+      this.mdcTabBar.activateTab(val)
     },
-    scrollIntoView () {
-      this.mdcTabBar.scrollIntoView(this.scrollIntoView)
+    scrollIntoView (val) {
+      this.mdcTabBar.scrollIntoView(val)
+    },
+    hasScroller () {
+      this.reInstantiate()
     }
   },
   mounted () {
-    this.mdcTabBar = MDCTabBar.attachTo(this.$el)
-    this.mdcTabBar.focusOnActivate = this.focusOnActivate
-    this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
+    this.$nextTick(function () {
+      this.updateSlot()
+      this.slotObserver = new MutationObserver(() => this.updateSlot())
+      this.slotObserver.observe(this.$el, {
+        childList: true,
+        subtree: true
+      })
+
+      this.mdcTabBar = MDCTabBar.attachTo(this.$el)
+      this.mdcTabBar.focusOnActivate = this.focusOnActivate
+      this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
+    })
   },
   beforeDestroy () {
     if (typeof this.mdcTabBar !== 'undefined') {
@@ -76,6 +107,21 @@ export default {
   methods: {
     onActivated (e) {
       this.$emit('activated', e.detail)
+    },
+    updateSlot () {
+      let result = false
+      this.$slots.default.forEach(v => {
+        if (v.elm instanceof Element && v.elm.querySelector('.mdc-tab-scroller') != null) result = true
+      })
+      this.hasScroller = result
+    },
+    reInstantiate () {
+      this.mdcTabBar.destroy()
+      this.mdcTabBar = undefined
+
+      this.mdcTabBar = MDCTabBar.attachTo(this.$el)
+      this.mdcTabBar.focusOnActivate = this.focusOnActivate
+      this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
     }
   }
 }

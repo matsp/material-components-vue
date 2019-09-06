@@ -28,6 +28,10 @@ export default {
     active: {
       type: Boolean,
       default: false
+    },
+    iconClass: {
+      type: String,
+      default: 'material-icons'
     }
   },
   data () {
@@ -37,11 +41,15 @@ export default {
   },
   computed: {
     contentClasses () {
-      return {
-        'mdc-tab-indicator__content--underline': this.icon === '',
-        'mdc-tab-indicator__content--icon': this.icon !== '',
-        'material-icons': this.icon !== ''
+      const isUnderline = this.icon === '' && this.iconClass === 'material-icons'
+      const result = {
+        'mdc-tab-indicator__content--underline': isUnderline,
+        'mdc-tab-indicator__content--icon': !isUnderline
       }
+      this.iconClass.split(' ').filter(c => c.length > 0).forEach(c => {
+        result[c] = true
+      })
+      return result
     },
     classes () {
       return {
@@ -50,8 +58,8 @@ export default {
     }
   },
   watch: {
-    active () {
-      if (this.active) {
+    active (val) {
+      if (val) {
         this.mdcTabIndicator.activate()
       } else {
         this.mdcTabIndicator.deactivate()
@@ -67,7 +75,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.mdcTabIndicator.destroy()
+    if (this.mdcTabIndicator) this.mdcTabIndicator.destroy()
   }
 }
 </script>
