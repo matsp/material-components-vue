@@ -3,8 +3,8 @@
     v-if="href.length === 0"
     :class="classes"
     class="mdc-tab"
-    tabindex="-1"
-    aria-selected="false"
+    :tabindex="active ? 0 : -1"
+    :aria-selected="active"
     role="tab"
     @MDCTab:interacted="onInteracted"
   >
@@ -14,7 +14,7 @@
         <slot />
       </span>
       <span
-        v-if="spanningOnlyContent && !$slots.indicator"
+        v-if="spanningOnlyContent && !hasIndicator"
         :class="indicatorClasses"
         class="mdc-tab-indicator"
       >
@@ -29,7 +29,7 @@
       />
     </span>
     <span
-      v-if="!spanningOnlyContent && !$slots.indicator"
+      v-if="!spanningOnlyContent && !hasIndicator"
       :class="indicatorClasses"
       class="mdc-tab-indicator"
     >
@@ -60,7 +60,7 @@
         <slot />
       </span>
       <span
-        v-if="spanningOnlyContent && !$slots.indicator"
+        v-if="spanningOnlyContent && !hasIndicator"
         :class="indicatorClasses"
         class="mdc-tab-indicator"
       >
@@ -75,7 +75,7 @@
       />
     </span>
     <span
-      v-if="!spanningOnlyContent && !$slots.indicator"
+      v-if="!spanningOnlyContent && !hasIndicator"
       :class="indicatorClasses"
       class="mdc-tab-indicator"
     >
@@ -155,25 +155,35 @@ export default {
   computed: {
     classes () {
       return {
+        'mdc-tab--active': this.active,
         'mdc-tab--stacked': this.stacked,
         'mdc-tab--min-width': this.minWidth
       }
     },
     indicatorClasses () {
       return {
+        'mdc-tab-indicator--active': this.active,
         'mdc-tab-indicator--fade': this.fade
       }
     },
     indicatorContentClasses () {
-      const isUnderline = this.indicatorIcon === '' && this.indicatorIconClass === 'material-icons'
+      const isUnderline =
+          this.indicatorIcon === '' &&
+          this.indicatorIconClass === 'material-icons'
       const result = {
         'mdc-tab-indicator__content--underline': isUnderline,
         'mdc-tab-indicator__content--icon': !isUnderline
       }
-      this.indicatorIconClass.split(' ').filter(c => c.length > 0).forEach(c => {
-        result[c] = true
-      })
+      this.indicatorIconClass
+        .split(' ')
+        .filter(c => c.length > 0)
+        .forEach(c => {
+          result[c] = true
+        })
       return result
+    },
+    hasIndicator () {
+      return Boolean(this.$slots.indicator)
     },
     model: {
       get () {
@@ -197,6 +207,12 @@ export default {
       } else {
         this.mdcTab.deactivate()
       }
+    },
+    hasIndicator () {
+      this.reInstantiate()
+    },
+    spanningOnlyContent () {
+      this.reInstantiate()
     }
   },
   mounted () {
@@ -214,13 +230,9 @@ export default {
 
     // todo: tab bar also instantiates it, which may results in instantiating twice
     this.mdcTab = MDCTab.attachTo(this.$el)
-    this.mdcTab.focusOnActivate = this.focusOnActivate
     if (this.id.length > 0) this.mdcTab.id = this.id
-    if (this.active) {
-      this.mdcTabIndicator.activate()
-    } else {
-      this.mdcTabIndicator.deactivate()
-    }
+
+    this.mdcTab.focusOnActivate = this.focusOnActivate
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -230,23 +242,31 @@ export default {
   methods: {
     updateSlot () {
       if (this.$slots.icon) {
-        this.$slots.icon.map(n => {
-          if (n.elm) n.elm.classList.add('mdc-tab__icon')
+        this.$slots.icon.forEach(n => {
+          if (n.elm instanceof Element) n.elm.classList.add('mdc-tab__icon')
         })
       }
     },
     /**
-     * use for v-model
-     */
+       * use for v-model
+       */
     updateActive () {
       if (this.$el.classList.contains('mdc-tab--active') && !this.active) {
         this.$emit('change', true)
-      } else if (this.active && !this.$el.classList.contains('mdc-tab--active')) {
+      } else if (
+        this.active &&
+          !this.$el.classList.contains('mdc-tab--active')
+      ) {
         this.$emit('change', false)
       }
     },
     onInteracted (e) {
       this.$emit('interacted', e.detail)
+    },
+    reInstantiate () {
+      this.mdcTab.destroy()
+      this.mdcTab = undefined
+      this.mdcTab = MDCTab.attachTo(this.$el)
     }
   }
 }

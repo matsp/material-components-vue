@@ -93,10 +93,6 @@ export default {
         childList: true,
         subtree: true
       })
-
-      this.mdcTabBar = MDCTabBar.attachTo(this.$el)
-      this.mdcTabBar.focusOnActivate = this.focusOnActivate
-      this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
     })
   },
   beforeDestroy () {
@@ -116,12 +112,17 @@ export default {
       this.hasScroller = result
     },
     reInstantiate () {
-      this.mdcTabBar.destroy()
-      this.mdcTabBar = undefined
+      if (this.mdcTabBar != null) {
+        this.mdcTabBar.destroy()
+        this.mdcTabBar = undefined
+      }
 
-      this.mdcTabBar = MDCTabBar.attachTo(this.$el)
-      this.mdcTabBar.focusOnActivate = this.focusOnActivate
-      this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
+      // use nextTick to wait for the scroller being created and mounted in the DOM tree
+      this.$nextTick(() => {
+        this.mdcTabBar = MDCTabBar.attachTo(this.$el)
+        this.mdcTabBar.focusOnActivate = this.focusOnActivate
+        this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
+      })
     }
   }
 }
