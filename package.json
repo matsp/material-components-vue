@@ -79,7 +79,7 @@
     "standard-version": "7.0.0",
     "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "2.1.0",
-    "vue-jest": "3.0.4",
+    "vue-jest": "3.0.5",
     "vue-loader": "15.7.1",
     "vuepress": "1.0.4",
     "webpack": "4.39.3",
