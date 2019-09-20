@@ -11,7 +11,7 @@
 ```javascript
 data() {
     return {
-        switchValue: null
+        switchValue: false
     }
 }
 ```
@@ -20,9 +20,10 @@ data() {
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| checked | Boolean | - | false | switch state |
+| checked | Boolean | - | false | switch state, can be `v-model` |
 | disabled | Boolean | - | false | whether the switch should be disabled |
 
+Non prop attributes are mapped to the inner input element.
 
 ### Reference
 
