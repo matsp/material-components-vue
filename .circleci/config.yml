@@ -37,10 +37,10 @@ jobs:
       - run:
           name: Install and configure dependencies
           command: |
-            sudo npm install -g gh-pages
+            sudo npm install gh-pages
             git config user.email "ci-build@circleci.com"
             git config user.name "ci-build"
-      - run: gh-pages --dist docs/.vuepress/dist
+      - run: sudo gh-pages --dist docs/.vuepress/dist
 workflows:
   version: 2
   test_build_docs:
