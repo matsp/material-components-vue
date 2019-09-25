@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0-alpha.0](https://github.com/matsp/material-components-vue/compare/v1.1.0...v1.2.0-alpha.0) (2019-09-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **fab:** `extended` prop no longer in use
+* **fab:** label and icon become separated component
+* **fab:** icon slots no longer in use
+
+fix the bug that can not implement an extended FAB with Text label followed by icon
+
+make ripple optional
+
+add snapshots and update docs
+
+* doc(fab): update demos
+
+### Bug Fixes
+
+* **button:** fix bug similar to [#377](https://github.com/matsp/material-components-vue/issues/377) ([#382](https://github.com/matsp/material-components-vue/issues/382)) ([24d6a26](https://github.com/matsp/material-components-vue/commit/24d6a26))
+* **card:** fix similar bug [#377](https://github.com/matsp/material-components-vue/issues/377) ([#383](https://github.com/matsp/material-components-vue/issues/383)) ([257952b](https://github.com/matsp/material-components-vue/commit/257952b))
+* **deps:** update dependency material-components-web to v3 ([#310](https://github.com/matsp/material-components-vue/issues/310)) ([8bf719c](https://github.com/matsp/material-components-vue/commit/8bf719c))
+* **deps:** update dependency material-components-web to v3.1.0 ([#356](https://github.com/matsp/material-components-vue/issues/356)) ([328c0a6](https://github.com/matsp/material-components-vue/commit/328c0a6))
+* **deps:** update dependency material-components-web to v3.1.1 ([#390](https://github.com/matsp/material-components-vue/issues/390)) ([78c5583](https://github.com/matsp/material-components-vue/commit/78c5583))
+* **deps:** update dependency material-components-web to v3.2.0 ([#430](https://github.com/matsp/material-components-vue/issues/430)) ([ed24163](https://github.com/matsp/material-components-vue/commit/ed24163))
+* **dialog:** close via v-model ([#380](https://github.com/matsp/material-components-vue/issues/380)) ([13895fc](https://github.com/matsp/material-components-vue/commit/13895fc)), closes [#376](https://github.com/matsp/material-components-vue/issues/376)
+* **menu:** missing import 'mutationobserver-shim' in test ([#399](https://github.com/matsp/material-components-vue/issues/399)) ([e3b5b81](https://github.com/matsp/material-components-vue/commit/e3b5b81))
+* **radio:** v-model doesn't work correctly ([#412](https://github.com/matsp/material-components-vue/issues/412)) ([ed4bb75](https://github.com/matsp/material-components-vue/commit/ed4bb75))
+* **ripple:** wrong implementation ([#368](https://github.com/matsp/material-components-vue/issues/368)) ([df0d8a5](https://github.com/matsp/material-components-vue/commit/df0d8a5))
+
+
+### Features
+
+* **menu:** update to mdc-web v3.1.0 ([#388](https://github.com/matsp/material-components-vue/issues/388)) ([8e6734e](https://github.com/matsp/material-components-vue/commit/8e6734e))
+* add directive `v-ripple` ([#340](https://github.com/matsp/material-components-vue/issues/340)) ([d5d873e](https://github.com/matsp/material-components-vue/commit/d5d873e)), closes [#267](https://github.com/matsp/material-components-vue/issues/267)
+* **card:** update card ([#369](https://github.com/matsp/material-components-vue/issues/369)) ([842a4c3](https://github.com/matsp/material-components-vue/commit/842a4c3))
+* **drawer:** make header slot to be the content inside `<div class="… ([#400](https://github.com/matsp/material-components-vue/issues/400)) ([f8832dd](https://github.com/matsp/material-components-vue/commit/f8832dd))
+* **drawer:** update to mdc-web v3.1.0 ([#381](https://github.com/matsp/material-components-vue/issues/381)) ([3055acd](https://github.com/matsp/material-components-vue/commit/3055acd)), closes [#377](https://github.com/matsp/material-components-vue/issues/377)
+* **elevation:** add custom directive `v-elevation` ([#416](https://github.com/matsp/material-components-vue/issues/416)) ([60ee206](https://github.com/matsp/material-components-vue/commit/60ee206))
+* **fab:** add trailingIcon slot ([#411](https://github.com/matsp/material-components-vue/issues/411)) ([ea2697b](https://github.com/matsp/material-components-vue/commit/ea2697b))
+* update button to mdc-web v3.1.0 ([#365](https://github.com/matsp/material-components-vue/issues/365)) ([851f5c4](https://github.com/matsp/material-components-vue/commit/851f5c4))
+* update dialog ([#361](https://github.com/matsp/material-components-vue/issues/361)) ([aa16de9](https://github.com/matsp/material-components-vue/commit/aa16de9)), closes [#360](https://github.com/matsp/material-components-vue/issues/360)
+* update v-ripple directive ([#364](https://github.com/matsp/material-components-vue/issues/364)) ([e853751](https://github.com/matsp/material-components-vue/commit/e853751))
+* **fab:** reimplementing FAB ([#403](https://github.com/matsp/material-components-vue/issues/403)) ([3615615](https://github.com/matsp/material-components-vue/commit/3615615))
+* **list:** update to mdc-web v3.1.1 ([#397](https://github.com/matsp/material-components-vue/issues/397)) ([c24f7c8](https://github.com/matsp/material-components-vue/commit/c24f7c8))
+* **radio:** allowing no js instantiation ([#398](https://github.com/matsp/material-components-vue/issues/398)) ([8de3032](https://github.com/matsp/material-components-vue/commit/8de3032))
+* **switch:** bind all attributes to inner input ([#426](https://github.com/matsp/material-components-vue/issues/426)) ([3f649a7](https://github.com/matsp/material-components-vue/commit/3f649a7))
+
 ## [1.1.0](https://github.com/matsp/material-components-vue/compare/v1.0.2...v1.1.0) (2019-07-01)
 
 
