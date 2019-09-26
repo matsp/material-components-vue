@@ -1,5 +1,7 @@
 <template>
-  <button
+  <component
+    :is="href ? 'a' : 'button'"
+    :href="href"
     :aria-selected="active"
     :class="classes"
     :tabindex="tabindex"
@@ -28,7 +30,7 @@
       <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
     </span>
     <span class="mdc-tab__ripple" />
-  </button>
+  </component>
 </template>
 
 <script>
@@ -43,6 +45,7 @@ export default {
     event: 'change'
   },
   props: {
+    href: String,
     active: {
       type: Boolean,
       default: false
