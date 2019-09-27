@@ -40,9 +40,12 @@
 | Prop | Type | Default |Description |
 |------|------|---------|------------|
 | active | Boolean | false | whether the tab should be marked as active |
+| href | String |  | whether the tab should be a hyperlink and should use anchor tag instead of a button |
 | label | Boolean | true | whether the label in the default slot should be visible |
 
 Non prop events are mapped to the inner button element.
+
+> _NOTE_: In case of using anchor tag for tab (`<m-tab href="some/url">`) it is required to switch off automatic activation in parent component (`<m-tab-bar :useAutomaticActivation="false">`).
 
 ### Slots
 
