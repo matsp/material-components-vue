@@ -33,7 +33,7 @@
           v-model="active[2]"
         >
           <m-icon icon="favorite" slot="icon" />Favorite
-          <m-tab-indicator slot="indicator" icon="favorite"></m-tab-indicator>
+          <m-tab-indicator slot="indicator" :fade="checkboxProps[5].value" icon="favorite"></m-tab-indicator>
         </m-tab>
       </m-tab-bar>
     </ComponentSection>
