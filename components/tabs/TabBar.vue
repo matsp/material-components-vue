@@ -26,6 +26,13 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  provide () {
+    return {
+      getTabScroller: this.getTabScroller,
+      getTabInstance: this.getTabInstance,
+      replaceTabInstance: this.replaceTabInstance
+    }
+  },
   props: {
     focusOnActivate: {
       type: Boolean,
@@ -37,7 +44,10 @@ export default {
     },
     activateTab: {
       type: Number,
-      default: 0
+      default: 0,
+      validator: function (value) {
+        return value >= 0
+      }
     },
     scrollIntoView: {
       type: Number,
@@ -55,7 +65,7 @@ export default {
     return {
       mdcTabBar: undefined,
       slotObserver: undefined,
-      hasScroller: true
+      hasScroller: this.$slots.default[0].componentOptions.tag === 'm-tab-scroller' // todo: error prone here. If no default slots provided, user will see a error in console which is hard to understand. And it disallows user to user a <div class='mdc-tab-scroller'> in default slot.
     }
   },
   computed: {
@@ -86,13 +96,13 @@ export default {
     }
   },
   mounted () {
-    this.$nextTick(function () {
-      this.updateSlot()
-      this.slotObserver = new MutationObserver(() => this.updateSlot())
-      this.slotObserver.observe(this.$el, {
-        childList: true,
-        subtree: true
-      })
+    this.updateSlot()
+    this.mdcTabBar = MDCTabBar.attachTo(this.$el)
+
+    this.slotObserver = new MutationObserver(() => this.updateSlot())
+    this.slotObserver.observe(this.$el, {
+      childList: true,
+      subtree: true
     })
   },
   beforeDestroy () {
@@ -105,11 +115,9 @@ export default {
       this.$emit('activated', e.detail)
     },
     updateSlot () {
-      let result = false
-      this.$slots.default.forEach(v => {
-        if (v.elm instanceof Element && v.elm.querySelector('.mdc-tab-scroller') != null) result = true
+      this.hasScroller = this.$slots.default.some(v => {
+        return v.elm instanceof Element && v.elm.classList.contains('mdc-tab-scroller')
       })
-      this.hasScroller = result
     },
     reInstantiate () {
       if (this.mdcTabBar != null) {
@@ -123,6 +131,28 @@ export default {
         this.mdcTabBar.focusOnActivate = this.focusOnActivate
         this.mdcTabBar.useAutomaticActivation = this.useAutomaticActivation
       })
+    },
+    /**
+     * get corresponding mdc-tab instance
+     * @param el the tab element
+     * @returns {*[MDCTab, number]} the corresponding mdc-tab and its index in the tab list
+     */
+    getTabInstance (el) {
+      for (let i = 0; i < this.mdcTabBar.tabList_.length; i++) {
+        const currentTabInstance = this.mdcTabBar.tabList_[i]
+        if (currentTabInstance.root_ === el) return [currentTabInstance, i]
+      }
+    },
+    getTabScroller () {
+      return this.mdcTabBar.tabScroller_
+    },
+    /**
+     * replace the specific tab instance in the tab list with a new instance
+     * @param instance the new instance to replace
+     * @param index the index of the instance to be replaced in the tab list
+     */
+    replaceTabInstance (instance, index) {
+      this.mdcTabBar.tabList_[index] = instance
     }
   }
 }

@@ -17,6 +17,7 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getTabScroller'],
   props: {
     align: {
       type: String,
@@ -42,7 +43,13 @@ export default {
     }
   },
   mounted () {
-    this.mdcTabScroller = MDCTabScroller.attachTo(this.$el)
+    if (this.getTabScroller instanceof Function) {
+      this.$nextTick(() => {
+        this.mdcTabScroller = this.getTabScroller()
+      })
+    } else {
+      this.mdcTabScroller = MDCTabScroller.attachTo(this.$el)
+    }
   },
   beforeDestroy () {
     if (this.mdcTabScroller) this.mdcTabScroller.destroy()

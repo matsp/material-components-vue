@@ -99,6 +99,12 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  provide () {
+    return {
+      getIndicator: this.getIndicator
+    }
+  },
+  inject: ['getTabInstance', 'replaceTabInstance'],
   model: {
     prop: 'active',
     event: 'change'
@@ -149,7 +155,9 @@ export default {
     return {
       mdcTab: undefined,
       slotObserver: undefined,
-      classObserver: undefined
+      classObserver: undefined,
+      hasIndicator: Boolean(this.$slots.indicator),
+      index: -1
     }
   },
   computed: {
@@ -174,6 +182,7 @@ export default {
         'mdc-tab-indicator__content--underline': isUnderline,
         'mdc-tab-indicator__content--icon': !isUnderline
       }
+      if (isUnderline) return result
       this.indicatorIconClass
         .split(' ')
         .filter(c => c.length > 0)
@@ -181,9 +190,6 @@ export default {
           result[c] = true
         })
       return result
-    },
-    hasIndicator () {
-      return Boolean(this.$slots.indicator)
     },
     model: {
       get () {
@@ -227,46 +233,64 @@ export default {
     this.classObserver.observe(this.$el, {
       attributes: true
     })
-
-    // todo: tab bar also instantiates it, which may results in instantiating twice
-    this.mdcTab = MDCTab.attachTo(this.$el)
-    if (this.id.length > 0) this.mdcTab.id = this.id
-
-    this.mdcTab.focusOnActivate = this.focusOnActivate
+    if (this.getTabInstance instanceof Function) { // within <m-tab-bar>
+      this.$nextTick(() => {
+        [this.mdcTab, this.index] = this.getTabInstance(this.$el)
+        this.assignProperties()
+        this.updateSlot()
+      })
+    } else { // standalone tab
+      this.mdcTab = MDCTab.attachTo(this.$el)
+    }
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
     this.classObserver.disconnect()
-    this.mdcTab.destroy()
+    if (this.mdcTab instanceof MDCTab) {
+      this.mdcTab.destroy()
+    }
   },
   methods: {
     updateSlot () {
       if (this.$slots.icon) {
-        this.$slots.icon.forEach(n => {
+        this.$slots.icon.map(n => {
           if (n.elm instanceof Element) n.elm.classList.add('mdc-tab__icon')
         })
       }
+      this.hasIndicator = Boolean(this.$slots.indicator)
     },
     /**
        * use for v-model
        */
     updateActive () {
       if (this.$el.classList.contains('mdc-tab--active') && !this.active) {
-        this.$emit('change', true)
+        this.model = true
       } else if (
         this.active &&
           !this.$el.classList.contains('mdc-tab--active')
       ) {
-        this.$emit('change', false)
+        this.model = false
       }
     },
     onInteracted (e) {
       this.$emit('interacted', e.detail)
     },
     reInstantiate () {
-      this.mdcTab.destroy()
-      this.mdcTab = undefined
-      this.mdcTab = MDCTab.attachTo(this.$el)
+      if (this.mdcTab instanceof MDCTab) this.mdcTab.destroy()
+      this.$nextTick(() => {
+        this.updateSlot()
+        this.mdcTab = MDCTab.attachTo(this.$el)
+        if (this.index !== -1) { // within <m-tab-bar>
+          this.replaceTabInstance(this.mdcTab, this.index)
+        }
+      })
+    },
+    assignProperties () {
+      if (this.id.length > 0) this.mdcTab.id = this.id
+      this.mdcTab.focusOnActivate = this.focusOnActivate
+    },
+    getIndicator () {
+      return this.mdcTab.tabIndicator_
     }
   }
 }

@@ -16,6 +16,7 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getIndicator'],
   props: {
     fade: {
       type: Boolean,
@@ -53,12 +54,14 @@ export default {
     },
     classes () {
       return {
-        'mdc-tab-indicator--fade': this.fade
+        'mdc-tab-indicator--fade': this.fade,
+        'mdc-tab-indicator--active': this.active
       }
     }
   },
   watch: {
     active (val) {
+      if (this.mdcTabIndicator == null) this.mdcTabIndicator = this.getIndicator()
       if (val) {
         this.mdcTabIndicator.activate()
       } else {
@@ -67,12 +70,10 @@ export default {
     }
   },
   mounted () {
-    this.mdcTabIndicator = MDCTabIndicator.attachTo(this.$el)
-    if (this.active) {
-      this.mdcTabIndicator.activate()
-    } else {
-      this.mdcTabIndicator.deactivate()
+    if (!(this.getIndicator instanceof Function)) { // standalone
+      this.mdcTabIndicator = MDCTabIndicator.attachTo(this.$el)
     }
+    // todo: get instance from parent <m-tab> when mounted
   },
   beforeDestroy () {
     if (this.mdcTabIndicator) this.mdcTabIndicator.destroy()
