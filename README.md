@@ -23,7 +23,7 @@ https://matsp.github.io/material-components-vue
 
 ## Development
 
-This project is under active developement but I could need any help you can provide. Due a huge workload in my daily job I'am struggling with upgrading to the newest versions
+This project is under active developement but I need any help you can provide. Due to a huge workload in my daily job I'am struggling with upgrading to the newest versions
 of the upstream project: mdc-web.
 
 ## Links
