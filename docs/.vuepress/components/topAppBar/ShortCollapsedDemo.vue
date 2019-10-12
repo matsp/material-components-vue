@@ -1,8 +1,8 @@
 <template>
     <div>
         <m-top-app-bar collapsed short title="Short">
-            <m-icon icon="menu" slot="navigation"/>
-            <m-icon icon="file_download" slot="actions"/>
+            <m-icon-button icon="menu" slot="navigation"/>
+            <m-icon-button icon="file_download" slot="actions"/>
         </m-top-app-bar>
         <m-top-app-bar-fixed-adjust short>
             <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,

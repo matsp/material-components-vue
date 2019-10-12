@@ -25,6 +25,10 @@ export default {
     denseProminent: {
       type: Boolean,
       default: false
+    },
+    tag: {
+      type: String,
+      default: 'div'
     }
   },
   computed: {
