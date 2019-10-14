@@ -16,6 +16,7 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getIndicator'],
   props: {
     fade: {
       type: Boolean,
@@ -28,6 +29,10 @@ export default {
     active: {
       type: Boolean,
       default: false
+    },
+    iconClass: {
+      type: String,
+      default: 'material-icons'
     }
   },
   data () {
@@ -37,21 +42,27 @@ export default {
   },
   computed: {
     contentClasses () {
-      return {
-        'mdc-tab-indicator__content--underline': this.icon === '',
-        'mdc-tab-indicator__content--icon': this.icon !== '',
-        'material-icons': this.icon !== ''
+      const isUnderline = this.icon === '' && this.iconClass === 'material-icons'
+      const result = {
+        'mdc-tab-indicator__content--underline': isUnderline,
+        'mdc-tab-indicator__content--icon': !isUnderline
       }
+      this.iconClass.split(' ').filter(c => c.length > 0).forEach(c => {
+        result[c] = true
+      })
+      return result
     },
     classes () {
       return {
-        'mdc-tab-indicator--fade': this.fade
+        'mdc-tab-indicator--fade': this.fade,
+        'mdc-tab-indicator--active': this.active
       }
     }
   },
   watch: {
-    active () {
-      if (this.active) {
+    active (val) {
+      if (this.mdcTabIndicator == null) this.mdcTabIndicator = this.getIndicator()
+      if (val) {
         this.mdcTabIndicator.activate()
       } else {
         this.mdcTabIndicator.deactivate()
@@ -59,15 +70,13 @@ export default {
     }
   },
   mounted () {
-    this.mdcTabIndicator = MDCTabIndicator.attachTo(this.$el)
-    if (this.active) {
-      this.mdcTabIndicator.activate()
-    } else {
-      this.mdcTabIndicator.deactivate()
+    if (!(this.getIndicator instanceof Function)) { // standalone
+      this.mdcTabIndicator = MDCTabIndicator.attachTo(this.$el)
     }
+    // todo: get instance from parent <m-tab> when mounted
   },
   beforeDestroy () {
-    this.mdcTabIndicator.destroy()
+    if (this.mdcTabIndicator) this.mdcTabIndicator.destroy()
   }
 }
 </script>
