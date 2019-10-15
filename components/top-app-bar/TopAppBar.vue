@@ -64,8 +64,8 @@ export default {
       default: ''
     },
     scrollTarget: {
-      type: Element,
-      default: window
+      type: EventTarget,
+      default: () => window
     }
   },
   data () {
@@ -77,7 +77,7 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-top-app-bar--short': this.short,
+        'mdc-top-app-bar--short': this.short && !this.collapsed,
         'mdc-top-app-bar--short-collapsed': this.collapsed && this.short,
         'mdc-top-app-bar--prominent': this.prominent && !this.short,
         'mdc-top-app-bar--dense': this.dense && !this.short,

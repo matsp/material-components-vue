@@ -32,6 +32,7 @@ in the navigation slot!
 | dense | Boolean | false | dense app bar style (could not be short too) |
 | fixed | Boolean | false | style the top app bar as a fixed top app bar. |
 | title | String | '' | title of the top app bar |
+| scrollTarget | EventTarget | *window* |  Sets scroll target to different DOM node. |
 
 ### Events
 
@@ -67,6 +68,7 @@ in the navigation slot!
 | dense | Boolean | false | content adjustment for dense top-app-bar |
 | prominent | Boolean | false | content adjustment for prominent top-app-bar |
 | denseProminent | Boolean | false | content adjustment for dense and prominent top-app-bar |
+| tag | String | 'div' | html tag to be rendered |
 
 ### Slots
 
