@@ -65,7 +65,7 @@ export default {
     },
     scrollTarget: {
       type: Object,
-      default: () => window,
+      default: () => undefined,
       validator: val => val instanceof EventTarget
     }
   },
@@ -102,7 +102,7 @@ export default {
     })
 
     this.mdcTopAppBar = MDCTopAppBar.attachTo(this.$el)
-    if (this.scrollTarget !== window) this.mdcTopAppBar.setScrollTarget(this.scrollTarget)
+    if (this.scrollTarget && this.scrollTarget !== window) this.mdcTopAppBar.setScrollTarget(this.scrollTarget)
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
