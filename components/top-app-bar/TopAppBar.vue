@@ -64,8 +64,9 @@ export default {
       default: ''
     },
     scrollTarget: {
-      type: EventTarget,
-      default: () => window
+      type: Object,
+      default: () => window,
+      validator: val => val instanceof EventTarget
     }
   },
   data () {

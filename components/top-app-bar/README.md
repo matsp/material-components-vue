@@ -67,7 +67,6 @@ in the navigation slot!
 | short | Boolean | false | content adjustment for short top-app-bar |
 | dense | Boolean | false | content adjustment for dense top-app-bar |
 | prominent | Boolean | false | content adjustment for prominent top-app-bar |
-| denseProminent | Boolean | false | content adjustment for dense and prominent top-app-bar |
 | tag | String | 'div' | html tag to be rendered |
 
 ### Slots
