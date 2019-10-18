@@ -26,14 +26,14 @@
     >
       <div class="mdc-notched-outline__leading" />
       <div
-        v-if="$slots['default']"
+        v-if="$slots.default"
         class="mdc-notched-outline__notch"
       >
         <slot />
       </div>
       <div class="mdc-notched-outline__trailing" />
     </div>
-    <slot v-if="$slots['default'] && !fullWidth && !textarea && !outlined" />
+    <slot v-if="$slots.default && !fullWidth && !textarea && !outlined" />
     <slot name="trailingIcon" />
     <slot
       v-if="!outlined"
@@ -112,7 +112,7 @@ export default {
         'mdc-text-field--dense': this.dense,
         'mdc-text-field--focused': this.focused,
         'mdc-text-field--textarea': this.textarea,
-        'mdc-text-field--no-label': !this.$slots['default'] && !this.fullWidth
+        'mdc-text-field--no-label': !this.$slots.default && !this.fullWidth
       }
     }
   },
@@ -135,6 +135,10 @@ export default {
     this.mdcTextField.useNativeValidation = this.useNativeValidation
     this.mdcTextField.valid = this.valid
     this.mdcTextField.disabled = this.disabled
+    console.log('text field mounted')
+    this.$nextTick(() => {
+      this.$emit('initialized', this.mdcTextField)
+    })
   },
   beforeDestroy () {
     this.mdcTextField.destroy()

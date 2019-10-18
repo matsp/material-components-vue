@@ -1,12 +1,13 @@
 <template>
   <i
     class="mdc-text-field__icon"
+    :class="classes"
     v-bind="attrs"
     v-on="$listeners"
     tabindex="0"
     role="button"
   >
-    <slot />
+    <slot>{{icon}}</slot>
   </i>
 </template>
 
@@ -19,6 +20,17 @@ export default {
     clickable: {
       type: Boolean,
       default: true
+    },
+    icon: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    classes () {
+      return {
+        'material-icons': this.icon.length > 0
+      }
     }
   },
   data () {
@@ -46,7 +58,7 @@ export default {
     this.mdcTextFieldIcon = MDCTextFieldIcon.attachTo(this.$el)
   },
   beforeDestroy () {
-    this.mdcTextFieldIcon.destroyed()
+    this.mdcTextFieldIcon.destroy()
   }
 }
 </script>

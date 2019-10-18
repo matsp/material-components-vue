@@ -1,7 +1,6 @@
 <template>
   <div class="mdc-text-field-helper-line">
     <div
-      aria-hidden="true"
       class="mdc-text-field-helper-text"
       v-bind="$attrs"
     >

@@ -40,10 +40,10 @@ export default {
     }
   },
   mounted () {
-    let input = this.$el.parentElement.previousElementSibling.querySelector('.mdc-text-field__input')
-    if (input) {
-      this.ml = input.getAttribute('maxlength')
-      this.cl = input.value.length
+    const input = this.$el.parentElement.previousElementSibling.querySelector('.mdc-text-field__input')
+    if (input instanceof HTMLInputElement) {
+      if (this.currentLength === 0) this.cl = input.value.length
+      if (this.maxLength === 0) this.ml = input.getAttribute('maxlength')
     }
     this.mdcTextFieldCharacterCounter = MDCTextFieldCharacterCounter.attachTo(this.$el)
     this.mdcTextFieldCharacterCounter.foundation.setCounterValue(this.cl, this.ml)
