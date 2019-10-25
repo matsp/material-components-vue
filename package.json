@@ -73,7 +73,7 @@
     "node-sass": "4.13.0",
     "normalize.css": "8.0.1",
     "optimize-css-assets-webpack-plugin": "5.0.3",
-    "postcss": "7.0.18",
+    "postcss": "7.0.20",
     "postcss-loader": "3.0.0",
     "sass-loader": "8.0.0",
     "standard-version": "7.0.0",
