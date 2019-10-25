@@ -11,11 +11,12 @@
       >
         <slot name="navigation" />
         <span
-          v-if="title"
+          v-if="title.length > 0"
           class="mdc-top-app-bar__title"
         >
           {{ title }}
         </span>
+        <slot name="start" />
       </section>
       <slot />
       <section
@@ -23,6 +24,7 @@
         class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
         role="toolbar"
       >
+        <slot name="end" />
         <slot name="actions" />
       </section>
     </div>
@@ -62,8 +64,9 @@ export default {
       default: ''
     },
     scrollTarget: {
-      type: String,
-      default: ''
+      type: Object,
+      default: () => undefined,
+      validator: val => val instanceof EventTarget
     }
   },
   data () {
@@ -75,7 +78,7 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-top-app-bar--short': this.short,
+        'mdc-top-app-bar--short': this.short && !this.collapsed,
         'mdc-top-app-bar--short-collapsed': this.collapsed && this.short,
         'mdc-top-app-bar--prominent': this.prominent && !this.short,
         'mdc-top-app-bar--dense': this.dense && !this.short,
@@ -84,9 +87,9 @@ export default {
     }
   },
   watch: {
-    scrollTarget () {
-      if (this.mdcTopAppBar && this.scrollTarget) {
-        this.mdcTopAppBar.setScrollTarget(document.getElementById(this.scrollTarget))
+    scrollTarget (el) {
+      if (this.mdcTopAppBar && el) {
+        this.mdcTopAppBar.setScrollTarget(el)
       }
     }
   },
@@ -99,7 +102,7 @@ export default {
     })
 
     this.mdcTopAppBar = MDCTopAppBar.attachTo(this.$el)
-    if (this.scrollTarget) this.mdcTopAppBar.setScrollTarget(document.getElementById(this.scrollTarget))
+    if (this.scrollTarget && this.scrollTarget !== window) this.mdcTopAppBar.setScrollTarget(this.scrollTarget)
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -108,13 +111,13 @@ export default {
   methods: {
     updateSlots () {
       if (this.$slots.navigation) {
-        this.$slots.navigation.map(n => {
-          n.elm.classList.add('mdc-top-app-bar__navigation-icon')
+        this.$slots.navigation.forEach(n => {
+          if (n.elm instanceof Element) n.elm.classList.add('mdc-top-app-bar__navigation-icon')
         })
       }
       if (this.$slots.actions) {
         this.$slots.actions.forEach(n => {
-          if (n.tag) { n.elm.classList.add('mdc-top-app-bar__action-item') }
+          if (n.elm instanceof Element) { n.elm.classList.add('mdc-top-app-bar__action-item') }
         })
       }
     },

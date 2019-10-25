@@ -1,4 +1,6 @@
-## TopAppBar
+## Top App Bar
+
+Top App Bar acts as a container for items such as application title, navigation icon, and action items.
 
 Actually the mdc-web component enforces users to set a navigation icon, so be sure to set an icon
 in the navigation slot!
@@ -7,17 +9,20 @@ in the navigation slot!
 
 ```html
 <m-top-app-bar>
-  <m-icon
+  <m-icon-button
     icon="menu"
-    slot="navigation"/>
-  <span>Title</span>
-  <m-icon
-    icon="file_download"
-    slot="actions"/>
+    slot="navigation"
+    title="Title"
+  />
+  <template slot="actions">
+    <m-icon-button icon="file_download"/>
+    <m-icon-button icon="print"/>
+    <m-icon-button icon="bookmark"/>
+  </template>
 </m-top-app-bar>
 ```
 
-### Props & events
+### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -25,18 +30,25 @@ in the navigation slot!
 | short | Boolean | false | short bar |
 | prominent | Boolean | false | prominent app bar style (could not be short too) |
 | dense | Boolean | false | dense app bar style (could not be short too) |
+| fixed | Boolean | false | style the top app bar as a fixed top app bar. |
+| title | String | '' | title of the top app bar |
+| scrollTarget | EventTarget | *window* |  Sets scroll target to different DOM node. |
 
-| Event | Description |
-|------|------|
-| onNavigation | will be dispatched when navigation item is clicked |
+### Events
+
+| Event | Payload | Description |
+|-------|---------|-------------|
+| nav | undefined | Emits when the navigation icon is clicked. |
 
 ### Slots
 
 | Slot | Description |
 |------|-------------|
-| default | top app bar title |
-| navigation | navigation section icons |
-| actions | actions section icons |
+| default | content between the start and the end session |
+| start | content in the start session except for title and navigation button |
+| end | content in the end session except for icon button actions |
+| navigation | navigation section icon buttons |
+| actions | actions section icons buttons |
 
 ## TopAppBarFixedAdjust
 
@@ -55,7 +67,7 @@ in the navigation slot!
 | short | Boolean | false | content adjustment for short top-app-bar |
 | dense | Boolean | false | content adjustment for dense top-app-bar |
 | prominent | Boolean | false | content adjustment for prominent top-app-bar |
-| denseProminent | Boolean | false | content adjustment for dense and prominent top-app-bar |
+| tag | String | 'div' | html tag to be rendered |
 
 ### Slots
 
