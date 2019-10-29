@@ -1,25 +1,25 @@
-## ImageList
+## Image List
 
 ### Markup
 
 ```html
   <m-image-list
-    :standardColumn="2"
-    textProtection>
+    :column="2"
+    text-protection>
     <m-image-list-item>
-      <img slot="image" src="../assets/images/cat.jpg">
+      <img slot="image" src="../assets/images/cat.jpg" alt="Cat">
       Cat
     </m-image-list-item>
     <m-image-list-item> 
-      <img slot="image" src="../assets/images/cat.jpg">
+      <img slot="image" src="../assets/images/cat.jpg" alt="Cat">
       Cat
     </m-image-list-item>
     <m-image-list-item>
-      <img slot="image" src="../assets/images/cat.jpg">
+      <img slot="image" src="../assets/images/cat.jpg" alt="Cat">
       Cat
     </m-image-list-item>
     <m-image-list-item>
-      <img slot="image" src="../assets/images/cat.jpg">
+      <img slot="image" src="../assets/images/cat.jpg" alt="Cat">
       Cat
     </m-image-list-item>
   </m-image-list>
@@ -30,17 +30,17 @@
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| standardColumn | Number | - | standard columns per line |
-| masonryColumn | Number | - | masonry columns per line |
+| column | Number | 0 | columns per line, `0` means not to shrink or grow |
+| masonry | Boolean | false | masonry if `true`, standard if `false` |
 | textProtection | Boolean | false | label will be positioned in a scrim overlaying each image |
 
 ### Slots
 
 | Slot | Description |
 |------|-------------|
-| default | should be ImageListItem(s) |
+| default | should be `<m-image-list-item>` |
 
-## ImageListItem
+## Image List Item
 
 ### Props
 
@@ -50,7 +50,7 @@
 
 ### Slots
 
-| Slot |Description |
+| Slot | Description |
 |------|-------------|
 | default | image label |
 | image | img element |

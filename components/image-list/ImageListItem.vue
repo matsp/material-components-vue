@@ -11,7 +11,7 @@
       name="image"
     />
     <div
-      v-if="$slots['default']"
+      v-if="$slots.default"
       class="mdc-image-list__supporting"
     >
       <span class="mdc-image-list__label">
@@ -48,8 +48,8 @@ export default {
   methods: {
     updateSlot () {
       if (this.$slots.image) {
-        this.$slots.image.map(n => {
-          n.elm.classList.add('mdc-image-list__image')
+        this.$slots.image.forEach(n => {
+          if (n.elm instanceof Element) n.elm.classList.add('mdc-image-list__image')
         })
       }
     }
