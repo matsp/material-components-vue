@@ -176,7 +176,9 @@ export default {
       }
     },
     onAction (e) {
-      this.$emit('change', this.mdcList.selectedIndex)
+      if (this.mdcList) {
+        this.$emit('change', this.mdcList.selectedIndex)
+      }
       this.$emit('action', e.detail)
     }
   }

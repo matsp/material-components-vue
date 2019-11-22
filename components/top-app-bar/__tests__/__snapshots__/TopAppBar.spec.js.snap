@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Top App Bar Fixed Adjust should render as dense 1`] = `<div class="mdc-top-app-bar--fixed-adjust mdc-top-app-bar--dense-fixed-adjust"></div>`;
+
+exports[`Top App Bar Fixed Adjust should render as dense and prominent 1`] = `<div class="mdc-top-app-bar--fixed-adjust mdc-top-app-bar--dense-prominent-fixed-adjust"></div>`;
+
+exports[`Top App Bar Fixed Adjust should render as main 1`] = `<main class="mdc-top-app-bar--fixed-adjust"></main>`;
+
+exports[`Top App Bar Fixed Adjust should render as prominent 1`] = `<div class="mdc-top-app-bar--fixed-adjust mdc-top-app-bar--prominent-fixed-adjust"></div>`;
+
+exports[`Top App Bar Fixed Adjust should render as short 1`] = `<div class="mdc-top-app-bar--fixed-adjust mdc-top-app-bar--short-fixed-adjust"></div>`;
+
+exports[`Top App Bar Fixed Adjust should render with no prop 1`] = `<div class="mdc-top-app-bar--fixed-adjust"></div>`;
+
+exports[`Top App Bar should render as dense 1`] = `
+<header class="mdc-top-app-bar mdc-top-app-bar--dense">
+  <div class="mdc-top-app-bar__row">
+    <!---->
+    <!---->
+  </div>
+</header>
+`;
+
+exports[`Top App Bar should render as fixed 1`] = `
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+  <div class="mdc-top-app-bar__row">
+    <!---->
+    <!---->
+  </div>
+</header>
+`;
+
+exports[`Top App Bar should render as prominent 1`] = `
+<header class="mdc-top-app-bar mdc-top-app-bar--prominent">
+  <div class="mdc-top-app-bar__row">
+    <!---->
+    <!---->
+  </div>
+</header>
+`;
+
+exports[`Top App Bar should render as short 1`] = `
+<header class="mdc-top-app-bar mdc-top-app-bar--short">
+  <div class="mdc-top-app-bar__row">
+    <!---->
+    <!---->
+  </div>
+</header>
+`;
+
+exports[`Top App Bar should render as short and collapsed 1`] = `
+<header class="mdc-top-app-bar mdc-top-app-bar--short-collapsed">
+  <div class="mdc-top-app-bar__row">
+    <!---->
+    <!---->
+  </div>
+</header>
+`;
+
+exports[`Top App Bar should render with no prop 1`] = `
+<header class="mdc-top-app-bar">
+  <div class="mdc-top-app-bar__row">
+    <!---->
+    <!---->
+  </div>
+</header>
+`;
+
+exports[`Top App Bar should render with title 1`] = `
+<header class="mdc-top-app-bar">
+  <div class="mdc-top-app-bar__row">
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"> <span class="mdc-top-app-bar__title">
+        title text
+      </span> </section>
+    <!---->
+  </div>
+</header>
+`;

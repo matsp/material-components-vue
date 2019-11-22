@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageList should render as masonry 1`] = `<ul class="mdc-image-list image-list-masonry-1 mdc-image-list--masonry"></ul>`;
+
+exports[`ImageList should render as standard 1`] = `<ul class="mdc-image-list image-list-standard-1"></ul>`;
+
+exports[`ImageList should render with no prop 1`] = `<ul class="mdc-image-list"></ul>`;
+
+exports[`ImageList should render with text-protection 1`] = `<ul class="mdc-image-list mdc-image-list--with-text-protection"></ul>`;
+
+exports[`ImageListItem should render with img 1`] = `
+<li class="mdc-image-list__item">
+  <div class="mdc-image-list__image-aspect-container"><img src="cat.jpg" alt="Cat" class="mdc-image-list__image"></div>
+  <!---->
+</li>
+`;
+
+exports[`ImageListItem should render with no prop 1`] = `
+<li class="mdc-image-list__item">
+  <div class="mdc-image-list__image-aspect-container"></div>
+  <!---->
+</li>
+`;
+
+exports[`ImageListItem should render without adjust aspect ratio 1`] = `
+<li class="mdc-image-list__item">
+  <!---->
+</li>
+`;

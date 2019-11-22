@@ -26,18 +26,18 @@ export default {
   },
   computed: {
     classes () {
-      let standard = {}
+      const standard = {}
       if (this.column > 0 && !this.masonry) {
         standard['image-list-standard-' + this.column] = true
       }
 
-      let masonry = {}
+      const masonry = {}
       if (this.column > 0 && this.masonry) {
         masonry['image-list-masonry-' + this.column] = true
         masonry['mdc-image-list--masonry'] = true
       }
 
-      let others = {}
+      const others = {}
       others['mdc-image-list--with-text-protection'] = this.textProtection
 
       return { ...standard, ...masonry, ...others }

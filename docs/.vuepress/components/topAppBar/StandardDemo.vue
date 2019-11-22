@@ -1,11 +1,11 @@
 <template>
     <div>
         <m-top-app-bar title="Standard">
-            <m-icon icon="menu" slot="navigation"/>
+            <m-icon-button icon="menu" slot="navigation"/>
             <template slot="actions">
-                <m-icon icon="file_download"/>
-                <m-icon icon="print"/>
-                <m-icon icon="bookmark"/>
+                <m-icon-button icon="file_download"/>
+                <m-icon-button icon="print"/>
+                <m-icon-button icon="bookmark"/>
             </template>
         </m-top-app-bar>
         <m-top-app-bar-fixed-adjust>
