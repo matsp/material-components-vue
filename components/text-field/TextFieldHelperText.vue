@@ -17,6 +17,7 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getHelperText'],
   props: {
     persistent: {
       type: Boolean,
@@ -41,6 +42,7 @@ export default {
     }
   },
   mounted () {
+    console.log(this.getHelperText instanceof Function)
     this.mdcTextFieldHelperText = MDCTextFieldHelperText.attachTo(this.$el.children[0])
     this.mdcTextFieldHelperText.foundation.setPersistent(this.persistent)
     this.mdcTextFieldHelperText.foundation.setValidation(this.validationMsg)

@@ -4,6 +4,7 @@
     :class="classes"
     class="mdc-floating-label"
     v-bind="$attrs"
+    @parent-init="onParentInit"
   >
     <slot />
   </span>
@@ -12,6 +13,7 @@
     :class="classes"
     class="mdc-floating-label"
     v-bind="$attrs"
+    @parent-init="onParentInit"
   >
     <slot />
   </label>
@@ -24,6 +26,7 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getLabel'],
   props: {
     floatAbove: {
       type: Boolean,
@@ -48,10 +51,21 @@ export default {
     }
   },
   mounted () {
-    this.mdcFloatingLabel = MDCFloatingLabel.attachTo(this.$el)
+    if (!(this.getLabel instanceof Function)) { // can not be init by parent
+      this.mdcFloatingLabel = MDCFloatingLabel.attachTo(this.$el)
+    }
   },
   beforeDestroy () {
     this.mdcFloatingLabel.destroy()
+  },
+  methods: {
+    onParentInit () {
+      const label = this.getLabel()
+      if (label instanceof MDCFloatingLabel) {
+        if (this.mdcFloatingLabel instanceof MDCFloatingLabel) this.mdcFloatingLabel.destroy()
+        this.mdcFloatingLabel = label
+      }
+    }
   }
 }
 </script>
