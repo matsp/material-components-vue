@@ -46,6 +46,7 @@
 import { MDCTextField } from '@material/textfield'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
+import { MDCComponent } from '@material/base/component'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -109,21 +110,24 @@ export default {
   data () {
     return {
       mdcTextField: undefined,
-      slotObserver: undefined
+      slotObserver: undefined,
+      noLabel: false,
+      hasLeadingIcon: false,
+      hasTrailingIcon: false
     }
   },
   computed: {
     classes () {
       return {
         'mdc-text-field--upgraded': this.upgraded,
-        'mdc-text-field--fullwidth': this.fullWidth && !this.$slots.default && !this.outlined,
-        'mdc-text-field--with-leading-icon': this.$slots.leadingIcon,
-        'mdc-text-field--with-trailing-icon': this.$slots.trailingIcon,
+        'mdc-text-field--fullwidth': this.fullWidth && this.noLabel && !this.outlined,
+        'mdc-text-field--with-leading-icon': this.hasLeadingIcon,
+        'mdc-text-field--with-trailing-icon': this.hasTrailingIcon,
         'mdc-text-field--outlined': this.outlined && !this.fullWidth,
         'mdc-text-field--dense': this.dense,
-        'mdc-text-field--focused': this.focused,
+        'mdc-text-field--focused': this.focused, // won't change the actual activeElement
         'mdc-text-field--textarea': this.textarea,
-        'mdc-text-field--no-label': !this.$slots.default && !this.fullWidth
+        'mdc-text-field--no-label': this.noLabel && !this.fullWidth
       }
     }
   },
@@ -140,23 +144,43 @@ export default {
     disabled () {
       this.mdcTextField.disabled = this.disabled
     },
-    outlined () {
-      this.reInstantiate()
-    },
-    fullWidth () {
-      this.reInstantiate()
-    },
-    textarea () {
-      this.reInstantiate()
+    classes () {
+      this.$nextTick(() => this.reInstantiate())
     }
   },
   mounted () {
+    this.updateSlot()
+    this.slotObserver = new MutationObserver(() => this.updateSlot())
+    this.slotObserver.observe(this.$el, {
+      childList: true,
+      subtree: true
+    })
     this.instantiate()
   },
   beforeDestroy () {
     this.mdcTextField.destroy()
   },
   methods: {
+    updateSlot () {
+      this.noLabel = this.$el.querySelector('.mdc-floating-label') == null
+      this.hasLeadingIcon = this.$slots.leadingIcon != null
+      this.hasTrailingIcon = this.$slots.trailingIcon != null
+      // to make our icons compatible with version 0.x.y
+      if (this.hasLeadingIcon) {
+        this.$slots.leadingIcon.forEach(n => {
+          if (n.elm instanceof Element) {
+            n.elm.classList.add('mdc-text-field__icon')
+          }
+        })
+      }
+      if (this.hasTrailingIcon) {
+        this.$slots.trailingIcon.forEach(n => {
+          if (n.elm instanceof Element) {
+            n.elm.classList.add('mdc-text-field__icon')
+          }
+        })
+      }
+    },
     reInstantiate () {
       this.mdcTextField.destroy()
       this.instantiate()
@@ -168,6 +192,27 @@ export default {
       this.mdcTextField.disabled = this.disabled
       this.$nextTick(() => { // wait for the DOM change
         // todo: tell all the children that the parent is initialized
+        if (this.mdcTextField.label_ instanceof MDCComponent) {
+          this.mdcTextField.label_.emit('_init')
+        }
+        if (this.mdcTextField.outline_ instanceof MDCComponent) {
+          this.mdcTextField.outline_.emit('_init')
+        }
+        if (this.mdcTextField.lineRipple_ instanceof MDCComponent) {
+          this.mdcTextField.lineRipple_.emit('_init')
+        }
+        if (this.mdcTextField.helperText_ instanceof MDCComponent) {
+          this.mdcTextField.helperText_.emit('_init')
+        }
+        if (this.mdcTextField.characterCounter_ instanceof MDCComponent) {
+          this.mdcTextField.characterCounter_.emit('_init')
+        }
+        if (this.mdcTextField.leadingIcon_ instanceof MDCComponent) {
+          this.mdcTextField.leadingIcon_.emit('_init')
+        }
+        if (this.mdcTextField.trailingIcon_ instanceof MDCComponent) {
+          this.mdcTextField.trailingIcon_.emit('_init')
+        }
       })
     },
     getLabel () {

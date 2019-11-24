@@ -1,5 +1,5 @@
 <template>
-  <div class="mdc-notched-outline">
+  <div class="mdc-notched-outline" @_init="onParentInit">
     <div class="mdc-notched-outline__leading" />
     <div class="mdc-notched-outline__notch">
       <slot />
@@ -13,17 +13,29 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getOutline'],
   data () {
     return {
       mdcNotchedOutline: undefined
     }
   },
   mounted () {
-    this.mdcNotchedOutline = MDCNotchedOutline.attachTo(this.$el)
+    if (!(this.getOutline instanceof Function)) { // can not be init by parent
+      this.mdcNotchedOutline = MDCNotchedOutline.attachTo(this.$el)
+    }
   },
   beforeDestroy () {
-    if (typeof this.mdcNotchedOutline !== 'undefined') {
+    if (this.mdcNotchedOutline instanceof MDCNotchedOutline) {
       this.mdcNotchedOutline.destroy()
+    }
+  },
+  methods: {
+    onParentInit () {
+      const outline = this.getOutline()
+      if (outline instanceof MDCNotchedOutline) {
+        if (this.mdcNotchedOutline instanceof MDCNotchedOutline) this.mdcNotchedOutline.destroy()
+        this.mdcNotchedOutline = outline
+      }
     }
   }
 }

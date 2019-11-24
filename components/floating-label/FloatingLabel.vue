@@ -1,19 +1,9 @@
 <template>
-  <span
-    v-if="$parent.$options._componentTag === 'm-select'"
-    :class="classes"
-    class="mdc-floating-label"
-    v-bind="$attrs"
-    @parent-init="onParentInit"
-  >
-    <slot />
-  </span>
   <label
-    v-else
     :class="classes"
     class="mdc-floating-label"
     v-bind="$attrs"
-    @parent-init="onParentInit"
+    @_init="onParentInit"
   >
     <slot />
   </label>
@@ -56,7 +46,9 @@ export default {
     }
   },
   beforeDestroy () {
-    this.mdcFloatingLabel.destroy()
+    if (this.mdcFloatingLabel instanceof MDCFloatingLabel) {
+      this.mdcFloatingLabel.destroy()
+    }
   },
   methods: {
     onParentInit () {

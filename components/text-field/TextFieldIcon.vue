@@ -4,10 +4,9 @@
     :class="classes"
     v-bind="attrs"
     v-on="$listeners"
-    tabindex="0"
-    role="button"
+    @_init="onParentInit"
   >
-    <slot>{{icon}}</slot>
+    <slot>{{ icon }}</slot>
   </i>
 </template>
 
@@ -16,6 +15,7 @@ import { MDCTextFieldIcon } from '@material/textfield/icon'
 
 export default {
   name: 'TextFieldIcon',
+  inject: ['getLeadingIcon', 'getTrailingIcon'],
   props: {
     clickable: {
       type: Boolean,
@@ -26,6 +26,12 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      attrs: Object.assign({}, this.$attrs),
+      mdcTextFieldIcon: undefined
+    }
+  },
   computed: {
     classes () {
       return {
@@ -33,15 +39,9 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      attrs: Object.assign({}, this.$attrs),
-      mdcTextFieldIcon: undefined
-    }
-  },
   watch: {
-    clickable () {
-      if (this.clickable) {
+    clickable (val) {
+      if (val) {
         this.$set(this.attrs, 'tabindex', '0')
         this.$set(this.attrs, 'role', 'button')
       } else {
@@ -55,10 +55,23 @@ export default {
       this.$set(this.attrs, 'tabindex', '0')
       this.$set(this.attrs, 'role', 'button')
     }
-    this.mdcTextFieldIcon = MDCTextFieldIcon.attachTo(this.$el)
+    if (!(this.getLeadingIcon instanceof Function || this.getTrailingIcon instanceof Function)) { // can not be init by parent
+      this.mdcTextFieldIcon = MDCTextFieldIcon.attachTo(this.$el)
+    }
   },
   beforeDestroy () {
-    this.mdcTextFieldIcon.destroy()
+    if (this.mdcTextFieldIcon instanceof MDCTextFieldIcon) {
+      this.mdcTextFieldIcon.destroy()
+    }
+  },
+  methods: {
+    onParentInit () {
+      const leadingIcon = this.getLeadingIcon()
+      const trailingIcon = this.getTrailingIcon()
+      const mdcTextFieldIcon = leadingIcon instanceof MDCTextFieldIcon && leadingIcon.root_ === this.$el ? leadingIcon : trailingIcon
+      if (this.mdcTextFieldIcon instanceof MDCTextFieldIcon) this.mdcTextFieldIcon.destroy()
+      this.mdcTextFieldIcon = mdcTextFieldIcon
+    }
   }
 }
 </script>
