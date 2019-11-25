@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text Field should render as dense 1`] = `
-<div class="mdc-text-field mdc-text-field--dense mdc-text-field--no-label"> <input class="mdc-text-field__input">
+<div class="mdc-text-field mdc-text-field--dense mdc-text-field--no-label">
+  <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
   <!---->
@@ -9,7 +10,8 @@ exports[`Text Field should render as dense 1`] = `
 `;
 
 exports[`Text Field should render as disabled 1`] = `
-<div class="mdc-text-field mdc-text-field--no-label mdc-text-field--disabled"> <input class="mdc-text-field__input" disabled="">
+<div class="mdc-text-field mdc-text-field--no-label mdc-text-field--disabled">
+  <!----> <input class="mdc-text-field__input" disabled="">
   <!---->
   <!---->
   <!---->
@@ -17,7 +19,8 @@ exports[`Text Field should render as disabled 1`] = `
 `;
 
 exports[`Text Field should render as focused 1`] = `
-<div class="mdc-text-field mdc-text-field--no-label mdc-text-field--focused"> <input class="mdc-text-field__input">
+<div class="mdc-text-field mdc-text-field--no-label mdc-text-field--focused">
+  <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
   <!---->
@@ -25,7 +28,8 @@ exports[`Text Field should render as focused 1`] = `
 `;
 
 exports[`Text Field should render as fullWidth 1`] = `
-<div class="mdc-text-field mdc-text-field--fullwidth"> <input class="mdc-text-field__input">
+<div class="mdc-text-field mdc-text-field--fullwidth">
+  <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
   <!---->
@@ -33,7 +37,8 @@ exports[`Text Field should render as fullWidth 1`] = `
 `;
 
 exports[`Text Field should render as outlined 1`] = `
-<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--no-label"> <input class="mdc-text-field__input">
+<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--no-label">
+  <!----> <input class="mdc-text-field__input">
   <!---->
   <div class="mdc-notched-outline mdc-notched-outline--no-label">
     <div class="mdc-notched-outline__leading"></div>
@@ -46,7 +51,8 @@ exports[`Text Field should render as outlined 1`] = `
 `;
 
 exports[`Text Field should render with leading icon 1`] = `
-<div class="mdc-text-field mdc-text-field--with-leading-icon mdc-text-field--no-label"><i class="mdc-text-field__icon" tabindex="0" role="button"></i> <input class="mdc-text-field__input">
+<div class="mdc-text-field mdc-text-field--with-leading-icon mdc-text-field--no-label"><i class="mdc-text-field__icon" tabindex="0" role="button"></i>
+  <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
   <!---->
@@ -54,7 +60,8 @@ exports[`Text Field should render with leading icon 1`] = `
 `;
 
 exports[`Text Field should render with no prop 1`] = `
-<div class="mdc-text-field mdc-text-field--no-label"> <input class="mdc-text-field__input">
+<div class="mdc-text-field mdc-text-field--no-label">
+  <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
   <!---->
@@ -62,7 +69,8 @@ exports[`Text Field should render with no prop 1`] = `
 `;
 
 exports[`Text Field should render with trailing icon 1`] = `
-<div class="mdc-text-field mdc-text-field--with-trailing-icon mdc-text-field--no-label"> <input class="mdc-text-field__input">
+<div class="mdc-text-field mdc-text-field--with-trailing-icon mdc-text-field--no-label">
+  <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
   <!----> <i class="mdc-text-field__icon" tabindex="0" role="button"></i> </div>
