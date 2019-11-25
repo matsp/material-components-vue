@@ -1,5 +1,5 @@
 <template>
-  <div class="mdc-text-field-character-counter">
+  <div class="mdc-text-field-character-counter" @_init="onParentInit">
     {{ currentLength }} / {{ maxLength }}
   </div>
 </template>
@@ -10,8 +10,8 @@ import { MDCTextFieldCharacterCounter } from '@material/textfield/character-coun
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  name: 'TextFieldCharacterCounter',
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getCharacterCounter'],
   props: {
     currentLength: {
       type: Number,
@@ -30,12 +30,12 @@ export default {
     }
   },
   watch: {
-    currentLength () {
-      this.cl = this.currentLength
+    currentLength (val) {
+      this.cl = val
       this.mdcTextFieldCharacterCounter.foundation.setCounterValue(this.currentLength, this.maxLength)
     },
-    maxLength () {
-      this.ml = this.maxLength
+    maxLength (val) {
+      this.ml = val
       this.mdcTextFieldCharacterCounter.foundation.setCounterValue(this.currentLength, this.maxLength)
     }
   },
@@ -45,8 +45,19 @@ export default {
       if (this.currentLength === 0) this.cl = input.value.length
       if (this.maxLength === 0) this.ml = input.getAttribute('maxlength')
     }
-    this.mdcTextFieldCharacterCounter = MDCTextFieldCharacterCounter.attachTo(this.$el)
-    this.mdcTextFieldCharacterCounter.foundation.setCounterValue(this.cl, this.ml)
+    if (!(this.getCharacterCounter instanceof Function)) { // can not be init by parent
+      this.mdcTextFieldCharacterCounter = MDCTextFieldCharacterCounter.attachTo(this.$el)
+      this.mdcTextFieldCharacterCounter.foundation.setCounterValue(this.cl, this.ml)
+    }
+  },
+  methods: {
+    onParentInit (characterCounter) {
+      if (characterCounter instanceof MDCTextFieldCharacterCounter) {
+        if (this.mdcTextFieldCharacterCounter instanceof MDCTextFieldCharacterCounter) this.mdcTextFieldCharacterCounter.destroy()
+        this.mdcTextFieldCharacterCounter = characterCounter
+        this.mdcTextFieldCharacterCounter.foundation.setCounterValue(this.cl, this.ml)
+      }
+    }
   }
 }
 </script>

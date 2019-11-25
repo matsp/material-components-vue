@@ -53,6 +53,7 @@ export default {
       if (lineRipple instanceof MDCLineRipple) {
         if (this.mdcLineRipple instanceof MDCLineRipple) this.mdcLineRipple.destroy()
         this.mdcLineRipple = lineRipple
+        if (this.rippleCenter) this.setRippleCenter(this.rippleCenter)
       }
     }
   }

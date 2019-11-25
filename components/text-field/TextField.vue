@@ -159,6 +159,7 @@ export default {
   },
   beforeDestroy () {
     this.mdcTextField.destroy()
+    this.slotObserver.disconnect()
   },
   methods: {
     updateSlot () {
@@ -191,7 +192,7 @@ export default {
       this.mdcTextField.valid = this.valid
       this.mdcTextField.disabled = this.disabled
       this.$nextTick(() => { // wait for the DOM change
-        // todo: tell all the children that the parent is initialized
+        // tell all the children that the parent is initialized
         if (this.mdcTextField.label_ instanceof MDCComponent) {
           this.mdcTextField.label_.emit('_init')
         }
@@ -202,10 +203,10 @@ export default {
           this.mdcTextField.lineRipple_.emit('_init')
         }
         if (this.mdcTextField.helperText_ instanceof MDCComponent) {
-          this.mdcTextField.helperText_.emit('_init')
+          this.mdcTextField.helperText_.emit('_init', this.mdcTextField.helperText_)
         }
         if (this.mdcTextField.characterCounter_ instanceof MDCComponent) {
-          this.mdcTextField.characterCounter_.emit('_init')
+          this.mdcTextField.characterCounter_.emit('_init', this.mdcTextField.characterCounter_)
         }
         if (this.mdcTextField.leadingIcon_ instanceof MDCComponent) {
           this.mdcTextField.leadingIcon_.emit('_init')
