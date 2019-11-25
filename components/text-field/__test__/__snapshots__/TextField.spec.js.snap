@@ -46,7 +46,7 @@ exports[`Text Field should render as outlined 1`] = `
 `;
 
 exports[`Text Field should render with leading icon 1`] = `
-<div class="mdc-text-field mdc-text-field--with-leading-icon mdc-text-field--no-label"><i tabindex="0" role="button" class="mdc-text-field__icon"></i> <input class="mdc-text-field__input">
+<div class="mdc-text-field mdc-text-field--with-leading-icon mdc-text-field--no-label"><i class="mdc-text-field__icon" tabindex="0" role="button"></i> <input class="mdc-text-field__input">
   <!---->
   <!---->
   <!---->
@@ -65,5 +65,5 @@ exports[`Text Field should render with trailing icon 1`] = `
 <div class="mdc-text-field mdc-text-field--with-trailing-icon mdc-text-field--no-label"> <input class="mdc-text-field__input">
   <!---->
   <!---->
-  <!----> <i tabindex="0" role="button" class="mdc-text-field__icon"></i> </div>
+  <!----> <i class="mdc-text-field__icon" tabindex="0" role="button"></i> </div>
 `;
