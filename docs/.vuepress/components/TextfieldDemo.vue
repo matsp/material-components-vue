@@ -15,6 +15,7 @@
                     maxlength="8"
                     id="text-field1"
             >
+                <m-text-field-character-counter v-if="checkboxProps[15].value && radioProps[3].value" slot="characterCounter"/>
                 <m-text-field-icon icon="favorite" slot="leadingIcon" v-if="checkboxProps[8].value" :clickable="checkboxProps[10].value"></m-text-field-icon>
                 <m-floating-label v-if="!checkboxProps[11].value || radioProps[1].value"
                         for="text-field1">Label
@@ -24,7 +25,7 @@
             </m-text-field>
             <m-text-field-helper-line v-if="checkboxProps[12].value || checkboxProps[15].value">
                 <m-text-field-helper-text v-if="checkboxProps[12].value" :validation-msg="checkboxProps[14].value" :persistent="checkboxProps[13].value">Helper</m-text-field-helper-text>
-                <m-text-field-character-counter v-if="checkboxProps[15].value"/>
+                <m-text-field-character-counter v-if="checkboxProps[15].value && !radioProps[3].value"/>
             </m-text-field-helper-line>
         </ComponentSection>
         <ComponentProps

@@ -4,6 +4,10 @@
     class="mdc-text-field"
   >
     <slot name="leadingIcon" />
+    <slot
+      v-if="textarea"
+      name="characterCounter"
+    />
     <input
       v-if="!textarea"
       :value="value"
@@ -74,10 +78,6 @@ export default {
       type: Boolean,
       default: false
     },
-    upgraded: {
-      type: Boolean,
-      default: false
-    },
     fullWidth: {
       type: Boolean,
       default: false
@@ -119,7 +119,6 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-text-field--upgraded': this.upgraded,
         'mdc-text-field--fullwidth': this.fullWidth && this.noLabel && !this.outlined,
         'mdc-text-field--with-leading-icon': this.hasLeadingIcon,
         'mdc-text-field--with-trailing-icon': this.hasTrailingIcon,

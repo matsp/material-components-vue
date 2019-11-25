@@ -1,31 +1,123 @@
 ## Text-field
 
-### Markup
+### Basic Usage
 
 ```html
-<m-text-field v-model="text" id="textfield">
-  <m-floating-label for="textfield">Textfield label</m-floating-label>
+<m-text-field v-model="text" id="my-text-field">
+  <m-floating-label for="my-text-field">Hint text</m-floating-label>
   <m-line-ripple slot="bottomLine"/>
 </m-text-field>
-<m-text-field
-  outlined
-  id="outlined">
-  <m-floating-label for="outlined">Outlined</m-floating-label>
-  <m-notched-outline />
-</m-text-field>
-<m-text-field v-model="pw" id="passwordfield" type="password" required minlength="8" aria-controls="pw-validation">
-  <m-floating-label for="passwordfield">Password</m-floating-label>
-  <m-line-ripple slot="bottomLine"/>
-</m-text-field>
-<m-text-field-helper-text id="pw-validation">
-  Password must be at least 8 characters long.
-</m-text-field-helper-text>
+```
 
-<m-text-field
-  outlined
-  id="outlined">
-  <m-floating-label for="outlined">Outlined</m-floating-label>
-  <m-notched-outline />
+### Full Width
+
+```html
+<m-text-field v-model="text" id="my-text-field" full-width  aria-label="Full-Width Text Field">
+</m-text-field>
+```
+
+### Textarea
+
+```html
+<m-text-field v-model="text" id="my-text-field" textarea>
+  <m-floating-label for="my-text-field">Textarea label</m-floating-label>
+</m-text-field>
+```
+
+### Outlined
+
+```html
+<m-text-field v-model="text" id="my-text-field" outlined>
+  <m-floating-label for="my-text-field">Textarea label</m-floating-label>
+</m-text-field>
+```
+
+### Disabled
+
+```html
+<m-text-field v-model="text" id="my-text-field" disabled>
+  <m-floating-label for="my-text-field">Hint text</m-floating-label>
+  <m-line-ripple slot="bottomLine"/>
+</m-text-field>
+```
+
+### Text Field without label
+
+#### Filled
+
+```html
+<m-text-field v-model="text" id="my-text-field" aria-label="Label">
+  <m-line-ripple slot="bottomLine"/>
+</m-text-field>
+```
+
+#### Outlined
+
+```html
+<m-text-field v-model="text" id="my-text-field" aria-label="Label" outlined>
+  <m-line-ripple slot="bottomLine"/>
+</m-text-field>
+```
+
+#### Textarea
+
+```html
+<m-text-field v-model="text" id="my-text-field" aria-label="Label" textarea>
+  <m-line-ripple slot="bottomLine"/>
+</m-text-field>
+```
+
+### Text Field with Helper Text
+
+```html
+<m-text-field v-model="text" id="my-text-field">
+  <m-floating-label for="my-text-field">Hint text</m-floating-label>
+  <m-line-ripple slot="bottomLine"/>
+</m-text-field>
+<m-text-field-helper-line>
+  <m-text-field-helper-text>helper text</m-text-field-helper-text>
+</m-text-field-helper-line>
+```
+
+### Text Field with Character Counter
+
+```html
+<m-text-field v-model="text" id="my-text-field" maxlength="10">
+  <m-floating-label for="my-text-field">Hint text</m-floating-label>
+  <m-line-ripple slot="bottomLine"/>
+</m-text-field>
+<m-text-field-helper-line>
+  <m-text-field-character-counter></m-text-field-character-counter>
+</m-text-field-helper-line>
+```
+
+### Multi-line Text Field (Textarea) with Character Counter
+
+```html
+<m-text-field v-model="text" id="my-text-field" maxlength="140">
+  <m-text-field-character-counter slot="characterCounter"></m-text-field-character-counter>
+  <m-floating-label for="my-text-field">Hint text</m-floating-label>
+  <m-line-ripple slot="bottomLine"/>
+</m-text-field>
+```
+
+### Text Field with Leading and Trailing Icons
+
+```html
+<m-text-field v-model="text" id="my-text-field">
+  <m-text-field-icon icon="favorite" slot="leadingIcon" />
+  <m-floating-label for="my-text-field">Hint text</m-floating-label>
+  <m-line-ripple slot="bottomLine"/>
+  <m-text-field-icon icon="favorite" slot="trailingIcon" />
+</m-text-field>
+```
+
+### Pre-filled
+
+```html
+<m-text-field v-model="text" id="my-text-field">
+  <m-floating-label for="my-text-field" float-above>Hint text</m-floating-label>
+  <m-line-ripple slot="bottomLine"/>
 </m-text-field>
 ```
 
@@ -43,42 +135,79 @@ data() {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| value | String | '' | textfield value |
-| disabled | Boolean | false |  whether the textfield should be disabled |
-| upgraded | Boolean | false | whether the textfield should be upgraded when it already has a value (FOUC) |
-| fullWidth | Boolean | false | expand the textfield to max width |
-| box | Boolean | false | draws a box around the textfield |
-| outlined | Boolean | false | draws an outer line around input field (NotchedOutline component also needed)|
-| dense | Boolean | false | whether the textfield should be dense |
-| focused | Boolean | false | whether the textfield should be in focus |
-| textarea | Boolean | false | whether the textfield should be a textarea |
+| value | String | '' | text field value |
+| disabled | Boolean | false |  whether the text field should be disabled |
+| fullWidth | Boolean | false | Styles the text field as a full width text field. |
+| outlined | Boolean | false | Styles the text field as an outlined text field. |
+| dense | Boolean | false | Styles the text field as a dense text field, will be removed in an upcoming release |
+| focused | Boolean | false | Styles the text field as a text field in focus. |
+| textarea | Boolean | false | Indicates the text field is a <textarea>. |
+| useNativeValidation | Boolean | true | Sets whether to check native HTML validity state (true, default) or custom validity state when updating styles (false). | 
+| valid | Boolean | true | Sets custom validity and updates styles accordingly. Note that native validation will still be honored subsequently unless useNativeValidation is also false. |
 
 ### Slots
 
 | Slot | Description |
 |------|-------------|
-| default | textfield label |
+| default | text field label |
 | leadingIcon | icon component |
 | trailingIcon | icon component |
 | bottomLine | line-ripple component |
+| characterCounter | character counter component, only available in textarea |
 
 Non prop attributes and events are mapped to the inner input element.
 
-## TextfieldHelperText
+## Text Field Helper Text
+
+> NOTE: Place this inside `<m-text-filed-helper-line>` which is an immediate sibling of `<m-text-field>`.
 
 ### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| persistent | Boolean | false | whether the helpertext should be persistent |
-| validationMsg | Boolean | false | whether the text should be used as validation message |
+| persistent | Boolean | false | Makes the helper text permanently visible. |
+| validationMsg | Boolean | false | Indicates the helper text is a validation message. |
 
 ### Slots
 
 | Slot | Description |
 |------|-------------|
-| default | helpertext text |
+| default | helper text text |
+
+## Text Field Icon
+
+Icons describe the type of input a text field requires. They can also be interaction targets.
+
+To use other icon library
+
+```html
+<m-text-field-icon class="some-other-icon-library-class"></m-text-field-icon>
+```
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| clickable | Boolean | true | whether this is a clickable icon |
+| icon | String | '' | material icon name |
+
+### Slots
+
+| Slot | Description |
+|------|-------------|
+| default | icon name if you are using other icon library than 'material-icons' |
+
+## Text Field Character Counter
+
+Character counter is used if there is a character limit. It displays the ratio of characters used and the total character limit.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| currentLength | Number | 0 | characters used |
+| maxLength | Number | 0 | total character limit |
 
 ### Reference
 
-- https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield
+- https://github.com/material-components/material-components-web/tree/master/packages/mdc-text field
