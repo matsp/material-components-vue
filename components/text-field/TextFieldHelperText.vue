@@ -1,13 +1,10 @@
 <template>
-  <div class="mdc-text-field-helper-line">
-    <div
-      aria-hidden="true"
-      class="mdc-text-field-helper-text"
-      v-bind="$attrs"
-    >
-      <slot />
-    </div>
-    <slot name="characterCounter" />
+  <div
+    class="mdc-text-field-helper-text"
+    v-bind="$attrs"
+    @_init="onParentInit"
+  >
+    <slot />
   </div>
 </template>
 
@@ -18,6 +15,7 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getHelperText'],
   props: {
     persistent: {
       type: Boolean,
@@ -34,17 +32,34 @@ export default {
     }
   },
   watch: {
-    persistent () {
-      this.mdcTextFieldHelperText.foundation.setPersistent(this.persistent)
+    persistent (val) {
+      this.mdcTextFieldHelperText.foundation.setPersistent(val)
     },
-    validationMsg () {
-      this.mdcTextFieldHelperText.foundation.setValidation(this.validationMsg)
+    validationMsg (val) {
+      this.mdcTextFieldHelperText.foundation.setValidation(val)
     }
   },
   mounted () {
-    this.mdcTextFieldHelperText = MDCTextFieldHelperText.attachTo(this.$el.children[0])
-    this.mdcTextFieldHelperText.foundation.setPersistent(this.persistent)
-    this.mdcTextFieldHelperText.foundation.setValidation(this.validationMsg)
+    if (!(this.getHelperText instanceof Function)) { // can not be init by parent
+      this.mdcTextFieldHelperText = MDCTextFieldHelperText.attachTo(this.$el)
+      this.mdcTextFieldHelperText.foundation.setPersistent(this.persistent)
+      this.mdcTextFieldHelperText.foundation.setValidation(this.validationMsg)
+    }
+  },
+  beforeDestroy () {
+    if (this.mdcTextFieldHelperText instanceof MDCTextFieldHelperText) {
+      this.mdcTextFieldHelperText.destroy()
+    }
+  },
+  methods: {
+    onParentInit (helperText) {
+      if (helperText instanceof MDCTextFieldHelperText) {
+        if (this.mdcTextFieldHelperText instanceof MDCTextFieldHelperText) this.mdcTextFieldHelperText.destroy()
+        this.mdcTextFieldHelperText = helperText
+        this.mdcTextFieldHelperText.foundation.setPersistent(this.persistent)
+        this.mdcTextFieldHelperText.foundation.setValidation(this.validationMsg)
+      }
+    }
   }
 }
 </script>

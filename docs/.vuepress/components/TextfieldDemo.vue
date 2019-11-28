@@ -1,114 +1,6 @@
 <template>
     <div>
         <ComponentSection flex-direction="column">
-            <m-typography>Filled</m-typography>
-            <div style="display: flex">
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        id="text-field1"
-                        style="flex: 1; margin: 2px"
-                >
-                    <m-floating-label
-                            for="text-field1">Label
-                    </m-floating-label>
-                    <m-line-ripple slot="bottomLine"/>
-                </m-text-field>
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        id="text-field1-lead"
-                        style="flex: 1; margin: 2px"
-
-                >
-                    <m-text-field-icon slot="leadingIcon" class="material-icons">event</m-text-field-icon>
-                    <m-floating-label
-                            for="text-field1-lead">Label
-                    </m-floating-label>
-                    <m-line-ripple slot="bottomLine"/>
-                </m-text-field>
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        id="text-field1-trail"
-                        style="flex: 1; margin: 2px"
-
-                >
-                    <m-text-field-icon slot="trailingIcon" class="material-icons">event</m-text-field-icon>
-                    <m-floating-label
-                            for="text-field1-trail">Label
-                    </m-floating-label>
-                    <m-line-ripple slot="bottomLine"/>
-                </m-text-field>
-            </div>
-
-
-            <m-typography>Outlined</m-typography>
-            <div style="display: flex">
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        id="text-field2"
-                        outlined
-                        style="flex:1; margin: 2px"
-                >
-                    <m-floating-label
-                            for="text-field2">Label
-                    </m-floating-label>
-                </m-text-field>
-
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        id="text-field2-lead"
-                        outlined
-                        style="flex:1; margin: 2px"
-                >
-                    <m-text-field-icon slot="leadingIcon" class="material-icons">event</m-text-field-icon>
-                    <m-floating-label
-                            for="text-field2-lead">Label
-                    </m-floating-label>
-                </m-text-field>
-
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        id="text-field2-trail"
-                        outlined
-                        style="flex:1; margin: 2px"
-                >
-                    <m-floating-label
-                            for="text-field2-trail">Label
-                    </m-floating-label>
-                    <m-text-field-icon slot="trailingIcon" class="material-icons">event</m-text-field-icon>
-                </m-text-field>
-            </div>
-
-            <m-typography>Full Width</m-typography>
             <m-text-field
                     :disabled="checkboxProps[0].value"
                     :focused="checkboxProps[2].value"
@@ -116,174 +8,25 @@
                     :upgraded="checkboxProps[1].value"
                     :use-native-validation="checkboxProps[4].value"
                     :valid="checkboxProps[3].value"
-                    full-width
-                    id="text-field3"
+                    :outlined="radioProps[2].value"
+                    :textarea="radioProps[3].value"
+                    :full-width="radioProps[1].value"
+                    v-model="text"
+                    maxlength="8"
+                    id="text-field1"
             >
-                <m-line-ripple slot="bottomLine"/>
-            </m-text-field>
-
-            <m-typography>Textarea</m-typography>
-            <m-text-field
-                    :disabled="checkboxProps[0].value"
-                    :focused="checkboxProps[2].value"
-                    :required="checkboxProps[5].value"
-                    :upgraded="checkboxProps[1].value"
-                    :use-native-validation="checkboxProps[4].value"
-                    :valid="checkboxProps[3].value"
-                    id="text-field4"
-                    textarea
-            >
-                <m-floating-label
-                        for="text-field4">Label
+                <m-text-field-character-counter v-if="checkboxProps[15].value && radioProps[3].value" slot="characterCounter"/>
+                <m-text-field-icon icon="favorite" slot="leadingIcon" v-if="checkboxProps[8].value" :clickable="checkboxProps[10].value"></m-text-field-icon>
+                <m-floating-label v-if="!checkboxProps[11].value || radioProps[1].value"
+                        for="text-field1">Label
                 </m-floating-label>
-                <m-line-ripple slot="bottomLine"/>
+                <m-text-field-icon icon="favorite" slot="trailingIcon" v-if="checkboxProps[9].value" :clickable="checkboxProps[10].value"></m-text-field-icon>
+                <m-line-ripple slot="bottomLine" v-if="radioProps[0].value || radioProps[1].value"/>
             </m-text-field>
-
-            <m-typography>Filled without label</m-typography>
-            <m-text-field
-                    :disabled="checkboxProps[0].value"
-                    :focused="checkboxProps[2].value"
-                    :required="checkboxProps[5].value"
-                    :upgraded="checkboxProps[1].value"
-                    :use-native-validation="checkboxProps[4].value"
-                    :valid="checkboxProps[3].value"
-                    id="text-field5"
-            >
-                <m-line-ripple slot="bottomLine"/>
-            </m-text-field>
-
-            <m-typography>Outlined without label</m-typography>
-            <m-text-field
-                    :disabled="checkboxProps[0].value"
-                    :focused="checkboxProps[2].value"
-                    :required="checkboxProps[5].value"
-                    :upgraded="checkboxProps[1].value"
-                    :use-native-validation="checkboxProps[4].value"
-                    :valid="checkboxProps[3].value"
-                    id="text-field6"
-                    outlined
-            >
-            </m-text-field>
-
-            <m-typography>Textarea without label</m-typography>
-            <m-text-field
-                    :disabled="checkboxProps[0].value"
-                    :focused="checkboxProps[2].value"
-                    :required="checkboxProps[5].value"
-                    :upgraded="checkboxProps[1].value"
-                    :use-native-validation="checkboxProps[4].value"
-                    :valid="checkboxProps[3].value"
-                    id="text-field7"
-                    textarea
-            >
-                <m-line-ripple slot="bottomLine"/>
-            </m-text-field>
-
-            <m-typography>Filled with Helper Text</m-typography>
-            <div>
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        aria-controls="helper-text1"
-                        aria-describedby="helper-text1"
-                        id="text-field8"
-                >
-                    <m-floating-label
-                            for="text-field8">Label
-                    </m-floating-label>
-                    <m-line-ripple slot="bottomLine"/>
-                </m-text-field>
-                <m-text-field-helper-text :persistent="checkboxProps[6].value" :validation-msg="checkboxProps[7].value"
-                                          id="helper-text1">
-                    Helper Text
-                </m-text-field-helper-text>
-            </div>
-
-            <m-typography>Outlined with Helper Text</m-typography>
-            <div>
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        aria-controls="helper-text2"
-                        aria-describedby="helper-text2"
-                        id="text-field9"
-                        outlined
-                >
-                    <m-floating-label
-                            for="text-field9">Label
-                    </m-floating-label>
-                    <m-line-ripple slot="bottomLine"/>
-                </m-text-field>
-                <m-text-field-helper-text :persistent="checkboxProps[6].value" :validation-msg="checkboxProps[7].value"
-                                          id="helper-text2">
-                    Helper Text
-                </m-text-field-helper-text>
-            </div>
-
-            <m-typography>Filled with Helper Text and Character Counter</m-typography>
-            <div>
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        aria-controls="helper-text3"
-                        aria-describedby="helper-text3"
-                        id="text-field10"
-                        maxlength="20"
-                >
-                    <m-floating-label
-                            for="text-field10">Label
-                    </m-floating-label>
-                    <m-line-ripple slot="bottomLine"/>
-                </m-text-field>
-                <m-text-field-helper-text :persistent="checkboxProps[6].value" :validation-msg="checkboxProps[7].value"
-                                          id="helper-text3">
-                    Helper Text
-                    <template v-slot:characterCounter>
-                        <m-text-field-character-counter/>
-                    </template>
-                </m-text-field-helper-text>
-            </div>
-
-            <m-typography>Outlined with Helper Text and Character Counter</m-typography>
-            <div>
-                <m-text-field
-                        :disabled="checkboxProps[0].value"
-                        :focused="checkboxProps[2].value"
-                        :required="checkboxProps[5].value"
-                        :upgraded="checkboxProps[1].value"
-                        :use-native-validation="checkboxProps[4].value"
-                        :valid="checkboxProps[3].value"
-                        aria-controls="helper-text4"
-                        aria-describedby="helper-text4"
-                        id="text-field11"
-                        maxlength="20"
-                        outlined
-                >
-                    <m-floating-label
-                            for="text-field11">Label
-                    </m-floating-label>
-                    <m-line-ripple slot="bottomLine"/>
-                </m-text-field>
-                <m-text-field-helper-text :persistent="checkboxProps[6].value" :validation-msg="checkboxProps[7].value"
-                                          id="helper-text4">
-                    Helper Text
-                    <template v-slot:characterCounter>
-                        <m-text-field-character-counter/>
-                    </template>
-                </m-text-field-helper-text>
-            </div>
+            <m-text-field-helper-line v-if="checkboxProps[12].value || checkboxProps[15].value">
+                <m-text-field-helper-text v-if="checkboxProps[12].value" :validation-msg="checkboxProps[14].value" :persistent="checkboxProps[13].value">Helper</m-text-field-helper-text>
+                <m-text-field-character-counter v-if="checkboxProps[15].value && !radioProps[3].value"/>
+            </m-text-field-helper-line>
         </ComponentSection>
         <ComponentProps
                 :checkboxProps="checkboxProps"
@@ -295,7 +38,12 @@
   export default {
     data () {
       return {
-        radioProps: [],
+        radioProps: [
+          { prop: 'basic', value: true },
+          { prop: 'fullwidth', value: false },
+          { prop: 'outlined', value: false },
+          { prop: 'textarea', value: false }
+        ],
         checkboxProps: [
           { prop: 'disabled', value: false },
           { prop: 'upgraded', value: false },
@@ -304,8 +52,17 @@
           { prop: 'useNativeValidation', value: true },
           { prop: 'required', value: true },
           { prop: 'persistent', value: false },
-          { prop: 'validationMsg', value: false }
-        ]
+          { prop: 'validationMsg', value: false },
+          { prop: 'with leading icon', value: false },
+          { prop: 'with trailing icon', value: false },
+          { prop: 'clickable icon', value: false },
+          { prop: 'no label', value: false },
+          { prop: 'with helper text', value: false },
+          { prop: 'persistent helper text', value: false },
+          { prop: 'validation message helper text', value: false },
+          { prop: 'with character counter', value: false }
+        ],
+        text: ''
       }
     }
   }
