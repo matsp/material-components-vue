@@ -75,7 +75,7 @@
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "postcss": "7.0.24",
     "postcss-loader": "3.0.0",
-    "sass-loader": "8.0.0",
+    "sass-loader": "8.0.2",
     "standard-version": "7.0.1",
     "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "3.0.0",
