@@ -1,10 +1,12 @@
 <template>
   <i
     class="mdc-select__icon"
+    :class="classes"
     v-bind="attrs"
     v-on="$listeners"
+    @_init="onParentInit"
   >
-    <slot/>
+    <slot />
   </i>
 </template>
 
@@ -15,21 +17,33 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 export default {
   name: 'SelectIcon',
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: ['getLeadingIcon'],
   props: {
     clickable: {
       type: Boolean,
       default: true
+    },
+    icon: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {
-      attrs: this.$attrs,
+      attrs: Object.assign({}, this.$attrs),
       mdcSelectIcon: undefined
     }
   },
+  computed: {
+    classes () {
+      return {
+        'material-icons': this.icon.length > 0
+      }
+    }
+  },
   watch: {
-    clickable () {
-      if (this.clickable) {
+    clickable (val) {
+      if (val) {
         this.$set(this.attrs, 'tabindex', '0')
         this.$set(this.attrs, 'role', 'button')
       } else {
@@ -43,7 +57,21 @@ export default {
       this.$set(this.attrs, 'tabindex', '0')
       this.$set(this.attrs, 'role', 'button')
     }
-    this.mdcSelectIcon = MDCSelectIcon.attachTo(this.$el)
+    if (!(this.getLeadingIcon instanceof Function)) { // can not be init by parent
+      this.mdcSelectIcon = MDCSelectIcon.attachTo(this.$el)
+    }
+  },
+  beforeDestroy () {
+    if (this.mdcSelectIcon instanceof MDCSelectIcon) this.mdcSelectIcon.destroy()
+  },
+  methods: {
+    onParentInit () {
+      const leadingIcon = this.getLeadingIcon()
+      if (leadingIcon instanceof MDCSelectIcon) {
+        if (this.mdcSelectIcon instanceof MDCSelectIcon) this.mdcSelectIcon.destroy()
+        this.mdcSelectIcon = leadingIcon
+      }
+    }
   }
 }
 </script>
