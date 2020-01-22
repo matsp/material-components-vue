@@ -13,8 +13,6 @@
     <i class="mdc-select__dropdown-icon" />
     <div
       v-if="enhanced"
-      :id="$attrs.id"
-      :aria-labelledby="ariaLabelledby"
       aria-haspopup="listbox"
       class="mdc-select__selected-text"
       role="button"
@@ -121,13 +119,17 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    selectedTextId: {
+      type: String,
+      default: 'demo-selected-text'
     }
   },
   data () {
     return {
       mdcSelect: undefined,
       slotObserver: undefined,
-      hasPreSelected: true,
+      hasPreSelected: this.value.length > 0,
       hasLeadingIcon: false
     }
   },
@@ -137,15 +139,6 @@ export default {
         'mdc-select--outlined': this.outlined,
         'mdc-select--with-leading-icon': this.hasLeadingIcon
       }
-    },
-    ariaLabelledby () {
-      const ret = this.$attrs.id
-      this.$slots.label.forEach(v => {
-        if (v.elm instanceof HTMLElement) {
-          return `${ret} ${v.elm.id}`
-        }
-      })
-      return ret
     }
   },
   watch: {
@@ -156,7 +149,11 @@ export default {
       this.mdcSelect.required = this.required
     },
     enhanced () {
-      this.reInstantiate()
+      // todo: basic select will be deprecated so 'enhanced' will also be deprecated
+      this.mdcSelect.destroy()
+      this.$nextTick(() => {
+        this.instantiate()
+      })
     },
     classes () {
       this.reInstantiate()
@@ -181,6 +178,7 @@ export default {
       this.mdcSelect.valid = this.valid
       this.mdcSelect.required = this.required
       this.mdcSelect.disabled = this.disabled
+      if (this.value.length > 0) this.mdcSelect.value = this.value
       this.$nextTick(() => { // wait for the DOM change
         // tell all the children that the parent is initialized
         if (this.mdcSelect.label_ instanceof MDCComponent) {
@@ -198,18 +196,15 @@ export default {
         if (this.mdcSelect.leadingIcon_ instanceof MDCComponent) {
           this.mdcSelect.leadingIcon_.emit('_init')
         }
+        if (this.enhanced && this.mdcSelect.menu_ instanceof MDCComponent) {
+          this.mdcSelect.menu_.emit('_init')
+        }
       })
     },
     reInstantiate () {
       this.mdcSelect.destroy()
-      this.instantiate()
-    },
-    onChange (event) {
-      this.$emit('change', event.detail)
-      this.$emit('model', event.detail.value)
-    },
-    updateSlots () {
-      this.hasLeadingIcon = this.$slots.leadingIcon != null
+      // https://github.com/material-components/material-components-web/tree/v3.2.0/packages/mdc-select#select-with-pre-selected-option
+      this.hasPreSelected = this.value.length > 0
       if (this.enhanced) {
         this.$slots.default.forEach(v => {
           if (v.elm instanceof HTMLLIElement) {
@@ -232,6 +227,16 @@ export default {
           }
         })
       }
+      this.$nextTick(() => {
+        this.instantiate()
+      })
+    },
+    onChange (event) {
+      this.$emit('change', event.detail)
+      this.$emit('model', event.detail.value)
+    },
+    updateSlots () {
+      this.hasLeadingIcon = this.$slots.leadingIcon != null
     },
     getLabel () {
       return this.mdcSelect.label_

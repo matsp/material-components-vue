@@ -2,6 +2,7 @@
     <div>
         <ComponentSection flex-direction="column">
             <m-select
+                    v-model="selection"
                     :disabled="checkboxProps[0].value"
                     :outlined="checkboxProps[3].value"
                     :required="checkboxProps[1].value"
@@ -9,15 +10,15 @@
                     :enhanced="radioProps[1].value"
                     id="select_demo">
                 <m-select-icon icon="favorite" slot="leadingIcon" v-if="checkboxProps[4].value" :clickable="checkboxProps[5].value"></m-select-icon>
-                <template slot="default" v-if="!checkboxProps[4].value">
+                <template slot="default" v-if="radioProps[0].value">
                     <option value="apple">Apple</option>
                     <option value="orange">Orange</option>
                     <option value="banana">Banana</option>
                 </template>
                 <template slot="default" v-else>
-                    <m-list data-value="apple">Apple</m-list>
-                    <m-list data-value="orange">Orange</m-list>
-                    <m-list data-value="banana">Banana</m-list>
+                    <m-list-item data-value="apple">Apple</m-list-item>
+                    <m-list-item data-value="orange">Orange</m-list-item>
+                    <m-list-item data-value="banana">Banana</m-list-item>
                 </template>
                 <m-floating-label for="select_demo" id="select_demo_label" slot="label">Fruit</m-floating-label>
                 <m-line-ripple slot="line"/>
@@ -35,6 +36,7 @@
     name: 'SelectDemo',
     data () {
       return {
+        selection: '',
         radioProps: [
           { prop: 'basic', value: true },
           { prop: 'enhanced', value: false }
