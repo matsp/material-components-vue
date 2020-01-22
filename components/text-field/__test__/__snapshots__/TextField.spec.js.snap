@@ -28,7 +28,7 @@ exports[`Text Field should render as focused 1`] = `
 `;
 
 exports[`Text Field should render as fullWidth 1`] = `
-<div class="mdc-text-field mdc-text-field--fullwidth">
+<div class="mdc-text-field mdc-text-field--fullwidth mdc-text-field--no-label">
   <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
@@ -46,6 +46,30 @@ exports[`Text Field should render as outlined 1`] = `
     <div class="mdc-notched-outline__trailing"></div>
   </div>
   <!---->
+  <!---->
+</div>
+`;
+
+exports[`Text Field should render full-width textarea with outlined label 1`] = `
+<div class="mdc-text-field mdc-text-field--fullwidth mdc-text-field--textarea">
+  <!----> <textarea class="mdc-text-field__input"></textarea>
+  <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+    <div class="mdc-notched-outline__leading"></div>
+    <div class="mdc-notched-outline__notch"><label class="mdc-floating-label" style="transition-duration: 0s;">My Label</label></div>
+    <div class="mdc-notched-outline__trailing"></div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Text Field should render textarea 1`] = `
+<div class="mdc-text-field mdc-text-field--textarea mdc-text-field--no-label">
+  <!----> <textarea class="mdc-text-field__input"></textarea>
+  <div class="mdc-notched-outline mdc-notched-outline--no-label">
+    <div class="mdc-notched-outline__leading"></div>
+    <!---->
+    <div class="mdc-notched-outline__trailing"></div>
+  </div>
   <!---->
 </div>
 `;

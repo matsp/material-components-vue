@@ -1,5 +1,8 @@
 <template>
-  <div class="mdc-text-field-character-counter" @_init="onParentInit">
+  <div
+    class="mdc-text-field-character-counter"
+    @_init="onParentInit"
+  >
     {{ currentLength }} / {{ maxLength }}
   </div>
 </template>

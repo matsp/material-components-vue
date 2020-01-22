@@ -17,7 +17,7 @@
             >
                 <m-text-field-character-counter v-if="checkboxProps[15].value && radioProps[3].value" slot="characterCounter"/>
                 <m-text-field-icon icon="favorite" slot="leadingIcon" v-if="checkboxProps[8].value" :clickable="checkboxProps[10].value"></m-text-field-icon>
-                <m-floating-label v-if="!checkboxProps[11].value || radioProps[1].value"
+                <m-floating-label v-if="!checkboxProps[11].value"
                         for="text-field1">Label
                 </m-floating-label>
                 <m-text-field-icon icon="favorite" slot="trailingIcon" v-if="checkboxProps[9].value" :clickable="checkboxProps[10].value"></m-text-field-icon>

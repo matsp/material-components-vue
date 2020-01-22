@@ -37,7 +37,7 @@
       </div>
       <div class="mdc-notched-outline__trailing" />
     </div>
-    <slot v-if="$slots.default && !fullWidth && !textarea && !outlined" />
+    <slot v-if="$slots.default && !textarea && !outlined" />
     <slot name="trailingIcon" />
     <slot
       v-if="!outlined"
@@ -119,14 +119,14 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-text-field--fullwidth': this.fullWidth && this.noLabel && !this.outlined,
+        'mdc-text-field--fullwidth': this.fullWidth,
         'mdc-text-field--with-leading-icon': this.hasLeadingIcon,
         'mdc-text-field--with-trailing-icon': this.hasTrailingIcon,
-        'mdc-text-field--outlined': this.outlined && !this.fullWidth,
+        'mdc-text-field--outlined': this.outlined,
         'mdc-text-field--dense': this.dense,
         'mdc-text-field--focused': this.focused, // won't change the actual activeElement
         'mdc-text-field--textarea': this.textarea,
-        'mdc-text-field--no-label': this.noLabel && !this.fullWidth
+        'mdc-text-field--no-label': this.noLabel
       }
     }
   },
@@ -165,6 +165,7 @@ export default {
       this.noLabel = this.$el.querySelector('.mdc-floating-label') == null
       this.hasLeadingIcon = this.$slots.leadingIcon != null
       this.hasTrailingIcon = this.$slots.trailingIcon != null
+
       // to make our icons compatible with version 0.x.y
       if (this.hasLeadingIcon) {
         this.$slots.leadingIcon.forEach(n => {
@@ -180,6 +181,8 @@ export default {
           }
         })
       }
+
+      this.checkConfig()
     },
     reInstantiate () {
       this.mdcTextField.destroy()
@@ -214,6 +217,21 @@ export default {
           this.mdcTextField.trailingIcon_.emit('_init')
         }
       })
+    },
+    checkConfig () {
+      if (this.fullWidth && !this.noLabel && !this.textarea) {
+        console.warn(
+          'Do not use floating label with a full width text input. ' +
+          'See https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield#full-width'
+        )
+      }
+
+      if (this.fullWidth && this.outlined && !this.textarea) {
+        console.warn(
+          'Do not use outlined style on full width text input. ' +
+          'See: https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield#full-width'
+        )
+      }
     },
     getLabel () {
       return this.mdcTextField.label_

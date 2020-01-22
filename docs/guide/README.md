@@ -202,6 +202,19 @@ Vue config example:
 css: {
   loaderOptions: {
     sass: {
+      sassOptions: {
+        includePaths: ["./node_modules"]
+      }
+    }
+  }
+}
+```
+
+For `sass-loader` before `8.0.0`, use the following: 
+```
+css: {
+  loaderOptions: {
+    sass: {
       includePaths: ['./node_modules']
     }
   }
