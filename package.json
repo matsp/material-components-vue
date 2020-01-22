@@ -76,7 +76,7 @@
     "postcss": "7.0.26",
     "postcss-loader": "3.0.0",
     "sass-loader": "8.0.2",
-    "standard-version": "7.0.1",
+    "standard-version": "7.1.0",
     "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "3.0.0",
     "vue-jest": "3.0.5",
