@@ -2,6 +2,7 @@
   <div
     :class="classes"
     class="mdc-select"
+    :style="widthStyle"
     @MDCSelect:change="onChange"
   >
     <slot name="leadingIcon" />
@@ -13,13 +14,15 @@
     <i class="mdc-select__dropdown-icon" />
     <div
       v-if="enhanced"
+      :id="selectedTextId"
       aria-haspopup="listbox"
       class="mdc-select__selected-text"
       role="button"
+      :aria-labelledby="ariaLabelledBy"
     />
     <div
       v-if="enhanced"
-      :style="{ width: width }"
+      :style="widthStyle"
       class="mdc-select__menu mdc-menu mdc-menu-surface"
       role="listbox"
     >
@@ -36,9 +39,9 @@
     </div>
     <select
       v-else
-      :disabled="disabled"
       class="mdc-select__native-control"
       v-bind="$attrs"
+      :name="name"
     >
       <option
         v-if="!hasPreSelected"
@@ -62,7 +65,10 @@
       v-else
       name="label"
     />
-    <slot name="line" />
+    <slot
+      v-if="!outlined"
+      name="line"
+    />
   </div>
 </template>
 
@@ -105,8 +111,8 @@ export default {
       default: ''
     },
     width: {
-      type: Number,
-      default: 400
+      type: String,
+      default: '400px'
     },
     valid: {
       type: Boolean,
@@ -139,24 +145,38 @@ export default {
         'mdc-select--outlined': this.outlined,
         'mdc-select--with-leading-icon': this.hasLeadingIcon
       }
+    },
+    widthStyle () {
+      if (this.enhanced) {
+        return {
+          width: this.width
+        }
+      }
+      return {}
+    },
+    ariaLabelledBy () {
+      if (this.mdcSelect && this.mdcSelect.label_ && this.mdcSelect.label_.root_) {
+        return `${this.selectedTextId} ${this.mdcSelect.label_.root_.getAttribute('id')}`
+      }
+      return this.selectedTextId
     }
   },
   watch: {
-    valid () {
-      this.mdcSelect.valid = this.valid
+    valid (val) {
+      this.mdcSelect.valid = val
     },
-    required () {
-      this.mdcSelect.required = this.required
+    required (val) {
+      this.mdcSelect.required = val
     },
     enhanced () {
       // todo: basic select will be deprecated so 'enhanced' will also be deprecated
-      this.mdcSelect.destroy()
-      this.$nextTick(() => {
-        this.instantiate()
-      })
+      this.reInstantiate()
     },
     classes () {
       this.reInstantiate()
+    },
+    disabled (val) {
+      this.mdcSelect.disabled = val
     }
   },
   mounted () {
@@ -198,6 +218,7 @@ export default {
         }
         if (this.enhanced && this.mdcSelect.menu_ instanceof MDCComponent) {
           this.mdcSelect.menu_.emit('_init')
+          // todo: use injected method to instantiate component in <m-menu>
         }
       })
     },
@@ -252,6 +273,9 @@ export default {
     },
     getLeadingIcon () {
       return this.mdcSelect.leadingIcon_
+    },
+    getMenu () {
+      return this.mdcSelect.menu_
     }
   }
 }

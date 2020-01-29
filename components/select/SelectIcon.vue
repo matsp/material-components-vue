@@ -6,7 +6,8 @@
     v-on="$listeners"
     @_init="onParentInit"
   >
-    <slot />
+    <template v-if="icon && icon.length > 0">{{ icon }}</template>
+    <slot v-else />
   </i>
 </template>
 
@@ -15,7 +16,6 @@ import { MDCSelectIcon } from '@material/select/icon'
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
-  name: 'SelectIcon',
   mixins: [baseComponentMixin, themeClassMixin],
   inject: ['getLeadingIcon'],
   props: {

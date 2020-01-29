@@ -14,7 +14,6 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 import { MDCSelectHelperText } from '@material/select/helper-text'
 
 export default {
-  name: 'SelectHelperText',
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     persistent: {

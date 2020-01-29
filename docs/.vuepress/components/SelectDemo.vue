@@ -1,6 +1,7 @@
 <template>
     <div>
         <ComponentSection flex-direction="column">
+            <div>
             <m-select
                     v-model="selection"
                     :disabled="checkboxProps[0].value"
@@ -20,10 +21,11 @@
                     <m-list-item data-value="orange">Orange</m-list-item>
                     <m-list-item data-value="banana">Banana</m-list-item>
                 </template>
-                <m-floating-label for="select_demo" id="select_demo_label" slot="label">Fruit</m-floating-label>
+                <m-floating-label for="select_demo" id="demo-label" slot="label">Fruit</m-floating-label>
                 <m-line-ripple slot="line"/>
             </m-select>
             <m-select-helper-text v-if="checkboxProps[6].value" :validation-msg="checkboxProps[8].value" :persistent="checkboxProps[7].value">Helper</m-select-helper-text>
+            </div>
         </ComponentSection>
         <ComponentProps
                 :checkboxProps="checkboxProps"
@@ -48,7 +50,7 @@
           { prop: 'outlined', value: false },
           { prop: 'with leading icon', value: false },
           { prop: 'clickable icon', value: false },
-          { prop: 'with helper text', value: false },
+          { prop: 'with helper text', value: true },
           { prop: 'persistent helper text', value: false },
           { prop: 'validation message helper text', value: false },
         ]
