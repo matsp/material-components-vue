@@ -19,7 +19,7 @@
               </m-menu-selection-group>
           </li>
           <m-list-divider></m-list-divider>
-          <m-list-item>Add space before paragraph</m-list-item>
+              <m-list-item><template slot="text">Add space before paragraph</template></m-list-item>
           </m-list>
       </m-menu>
     </m-menu-anchor>
