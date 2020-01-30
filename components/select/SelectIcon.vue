@@ -17,7 +17,11 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
-  inject: ['getLeadingIcon'],
+  inject: {
+    getLeadingIcon: {
+      default: null
+    }
+  },
   props: {
     clickable: {
       type: Boolean,
