@@ -86,7 +86,8 @@ export default {
       getLineRipple: this.getLineRipple,
       getOutline: this.getOutline,
       getHelperText: this.getHelperText,
-      getLeadingIcon: this.getLeadingIcon
+      getLeadingIcon: this.getLeadingIcon,
+      getMenu: this.getMenu
     }
   },
   model: {
