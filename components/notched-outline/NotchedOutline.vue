@@ -13,7 +13,11 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
-  inject: ['getOutline'],
+  inject: {
+    getOutline: {
+      default: null
+    }
+  },
   data () {
     return {
       mdcNotchedOutline: undefined
