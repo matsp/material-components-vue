@@ -1,32 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Fab should render as absolute right 1`] = `
-<button class="mdc-fab mdc-fab--absolute-right">
-  <!----> </button>
-`;
+exports[`Fab should render as absolute right 1`] = `<button class="mdc-fab mdc-fab--absolute-right"> <span class="mdc-fab__label" style="display: none;"></span> </button>`;
 
-exports[`Fab should render as exited 1`] = `
-<button class="mdc-fab mdc-fab--exited">
-  <!----> </button>
-`;
+exports[`Fab should render as exited 1`] = `<button class="mdc-fab mdc-fab--exited"> <span class="mdc-fab__label" style="display: none;"></span> </button>`;
 
-exports[`Fab should render as extended 1`] = `
-<button class="mdc-fab mdc-fab--extended">
-  <div class="mdc-fab__label">create</div>
-</button>
-`;
+exports[`Fab should render as extended 1`] = `<button class="mdc-fab mdc-fab--extended"> <span class="mdc-fab__label" style="">create</span> </button>`;
 
-exports[`Fab should render as mini 1`] = `
-<button class="mdc-fab mdc-fab--mini">
-  <!----> </button>
-`;
+exports[`Fab should render as mini 1`] = `<button class="mdc-fab mdc-fab--mini"> <span class="mdc-fab__label" style="display: none;"></span> </button>`;
 
-exports[`Fab should render with no prop 1`] = `
-<button class="mdc-fab">
-  <!----> </button>
-`;
+exports[`Fab should render with no prop 1`] = `<button class="mdc-fab"> <span class="mdc-fab__label" style="display: none;"></span> </button>`;
 
-exports[`Fab should render without ripple 1`] = `
-<button class="mdc-fab">
-  <!----> </button>
-`;
+exports[`Fab should render without ripple 1`] = `<button class="mdc-fab"> <span class="mdc-fab__label" style="display: none;"></span> </button>`;
