@@ -16,7 +16,11 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
-  inject: ['getLabel'],
+  inject: {
+    getLabel: {
+      default: null
+    }
+  },
   props: {
     floatAbove: {
       type: Boolean,

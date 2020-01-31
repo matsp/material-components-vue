@@ -1,9 +1,9 @@
 <template>
   <p
-    :class="classes"
     aria-hidden="true"
     class="mdc-select-helper-text"
     v-bind="$attrs"
+    @_init="onParentInit"
   >
     <slot />
   </p>
@@ -14,7 +14,6 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 import { MDCSelectHelperText } from '@material/select/helper-text'
 
 export default {
-  name: 'SelectHelperText',
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     persistent: {
@@ -31,20 +30,34 @@ export default {
       mdcSelectHelperText: undefined
     }
   },
-  computed: {
-    classes () {
-      return {
-        'mdc-select-helper-text--persistent': this.persistent,
-        'mdc-select-helper-text--validation-msg': this.validationMsg
-      }
+  watch: {
+    persistent (val) {
+      this.mdcSelectHelperText.foundation.setPersistent(val)
+    },
+    validationMsg (val) {
+      this.mdcSelectHelperText.foundation.setValidation(val)
     }
   },
   mounted () {
-    this.mdcSelectHelperText = MDCSelectHelperText.attachTo(this.$el)
+    if (!(this.getHelperText instanceof Function)) { // can not be init by parent
+      this.mdcSelectHelperText = MDCSelectHelperText.attachTo(this.$el)
+      this.mdcSelectHelperText.foundation.setPersistent(this.persistent)
+      this.mdcSelectHelperText.foundation.setValidation(this.validationMsg)
+    }
   },
   beforeDestroy () {
-    if (typeof this.mdcSelectHelperText !== 'undefined') {
+    if (this.mdcSelectHelperText instanceof MDCSelectHelperText) {
       this.mdcSelectHelperText.destroy()
+    }
+  },
+  methods: {
+    onParentInit (helperText) {
+      if (helperText instanceof MDCSelectHelperText) {
+        if (this.mdcSelectHelperText instanceof MDCSelectHelperText) this.mdcSelectHelperText.destroy()
+        this.mdcSelectHelperText = helperText
+        this.mdcSelectHelperText.foundation.setPersistent(this.persistent)
+        this.mdcSelectHelperText.foundation.setValidation(this.validationMsg)
+      }
     }
   }
 }
