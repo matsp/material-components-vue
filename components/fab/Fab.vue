@@ -7,12 +7,12 @@
     v-on="$listeners"
   >
     <slot name="icon" />
-    <div
-      v-if="extended"
+    <span
+      v-show="extended"
       class="mdc-fab__label"
     >
       <slot />
-    </div>
+    </span>
     <slot name="trailingIcon" />
   </button>
   <a
@@ -24,12 +24,12 @@
     v-on="$listeners"
   >
     <slot name="icon" />
-    <div
-      v-if="extended"
+    <span
+      v-show="extended"
       class="mdc-fab__label"
     >
       <slot />
-    </div>
+    </span>
     <slot name="trailingIcon" />
   </a>
 </template>
@@ -93,7 +93,8 @@ export default {
     this.slotObserver = new MutationObserver(() => this.updateSlot())
     this.slotObserver.observe(this.$el, {
       childList: true,
-      subtree: true
+      subtree: true,
+      characterData: true
     })
     if (this.ripple) this.mdcRipple = MDCRipple.attachTo(this.$el)
   },
@@ -123,15 +124,12 @@ export default {
       }
     },
     reInstantiateRipple () {
+      if (this.mdcRipple instanceof MDCRipple) {
+        this.mdcRipple.destroy()
+      }
       if (this.ripple) {
-        if (this.mdcRipple) {
-          this.mdcRipple.destroy()
-        }
         MDCRipple.attachTo(this.$el)
       } else {
-        if (this.mdcRipple) {
-          this.mdcRipple.destroy()
-        }
         this.mdcRipple = undefined
       }
     }
