@@ -9,7 +9,11 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
-  inject: ['getLineRipple'],
+  inject: {
+    getLineRipple: {
+      default: null
+    }
+  },
   props: {
     activate: {
       type: Boolean,
