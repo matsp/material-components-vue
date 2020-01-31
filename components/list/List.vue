@@ -5,6 +5,7 @@
     class="mdc-list"
     v-bind="$attrs"
     @MDCList:action="onAction"
+    @_init="onParentInit"
   >
     <slot />
   </ul>
@@ -14,6 +15,7 @@
     class="mdc-list"
     v-bind="$attrs"
     @MDCList:action="onAction"
+    @_init="onParentInit"
   >
     <slot />
   </nav>
@@ -23,6 +25,7 @@
     class="mdc-list"
     v-bind="$attrs"
     @MDCList:action="onAction"
+    @_init="onParentInit"
   >
     <slot />
   </div>
@@ -34,6 +37,11 @@ import { MDCList } from '@material/list'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: {
+    getList: {
+      default: null
+    }
+  },
   model: {
     prop: 'selectedIndex',
     event: 'change'
@@ -98,15 +106,15 @@ export default {
   },
   watch: {
     singleSelection () {
-      if (this.mdcList) { this.mdcList.singleSelection = this.singleSelection }
       if (this.singleSelection) {
         this.$el.setAttribute('role', 'listbox')
         this.$slots.default.forEach((n) => {
-          if (n.elm) {
+          if (n.elm instanceof HTMLElement) {
             n.elm.setAttribute('role', 'option')
           }
         })
       }
+      if (this.mdcList) { this.mdcList.singleSelection = this.singleSelection }
     },
     vertical () {
       if (this.mdcList) { this.mdcList.vertical = this.vertical }
@@ -118,69 +126,84 @@ export default {
       if (this.mdcList && ((this.selectedIndex instanceof Number && this.selectedIndex > -1) || this.selectedIndex instanceof Array)) this.mdcList.selectedIndex = this.selectedIndex
     },
     js () {
-      this.reInstantiateList()
+      if (!(this.getList instanceof Function)) {
+        this.reInstantiateList()
+      } else {
+        console.warn('Prop \'js\' is omitted when your <m-list> is placed inside a menu or drawer. The \'js\' prop won\'t take effect.')
+      }
     },
     tag () {
       this.$nextTick(() => {
-        this.reInstantiateList()
+        if (!(this.getList instanceof Function)) {
+          this.reInstantiateList()
+        } else {
+          console.warn('Prop \'tag\' is not reactive when your <m-list> is placed inside a menu or drawer. Changing \'tag\' won\'t take effect.')
+        }
       })
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      if (this.js && !this.mdcList) {
-        this.mdcList = MDCList.attachTo(this.$el)
-        this.mdcList.singleSelection = this.singleSelection
-        if (this.singleSelection) this.$el.setAttribute('role', 'listbox')
-        this.mdcList.vertical = this.vertical
-        if ((this.selectedIndex instanceof Number && this.selectedIndex > -1) || this.selectedIndex instanceof Array) this.mdcList.selectedIndex = this.selectedIndex
-        this.mdcList.wrapFocus = this.wrapFocus
-
-        this.slotObserver = new MutationObserver(() => this.updateSlot())
-        this.slotObserver.observe(this.$el, {
-          childList: true,
-          subtree: true
-        })
-      }
+    this.updateSlot()
+    this.slotObserver = new MutationObserver(() => this.updateSlot())
+    this.slotObserver.observe(this.$el, {
+      childList: true,
+      subtree: true
     })
+    if (!(this.getList instanceof Function)) { // can not be init by parent
+      this.instantiate()
+    }
   },
   beforeDestroy () {
     if (this.mdcList) this.mdcList.destroy()
   },
   methods: {
+    instantiate () {
+      this.mdcList = MDCList.attachTo(this.$el)
+      this.propsSetting()
+    },
+    propsSetting () {
+      this.mdcList.singleSelection = this.singleSelection
+      if (this.singleSelection) this.$el.setAttribute('role', 'listbox')
+      this.mdcList.vertical = this.vertical
+      if ((this.selectedIndex instanceof Number && this.selectedIndex > -1) || this.selectedIndex instanceof Array) this.mdcList.selectedIndex = this.selectedIndex
+      this.mdcList.wrapFocus = this.wrapFocus
+    },
+    /**
+     * only called if there's no injected getList method
+     */
     reInstantiateList () {
-      if (this.js) {
-        if (this.mdcList) {
-          this.mdcList.destroy()
-        }
-        MDCList.attachTo(this.$el)
-        this.mdcList.singleSelection = this.singleSelection
-        this.mdcList.vertical = this.vertical
-        this.mdcList.selectedIndex = this.selectedIndex
-        this.mdcList.wrapFocus = this.wrapFocus
-      } else {
-        if (this.mdcList) {
-          this.mdcList.destroy()
-        }
-        this.mdcList = undefined
+      if (this.mdcList instanceof MDCList) {
+        this.mdcList.destroy()
+      }
+      this.mdcList = undefined
+      if (this.js) { // prop js can be safely checked
+        this.instantiate()
       }
     },
     updateSlot () {
-      if (this.mdcList) this.mdcList.layout()
+      if (this.mdcList instanceof MDCList) this.mdcList.layout()
       if (this.singleSelection) {
         this.$slots.default.forEach((n) => {
-          if (n.elm) {
+          if (n.elm instanceof HTMLElement) {
             n.elm.setAttribute('role', 'option')
           }
         })
       }
     },
     onAction (e) {
-      if (this.mdcList) {
+      if (this.mdcList instanceof MDCList && this.mdcList.selectedIndex >= 0) {
         this.$emit('change', this.mdcList.selectedIndex)
       }
       this.$emit('action', e.detail)
-    }
+    },
+    onParentInit () {
+      const list = this.getList()
+      if (list instanceof MDCList) {
+        if (this.mdcList instanceof MDCList) this.mdcList.destroy()
+        this.mdcList = list
+        this.propsSetting()
+      }
+    },
   }
 }
 </script>

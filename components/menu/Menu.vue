@@ -2,6 +2,7 @@
   <div
     class="mdc-menu mdc-menu-surface"
     @MDCMenu:selected="onSelect"
+    @_init="onParentInit"
   >
     <slot />
   </div>
@@ -12,9 +13,20 @@ import { Corner, MDCMenu } from '@material/menu'
 import { DefaultFocusState } from '@material/menu/constants'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
+import { MDCComponent } from '@material/base/component'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: {
+    getMenu: {
+      default: null
+    }
+  },
+  provide () {
+    return {
+      getList: this.getList
+    }
+  },
   model: {
     prop: 'open',
     event: 'change'
@@ -34,11 +46,11 @@ export default {
     },
     absolutePositionX: {
       type: Number,
-      default: null
+      default: Number.POSITIVE_INFINITY
     },
     absolutePositionY: {
       type: Number,
-      default: null
+      default: Number.POSITIVE_INFINITY
     },
     hoistToBody: {
       type: Boolean,
@@ -72,14 +84,6 @@ export default {
     }
   },
   computed: {
-    model: {
-      get () {
-        return this.open
-      },
-      set (value) {
-        this.$emit('change', value)
-      }
-    },
     focusState () {
       if (!this.defaultFocusState) return null
 
@@ -112,8 +116,8 @@ export default {
     }
   },
   watch: {
-    open () {
-      this.mdcMenu.open = this.open
+    open (val) {
+      if (this.mdcMenu.open !== val) this.mdcMenu.open = val
     },
     quickOpen () {
       this.mdcMenu.quickOpen = this.quickOpen
@@ -135,12 +139,12 @@ export default {
       }
     },
     absolutePositionX () {
-      if (this.absolutePositionX !== null) {
+      if (this.absolutePositionX !== Number.POSITIVE_INFINITY) {
         this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
       }
     },
     absolutePositionY () {
-      if (this.absolutePositionY !== null) {
+      if (this.absolutePositionY !== Number.POSITIVE_INFINITY) {
         this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
       }
     },
@@ -152,51 +156,45 @@ export default {
         this.mdcMenu.setDefaultFocusState(this.focusState)
       }
     },
-    'mdcMenu.open' () {
-      this.model = this.mdcMenu.open
+    'mdcMenu.open' (val) {
+      this.$emit('change', val)
     },
     selectedIndex () {
       if (this.selectedIndex >= 0) this.mdcMenu.setSelectedIndex(this.selectedIndex)
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      this.updateSlot()
-      this.slotObserver = new MutationObserver(() => this.updateSlot())
-      this.slotObserver.observe(this.$el, {
-        childList: true,
-        subtree: true
-      })
-      this.mdcMenu = MDCMenu.attachTo(this.$el)
-      if (this.hoistToBody) {
-        this.mdcMenu.hoistMenuToBody()
-      }
-      this.mdcMenu.setFixedPosition(this.fixed)
-      if (this._anchorCorner) {
-        this.mdcMenu.setAnchorCorner(this._anchorCorner)
-      }
-      if (this.absolutePositionX !== null || this.absolutePositionY !== null) {
-        this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
-      }
-      this.mdcMenu.wrapFocus = this.wrapFocus
-
-      if (this.focusState !== null) {
-        this.mdcMenu.setDefaultFocusState(this.focusState)
-      }
-      this.mdcMenu.setIsHoisted(this.isHoisted)
-
-      if (this.selectedIndex >= 0) this.mdcMenu.setSelectedIndex(this.selectedIndex)
+    this.updateSlot()
+    this.slotObserver = new MutationObserver(() => this.updateSlot())
+    this.slotObserver.observe(this.$el, {
+      childList: true,
+      subtree: true
     })
+    if (!(this.getMenu instanceof Function)) { // can not be init by parent
+      this.instantiate()
+    }
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
-    this.mdcMenu.destroy()
+    if (this.mdcMenu instanceof MDCMenu) {
+      this.mdcMenu.destroy()
+    }
   },
   methods: {
+    instantiate () {
+      this.mdcMenu = MDCMenu.attachTo(this.$el)
+      this.propsSetting()
+      this.$nextTick(() => { // wait for the DOM change
+        // tell all the children that the parent is initialized
+        if (this.mdcMenu.list_ instanceof MDCComponent) {
+          this.mdcMenu.list_.emit('_init')
+        }
+      })
+    },
     updateSlot () {
       if (this.$slots.default) {
         this.$slots.default.map(n => {
-          if (n.elm) {
+          if (n.elm instanceof HTMLElement) {
             n.elm.setAttribute('role', 'menu')
             n.elm.setAttribute('aria-hidden', 'true')
             n.elm.setAttribute('aria-orientation', 'vertical')
@@ -210,6 +208,39 @@ export default {
     onSelect (event) {
       this.model = false
       this.$emit('selected', event.detail)
+    },
+    onParentInit () {
+      const menu = this.getMenu()
+      if (menu instanceof MDCMenu) {
+        if (this.mdcMenu instanceof MDCMenu) this.mdcMenu.destroy()
+        this.mdcMenu = menu
+        this.propsSetting()
+      }
+    },
+    propsSetting () {
+      if (this.mdcMenu instanceof MDCMenu) {
+        if (this.hoistToBody) {
+          this.mdcMenu.hoistMenuToBody()
+        }
+        this.mdcMenu.setFixedPosition(this.fixed)
+        if (this._anchorCorner) {
+          this.mdcMenu.setAnchorCorner(this._anchorCorner)
+        }
+        if (this.absolutePositionX !== Number.POSITIVE_INFINITY && this.absolutePositionY !== Number.POSITIVE_INFINITY) {
+          this.mdcMenu.setAbsolutePosition(this.absolutePositionX, this.absolutePositionY)
+        }
+        this.mdcMenu.wrapFocus = this.wrapFocus
+
+        if (this.focusState !== null) {
+          this.mdcMenu.setDefaultFocusState(this.focusState)
+        }
+        this.mdcMenu.setIsHoisted(this.isHoisted)
+
+        if (this.selectedIndex >= 0) this.mdcMenu.setSelectedIndex(this.selectedIndex)
+      }
+    },
+    getList () {
+      return this.mdcMenu.list_
     }
   }
 }
