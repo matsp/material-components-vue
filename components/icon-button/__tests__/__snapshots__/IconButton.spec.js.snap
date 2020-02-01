@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IconButton should render with no prop 1`] = `
-<button data-toggle-on-content="" data-toggle-on-label="" data-toggle-on-class="" data-toggle-off-content="" data-toggle-off-label="" data-toggle-off-class="" class="mdc-icon-button">
-  <!---->
-  <!---->
+<button class="mdc-icon-button mdc-ripple-upgraded--unbounded">
   <!---->
   <!----></button>
 `;
