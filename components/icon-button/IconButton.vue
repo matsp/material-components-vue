@@ -2,36 +2,6 @@
   <a
     v-if="href !== ''"
     :href="href"
-    :data-toggle-on-content="toggleOnContent"
-    :data-toggle-on-label="toggleOnLabel"
-    :data-toggle-on-class="toggleOnClass"
-    :data-toggle-off-content="toggleOffContent"
-    :data-toggle-off-label="toggleOffLabel"
-    :data-toggle-off-class="toggleOffClass"
-    v-bind="$attrs"
-    class="mdc-icon-button"
-    :class="classes"
-    v-on="$listeners"
-    @MDCIconButtonToggle:change="$emit('change', $event.detail.isOn)"
-  >
-    <slot v-if="isIconButton" />
-    <slot
-      v-if="isToggleButtonViaSlots && !value"
-      name="toggleOn"
-    />
-    <slot
-      v-if="isToggleButtonViaSlots && value"
-      name="toggleOff"
-    />
-  </a>
-  <button
-    v-else
-    :data-toggle-on-content="toggleOnContent"
-    :data-toggle-on-label="toggleOnLabel"
-    :data-toggle-on-class="toggleOnClass"
-    :data-toggle-off-content="toggleOffContent"
-    :data-toggle-off-label="toggleOffLabel"
-    :data-toggle-off-class="toggleOffClass"
     v-bind="$attrs"
     class="mdc-icon-button"
     :class="classes"
@@ -41,13 +11,34 @@
     <template v-if="icon && icon !== ''">
       {{ icon }}
     </template>
-    <slot v-if="isIconButton" />
+    <slot v-else />
     <slot
-      v-if="isToggleButtonViaSlots && !value"
+      v-if="isToggleButton"
       name="toggleOn"
     />
     <slot
-      v-if="isToggleButtonViaSlots && value"
+      v-if="isToggleButton"
+      name="toggleOff"
+    />
+  </a>
+  <button
+    v-else
+    v-bind="$attrs"
+    class="mdc-icon-button"
+    :class="classes"
+    v-on="$listeners"
+    @MDCIconButtonToggle:change="$emit('change', $event.detail.isOn)"
+  >
+    <template v-if="icon && icon !== ''">
+      {{ icon }}
+    </template>
+    <slot v-else />
+    <slot
+      v-if="isToggleButton"
+      name="toggleOn"
+    />
+    <slot
+      v-if="isToggleButton"
       name="toggleOff"
     />
   </button>
@@ -66,30 +57,6 @@ export default {
     event: 'change'
   },
   props: {
-    toggleOnContent: {
-      type: String,
-      default: ''
-    },
-    toggleOnLabel: {
-      type: String,
-      default: ''
-    },
-    toggleOnClass: {
-      type: String,
-      default: ''
-    },
-    toggleOffContent: {
-      type: String,
-      default: ''
-    },
-    toggleOffLabel: {
-      type: String,
-      default: ''
-    },
-    toggleOffClass: {
-      type: String,
-      default: ''
-    },
     value: {
       type: Boolean,
       default: false
@@ -101,25 +68,26 @@ export default {
     icon: {
       type: String,
       default: ''
+    },
+    ripple: {
+      type: Boolean,
+      default: true
+    },
+    unbounded: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
     return {
       mdcIconButtonToggle: undefined,
       mdcRipple: undefined,
+      isToggleButtonObserver: undefined,
+      isToggleButton: false,
       slotObserver: undefined
     }
   },
   computed: {
-    isToggleButtonViaSlots () {
-      return this.$slots.toggleOn && this.$slots.toggleOff && !this.isIconButton
-    },
-    isIconButton () {
-      return this.$slots.default
-    },
-    isToggleButton () {
-      return this.toggleOnContent !== '' && this.toggleOffContent !== ''
-    },
     classes () {
       return {
         'material-icons': this.icon && this.icon !== ''
@@ -128,37 +96,94 @@ export default {
   },
   watch: {
     value (value) {
-      if (typeof this.mdcIconButtonToggle !== 'undefined') {
+      if (this.mdcIconButtonToggle instanceof MDCIconButtonToggle) {
         this.mdcIconButtonToggle.on = value
       }
+    },
+    ripple (value) {
+      if (this.mdcRipple instanceof MDCRipple) {
+        this.mdcRipple.destroy()
+      }
+      if (value) {
+        this.mdcRipple = MDCRipple.attachTo(this.$el)
+        this.mdcRipple.unbounded = this.unbounded
+      } else {
+        this.mdcRipple = undefined
+      }
+    },
+    unbounded (value) {
+      if (this.mdcRipple instanceof MDCRipple) {
+        this.mdcRipple.unbounded = value
+      }
+      if (this.mdcIconButtonToggle instanceof MDCIconButtonToggle) {
+        this.mdcIconButtonToggle.unbounded = value
+      }
+    },
+    href () {
+      this.$nextTick(() => {
+        this.updateSlots()
+      })
     }
   },
   mounted () {
-    this.update()
-    this.slotObserver = new MutationObserver(() => this.update())
+    this.updateIsToggleButton()
+    this.isToggleButtonObserver = new MutationObserver(() => this.updateIsToggleButton())
+    this.isToggleButtonObserver.observe(this.$el, {
+      childList: true,
+      attributes: true // observe the class change. Toggle doesn't have the icon classes like 'material-icons' in the root element while the normal icon button has.
+    })
+    this.updateSlots()
+    this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
   },
   beforeDestroy () {
-    if (typeof this.mdcIconButtonToggle !== 'undefined') {
+    if (this.mdcIconButtonToggle instanceof MDCIconButtonToggle) {
       this.mdcIconButtonToggle.destroy()
     }
-    if (typeof this.mdcRipple !== 'undefined') {
+    if (this.mdcRipple instanceof MDCRipple) {
       this.mdcRipple.destroy()
     }
+    this.isToggleButtonObserver.disconnect()
     this.slotObserver.disconnect()
   },
   methods: {
-    update () {
-      if ((this.isToggleButton || this.isToggleButtonViaSlots) && typeof this.mdcIconButtonToggle === 'undefined') {
+    updateIsToggleButton () {
+      this.isToggleButton = this.$slots.toggleOn != null && this.$slots.toggleOff != null
+      // no need to call the $nextTick because the slotObserver will observe the change and call this update method again
+    },
+    updateSlots () {
+      if (this.mdcIconButtonToggle instanceof MDCIconButtonToggle) {
+        this.mdcIconButtonToggle.destroy()
+      }
+      if (this.mdcRipple instanceof MDCRipple) {
+        this.mdcRipple.destroy()
+      }
+      if (this.isToggleButton) {
+        this.$slots.toggleOn.forEach(e => {
+          if (e.elm instanceof Element) {
+            e.elm.classList.add('mdc-icon-button__icon', 'mdc-icon-button__icon--on')
+          }
+        })
+        this.$slots.toggleOff.forEach(e => {
+          if (e.elm instanceof Element) {
+            e.elm.classList.add('mdc-icon-button__icon')
+          }
+        })
         this.mdcIconButtonToggle = MDCIconButtonToggle.attachTo(this.$el)
         this.mdcIconButtonToggle.on = this.value
-      }
-      if (this.isIconButton && typeof this.mdcRipple === 'undefined') {
-        this.mdcRipple = MDCRipple.attachTo(this.$el)
-        this.mdcRipple.unbounded = true
+        this.mdcIconButtonToggle.unbounded = this.unbounded
+      } else {
+        this.$el.querySelectorAll('.mdc-icon-button__icon').forEach(e => e.classList.remove('mdc-icon-button__icon', 'mdc-icon-button__icon--on'))
+        this.mdcIconButtonToggle = undefined
+        if (this.ripple) {
+          this.mdcRipple = MDCRipple.attachTo(this.$el)
+          this.mdcRipple.unbounded = this.unbounded
+        } else {
+          this.mdcRipple = undefined
+        }
       }
     }
   }

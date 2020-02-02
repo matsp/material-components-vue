@@ -39,13 +39,9 @@ exports[`Card should render with action icons 1`] = `
   <div class="mdc-card__actions">
     <!---->
     <!---->
-    <div class="mdc-card__action-icons"><button data-toggle-on-content="" data-toggle-on-label="" data-toggle-on-class="" data-toggle-off-content="" data-toggle-off-label="" data-toggle-off-class="" class="mdc-icon-button mdc-card__action mdc-card__action--icon">
+    <div class="mdc-card__action-icons"><button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-card__action mdc-card__action--icon">
         <!---->
-        <!---->
-        <!---->
-        <!----></button><button data-toggle-on-content="" data-toggle-on-label="" data-toggle-on-class="" data-toggle-off-content="" data-toggle-off-label="" data-toggle-off-class="" class="mdc-icon-button mdc-card__action mdc-card__action--icon">
-        <!---->
-        <!---->
+        <!----></button><button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-card__action mdc-card__action--icon">
         <!---->
         <!----></button></div>
   </div>
