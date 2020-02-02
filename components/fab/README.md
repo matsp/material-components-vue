@@ -2,18 +2,28 @@
 
 ### Markup
 
+#### Basic Usage
+
 ```html
-<m-fab aria-label="Favorite">
-    <m-fab-icon class="material-icons">favorite</m-fab-icon>
+<m-fab aria-label="Add">
+    <m-icon icon="add" slot="icon"></m-icon>
 </m-fab>
 ```
 
-### Extended FAB
+#### Extended FAB
 
 ```html
-<m-fab>
-    <m-fab-icon class="material-icons">add</m-fab-icon>
-    <m-fab-label>Create</m-fab-label>
+<m-fab aria-label="Create">
+    <m-icon icon="add" slot="icon"></m-icon>
+    Create
+</m-fab>
+```
+
+#### Using Font Awesome
+
+```html
+<m-fab aria-label="Take photo">
+    <i class="fas fa-camera" slot="icon"></i>
 </m-fab>
 ```
 
@@ -34,6 +44,8 @@ Events and attributes are mapped to the inner button element.
 | Slot | Description |
 |------|-------------|
 | default | fab content |
+| icon | leading icon in extended fab |
+| trailingIcon | trailing icon in extended fab |
 
 ### Additional Information
 
@@ -57,15 +69,9 @@ Developers must position `<m-fab>` as needed within their application’s design
 }
 </style>
 <m-fab class="app-fab--absolute" aria-label="Favorite">
-  <m-fab-icon class="material-icons">favorite</m-fab-icon>
+  <m-icon icon="favorite" slot="icon"></m-icon>
 </m-fab>
 ```
-
-### Slots
-
-| Slot | Description |
-|------|-------------|
-| default | label content |
 
 ## Reference
 
