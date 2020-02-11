@@ -135,13 +135,13 @@ data() {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| value | String | '' | text field value |
+| value | [String, Number] | '' | text field value, can be `v-model` |
 | disabled | Boolean | false |  whether the text field should be disabled |
 | fullWidth | Boolean | false | Styles the text field as a full width text field. |
 | outlined | Boolean | false | Styles the text field as an outlined text field. |
 | dense | Boolean | false | Styles the text field as a dense text field, will be removed in an upcoming release |
 | focused | Boolean | false | Styles the text field as a text field in focus. |
-| textarea | Boolean | false | Indicates the text field is a <textarea>. |
+| textarea | Boolean | false | Indicates the text field is a `<textarea>`. |
 | useNativeValidation | Boolean | true | Sets whether to check native HTML validity state (true, default) or custom validity state when updating styles (false). |
 | valid | Boolean | true | Sets custom validity and updates styles accordingly. Note that native validation will still be honored subsequently unless useNativeValidation is also false. |
 

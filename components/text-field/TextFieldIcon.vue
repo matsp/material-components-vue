@@ -14,7 +14,14 @@
 import { MDCTextFieldIcon } from '@material/textfield/icon'
 
 export default {
-  inject: ['getLeadingIcon', 'getTrailingIcon'],
+  inject: {
+    getLeadingIcon: {
+      default: null
+    },
+    getTrailingIcon: {
+      default: null
+    }
+  },
   props: {
     clickable: {
       type: Boolean,
