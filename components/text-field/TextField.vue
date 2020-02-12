@@ -129,22 +129,22 @@ export default {
         'mdc-text-field--no-label': this.noLabel
       }
     },
-    val () {
+    inputValue () {
       return String(this.value)
     }
   },
   watch: {
-    useNativeValidation (v) {
-      this.mdcTextField.useNativeValidation = v
+    useNativeValidation (val) {
+      this.mdcTextField.useNativeValidation = val
     },
-    valid (v) {
-      this.mdcTextField.valid = v
+    valid (val) {
+      this.mdcTextField.valid = val
     },
-    val (v) {
-      this.mdcTextField.value = v
+    val (val) {
+      this.mdcTextField.value = val
     },
-    disabled (v) {
-      this.mdcTextField.disabled = v
+    disabled (val) {
+      this.mdcTextField.disabled = val
     },
     classes () {
       this.$nextTick(() => this.reInstantiate())
@@ -196,7 +196,7 @@ export default {
       this.mdcTextField.useNativeValidation = this.useNativeValidation
       this.mdcTextField.valid = this.valid
       this.mdcTextField.disabled = this.disabled
-      this.mdcTextField.value = this.val
+      this.mdcTextField.value = this.inputValue
       this.$nextTick(() => { // wait for the DOM change
         // tell all the children that the parent is initialized
         if (this.mdcTextField.label_ instanceof MDCComponent) {
