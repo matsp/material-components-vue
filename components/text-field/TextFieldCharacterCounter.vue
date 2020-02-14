@@ -14,7 +14,11 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
-  inject: ['getCharacterCounter'],
+  inject: {
+    getCharacterCounter: {
+      default: null
+    }
+  },
   props: {
     currentLength: {
       type: Number,

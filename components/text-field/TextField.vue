@@ -71,7 +71,7 @@ export default {
   },
   props: {
     value: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
     disabled: {
@@ -128,20 +128,23 @@ export default {
         'mdc-text-field--textarea': this.textarea,
         'mdc-text-field--no-label': this.noLabel
       }
+    },
+    inputValue () {
+      return String(this.value)
     }
   },
   watch: {
-    useNativeValidation () {
-      this.mdcTextField.useNativeValidation = this.useNativeValidation
+    useNativeValidation (val) {
+      this.mdcTextField.useNativeValidation = val
     },
-    valid () {
-      this.mdcTextField.valid = this.valid
+    valid (val) {
+      this.mdcTextField.valid = val
     },
-    value () {
-      this.mdcTextField.value = this.value
+    val (val) {
+      this.mdcTextField.value = val
     },
-    disabled () {
-      this.mdcTextField.disabled = this.disabled
+    disabled (val) {
+      this.mdcTextField.disabled = val
     },
     classes () {
       this.$nextTick(() => this.reInstantiate())
@@ -193,6 +196,7 @@ export default {
       this.mdcTextField.useNativeValidation = this.useNativeValidation
       this.mdcTextField.valid = this.valid
       this.mdcTextField.disabled = this.disabled
+      this.mdcTextField.value = this.inputValue
       this.$nextTick(() => { // wait for the DOM change
         // tell all the children that the parent is initialized
         if (this.mdcTextField.label_ instanceof MDCComponent) {

@@ -15,7 +15,11 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
-  inject: ['getHelperText'],
+  inject: {
+    getHelperText: {
+      default: null
+    }
+  },
   props: {
     persistent: {
       type: Boolean,
