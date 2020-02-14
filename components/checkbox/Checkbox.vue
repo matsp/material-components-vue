@@ -14,7 +14,6 @@
         <path
           class="mdc-checkbox__checkmark-path"
           fill="none"
-          stroke="white"
           d="M1.73,12.91 8.1,19.28 22.79,4.59"
         />
       </svg>
@@ -29,6 +28,11 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: {
+    formFieldInputAssigning: {
+      default: null
+    }
+  },
   model: {
     prop: 'checked',
     event: 'change'
@@ -75,16 +79,22 @@ export default {
       }
     },
     disabled (value) {
-      this.mdcCheckbox.disabled = true
+      this.mdcCheckbox.disabled = value
     }
   },
   mounted () {
     this.mdcCheckbox = MDCCheckbox.attachTo(this.$el)
     this.mdcCheckbox.indeterminate = this.indeterminate
     this.mdcCheckbox.disabled = this.disabled
+    if (this.formFieldInputAssigning instanceof Function) {
+      this.formFieldInputAssigning(this.mdcCheckbox)
+    }
   },
   beforeDestroy () {
     this.mdcCheckbox.destroy()
+    if (this.formFieldInputAssigning instanceof Function) {
+      this.formFieldInputAssigning(undefined)
+    }
   }
 }
 </script>
