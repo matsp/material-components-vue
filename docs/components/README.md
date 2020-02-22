@@ -82,14 +82,6 @@ The demonstration in this page is a work in progress..
 
 <SelectDemo/>
 
-## Select Helper Text
-
-<SelectHelperTextDemo/>
-
-## Select Icon
-
-<SelectIconDemo/>
-
 ## Slider
 
 <SliderDemo/>
