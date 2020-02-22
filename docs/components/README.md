@@ -28,21 +28,9 @@ The demonstration in this page is a work in progress..
 
 ## Chips
 
-### Action Chips
+### Chips
 
-<ChipsActionDemo/>
-
-### Choice Chips
-
-<ChipsChoiceDemo/>
-
-### Filter Chips
-
-<ChipsFilterDemo/>
-
-### Input Chips
-
-<ChipsInputDemo/>
+<ChipsDemo/>
 
 ## Elevation
 
