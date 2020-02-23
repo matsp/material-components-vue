@@ -25,6 +25,11 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  inject: {
+    formFieldInputAssigning: {
+      default: null
+    }
+  },
   model: {
     prop: 'picked',
     event: 'change'
@@ -63,22 +68,33 @@ export default {
     }
   },
   mounted () {
-    if (this.js) this.mdcRadio = MDCRadio.attachTo(this.$el)
+    if (this.js) {
+      this.mdcRadio = MDCRadio.attachTo(this.$el)
+      if (this.formFieldInputAssigning instanceof Function) {
+        this.formFieldInputAssigning(this.mdcRadio)
+      }
+    }
   },
   beforeDestroy () {
-    if (this.js) this.mdcRadio.destroy()
+    if (this.js) {
+      this.mdcRadio.destroy()
+      if (this.formFieldInputAssigning instanceof Function) {
+        this.formFieldInputAssigning(undefined)
+      }
+    }
   },
   methods: {
     reInstantiate () {
+      if (this.mdcRadio instanceof MDCRadio) {
+        this.mdcRadio.destroy()
+        this.mdcRadio = undefined
+      }
       if (this.js) {
-        if (this.mdcRadio) {
-          this.mdcRadio.destroy()
-        }
         MDCRadio.attachTo(this.$el)
-      } else {
-        if (this.js) {
-          this.mdcRadio.destroy()
+        if (this.formFieldInputAssigning instanceof Function) {
+          this.formFieldInputAssigning(this.mdcRadio)
         }
+      } else {
         this.mdcRadio = undefined
       }
     }
