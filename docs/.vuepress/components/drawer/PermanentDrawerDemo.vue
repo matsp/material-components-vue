@@ -1,9 +1,9 @@
 <template>
     <div class="drawer-frame-root">
         <m-drawer>
-            <m-drawer-header slot="header" sub-title="email@material.io" title="Mail"/>
-            <m-drawer-content>
-                <m-drawer-list>
+            <m-drawer-header sub-title="email@material.io" title="Mail"/>
+            <div class="mdc-drawer__content">
+                <m-list>
                     <m-list-item activated tabindex="0">
                         <m-icon icon="inbox" slot="graphic"/>
                         Inbox
@@ -43,8 +43,8 @@
                         <m-icon icon="announcement" slot="graphic"/>
                         Help & feedback
                     </m-list-item>
-                </m-drawer-list>
-            </m-drawer-content>
+                </m-list>
+            </div>
         </m-drawer>
         <div class="drawer-frame-app-content">
             <m-top-app-bar class="drawer-top-app-bar" title="Permanent Drawer"/>

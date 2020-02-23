@@ -11,7 +11,3 @@ export default {
   mixins: [baseComponentMixin, themeClassMixin]
 }
 </script>
-
-<style scoped>
-
-</style>

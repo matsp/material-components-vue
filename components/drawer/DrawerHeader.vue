@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="$slots['default'] || title || subtitle"
+    v-if="$slots.default || title || subtitle"
     class="mdc-drawer__header"
   >
     <h3

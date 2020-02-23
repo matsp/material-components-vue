@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="$slots['default']"
+    v-if="$slots.default"
     class="mdc-drawer__content"
     v-on="$listeners"
   >
