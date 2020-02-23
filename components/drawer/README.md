@@ -6,7 +6,7 @@
 
 ```html
 <m-drawer>
-  <m-drawer-content>
+  <div class="mdc-drawer__content">
     <m-list>
       <m-list-item activated tabindex="0">
         <m-icon icon="inbox" slot="graphic"/>
@@ -17,13 +17,31 @@
         Star
       </m-list-item>
     </m-list>
-  </m-drawer-content>
+  </div>
 </m-drawer>
 ```
 
 #### With Header
 
 Following examples are rendered completely the same.
+
+
+Recommended:
+
+```html
+<m-drawer>
+  <div class="mdc-drawer__header">
+    <h3 class="mdc-drawer__title">title</h3>
+    <h6 class="mdc-drawer__subtitle">subtitle</h6>
+    <!-- other header content here -->
+  </div>
+  <div class="mdc-drawer__content">
+   
+  </div>
+</m-drawer>
+```
+
+Other options:
 
 ```html
 <m-drawer title="title" sub-title="subtitle">
@@ -44,41 +62,13 @@ Following examples are rendered completely the same.
 </m-drawer>
 ```
 
-```html
-<m-drawer>
-  <template slot="header">
-    <h3 class="mdc-drawer__title">title</h3>
-    <h6 class="mdc-drawer__subtitle">subtitle</h6>
-    <!-- other header content here -->
-  </template>
-  <m-drawer-content>
-   
-  </m-drawer-content>
-</m-drawer>
-```
-
-```html
-<m-drawer>
-  <m-drawer-header>
-    <h3 class="mdc-drawer__title">title</h3>
-    <h6 class="mdc-drawer__subtitle">subtitle</h6>
-    <!-- other header content here -->
-  </m-drawer-header>
-  <m-drawer-content>
-   
-  </m-drawer-content>
-</m-drawer>
-```
-
-You may find the first two ones easier to write and less verbose, and the last two ones great for customization.
-
 #### Dismissible
 
 ```html
 <m-drawer dismissible v-model="open">
-  <m-drawer-content>
-     
-  </m-drawer-content>
+  <div class="mdc-drawer__content">
+
+  </div>
 </m-drawer>
 <m-drawer-app-content>
 </m-drawer-app-content>
@@ -96,14 +86,19 @@ data () {
 
 ```html
 <m-drawer dismissible>
-  <m-drawer-content>
+  <div class="mdc-drawer__content">
      
-  </m-drawer-content>
+  </div>
 </m-drawer>
 <m-drawer-app-content>
   <m-top-app-bar>
-  
+
   </m-top-app-bar>
+  <main class="main-content" id="main-content">
+    <div class="mdc-top-app-bar--fixed-adjust">
+      App Content
+    </div>
+  </main>
 </m-drawer-app-content>
 ```
 
@@ -114,9 +109,9 @@ data () {
 
 </m-top-app-bar>
 <m-drawer dismissible class="mdc-top-app-bar--fixed-adjust">
-  <m-drawer-content>
+  <div class="mdc-drawer__content">
      
-  </m-drawer-content>
+  </div>
 </m-drawer>
 <m-drawer-app-content class="mdc-top-app-bar--fixed-adjust">
 </m-drawer-app-content>
@@ -163,33 +158,6 @@ data () {
 | dismissible | Boolean | '' | display drawer in dismissible variant |
 
 `modal` and `dismissible` can not be both true at the same times. When both are false, the drawer is shown permanently.
-
-## Drawer Content
-
-Scrollable content area of the drawer. Usually placed in the default slot in `<m-drawer>`.
-
-### Slots
-
-| Slot | Description |
-|------|-------------|
-| default | main content, usually `<m-list>` |
-
-## Drawer Header
-
-Non-scrollable element that exists at the top of the drawer.
-
-### Slots
-
-| Slot | Description |
-|------|-------------|
-| default | header content |
-
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| title | String | '' | title |
-| subtitle | String | '' | subtitle |
 
 ## Drawer Scrim
 
@@ -250,11 +218,11 @@ onClick () {
 
 ```html
 <m-drawer modal @closed="onClosed" v-model="open">
-  <m-drawer-content>
+  <div class="mdc-drawer__content">
     <m-list @click="onClick">
         
     </m-list>
-  </m-drawer-content>
+  </div>
 </m-drawer>
 <div class="main-content" ref="mainContent"></div>
 ```

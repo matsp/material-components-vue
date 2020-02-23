@@ -30,9 +30,15 @@
 <script>
 import { baseComponentMixin, themeClassMixin } from '../base'
 import { MDCDrawer } from '@material/drawer'
+import { MDCComponent } from '@material/base/component'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  provide () {
+    return {
+      getList: this.getList
+    }
+  },
   model: {
     prop: 'open',
     event: 'change'
@@ -61,8 +67,7 @@ export default {
   },
   data () {
     return {
-      mdcDrawer: undefined,
-      hasHeaderClass: false
+      mdcDrawer: undefined
     }
   },
   computed: {
@@ -82,41 +87,22 @@ export default {
     }
   },
   watch: {
-    modal () {
-      if (!this.modal) {
-        this.mdcDrawer.destroy()
-        this.mdcDrawer = undefined
+    classes () {
+      this.reInstantiation()
+    },
+    open (val) {
+      if (this.mdcDrawer instanceof MDCDrawer) {
+        this.mdcDrawer.open = val
       } else {
-        this.$nextTick(function () {
-          this.mdcDrawer = new MDCDrawer(this.$el)
-        })
+        this.reInstantiation()
       }
     },
-    dismissible () {
-      if (!this.dismissible) {
-        this.mdcDrawer.destroy()
-        this.mdcDrawer = undefined
-      } else {
-        this.$nextTick(function () {
-          this.mdcDrawer = new MDCDrawer(this.$el)
-        })
-      }
-    },
-    open () {
-      if (this.mdcDrawer.open !== this.open) this.mdcDrawer.open = this.open
-    },
-    'mdcDrawer.open': function () {
-      this.model = this.mdcDrawer.open
+    'mdcDrawer.open': function (val) {
+      this.model = val
     }
   },
   mounted () {
-    // to avoid error throw by focus trap
-    this.$nextTick(function () {
-      if (!this.mdcDrawer && (this.dismissible || this.modal)) { this.mdcDrawer = new MDCDrawer(this.$el) }
-    })
-  },
-  provide: {
-    mdcDrawer: this
+    this.reInstantiation()
   },
   beforeDestroy () {
     if (this.mdcDrawer) this.mdcDrawer.destroy()
@@ -128,6 +114,25 @@ export default {
     },
     onOpened () {
       this.$emit('opened')
+    },
+    getList () {
+      return this.mdcDrawer.list_
+    },
+    reInstantiation () {
+      if (this.mdcDrawer instanceof MDCDrawer) this.mdcDrawer.destroy()
+      if (this.open && (this.modal || this.dismissible)) {
+        // lazy instantiation: instantiate at the first time opening
+        this.mdcDrawer = MDCDrawer.attachTo(this.$el)
+        this.mdcDrawer.open = this.open
+        this.$nextTick(() => { // wait for the DOM change
+        // tell all the children that the parent is initialized
+          if (this.mdcDrawer.list_ instanceof MDCComponent) {
+            this.mdcDrawer.list_.emit('_init')
+          }
+        })
+      } else {
+        this.mdcDrawer = undefined // wait for the moment when the drawer needs to be open and instantiate then
+      }
     }
   }
 }
