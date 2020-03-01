@@ -6,7 +6,7 @@
   >
     <div class="mdc-top-app-bar__row">
       <section
-        v-if="$slots['navigation'] || title"
+        v-show="hasStartSection"
         class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
       >
         <slot name="navigation" />
@@ -20,7 +20,7 @@
       </section>
       <slot />
       <section
-        v-if="$slots['actions']"
+        v-show="hasEndSection"
         class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
         role="toolbar"
       >
@@ -33,6 +33,7 @@
 
 <script>
 import { MDCTopAppBar } from '@material/top-app-bar'
+import { MDCComponent } from '@material/base/component'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
 
@@ -72,7 +73,9 @@ export default {
   data () {
     return {
       mdcTopAppBar: undefined,
-      slotObserver: undefined
+      slotObserver: undefined,
+      hasStartSection: this.title.length > 0,
+      hasEndSection: true
     }
   },
   computed: {
@@ -88,9 +91,24 @@ export default {
   },
   watch: {
     scrollTarget (el) {
-      if (this.mdcTopAppBar && el) {
+      if (this.mdcTopAppBar instanceof MDCComponent && el) {
         this.mdcTopAppBar.setScrollTarget(el)
       }
+    },
+    short () {
+      this.$nextTick(() => {
+        this.reInstantiate()
+      })
+    },
+    fixed () {
+      this.$nextTick(() => {
+        this.reInstantiate()
+      })
+    },
+    collapsed () {
+      this.$nextTick(() => {
+        this.reInstantiate()
+      })
     }
   },
   mounted () {
@@ -100,9 +118,7 @@ export default {
       childList: true,
       subtree: true
     })
-
-    this.mdcTopAppBar = MDCTopAppBar.attachTo(this.$el)
-    if (this.scrollTarget && this.scrollTarget !== window) this.mdcTopAppBar.setScrollTarget(this.scrollTarget)
+    this.instantiate()
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -110,19 +126,36 @@ export default {
   },
   methods: {
     updateSlots () {
+      this.hasStartSection = this.$slots.navigation == null || this.$slots.start == null || this.title.length === 0
+      this.hasEndSection = this.$slots.end || this.$slots.actions
       if (this.$slots.navigation) {
         this.$slots.navigation.forEach(n => {
-          if (n.elm instanceof Element) n.elm.classList.add('mdc-top-app-bar__navigation-icon')
+          if (n.elm instanceof Element) { n.elm.classList.add('mdc-top-app-bar__navigation-icon') }
         })
       }
       if (this.$slots.actions) {
         this.$slots.actions.forEach(n => {
-          if (n.elm instanceof Element) { n.elm.classList.add('mdc-top-app-bar__action-item') }
+          if (n.elm instanceof Element) {
+            n.elm.classList.add('mdc-top-app-bar__action-item')
+          }
         })
       }
+      this.$nextTick(() => {
+        this.reInstantiate()
+      })
     },
     onNavigation () {
       this.$emit('nav')
+    },
+    instantiate () {
+      this.mdcTopAppBar = MDCTopAppBar.attachTo(this.$el)
+      if (this.scrollTarget && this.scrollTarget !== window) { this.mdcTopAppBar.setScrollTarget(this.scrollTarget) }
+    },
+    reInstantiate () {
+      if (this.mdcTopAppBar instanceof MDCComponent) {
+        this.mdcTopAppBar.destroy()
+      }
+      this.instantiate()
     }
   }
 }
