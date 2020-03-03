@@ -18,7 +18,7 @@
 ### Style
 
 ```scss
-@import "@material/shape/mixins";
+@import "~@material/shape/mixins";
 
 .my-shape-container {
   @include mdc-shape-angled-corner(#fff, 10px);

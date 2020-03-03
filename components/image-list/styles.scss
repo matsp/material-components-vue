@@ -1,4 +1,4 @@
-@import "@material/image-list/mdc-image-list";
+@import "~@material/image-list/mdc-image-list";
 
 .image-list-standard-1 {
   @include mdc-image-list-standard-columns(1);
