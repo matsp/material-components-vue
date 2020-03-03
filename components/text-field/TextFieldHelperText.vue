@@ -11,7 +11,7 @@
 <script>
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],

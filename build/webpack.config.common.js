@@ -1,7 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
+const {VueLoaderPlugin} = require('vue-loader')
 
 const root = path.join(__dirname, '..')
 const components = path.join(root, '/components/')
@@ -57,7 +57,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -73,6 +73,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
+              implementation: require('dart-sass'),
               sourceMap: false,
               sassOptions: {
                 includePaths: [components, nodeModules]
@@ -86,7 +87,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.css', '.scss', '.vue'],
     alias: {
-      '@components': path.resolve(root, 'components')
+      '@components': path.resolve(root, './components')
     }
   },
   plugins: [

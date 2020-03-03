@@ -12,10 +12,11 @@ export default {
     }
   },
   mounted () {
+    const vm = this
     this.$nextTick(() => {
-      this.updateSlot()
-      this.slotObserver = new MutationObserver(() => this.updateSlot())
-      this.slotObserver.observe(this.$el, {
+      vm.updateSlot()
+      vm.slotObserver = new MutationObserver(() => vm.updateSlot())
+      vm.slotObserver.observe(vm.$el, {
         childList: true,
         subtree: true
       })
@@ -34,7 +35,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

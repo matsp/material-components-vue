@@ -8,7 +8,7 @@ module.exports = merge(common, {
   mode: 'development',
   target: 'web',
   output: {
-    path: path.resolve(root + '/dist'),
+    path: path.resolve(root, '/dist'),
     filename: '[name]/index.js',
     libraryTarget: 'umd'
   }

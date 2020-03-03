@@ -11,8 +11,7 @@
 
 <script>
 import { MDCFloatingLabel } from '@material/floating-label'
-
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],

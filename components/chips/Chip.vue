@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 import { MDCChip } from '@material/chips/index'
 
 export default {

@@ -59,7 +59,7 @@
 <script>
 import { MDCSlider } from '@material/slider'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],

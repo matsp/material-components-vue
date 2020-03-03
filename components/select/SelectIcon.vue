@@ -13,7 +13,7 @@
 
 <script>
 import { MDCSelectIcon } from '@material/select/icon'
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],

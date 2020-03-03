@@ -45,7 +45,7 @@
 <script>
 import { MDCDialog } from '@material/dialog'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],

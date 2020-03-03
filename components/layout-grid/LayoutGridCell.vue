@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -46,14 +46,14 @@ export default {
   },
   computed: {
     classes () {
-      let temp = {}
-      temp['mdc-layout-grid__cell--span-' + this.span] = this.span > 0
-      temp['mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop'] = this.spanDesktop > 0
-      temp['mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet'] = this.spanTablet > 0
-      temp['mdc-layout-grid__cell--span-' + this.spanPhone + '-phone'] = this.spanPhone > 0
-      temp['mdc-layout-grid__cell--align-' + this.align] = this.align !== ''
-      temp['mdc-layout-grid__cell--order-' + this.order] = this.order > 0
-      return temp
+      return {
+        [`mdc-layout-grid__cell--span-${this.span}`]: this.span > 0,
+        [`mdc-layout-grid__cell--span-${this.spanDesktop}-desktop`]: this.spanDesktop > 0,
+        [`mdc-layout-grid__cell--span-${this.spanTablet}-tablet`]: this.spanTablet > 0,
+        [`mdc-layout-grid__cell--span-${this.spanPhone}-phone`]: this.spanPhone > 0,
+        [`mdc-layout-grid__cell--align-${this.align}`]: this.align !== '',
+        [`mdc-layout-grid__cell--order-${this.order}`]: this.order > 0
+      }
     }
   }
 }

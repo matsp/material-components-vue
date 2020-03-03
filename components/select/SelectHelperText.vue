@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 import { MDCSelectHelperText } from '@material/select/helper-text'
 
 export default {

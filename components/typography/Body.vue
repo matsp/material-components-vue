@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -18,9 +18,9 @@ export default {
   },
   computed: {
     classes () {
-      let calc = {}
-      calc['mdc-typography--body' + this.level] = true
-      return calc
+      return {
+        [`mdc-typography--body${this.level}`]: true
+      }
     }
   }
 }

@@ -75,7 +75,7 @@
 <script>
 import { MDCSelect } from '@material/select'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 import { MDCComponent } from '@material/base/component'
 
 export default {

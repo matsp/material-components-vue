@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 import { MDCList } from '@material/list'
 
 export default {

@@ -9,7 +9,7 @@
 </template>
 <script>
 import { MDCNotchedOutline } from '@material/notched-outline'
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],

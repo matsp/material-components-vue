@@ -12,7 +12,7 @@
 import { Corner, MDCMenu } from '@material/menu'
 import { DefaultFocusState } from '@material/menu/constants'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 import { MDCComponent } from '@material/base/component'
 
 export default {

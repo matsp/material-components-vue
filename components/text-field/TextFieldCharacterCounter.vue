@@ -10,7 +10,7 @@
 <script>
 import { MDCTextFieldCharacterCounter } from '@material/textfield/character-counter'
 
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { baseComponentMixin, themeClassMixin } from '@components/base'
 import { MDCDrawer } from '@material/drawer'
 import { MDCComponent } from '@material/base/component'
 
