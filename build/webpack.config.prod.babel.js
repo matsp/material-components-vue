@@ -1,12 +1,10 @@
-const path = require('path')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const merge = require('webpack-merge')
-const common = require('./webpack.config.common')
+import path from 'path'
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin'
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
+import merge from 'webpack-merge'
+import common, { root } from './webpack.config.common'
 
-const root = path.join(__dirname, '..')
-
-module.exports = merge(common, {
+export default merge(common, {
   mode: 'production',
   target: 'web',
   output: {

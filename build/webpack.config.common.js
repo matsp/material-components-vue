@@ -1,14 +1,13 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
+import path from 'path'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
+import { VueLoaderPlugin } from 'vue-loader'
 
-const root = path.join(__dirname, '..')
-const components = path.join(root, '/components/')
-const nodeModules = path.join(root, '/node_modules/')
-const materialNodeModules = path.join(nodeModules, '/@material')
+export const root = path.join(__dirname, '..')
+const components = path.join(root, '/components')
+const nodeModules = path.join(root, '/node_modules')
 
-module.exports = {
+export default {
   entry: {
     button: path.resolve(components, './button/index.js'),
     card: path.resolve(components, './card/index.js'),
@@ -77,7 +76,7 @@ module.exports = {
               implementation: require('dart-sass'),
               sourceMap: false,
               sassOptions: {
-                includePaths: [components, materialNodeModules]
+                includePaths: [components, nodeModules]
               }
             }
           }
