@@ -1,6 +1,6 @@
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 
-import MLinearProgress from './LinearProgress.vue'
+import MdcLinearProgress from './LinearProgress.vue'
 import './styles.scss'
 
 export default {
@@ -8,8 +8,8 @@ export default {
   decorators: [withKnobs]
 }
 
-export const exampleWithKnobs = () => ({
-  components: { MLinearProgress },
+export const linearProgress = () => ({
+  components: { MdcLinearProgress },
   props: {
     isOpen: {
       default: boolean(':open', true)
@@ -23,7 +23,7 @@ export const exampleWithKnobs = () => ({
   },
 
   template: `
-      <m-linear-progress :open="isOpen"
+      <mdc-linear-progress :open="isOpen"
                          :area-label="ariaLabel"
                          :progress="0.5"
                          :buffer="0.5"

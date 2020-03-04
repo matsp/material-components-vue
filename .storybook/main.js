@@ -3,7 +3,6 @@ const path = require('path')
 const root = path.join(__dirname, '..')
 const components = path.join(root, '/components/')
 const nodeModules = path.join(root, '/node_modules/')
-const materialComponents = path.resolve()
 
 module.exports = {
   stories: ['../components/**/*.stories.[tj]s'],
