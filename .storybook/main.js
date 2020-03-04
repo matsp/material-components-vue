@@ -10,6 +10,7 @@ module.exports = {
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-knobs',
+    '@storybook/addon-knobs/register'
   ],
   webpackFinal: (config) => {
     config.module.rules.push({

@@ -2,6 +2,10 @@
   <div
     role="progressbar"
     class="mdc-linear-progress"
+    :aria-label="areaLabel"
+    aria-valuemin="0"
+    aria-valuemax="1"
+    aria-valuenow="0"
   >
     <div class="mdc-linear-progress__buffering-dots" />
     <div class="mdc-linear-progress__buffer" />
@@ -29,6 +33,10 @@ export default {
     indeterminate: {
       type: Boolean,
       default: false
+    },
+    areaLabel: {
+      type: String,
+      default: ''
     },
     reverse: {
       type: Boolean,
