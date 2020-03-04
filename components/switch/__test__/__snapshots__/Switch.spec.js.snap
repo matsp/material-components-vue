@@ -4,7 +4,7 @@ exports[`Switch should render as checked 1`] = `
 <div class="mdc-switch mdc-switch--checked">
   <div class="mdc-switch__track"></div>
   <div class="mdc-switch__thumb-underlay">
-    <div class="mdc-switch__thumb"><input role="switch" type="checkbox" class="mdc-switch__native-control"></div>
+    <div class="mdc-switch__thumb"><input role="switch" type="checkbox" class="mdc-switch__native-control" aria-checked="true"></div>
   </div>
 </div>
 `;
@@ -13,7 +13,7 @@ exports[`Switch should render as disabled 1`] = `
 <div class="mdc-switch mdc-switch--disabled">
   <div class="mdc-switch__track"></div>
   <div class="mdc-switch__thumb-underlay">
-    <div class="mdc-switch__thumb"><input disabled="" role="switch" type="checkbox" class="mdc-switch__native-control"></div>
+    <div class="mdc-switch__thumb"><input disabled="" role="switch" type="checkbox" class="mdc-switch__native-control" aria-checked="false"></div>
   </div>
 </div>
 `;
@@ -22,7 +22,7 @@ exports[`Switch should render with no prop 1`] = `
 <div class="mdc-switch">
   <div class="mdc-switch__track"></div>
   <div class="mdc-switch__thumb-underlay">
-    <div class="mdc-switch__thumb"><input role="switch" type="checkbox" class="mdc-switch__native-control"></div>
+    <div class="mdc-switch__thumb"><input role="switch" type="checkbox" class="mdc-switch__native-control" aria-checked="false"></div>
   </div>
 </div>
 `;
