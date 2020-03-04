@@ -25,6 +25,7 @@
     "build:min": "cross-env NODE_ENV=production webpack --config build/webpack.config.prod.js",
     "docs:dev": "vuepress dev docs",
     "docs:prod": "vuepress build docs",
+    "storybook": "start-storybook",
     "watch:dev": "cross-env NODE_ENV=development webpack --config build/webpack.config.js -w",
     "release": "npm run build && npm run build:min && standard-version",
     "test": "cross-env NODE_ENV=testing jest",
@@ -32,20 +33,22 @@
     "test:updateSnapshot": "npm run test -- --updateSnapshot"
   },
   "dependencies": {
-    "dart-sass": "^1.25.0",
-    "material-components-web": "5.1.0",
-    "rimraf": "3.0.2"
+    "material-components-web": "5.1.0"
   },
   "peerDependencies": {
     "vue": "2.6.11",
     "vue-template-compiler": "2.6.11"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "5.3.14",
+    "@storybook/addon-knobs": "5.3.14",
+    "babel-preset-vue": "2.0.2",
     "@babel/core": "7.8.6",
     "@babel/plugin-proposal-object-rest-spread": "7.8.3",
     "@babel/plugin-transform-object-assign": "7.8.3",
     "@babel/preset-env": "7.8.6",
     "@fortawesome/fontawesome-free": "5.12.1",
+    "@storybook/vue": "5.3.14",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.1.0",
@@ -57,6 +60,7 @@
     "core-js": "3.6.4",
     "cross-env": "7.0.0",
     "css-loader": "3.4.2",
+    "dart-sass": "1.25.0",
     "eslint": "6.8.0",
     "eslint-config-standard": "14.1.0",
     "eslint-plugin-html": "6.0.0",
@@ -78,6 +82,7 @@
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "postcss": "7.0.27",
     "postcss-loader": "3.0.0",
+    "rimraf": "3.0.2",
     "sass-loader": "8.0.2",
     "standard-version": "7.1.0",
     "uglifyjs-webpack-plugin": "2.2.0",
@@ -89,6 +94,10 @@
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3",
     "webpack-merge": "4.2.2"
+  },
+  "engines": {
+    "node": ">=10.x",
+    "npm": ">=6.x"
   },
   "browserslist": [
     "> 1%",
@@ -137,7 +146,7 @@
       "vue"
     ],
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".+\\.js$": "<rootDir>/node_modules/babel-jest",
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
     },
     "transformIgnorePatterns": [
@@ -147,8 +156,8 @@
       "<rootDir>/node_modules/jest-serializer-vue"
     ],
     "moduleNameMapper": {
-      "^.+\\.(css|less|scss)$": "babel-jest",
-      "^@components(.*)$": "<rootDir>/components$1"
+      ".+\\.(css|less|scss)$": "babel-jest",
+      "@components(.*)$": "<rootDir>/components$1"
     }
   }
 }

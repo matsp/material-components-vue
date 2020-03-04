@@ -33,7 +33,7 @@ module.exports = function (api) {
       presets.push([
         '@babel/preset-env',
         {
-          'modules': false
+          modules: false
         }
       ])
   }
