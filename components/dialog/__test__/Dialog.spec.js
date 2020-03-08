@@ -6,7 +6,6 @@ describe('Dialog', () => {
   it('should mount', () => {
     const wrapper = mount(Dialog)
     expect(wrapper.isVueInstance()).toBeTruthy()
-    expect(wrapper.vm.$data.mdcDialog).toBeDefined()
   })
 
   it('should render with no prop', () => {
@@ -32,6 +31,7 @@ describe('Dialog', () => {
 
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.emittedByOrder().map(e => e.name)).toEqual(['opening'])
+    expect(wrapper.vm.$data.mdcDialog).toBeDefined()
     expect(wrapper.vm.$data.mdcDialog.isOpen).toBe(true)
     expect(wrapper.isVisible()).toBe(true)
 

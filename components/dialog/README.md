@@ -71,9 +71,8 @@ The complete order of events emitted in the open and close process is `opening`,
 
 | Slot | Description |
 |------|-------------|
-| default | body of dialog without wrapping `mdc-dialog__content` class, not recommended to use |
-| header | header of dialog |
-| body | body of dialog |
+| header | header/title of dialog |
+| body | body/content of dialog |
 | acceptButton | accept button and the default button |
 | cancelButton | cancel button |
 | dialogButton | additional button(s) |
