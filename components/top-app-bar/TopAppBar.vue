@@ -39,6 +39,9 @@ import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  provide () {
+    return { getRipple: this.getRipple }
+  },
   props: {
     collapsed: {
       type: Boolean,
@@ -150,12 +153,26 @@ export default {
     instantiate () {
       this.mdcTopAppBar = MDCTopAppBar.attachTo(this.$el)
       if (this.scrollTarget && this.scrollTarget !== window) { this.mdcTopAppBar.setScrollTarget(this.scrollTarget) }
+      this.$nextTick(() => {
+        if (this.mdcTopAppBar.iconRipples_ instanceof Array) {
+          this.mdcTopAppBar.iconRipples_.filter(ripple => ripple instanceof MDCComponent).forEach(ripple => {
+            ripple.emit('_init')
+          })
+        }
+      })
     },
     reInstantiate () {
       if (this.mdcTopAppBar instanceof MDCComponent) {
         this.mdcTopAppBar.destroy()
       }
       this.instantiate()
+    },
+    getRipple (el) {
+      if (this.mdcTopAppBar instanceof MDCTopAppBar && this.mdcDialog.iconRipples_ instanceof Array) {
+        for (const ripple of this.mdcTopAppBar.iconRipples_) {
+          if (ripple instanceof MDCComponent && ripple.root_ === el) return ripple
+        }
+      }
     }
   }
 }
