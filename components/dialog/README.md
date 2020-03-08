@@ -52,8 +52,8 @@ Close via setting `isDialogOpen` to false will emit `closing` and `closed` event
 | stacked | Boolean | true | whether the buttons are stacked vertically automatically |
 | escapeKeyAction | String | 'close' | Sets the action reflected when the Escape key is pressed. Setting to '' disables closing the dialog via Escape key. |
 | scrimClickAction | String | 'close' | Sets the action reflected when the scrim is clicked. Setting to '' disables closing the dialog via scrim click. |
-| ariaDescribedby | String | 'my-dialog-content' | `aria-describedby` of the dialog element and the `id` of the content element |
-| ariaLabelledby | String | 'my-dialog-title' | `aria-labelledby` of the dialog element and the `id` of the title element |
+| ariaDescribedby | String | `${id}-content` or 'my-dialog-content' | `aria-describedby` of the dialog element and the `id` of the content element |
+| ariaLabelledby | String | `${id}-title` or 'my-dialog-title' | `aria-labelledby` of the dialog element and the `id` of the title element |
 
 ### Events
 
