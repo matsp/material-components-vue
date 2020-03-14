@@ -1,12 +1,12 @@
 <template>
     <ComponentSection flex-direction="column">
-        <iframe class="width-adjust" src="short.html"></iframe>
+        <iframe class="width-adjust" src="top-app-bar.html"></iframe>
     </ComponentSection>
 </template>
 
 <script>
   export default {
-    name: 'ShortTopAppBarDemo'
+    name: 'TopAppBarDemo'
   }
 </script>
 
