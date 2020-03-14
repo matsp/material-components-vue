@@ -140,28 +140,6 @@ The demonstration in this page is a work in progress..
 
 <TabsDemo/>
 
-## Top App Bar
+## [Top App Bar](top-app-bar.html)
 
-### [Standard](standard.html)
-
-<StandardTopAppBarDemo/>
-
-### [Fixed](fixed.html)
-
-<FixedTopAppBarDemo/>
-
-### [Dense](dense.html)
-
-<DenseTopAppBarDemo/>
-
-### [Prominent](prominent.html)
-
-<ProminentTopAppBarDemo/>
-
-### [Short](short.html)
-
-<ShortTopAppBarDemo/>
-
-### [Short - Always Collapsed](shortCollapsed.html)
-
-<ShortCollapsedTopAppBarDemo/>
+<TopAppBarDemo/>

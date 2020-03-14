@@ -15,8 +15,10 @@ exports[`Top App Bar Fixed Adjust should render with no prop 1`] = `<div class="
 exports[`Top App Bar should render as dense 1`] = `
 <header class="mdc-top-app-bar mdc-top-app-bar--dense">
   <div class="mdc-top-app-bar__row">
-    <!---->
-    <!---->
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="">
+      <!---->
+    </section>
+    <section role="toolbar" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="display: none;"> </section>
   </div>
 </header>
 `;
@@ -24,8 +26,10 @@ exports[`Top App Bar should render as dense 1`] = `
 exports[`Top App Bar should render as fixed 1`] = `
 <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
   <div class="mdc-top-app-bar__row">
-    <!---->
-    <!---->
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="">
+      <!---->
+    </section>
+    <section role="toolbar" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="display: none;"> </section>
   </div>
 </header>
 `;
@@ -33,8 +37,10 @@ exports[`Top App Bar should render as fixed 1`] = `
 exports[`Top App Bar should render as prominent 1`] = `
 <header class="mdc-top-app-bar mdc-top-app-bar--prominent">
   <div class="mdc-top-app-bar__row">
-    <!---->
-    <!---->
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="">
+      <!---->
+    </section>
+    <section role="toolbar" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="display: none;"> </section>
   </div>
 </header>
 `;
@@ -42,8 +48,10 @@ exports[`Top App Bar should render as prominent 1`] = `
 exports[`Top App Bar should render as short 1`] = `
 <header class="mdc-top-app-bar mdc-top-app-bar--short">
   <div class="mdc-top-app-bar__row">
-    <!---->
-    <!---->
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="">
+      <!---->
+    </section>
+    <section role="toolbar" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="display: none;"> </section>
   </div>
 </header>
 `;
@@ -51,8 +59,10 @@ exports[`Top App Bar should render as short 1`] = `
 exports[`Top App Bar should render as short and collapsed 1`] = `
 <header class="mdc-top-app-bar mdc-top-app-bar--short-collapsed">
   <div class="mdc-top-app-bar__row">
-    <!---->
-    <!---->
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="">
+      <!---->
+    </section>
+    <section role="toolbar" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="display: none;"> </section>
   </div>
 </header>
 `;
@@ -60,8 +70,10 @@ exports[`Top App Bar should render as short and collapsed 1`] = `
 exports[`Top App Bar should render with no prop 1`] = `
 <header class="mdc-top-app-bar">
   <div class="mdc-top-app-bar__row">
-    <!---->
-    <!---->
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start" style="">
+      <!---->
+    </section>
+    <section role="toolbar" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="display: none;"> </section>
   </div>
 </header>
 `;
@@ -72,7 +84,7 @@ exports[`Top App Bar should render with title 1`] = `
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"> <span class="mdc-top-app-bar__title">
         title text
       </span> </section>
-    <!---->
+    <section role="toolbar" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="display: none;"> </section>
   </div>
 </header>
 `;
