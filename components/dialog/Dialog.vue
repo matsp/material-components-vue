@@ -6,6 +6,7 @@
     class="mdc-dialog"
     :class="classes"
     role="alertdialog"
+    v-bind="$attrs"
     @MDCDialog:opening="onOpening"
     @MDCDialog:opened="onOpened"
     @MDCDialog:closing="onClosing"
@@ -14,14 +15,14 @@
     <div class="mdc-dialog__container">
       <div class="mdc-dialog__surface">
         <h2
-          v-if="$slots['header']"
+          v-if="hasHeader"
           :id="ariaLabelledby"
           class="mdc-dialog__title"
         >
           <slot name="header" />
         </h2>
         <div
-          v-if="$slots['body']"
+          v-if="hasBody"
           :id="ariaDescribedby"
           class="mdc-dialog__content"
         >
@@ -29,7 +30,7 @@
         </div>
         <slot />
         <footer
-          v-if="$slots['acceptButton'] || $slots['cancelButton'] || $slots['dialogButton']"
+          v-if="hasActions"
           class="mdc-dialog__actions"
         >
           <slot name="cancelButton" />
@@ -44,11 +45,15 @@
 
 <script>
 import { MDCDialog } from '@material/dialog'
+import { MDCComponent } from '@material/base/component'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
+  provide () {
+    return { getRipple: this.getRipple }
+  },
   model: {
     prop: 'open',
     event: 'change'
@@ -62,7 +67,7 @@ export default {
       type: Boolean,
       default: false
     },
-    stacked: {
+    stacked: { // todo: rename to autoStackButtons to make it consistent with mdc-web
       type: Boolean,
       default: true
     },
@@ -76,17 +81,24 @@ export default {
     },
     ariaDescribedby: {
       type: String,
-      default: 'my-dialog-content'
+      default: function () {
+        return this.$attrs.id ? `${this.$attrs.id}-content` : 'my-dialog-content'
+      } // todo: better id?
     },
     ariaLabelledby: {
       type: String,
-      default: 'my-dialog-title'
+      default: function () {
+        return this.$attrs.id ? `${this.$attrs.id}-title` : 'my-dialog-title'
+      } // todo: better id?
     }
   },
   data () {
     return {
       mdcDialog: undefined,
-      slotObserver: undefined
+      slotObserver: undefined,
+      hasHeader: this.$slots.header != null,
+      hasBody: this.$slots.body != null,
+      hasActions: this.$slots.cancelButton != null || this.$slots.dialogButton != null || this.$slots.acceptButton != null
     }
   },
   computed: {
@@ -105,32 +117,32 @@ export default {
     }
   },
   watch: {
-    open () {
-      this.open ? this.mdcDialog.open() : this.mdcDialog.close()
+    open (value) {
+      if (this.mdcDialog instanceof MDCDialog) {
+        value ? this.mdcDialog.open() : this.mdcDialog.close()
+      } else {
+        // can only be turning from `false` to `true` so just instantiate it
+        this.instantiate()
+      }
     },
-    stacked () {
-      this.mdcDialog.autoStackButtons = this.stacked
+    stacked (value) {
+      this.mdcDialog.autoStackButtons = value
     },
-    escapeKeyAction () {
-      this.mdcDialog.escapeKeyAction = this.escapeKeyAction
+    escapeKeyAction (value) {
+      this.mdcDialog.escapeKeyAction = value
     },
-    scrimClickAction () {
-      this.mdcDialog.scrimClickAction = this.scrimClickAction
+    scrimClickAction (value) {
+      this.mdcDialog.scrimClickAction = value
     }
 
   },
   mounted () {
-    this.mdcDialog = MDCDialog.attachTo(this.$el)
-    this.mdcDialog.autoStackButtons = this.stacked
-    this.mdcDialog.escapeKeyAction = this.escapeKeyAction
-    this.mdcDialog.scrimClickAction = this.scrimClickAction
-
+    this.updateSlots()
     this.slotObserver = new MutationObserver(() => this.updateSlots())
     this.slotObserver.observe(this.$el, {
       childList: true,
       subtree: true
     })
-    this.updateSlots()
   },
   beforeDestroy () {
     this.slotObserver.disconnect()
@@ -154,29 +166,73 @@ export default {
     },
     updateSlots () {
       if (this.$slots.cancelButton) {
-        this.$slots.cancelButton.map(n => {
-          if (n.elm.tagName.toUpperCase() !== 'BUTTON' && !n.elm.classList.contains('mdc-dialog__button')) { n.elm.classList.add('mdc-dialog__button') }
-          if (!n.elm.hasAttribute('data-mdc-dialog-action')) {
-            n.elm.setAttribute('data-mdc-dialog-action', 'close')
+        this.$slots.cancelButton.forEach(n => {
+          if (n.elm instanceof Element) {
+            if (n.elm.tagName.toUpperCase() !== 'BUTTON' && !n.elm.classList.contains('mdc-dialog__button')) { n.elm.classList.add('mdc-dialog__button') }
+            if (!n.elm.hasAttribute('data-mdc-dialog-action')) {
+              n.elm.setAttribute('data-mdc-dialog-action', 'close')
+            }
+          }
+        })
+      }
+      if (this.$slots.dialogButton) {
+        this.$slots.dialogButton.forEach(n => {
+          if (n.elm instanceof Element) {
+            if (n.elm.tagName.toUpperCase() !== 'BUTTON' && !n.elm.classList.contains('mdc-dialog__button')) { n.elm.classList.add('mdc-dialog__button') }
+            // todo: add some warning if it doesn't have data-mdc-dialog-action
           }
         })
       }
       if (this.$slots.acceptButton) {
-        this.$slots.acceptButton.map(n => {
-          if (n.elm.tagName.toUpperCase() !== 'BUTTON') {
-            if (!n.elm.classList.contains('mdc-dialog__button')) {
-              n.elm.classList.add('mdc-dialog__button')
+        this.$slots.acceptButton.forEach(n => {
+          if (n.elm instanceof Element) {
+            if (n.elm.tagName.toUpperCase() !== 'BUTTON') {
+              if (!n.elm.classList.contains('mdc-dialog__button')) {
+                n.elm.classList.add('mdc-dialog__button')
+              }
+              if (!n.elm.classList.contains('mdc-dialog__button--default')) {
+                n.elm.classList.add('mdc-dialog__button--default')
+              }
             }
-            if (!n.elm.classList.contains('mdc-dialog__button--default')) {
-              n.elm.classList.add('mdc-dialog__button--default')
+            if (!n.elm.hasAttribute('data-mdc-dialog-action')) {
+              n.elm.setAttribute('data-mdc-dialog-action', 'accept')
             }
-          }
-          if (!n.elm.hasAttribute('data-mdc-dialog-action')) {
-            n.elm.setAttribute('data-mdc-dialog-action', 'accept')
           }
         })
       }
-      this.mdcDialog.layout()
+      this.hasHeader = this.$slots.header != null
+      this.hasBody = this.$slots.body != null
+      this.hasActions = this.$slots.cancelButton != null || this.$slots.dialogButton != null || this.$slots.acceptButton != null
+      this.$nextTick(() => { // wait for the DOM change
+        this.reInstantiate()
+      })
+    },
+    reInstantiate () {
+      if (this.mdcDialog instanceof MDCDialog) {
+        this.mdcDialog.destroy()
+      }
+      this.open ? this.instantiate() : this.mdcDialog = undefined
+    },
+    instantiate () {
+      this.mdcDialog = MDCDialog.attachTo(this.$el)
+      this.mdcDialog.autoStackButtons = this.stacked
+      this.mdcDialog.escapeKeyAction = this.escapeKeyAction
+      this.mdcDialog.scrimClickAction = this.scrimClickAction
+      this.open ? this.mdcDialog.open() : this.mdcDialog.close()
+      this.$nextTick(() => {
+        if (this.mdcDialog.buttonRipples_ instanceof Array) {
+          this.mdcDialog.buttonRipples_.filter(ripple => ripple instanceof MDCComponent).forEach(ripple => {
+            ripple.emit('_init')
+          })
+        }
+      })
+    },
+    getRipple (el) {
+      if (this.mdcDialog instanceof MDCDialog && this.mdcDialog.buttonRipples_ instanceof Array) {
+        for (const ripple of this.mdcDialog.buttonRipples_) {
+          if (ripple instanceof MDCComponent && ripple.root_ === el) return ripple
+        }
+      }
     }
   }
 }
