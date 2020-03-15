@@ -203,7 +203,7 @@ export default {
         this.mdcList = list
         this.propsSetting()
       }
-    },
+    }
   }
 }
 </script>

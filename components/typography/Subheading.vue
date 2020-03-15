@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     classes () {
-      let calc = {}
+      const calc = {}
       calc['mdc-typography--subheading' + this.level] = true
       return calc
     }

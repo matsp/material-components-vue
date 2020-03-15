@@ -97,7 +97,7 @@ module.exports = {
         context: 'components/',
         from: '**/*',
         to: './',
-        ignore: [ '*.js', '*.vue', '*.css', '*.snap', '__tests__' ]
+        ignore: ['*.js', '*.vue', '*.css', '*.snap', '__tests__']
       }
     ])
   ],

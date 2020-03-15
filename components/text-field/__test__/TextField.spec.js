@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils'
 import TextField from '../TextField.vue'
 import TextFieldIcon from '../TextFieldIcon.vue'
 import FloatingLabel from '../../floating-label/FloatingLabel.vue'
+import Vue from 'vue'
 
 describe('Text Field', () => {
   it('should mount', () => {
@@ -11,8 +12,9 @@ describe('Text Field', () => {
     expect(wrapper.vm.$data.mdcTextField).toBeDefined()
   })
 
-  it('should render with no prop', () => {
+  it('should render with no prop', async () => {
     const wrapper = mount(TextField)
+    await Vue.nextTick()
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-text-field')
     expect(wrapper.classes()).toContain('mdc-text-field--no-label')
@@ -113,22 +115,25 @@ describe('Text Field', () => {
     expect(wrapper.emitted().model[0]).toEqual(['test'])
   })
 
-  it('should render with leading icon', () => {
+  it('should render with leading icon', async () => {
     const wrapper = mount(TextField, {
       slots: {
         leadingIcon: TextFieldIcon
       }
     })
+    await Vue.nextTick()
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-text-field--with-leading-icon')
   })
 
-  it('should render with trailing icon', () => {
+  it('should render with trailing icon', async () => {
     const wrapper = mount(TextField, {
       slots: {
         trailingIcon: TextFieldIcon
       }
     })
+    await Vue.nextTick()
+
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-text-field--with-trailing-icon')
   })

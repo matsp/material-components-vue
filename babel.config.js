@@ -7,8 +7,8 @@ module.exports = function (api) {
       presets.push([
         '@babel/preset-env',
         {
-          'targets': {
-            'node': 'current'
+          targets: {
+            node: 'current'
           }
         }
       ])
@@ -21,7 +21,7 @@ module.exports = function (api) {
       presets.push([
         '@babel/preset-env',
         {
-          'modules': false
+          modules: false
         }
       ])
       break
@@ -33,7 +33,7 @@ module.exports = function (api) {
       presets.push([
         '@babel/preset-env',
         {
-          'modules': false
+          modules: false
         }
       ])
   }

@@ -16,7 +16,7 @@ export default {
   mixins: [baseComponentMixin, themeClassMixin],
   provide () {
     return {
-      formFieldInputAssigning: this.formFieldInputAssigning,
+      formFieldInputAssigning: this.formFieldInputAssigning
     }
   },
   props: {
