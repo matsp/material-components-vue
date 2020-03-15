@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Text Field should render as dense 1`] = `
-<div class="mdc-text-field mdc-text-field--dense mdc-text-field--no-label">
+<div class="mdc-text-field mdc-text-field--dense">
   <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
@@ -10,7 +10,7 @@ exports[`Text Field should render as dense 1`] = `
 `;
 
 exports[`Text Field should render as disabled 1`] = `
-<div class="mdc-text-field mdc-text-field--no-label mdc-text-field--disabled">
+<div class="mdc-text-field mdc-text-field--disabled">
   <!----> <input class="mdc-text-field__input" disabled="">
   <!---->
   <!---->
@@ -19,7 +19,7 @@ exports[`Text Field should render as disabled 1`] = `
 `;
 
 exports[`Text Field should render as focused 1`] = `
-<div class="mdc-text-field mdc-text-field--no-label mdc-text-field--focused">
+<div class="mdc-text-field mdc-text-field--focused">
   <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
@@ -28,7 +28,7 @@ exports[`Text Field should render as focused 1`] = `
 `;
 
 exports[`Text Field should render as fullWidth 1`] = `
-<div class="mdc-text-field mdc-text-field--fullwidth mdc-text-field--no-label">
+<div class="mdc-text-field mdc-text-field--fullwidth">
   <!----> <input class="mdc-text-field__input">
   <!---->
   <!---->
@@ -37,7 +37,7 @@ exports[`Text Field should render as fullWidth 1`] = `
 `;
 
 exports[`Text Field should render as outlined 1`] = `
-<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--no-label">
+<div class="mdc-text-field mdc-text-field--outlined">
   <!----> <input class="mdc-text-field__input">
   <!---->
   <div class="mdc-notched-outline mdc-notched-outline--no-label">
@@ -63,7 +63,7 @@ exports[`Text Field should render full-width textarea with outlined label 1`] = 
 `;
 
 exports[`Text Field should render textarea 1`] = `
-<div class="mdc-text-field mdc-text-field--textarea mdc-text-field--no-label">
+<div class="mdc-text-field mdc-text-field--textarea">
   <!----> <textarea class="mdc-text-field__input"></textarea>
   <div class="mdc-notched-outline mdc-notched-outline--no-label">
     <div class="mdc-notched-outline__leading"></div>

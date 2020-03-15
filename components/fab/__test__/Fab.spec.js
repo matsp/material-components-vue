@@ -1,6 +1,7 @@
 import 'mutationobserver-shim'
 import { mount } from '@vue/test-utils'
 import Fab from '../Fab.vue'
+import Vue from 'vue'
 
 describe('Fab', () => {
   it('should mount', () => {
@@ -36,12 +37,13 @@ describe('Fab', () => {
     expect(wrapper.classes()).toContain('mdc-fab--exited')
   })
 
-  it('should render as extended', () => {
+  it('should render as extended', async () => {
     const wrapper = mount(Fab, {
       slots: {
         default: 'create'
       }
     })
+    await Vue.nextTick()
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-fab--extended')
   })

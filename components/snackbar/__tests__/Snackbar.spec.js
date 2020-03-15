@@ -1,5 +1,6 @@
 import 'mutationobserver-shim'
 import { mount } from '@vue/test-utils'
+import Vue from 'vue'
 import Snackbar from '../Snackbar.vue'
 
 describe('Snackbar', () => {
@@ -83,7 +84,7 @@ describe('Snackbar', () => {
     expect(dismiss.exists()).toBe(true)
   })
 
-  it('should render with optional actionButton', () => {
+  it('should render with optional actionButton', async () => {
     const wrapper = mount(Snackbar, {
       propsData: {
         actionButtonText: 'button'
@@ -92,10 +93,12 @@ describe('Snackbar', () => {
     expect(wrapper.find('.mdc-snackbar__action').exists()).toBeTruthy()
 
     wrapper.setProps({ actionButtonText: '' })
+    await Vue.nextTick()
+
     expect(wrapper.find('.mdc-snackbar__action').exists()).toBeFalsy()
   })
 
-  it('should render with optional dismiss', () => {
+  it('should render with optional dismiss', async () => {
     const wrapper = mount(Snackbar, {
       propsData: {
         hasDismiss: true
@@ -104,6 +107,8 @@ describe('Snackbar', () => {
     expect(wrapper.find('.mdc-snackbar__dismiss').exists()).toBeTruthy()
 
     wrapper.setProps({ hasDismiss: false })
+    await Vue.nextTick()
+
     expect(wrapper.find('.mdc-snackbar__dismiss').exists()).toBeFalsy()
   })
 
