@@ -1,5 +1,8 @@
 <template>
-  <div class="mdc-line-ripple" @_init="onParentInit"/>
+  <div
+    class="mdc-line-ripple"
+    @_init="onParentInit"
+  />
 </template>
 
 <script>

@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     classes () {
-      let calc = {}
+      const calc = {}
       calc['mdc-elevation--z' + this.level] = true
       return { 'mdc-elevation-transition': this.transition, ...calc }
     }

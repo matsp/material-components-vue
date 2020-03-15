@@ -46,7 +46,7 @@ export default {
   },
   computed: {
     classes () {
-      let temp = {}
+      const temp = {}
       temp['mdc-layout-grid__cell--span-' + this.span] = this.span > 0
       temp['mdc-layout-grid__cell--span-' + this.spanDesktop + '-desktop'] = this.spanDesktop > 0
       temp['mdc-layout-grid__cell--span-' + this.spanTablet + '-tablet'] = this.spanTablet > 0

@@ -4,13 +4,13 @@ import Snackbar from '../Snackbar.vue'
 
 describe('Snackbar', () => {
   it('should mount', () => {
-    let wrapper = mount(Snackbar)
+    const wrapper = mount(Snackbar)
     expect(wrapper.isVueInstance()).toBeTruthy()
     expect(wrapper.vm.$data.mdcSnackbar).toBeDefined()
   })
 
   it('should render with no prop', () => {
-    let wrapper = mount(Snackbar)
+    const wrapper = mount(Snackbar)
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.classes()).toContain('mdc-snackbar')
     expect(wrapper.find('button').exists()).toBeFalsy()
@@ -18,7 +18,7 @@ describe('Snackbar', () => {
   })
 
   it('should render as open', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         open: true
       }
@@ -28,7 +28,7 @@ describe('Snackbar', () => {
   })
 
   it('should render as leading', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         leading: true
       }
@@ -38,7 +38,7 @@ describe('Snackbar', () => {
   })
 
   it('should render as stacked', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         stacked: true
       }
@@ -48,7 +48,7 @@ describe('Snackbar', () => {
   })
 
   it('should render with labelText', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         labelText: 'label text'
       }
@@ -59,7 +59,7 @@ describe('Snackbar', () => {
   })
 
   it('should render with actionButton', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         actionButtonText: 'button'
       }
@@ -72,7 +72,7 @@ describe('Snackbar', () => {
   })
 
   it('should render with dismiss', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         hasDismiss: true
       }
@@ -84,7 +84,7 @@ describe('Snackbar', () => {
   })
 
   it('should render with optional actionButton', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         actionButtonText: 'button'
       }
@@ -96,7 +96,7 @@ describe('Snackbar', () => {
   })
 
   it('should render with optional dismiss', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         hasDismiss: true
       }
@@ -108,7 +108,7 @@ describe('Snackbar', () => {
   })
 
   it('should render with dismiss using mdi', () => {
-    let wrapper = mount(Snackbar, {
+    const wrapper = mount(Snackbar, {
       propsData: {
         hasDismiss: true,
         dismissClass: 'mdi mdi-close'

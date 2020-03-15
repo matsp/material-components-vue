@@ -1,5 +1,8 @@
 <template>
-  <div class="mdc-notched-outline" @_init="onParentInit">
+  <div
+    class="mdc-notched-outline"
+    @_init="onParentInit"
+  >
     <div class="mdc-notched-outline__leading" />
     <div class="mdc-notched-outline__notch">
       <slot />

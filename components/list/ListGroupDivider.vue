@@ -1,5 +1,8 @@
 <template>
-  <hr class="mdc-list-divider" :class="classes">
+  <hr
+    class="mdc-list-divider"
+    :class="classes"
+  >
 </template>
 
 <script>

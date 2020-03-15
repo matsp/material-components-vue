@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     classes () {
-      let def = {
+      const def = {
         'mdc-grid-list--header-caption': this.headerCaption,
         'mdc-grid-list--tile-gutter-1': this.smallGutter,
         'mdc-grid-list--twoline-caption': this.twolineCaption,
@@ -59,7 +59,7 @@ export default {
         'mdc-grid-list--with-icon-align-end': this.endIcon
       }
 
-      let calc = {}
+      const calc = {}
       if (this.ratio) { calc['mdc-grid-list--tile-aspect-' + this.ratio] = true }
 
       return { ...def, ...calc }
