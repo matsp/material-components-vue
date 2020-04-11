@@ -1,5 +1,6 @@
 import './styles.scss'
 
+import AutoInit from '../../components/auto-init'
 import Button from '../../components/button'
 import Icon from '../../components/icon'
 import Radio from '../../components/radio'
@@ -36,6 +37,7 @@ export default ({
   router, // the router instance for the app
   siteData // site metadata
 }) => {
+  Vue.use(AutoInit)
   Vue.use(Button)
   Vue.use(Icon)
   Vue.use(Radio)
