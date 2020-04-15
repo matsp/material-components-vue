@@ -6,6 +6,8 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 
+@import "@material/data-table/mdc-data-table";
+
 @import "../../components/theme/styles";
 @import "../../components/typography/styles";
 @import "../../components/layout-grid/styles";

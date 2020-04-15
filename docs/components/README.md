@@ -56,6 +56,10 @@ The demonstration in this page is a work in progress..
 
 <MenuSurfaceDemo/>
 
+## Data Table (using Auto Init)
+
+<DataTableDemo/>
+
 ## Dialog
 
 <DialogDemo/>

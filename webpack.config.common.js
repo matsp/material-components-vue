@@ -9,6 +9,7 @@ const nodeModules = path.join(root, '/node_modules/')
 
 module.exports = {
   entry: {
+    'auto-init': path.resolve(components + '/auto-init/index.js'),
     button: path.resolve(components + '/button/index.js'),
     card: path.resolve(components + '/card/index.js'),
     checkbox: path.resolve(components + '/checkbox/index.js'),
