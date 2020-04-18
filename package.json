@@ -82,7 +82,7 @@
     "url-loader": "4.0.0",
     "vue-jest": "3.0.5",
     "vue-loader": "15.9.1",
-    "vuepress": "1.4.0",
+    "vuepress": "1.4.1",
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3",
