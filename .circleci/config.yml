@@ -5,22 +5,22 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
-      - run: npm ci
-      - run: npm run build:min
+      - run: yarn ci
+      - run: yarn run build:min
   test:
     docker:
       - image: circleci/node:lts
     steps:
       - checkout
-      - run: npm ci
-      - run: npm run test
+      - run: yarn ci
+      - run: yarn run test
   docs:
     docker:
       - image: circleci/node:lts
     steps:
       - checkout
-      - run: npm ci
-      - run: npm run docs:prod
+      - run: yarn ci
+      - run: yarn run docs:prod
       - persist_to_workspace:
           root: docs/.vuepress/
           paths: dist
@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Install and configure dependencies
           command: |
-            npm install -D gh-pages
+            yarn install -D gh-pages
             git config user.email "ci-build@circleci.com"
             git config user.name "ci-build"
       - run: ./node_modules/.bin/gh-pages --dist docs/.vuepress/dist
