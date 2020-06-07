@@ -23,6 +23,10 @@ export default {
     alignEnd: {
       type: Boolean,
       default: false
+    },
+    nowrap: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -33,12 +37,19 @@ export default {
   computed: {
     classes () {
       return {
-        'mdc-form-field--align-end': this.alignEnd
+        'mdc-form-field--align-end': this.alignEnd,
+        'mdc-form-field--nowrap': this.nowrap
       }
     }
   },
   mounted () {
     this.mdcFormField = MDCFormField.attachTo(this.$el)
+  },
+  activated () {
+    this.mdcFormField = MDCFormField.attachTo(this.$el)
+  },
+  deactivated () {
+    this.mdcFormField.destroy()
   },
   beforeDestroy () {
     this.mdcFormField.destroy()

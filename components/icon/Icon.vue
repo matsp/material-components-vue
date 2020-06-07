@@ -1,37 +1,36 @@
-<template>
-  <button
-    v-if="$parent.$options._componentTag === 'm-top-app-bar'"
-    class="material-icons"
-    v-on="$listeners"
-  >
-    {{ icon }}
-  </button>
-  <span
-    v-else-if="$parent.$options._componentTag === 'm-list-item' || $parent.$options._componentTag === 'm-tab'"
-    class="material-icons"
-    v-on="$listeners"
-  >
-    {{ icon }}
-  </span>
-  <i
-    v-else
-    class="material-icons"
-    v-on="$listeners"
-  >
-    {{ icon }}
-  </i>
-</template>
-
 <script>
-import { baseComponentMixin, themeClassMixin } from '../base'
+import { themeClassMixin } from '../base'
 
 export default {
-  mixins: [baseComponentMixin, themeClassMixin],
+  mixins: [themeClassMixin],
   props: {
     icon: {
       type: String,
       required: true
+    },
+    tag: {
+      type: String,
+      default: 'i'
     }
+  },
+  render: function (createElement) {
+    const children = []
+    if (this.$scopedSlots.default) {
+      children.push(this.$scopedSlots.default({
+        icon: this.icon
+      }))
+    } else {
+      children.push(this.icon)
+    }
+    return createElement(
+      this.tag,
+      {
+        class: {
+          'material-icons': true
+        }
+      },
+      children
+    )
   }
 }
 </script>

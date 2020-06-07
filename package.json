@@ -19,7 +19,7 @@
     "dist"
   ],
   "scripts": {
-    "lint": "eslint --ext .js --ext .vue --fix ./",
+    "lint": "eslint --ext .js --ext .vue --fix ./ docs/.vuepress/",
     "build": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build:min": "cross-env NODE_ENV=production webpack --config webpack.config.min.js",
     "docs:dev": "vuepress dev docs",

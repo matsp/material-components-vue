@@ -1,13 +1,12 @@
 <template>
   <div
     class="mdc-radio"
-    :class="classes"
   >
     <input
-      ref="input"
       class="mdc-radio__native-control"
       type="radio"
-      v-bind="attrs"
+      v-bind="$attrs"
+      :disabled="disabled"
       v-on="listeners"
       @change="$emit('change', $event.target.value)"
     >
@@ -15,6 +14,7 @@
       <div class="mdc-radio__outer-circle" />
       <div class="mdc-radio__inner-circle" />
     </div>
+    <div class="mdc-radio__ripple" />
   </div>
 </template>
 
@@ -35,9 +35,13 @@ export default {
     event: 'change'
   },
   props: {
-    js: {
+    ripple: {
       type: Boolean,
       default: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -46,16 +50,6 @@ export default {
     }
   },
   computed: {
-    classes () {
-      return {
-        'mdc-radio--disabled': this.$attrs.disabled != null
-      }
-    },
-    attrs () {
-      const _attrs = this.$attrs
-      delete _attrs.picked
-      return _attrs
-    },
     listeners () {
       const _listeners = this.$listeners
       delete _listeners.change
@@ -63,39 +57,44 @@ export default {
     }
   },
   watch: {
-    js () {
-      this.reInstantiate()
+    ripple () {
+      this.destroy()
+      this.instantiate()
+    },
+    disabled (value) {
+      if (typeof this.mdcRadio === 'object') {
+        this.mdcRadio.disabled = value
+      }
     }
   },
   mounted () {
-    if (this.js) {
-      this.mdcRadio = MDCRadio.attachTo(this.$el)
-      if (this.formFieldInputAssigning instanceof Function) {
-        this.formFieldInputAssigning(this.mdcRadio)
-      }
-    }
+    this.instantiate()
+  },
+  activated () {
+    this.instantiate()
+  },
+  deactivated () {
+    this.destroy()
   },
   beforeDestroy () {
-    if (this.js) {
-      this.mdcRadio.destroy()
-      if (this.formFieldInputAssigning instanceof Function) {
-        this.formFieldInputAssigning(undefined)
-      }
-    }
+    this.destroy()
   },
   methods: {
-    reInstantiate () {
-      if (this.mdcRadio instanceof MDCRadio) {
-        this.mdcRadio.destroy()
-        this.mdcRadio = undefined
-      }
-      if (this.js) {
-        MDCRadio.attachTo(this.$el)
-        if (this.formFieldInputAssigning instanceof Function) {
+    instantiate () {
+      if (this.ripple) {
+        this.mdcRadio = MDCRadio.attachTo(this.$el)
+        this.mdcRadio.disabled = this.disabled
+        if (typeof this.formFieldInputAssigning === 'function') {
           this.formFieldInputAssigning(this.mdcRadio)
         }
-      } else {
-        this.mdcRadio = undefined
+      }
+    },
+    destroy () {
+      if (typeof this.mdcRadio === 'object' && typeof this.mdcRadio.destroy === 'function') {
+        this.mdcRadio.destroy()
+        if (typeof this.formFieldInputAssigning === 'function') {
+          this.formFieldInputAssigning(undefined)
+        }
       }
     }
   }

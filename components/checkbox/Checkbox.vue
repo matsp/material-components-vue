@@ -3,6 +3,8 @@
     <input
       v-model="model"
       v-bind="$attrs"
+      :disabled="disabled"
+      :data-indeterminate="indeterminate"
       type="checkbox"
       class="mdc-checkbox__native-control"
     >
@@ -19,6 +21,7 @@
       </svg>
       <div class="mdc-checkbox__mixedmark" />
     </div>
+    <div class="mdc-checkbox__ripple" />
   </div>
 </template>
 
@@ -49,6 +52,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    ripple: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -68,32 +75,58 @@ export default {
   },
   watch: {
     checked (value) {
-      if (value) {
+      if (value && typeof this.mdcCheckbox === 'object') {
         this.mdcCheckbox.indeterminate = false
       }
     },
     indeterminate (value) {
-      this.mdcCheckbox.indeterminate = value
+      if (typeof this.mdcCheckbox === 'object') {
+        this.mdcCheckbox.indeterminate = value
+      }
       if (this.model && value) {
         this.model = false
       }
     },
     disabled (value) {
-      this.mdcCheckbox.disabled = value
+      if (typeof this.mdcCheckbox === 'object') {
+        this.mdcCheckbox.disabled = value
+      }
+    },
+    ripple () {
+      this.destroy()
+      this.instantiate()
     }
   },
   mounted () {
-    this.mdcCheckbox = MDCCheckbox.attachTo(this.$el)
-    this.mdcCheckbox.indeterminate = this.indeterminate
-    this.mdcCheckbox.disabled = this.disabled
-    if (this.formFieldInputAssigning instanceof Function) {
-      this.formFieldInputAssigning(this.mdcCheckbox)
-    }
+    this.instantiate()
+  },
+  activated () {
+    this.instantiate()
+  },
+  deactivated () {
+    this.destroy()
   },
   beforeDestroy () {
-    this.mdcCheckbox.destroy()
-    if (this.formFieldInputAssigning instanceof Function) {
-      this.formFieldInputAssigning(undefined)
+    this.destroy()
+  },
+  methods: {
+    instantiate () {
+      if (this.ripple) {
+        this.mdcCheckbox = MDCCheckbox.attachTo(this.$el)
+        this.mdcCheckbox.indeterminate = this.indeterminate
+        this.mdcCheckbox.disabled = this.disabled
+        if (typeof this.formFieldInputAssigning === 'function') {
+          this.formFieldInputAssigning(this.mdcCheckbox)
+        }
+      }
+    },
+    destroy () {
+      if (typeof this.mdcCheckbox === 'object' && typeof this.mdcCheckbox.destroy === 'function') {
+        this.mdcCheckbox.destroy()
+        if (typeof this.formFieldInputAssigning === 'function') {
+          this.formFieldInputAssigning(undefined)
+        }
+      }
     }
   }
 }

@@ -1,33 +1,15 @@
 $mdc-theme-primary: #5e35b1;
 $mdc-theme-secondary: #ff5722;
 $mdc-theme-background: #ffffff;
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/regular";
 
-@import "@material/data-table/mdc-data-table";
 
-@import "../../components/theme/styles";
-@import "../../components/typography/styles";
-@import "../../components/layout-grid/styles";
+@use "@material/typography/mdc-typography";
+@use "@material/form-field/mdc-form-field";
+@use "@material/checkbox/mdc-checkbox";
+@use "@material/radio/mdc-radio";
+@use "@material/button/mdc-button";
+@use "@material/layout-grid/mdc-layout-grid";
 
-@import "../../components/button/styles";
-@import "../../components/radio/styles";
-@import "../../components/checkbox/styles";
-@import "../../components/form-field/styles";
-@import "../../components/select/styles";
-@import "../../components/card/styles";
-@import "../../components/chips/styles";
-@import "../../components/text-field/styles";
-@import "../../components/floating-label/styles";
-@import "../../components/line-ripple/styles";
-@import "../../components/notched-outline/styles";
-@import "../../components/fab/styles";
-@import "../../components/icon-button/styles";
-@import "../../components/list/styles";
-@import "../../components/menu/styles";
-@import "../../components/image-list/styles";
 
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500"); */
 /* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */

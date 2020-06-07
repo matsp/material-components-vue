@@ -6,7 +6,7 @@ module.exports = {
   description: 'Material Design components for Vue.js',
   base: '/material-components-vue/',
   head: [
-    ['link', { rel: 'icon', href: '/logo.png'}]
+    ['link', { rel: 'icon', href: '/logo.png' }]
   ],
   themeConfig: {
     repo: 'matsp/material-components-vue',

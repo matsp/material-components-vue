@@ -7,4 +7,3 @@
     </m-layout-grid>
   </m-typography>
 </template>
-
