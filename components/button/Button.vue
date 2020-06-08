@@ -33,6 +33,10 @@ export default {
     ripple: {
       type: Boolean,
       default: true
+    },
+    unbounded: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -58,6 +62,11 @@ export default {
     classes () {
       this.destroy()
       this.instantiate()
+    },
+    unbounded (value) {
+      if (this.ripple) {
+        this.mdcRipple.unbounded = value
+      }
     }
   },
   mounted () {
@@ -76,6 +85,7 @@ export default {
     instantiate () {
       if (this.ripple) {
         this.mdcRipple = MDCRipple.attachTo(this.$el)
+        this.mdcRipple.unbounded = this.unbounded
       }
     },
     destroy () {

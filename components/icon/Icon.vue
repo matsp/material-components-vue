@@ -13,7 +13,7 @@ export default {
       default: 'i'
     }
   },
-  render: function (createElement) {
+  render: function (h) {
     const children = []
     if (this.$scopedSlots.default) {
       children.push(this.$scopedSlots.default({
@@ -22,7 +22,7 @@ export default {
     } else {
       children.push(this.icon)
     }
-    return createElement(
+    return h(
       this.tag,
       {
         class: {

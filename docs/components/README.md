@@ -13,3 +13,7 @@ The demonstration in this page is a work in progress..
 ## Button
 
 <ButtonDemo/>
+
+## Card
+
+<CardDemo/>

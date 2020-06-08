@@ -1,47 +1,6 @@
-<template>
-  <div
-    :class="classes"
-    class="mdc-card"
-  >
-    <div
-      v-if="primaryAction"
-      class="mdc-card__primary-action"
-      tabindex="0"
-      v-on="$listeners"
-    >
-      <slot />
-    </div>
-    <slot v-else />
-    <div
-      v-if="$slots['actionButtons'] || $slots['actionIcons'] || $slots['fullBleedButton'] || $slots['actions']"
-      :class="actionClasses"
-      class="mdc-card__actions"
-    >
-      <slot
-        v-if="fullBleedAction && $slots['fullBleedButton']"
-        name="fullBleedButton"
-      />
-      <slot
-        name="actions"
-      />
-      <div
-        v-if="!fullBleedAction && $slots['actionButtons']"
-        class="mdc-card__action-buttons"
-      >
-        <slot name="actionButtons" />
-      </div>
-      <div
-        v-if="!fullBleedAction && $slots['actionIcons']"
-        class="mdc-card__action-icons"
-      >
-        <slot name="actionIcons" />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import { baseComponentMixin, themeClassMixin } from '../base'
+import modifierAssign from '../../utils/modifierAssign'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -53,20 +12,12 @@ export default {
     fullBleedAction: {
       type: Boolean,
       default: false
-    },
-    primaryAction: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data () {
-    return {
-      slotObserver: undefined
     }
   },
   computed: {
     classes () {
       return {
+        'mdc-card': true,
         'mdc-card--outlined': this.outlined
       }
     },
@@ -76,52 +27,106 @@ export default {
       }
     }
   },
-  mounted () {
-    this.updateSlots()
-    this.slotObserver = new MutationObserver(() => this.updateSlots())
-    this.slotObserver.observe(this.$el, {
-      childList: true,
-      subtree: true
-    })
-  },
-  beforeDestroy () {
-    this.slotObserver.disconnect()
-  },
-  methods: {
-    updateSlots () {
-      if (this.$slots.fullBleedButton) {
-        this.$slots.fullBleedButton.map((n) => {
-          if (n.elm && n.elm.classList) {
-            n.elm.classList.add('mdc-card__action')
-            n.elm.classList.add('mdc-card__action--button')
-          }
-        })
-      }
-      if (this.$slots.actionButtons) {
-        this.$slots.actionButtons.forEach((n) => {
-          if (n.elm && n.elm.classList) {
-            n.elm.classList.add('mdc-card__action')
-            n.elm.classList.add('mdc-card__action--button')
-          }
-        })
-      }
-      if (this.$slots.actionIcons) {
-        this.$slots.actionIcons.forEach((n) => {
-          if (n.elm && n.elm.classList) {
-            n.elm.classList.add('mdc-card__action')
-            n.elm.classList.add('mdc-card__action--icon')
-          }
-        })
-      }
-      if (this.$slots.actions) {
-        this.$slots.actions.forEach((n) => {
-          if (n.elm && n.elm.classList) {
-            n.elm.classList.add('mdc-card__action')
-            n.elm.classList.contains('mdc-icon-button') ? n.elm.classList.add('mdc-card__action--icon') : n.elm.classList.add('mdc-card__action--button')
-          }
-        })
-      }
+  render (h) {
+    const tag = 'div'
+    const data = {
+      class: this.classes,
+      attrs: this.$attrs,
+      on: this.$listeners
     }
+
+    // todo: refactor the codes to make it shorter
+    const children = this.$scopedSlots.default ? this.$scopedSlots.default() : []
+
+    const fullBleedAction = this.$scopedSlots.fullBleedAction ? this.$scopedSlots.fullBleedAction() : null
+    if (fullBleedAction) {
+      modifierAssign(fullBleedAction, 'mdc-card__action', 'mdc-card__action--button')
+      children.push(h(
+        'div',
+        {
+          class: {
+            'mdc-card__actions': true,
+            'mdc-card__actions--full-bleed': true
+          }
+        },
+        fullBleedAction
+      ))
+    }
+
+    const actions = this.$scopedSlots.actions ? this.$scopedSlots.actions() : null
+    if (actions) {
+      for (let i = 0; i < actions.length; i++) {
+        if (actions[i].text != null) continue
+        if (actions[i].data.class) {
+          actions[i].data.class['mdc-card__action'] = true
+          if (Object.keys(actions[i].data.class).filter(s => s.search('icon')).length > 0) {
+            actions[i].data.class['mdc-card__action--icon'] = true
+          } else {
+            actions[i].data.class['mdc-card__action--button'] = true
+          }
+        } else {
+          actions[i].data.class = {
+            'mdc-card__action': true,
+            'mdc-card__action--button': true
+          }
+        }
+      }
+      children.push(h(
+        'div',
+        {
+          class: {
+            'mdc-card__actions': true
+          }
+        },
+        actions
+      ))
+    }
+
+    const actionButtons = this.$scopedSlots.actionButtons ? this.$scopedSlots.actionButtons() : null
+    const actionIcons = this.$scopedSlots.actionIcons ? this.$scopedSlots.actionIcons() : null
+    if (actionButtons || actionIcons) {
+      const actionsChildren = []
+      if (actionButtons) {
+        modifierAssign(actionButtons, 'mdc-card__action', 'mdc-card__action--button')
+        actionsChildren.push(h(
+          'div',
+          {
+            class: {
+              'mdc-card__action-buttons': true
+            }
+          },
+          actionButtons
+        ))
+      }
+
+      if (actionIcons) {
+        modifierAssign(actionIcons, 'mdc-card__action', 'mdc-card__action--icon')
+        actionsChildren.push(h(
+          'div',
+          {
+            class: {
+              'mdc-card__action-icons': true
+            }
+          },
+          actionIcons
+        ))
+      }
+      children.push(h(
+        'div',
+        {
+          class: {
+            'mdc-card__actions': true
+          }
+        },
+        actionsChildren
+      ))
+    }
+
+    return h(
+      tag,
+      data,
+      children
+    )
   }
 }
 </script>
