@@ -39,11 +39,6 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      mdcRipple: undefined
-    }
-  },
   computed: {
     classes () {
       return {
@@ -55,14 +50,6 @@ export default {
     }
   },
   watch: {
-    ripple () {
-      this.destroy()
-      this.instantiate()
-    },
-    classes () {
-      this.destroy()
-      this.instantiate()
-    },
     unbounded (value) {
       if (this.ripple) {
         this.mdcRipple.unbounded = value
@@ -75,6 +62,17 @@ export default {
   activated () {
     this.instantiate()
   },
+  beforeUpdate () {
+    // usually when user add or remove a class on the root DOM($el), this hook will be called and the ripple needs re-instantiation
+    // if only the slots change, it doesn't have to re-instantiate
+    // it's hard to judge, so re-instantiate it whatever
+    this.destroy()
+  },
+  updated () {
+    if (this.ripple) {
+      this.instantiate()
+    }
+  },
   beforeDestroy () {
     this.destroy()
   },
@@ -83,14 +81,15 @@ export default {
   },
   methods: {
     instantiate () {
-      if (this.ripple) {
+      if (this.ripple && this.mdcRipple == null) {
         this.mdcRipple = MDCRipple.attachTo(this.$el)
         this.mdcRipple.unbounded = this.unbounded
       }
     },
     destroy () {
-      if (typeof this.mdcRipple === 'object' && typeof this.mdcRipple.destroy === 'function') {
+      if (this.mdcRipple != null && typeof this.mdcRipple === 'object' && typeof this.mdcRipple.destroy === 'function') {
         this.mdcRipple.destroy()
+        this.mdcRipple = null
       }
     }
   },

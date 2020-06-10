@@ -17,3 +17,7 @@ The demonstration in this page is a work in progress..
 ## Card
 
 <CardDemo/>
+
+## Icon Button
+
+<IconButtonDemo/>

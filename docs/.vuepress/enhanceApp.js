@@ -1,6 +1,7 @@
 import './styles.scss'
 
 import Button from '../../components/button'
+import IconButton from '../../components/icon-button'
 import Card from '../../components/card'
 import Radio from '../../components/radio'
 import FormField from '../../components/form-field'
@@ -16,6 +17,7 @@ export default ({
   siteData // site metadata
 }) => {
   Vue.use(Button)
+  Vue.use(IconButton)
   Vue.use(Card)
   Vue.use(Radio)
   Vue.use(Checkbox)

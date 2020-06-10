@@ -8,4 +8,5 @@ export default function modifierAssign (vnodes, ...modifier) {
       vnodes[i].data.class[modifier[j]] = true
     }
   }
+  return vnodes
 }

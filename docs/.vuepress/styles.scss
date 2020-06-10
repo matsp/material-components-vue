@@ -2,7 +2,6 @@ $mdc-theme-primary: #5e35b1;
 $mdc-theme-secondary: #ff5722;
 $mdc-theme-background: #ffffff;
 
-
 @use "@material/typography/mdc-typography";
 @use "@material/form-field/mdc-form-field";
 @use "@material/checkbox/mdc-checkbox";
@@ -10,7 +9,7 @@ $mdc-theme-background: #ffffff;
 @use "@material/button/mdc-button";
 @use "@material/layout-grid/mdc-layout-grid";
 @use "@material/card/mdc-card";
-
+@use "@material/icon-button/mdc-icon-button";
 
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500"); */
 /* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
