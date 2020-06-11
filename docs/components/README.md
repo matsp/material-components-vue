@@ -18,6 +18,10 @@ The demonstration in this page is a work in progress..
 
 <CardDemo/>
 
+## Checkbox
+
+<CheckboxDemo/>
+
 ## Icon Button
 
 <IconButtonDemo/>

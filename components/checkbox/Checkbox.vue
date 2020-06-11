@@ -3,10 +3,9 @@
     <input
       v-model="model"
       v-bind="$attrs"
-      :disabled="disabled"
-      :data-indeterminate="indeterminate"
       type="checkbox"
       class="mdc-checkbox__native-control"
+      v-on="$listeners"
     >
     <div class="mdc-checkbox__background">
       <svg
@@ -38,7 +37,7 @@ export default {
   },
   model: {
     prop: 'checked',
-    event: 'change'
+    event: '_change'
   },
   props: {
     checked: {
@@ -58,18 +57,13 @@ export default {
       default: true
     }
   },
-  data () {
-    return {
-      mdcCheckbox: undefined
-    }
-  },
   computed: {
     model: {
       get () {
         return this.checked
       },
       set (value) {
-        this.$emit('change', value)
+        this.$emit('_change', value)
       }
     }
   },
@@ -126,6 +120,7 @@ export default {
         if (typeof this.formFieldInputAssigning === 'function') {
           this.formFieldInputAssigning(undefined)
         }
+        this.mdcCheckbox = null
       }
     }
   }
