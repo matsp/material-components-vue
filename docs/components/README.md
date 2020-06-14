@@ -22,6 +22,11 @@ The demonstration in this page is a work in progress..
 
 <CheckboxDemo/>
 
+## Chips
+
+<ChipsDemo/>
+
 ## Icon Button
 
 <IconButtonDemo/>
+

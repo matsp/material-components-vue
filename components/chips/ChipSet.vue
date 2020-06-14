@@ -1,24 +1,10 @@
-<template>
-  <div
-    :class="classes"
-    class="mdc-chip-set"
-    @MDCChip:selection="onSelection"
-  >
-    <slot />
-  </div>
-</template>
-
 <script>
-import { MDCChipSet, chipSetStrings, chipCssClasses } from '@material/chips'
+import { MDCChipSet } from '@material/chips'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
-  model: {
-    prop: 'selectedChipIds',
-    event: 'change'
-  },
   props: {
     choice: {
       type: Boolean,
@@ -31,86 +17,118 @@ export default {
     input: {
       type: Boolean,
       default: false
-    },
-    selectedChipIds: {
-      type: Array,
-      default: () => []
     }
+  },
+  watch: {
+    choice () {
+      this.needReInstantiate = true
+    },
+    filter () {
+      this.needReInstantiate = true
+    },
+    input () {
+      this.needReInstantiate = true
+    }
+  },
+  created () {
+    this.map = new WeakMap()
   },
   provide () {
     return {
       getChipInstance: this.getChipInstance,
-      getFilter: () => this.filter
-    }
-  },
-  data () {
-    return {
-      mdcChipSet: undefined,
-      slotObserver: undefined
-    }
-  },
-  computed: {
-    classes () {
-      return {
-        'mdc-chip-set--choice': this.choice,
-        'mdc-chip-set--filter': this.filter,
-        'mdc-chip-set--input': this.input
-      }
-    }
-  },
-  watch: {
-    classes () {
-      this.reInstantiate()
+      isFilter: () => this.filter,
+      isInput: () => this.input,
+      isChoice: () => this.choice
     }
   },
   mounted () {
-    this.slotObserver = new MutationObserver(() => this.updateSlots()) // use for automatically call addChip
-    this.slotObserver.observe(this.$el, {
-      childList: true,
-      subtree: true
-    })
     this.instantiate()
   },
-  beforeDestroy () {
-    this.mdcChipSet.destroy()
+  activated () {
+    this.instantiate()
   },
-  methods: {
-    getChipInstance (id) {
-      for (const chip of this.mdcChipSet.chips) {
-        if (chip.id === id) return chip
-      }
-      return null
-    },
-    reInstantiate () {
-      this.mdcChipSet.destroy()
+  beforeUpdate () {
+    if (this.needReInstantiate) {
+      this.destroy()
+    }
+  },
+  updated () {
+    if (this.mdcChipSet != null && this.$el.querySelectorAll('.mdc-chip').length < this.mdcChipSet.chips_.length) this.needReInstantiate = true // no removeChip method, so it's better to re-instantiate
+    if (this.needReInstantiate) {
       this.instantiate()
-    },
-    instantiate () {
-      this.mdcChipSet = MDCChipSet.attachTo(this.$el)
-      for (const chip of this.mdcChipSet.chips) {
-        chip.emit('_init')
-      }
-      for (const id of this.selectedChipIds) {
-        this.mdcChipSet.getDefaultFoundation().select(id)
-      }
-    },
-    updateSlots () {
-      const chipsElms = this.mdcChipSet.chips.map(chip => chip.root_)
-      const addedIds = []
-      this.$el.querySelectorAll(chipSetStrings.CHIP_SELECTOR).forEach(chipEl => {
-        if (!chipsElms.includes(chipEl) && !chipEl.classList.contains(chipCssClasses.CHIP_EXIT)) {
-          console.log(chipEl)
-          this.mdcChipSet.addChip(chipEl)
-          addedIds.push(chipEl.id)
+    } else {
+      const initChipsEls = new Set(this.mdcChipSet.chips_.map(i => i.root_))
+      const toCallbacks = new Set();
+      [...this.$el.querySelectorAll('.mdc-chip')].filter(e => !initChipsEls.has(e)).forEach(e => {
+        this.mdcChipSet.addChip(e)
+        toCallbacks.add(e)
+      })
+      this.mdcChipSet.chips_.forEach(chip => {
+        if (this.map.has(chip.root_) && toCallbacks.has(chip.root_)) {
+          this.map.get(chip.root_)(chip)
         }
       })
-      this.$nextTick(() => {
-        this.mdcChipSet.chips.filter(chip => addedIds.includes(chip.root_.id)).forEach(chip => chip.emit('_init'))
-      })
-    },
-    onSelection () {
-      this.$emit('change', this.mdcChipSet.selectedChipIds)
     }
+    this.needReInstantiate = false
+  },
+  deactivated () {
+    this.destroy()
+  },
+  beforeDestroy () {
+    this.destroy()
+  },
+  methods: {
+    getChipInstance (el, cb) {
+      this.map.set(el, cb)
+    },
+    onInteraction (e) {
+      this.$emit('interaction', e.detail)
+    },
+    onSelection (e) {
+      this.$emit('selection', e.detail)
+    },
+    onRemoval (e) {
+      this.$emit('removal', e.detail)
+    },
+    onTrailingIconInteraction (e) {
+      this.$emit('trailingIconInteraction', e.detail)
+    },
+    onNavigation (e) {
+      this.$emit('navigation', e.detail)
+    },
+    instantiate () {
+      if (this.mdcChipSet == null) {
+        this.mdcChipSet = MDCChipSet.attachTo(this.$el)
+        this.mdcChipSet.chips_.forEach(chip => {
+          if (this.map.has(chip.root_)) {
+            this.map.get(chip.root_)(chip)
+          }
+        })
+      }
+    },
+    destroy () {
+      if (this.mdcChipSet != null && typeof this.mdcChipSet.destroy === 'function') {
+        this.mdcChipSet.destroy()
+        this.mdcChipSet = null
+      }
+    }
+  },
+  render (h) {
+    return h('div', {
+      class: {
+        'mdc-chip-set': true,
+        'mdc-chip-set--choice': this.choice,
+        'mdc-chip-set--filter': this.filter,
+        'mdc-chip-set--input': this.input
+      },
+      attrs: {
+        role: 'grid'
+      },
+      on: {
+        ...this.$listeners
+
+      }
+    }, this.$scopedSlots.default())
   }
 }
 </script>

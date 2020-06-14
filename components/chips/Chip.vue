@@ -1,50 +1,12 @@
-<template>
-  <button
-    class="mdc-chip"
-    v-bind="$attrs"
-    @MDCChip:interaction="onInteraction"
-    @MDCChip:removal="onRemoval"
-    @MDCChip:trailingIconInteraction="onTrailingIconInteraction"
-    @MDCChip:selection="onSelection"
-    @_init="onParentInit"
-  >
-    <slot
-      name="leadingIcon"
-    />
-    <div
-      v-if="filter"
-      class="mdc-chip__checkmark"
-    >
-      <svg
-        class="mdc-chip__checkmark-svg"
-        viewBox="-2 -3 30 30"
-      >
-        <path
-          class="mdc-chip__checkmark-path"
-          fill="none"
-          stroke="black"
-          d="M1.73,12.91 8.1,19.28 22.79,4.59"
-        />
-      </svg>
-    </div>
-    <div class="mdc-chip__text">
-      <slot />
-    </div>
-    <slot
-      name="trailingIcon"
-    />
-  </button>
-</template>
-
 <script>
 import { baseComponentMixin, themeClassMixin } from '../base'
-import { MDCChip } from '@material/chips/index'
+import { MDCChip } from '@material/chips'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
   model: {
     prop: 'selected',
-    event: 'change'
+    event: '_change'
   },
   props: {
     selected: {
@@ -55,7 +17,7 @@ export default {
       type: Boolean,
       default: true
     },
-    exit: {
+    deletable: {
       type: Boolean,
       default: false
     }
@@ -64,26 +26,21 @@ export default {
     getChipInstance: {
       default: null
     },
-    getFilter: {
+    isFilter: {
+      default: () => false
+    },
+    isInput: {
+      default: () => false
+    },
+    isChoice: {
       default: () => false
     }
   },
-  data () {
-    return {
-      slotObserver: undefined,
-      mdcChip: undefined,
-      filter: this.getFilter()
-    }
-  },
   watch: {
-    exit (val) {
-      if (val && this.mdcChip instanceof MDCChip) {
-        this.mdcChip.beginExit()
-      }
-    },
     selected (val) {
       if (this.mdcChip instanceof MDCChip) {
         this.mdcChip.selected = val
+        this.preventReRender = true
       }
     },
     shouldRemoveOnTrailingIconClick (val) {
@@ -93,70 +50,212 @@ export default {
     }
   },
   mounted () {
-    this.updateSlots()
-    this.slotObserver = new MutationObserver(() => this.updateSlots()) // use for automatically call addChip
-    this.slotObserver.observe(this.$el, {
-      childList: true,
-      subtree: true
-    })
-    if (!(this.getChipInstance instanceof Function)) { // can not be init by parent
-      this.mdcChip = MDCChip.attachTo(this.$el)
-      this.mdcChip.selected = this.selected
-      this.mdcChip.shouldRemoveOnTrailingIconClick = this.shouldRemoveOnTrailingIconClick
+    if (this.getChipInstance == null) {
+      this.instantiateItself()
+    } else {
+      this.getChipInstance(this.$el, this.instantiateCallback)
     }
   },
+  activated () {
+    if (this.getChipInstance == null) {
+      this.instantiateItself()
+    } else {
+      this.getChipInstance(this.$el, this.instantiateCallback)
+    }
+  },
+  updated () {
+    this.preventReRender = false
+  },
+  deactivated () {
+    this.destroy()
+  },
   beforeDestroy () {
-    this.slotObserver.disconnect()
+    this.destroy()
   },
   methods: {
-    updateSlots () {
-      if (this.$slots.leadingIcon) {
-        this.$slots.leadingIcon.forEach(n => {
-          if (n.elm instanceof HTMLElement) {
-            n.elm.classList.add('mdc-chip__icon')
-            if (this.selected) {
-              n.elm.classList.add('mdc-chip__icon--leading-hidden')
-            } else {
-              n.elm.classList.remove('mdc-chip__icon--leading-hidden')
-              n.elm.classList.add('mdc-chip__icon--leading')
-            }
-          }
-        })
-      }
-      if (this.$slots.trailingIcon) {
-        this.$slots.trailingIcon.forEach(n => {
-          if (n.elm instanceof HTMLElement) {
-            n.elm.classList.add('mdc-chip__icon')
-            n.elm.classList.add('mdc-chip__icon--trailing')
-            n.elm.setAttribute('role', 'button')
-            n.elm.setAttribute('tabindex', '0')
-          }
-        })
+    beginExit () {
+      this.mdcChip.beginExit()
+    },
+    focusPrimaryAction () {
+      this.mdcChip.focusPrimaryAction()
+    },
+    focusTrailingAction () {
+      this.mdcChip.focusTrailingAction()
+    },
+    instantiateItself () {
+      if (this.mdcChip == null) {
+        this.mdcChip = MDCChip.attachTo(this.$el)
       }
     },
-    onTrailingIconInteraction (e) {
-      this.$emit('trailingIconInteraction', e.detail)
+    instantiateCallback (instance) {
+      this.mdcChip = instance
     },
-    onRemoval (e) {
-      this.$emit('removal', e.detail)
-    },
-    onSelection (e) {
-      this.$emit('selection', e.detail)
-      this.$emit('change', e.detail.selected)
+    destroy () {
+      if (this.mdcChip != null && typeof this.mdcChip.destroy === 'function') {
+        this.mdcChip.destroy()
+        this.mdcChip = null
+      }
     },
     onInteraction (e) {
       this.$emit('interaction', e.detail)
     },
-    onParentInit () {
-      this.filter = this.getFilter()
-      const chipInstance = this.getChipInstance(this.$el.id)
-      if (chipInstance instanceof MDCChip) {
-        if (this.mdcChip instanceof MDCChip) this.mdcChip.destroy()
-        this.mdcChip = chipInstance
-        this.mdcChip.selected = this.selected
-        this.mdcChip.shouldRemoveOnTrailingIconClick = this.shouldRemoveOnTrailingIconClick
+    onSelection (e) {
+      if (e.detail.chipId === this.$el.id) {
+        this.$emit('_change', e.detail.selected)
+        this.preventReRender = true
+      }
+      this.$emit('selection', e.detail)
+    },
+    onRemoval (e) {
+      this.$emit('removal', e.detail)
+    },
+    onTrailingIconInteraction (e) {
+      this.$emit('trailingIconInteraction', e.detail)
+    },
+    onNavigation (e) {
+      this.$emit('navigation', e.detail)
+    }
+  },
+  render (h) {
+    const data = {
+      class: {
+        'mdc-chip--deletable': this.deletable,
+        'mdc-chip': true
+      },
+      attrs: {
+        ...this.$attrs,
+        role: 'row'
+      },
+      on: {
+        ...this.$listeners,
+        'MDCChip:interaction': this.onInteraction,
+        'MDCChip:selection': this.onSelection,
+        'MDCChip:removal': this.onRemoval,
+        'MDCChip:trailingIconInteraction': this.onTrailingIconInteraction,
+        'MDCChip:navigation': this.onNavigation
       }
     }
+    if (this.preventReRender) {
+      data.class['mdc-chip--selected'] = this.defaultsToBeSelected
+    } else {
+      this.defaultsToBeSelected = this.selected
+      data.class['mdc-chip--selected'] = this.selected && (this.isChoice() || this.isFilter())
+    }
+    const children = [h('div', { class: { 'mdc-chip__ripple': true } })]
+    const leadingIcon = this.$scopedSlots.leadingIcon
+      ? this.$scopedSlots
+        .leadingIcon()
+        .filter(i => i.text == null && !i.isComment)
+      : null
+    if (leadingIcon != null && leadingIcon.length > 0) {
+      if (leadingIcon[0].data.class == null) leadingIcon[0].data.class = {}
+      leadingIcon[0].data.class['mdc-chip__icon'] = true
+      leadingIcon[0].data.class['mdc-chip__icon--leading'] = true
+      if (this.preventReRender) {
+        leadingIcon[0].data.class['mdc-chip__icon--leading-hidden'] = this.defaultsToBeSelected && this.isFilter()
+      } else {
+        leadingIcon[0].data.class['mdc-chip__icon--leading-hidden'] = this.isFilter() && this.selected
+      }
+      children.push(leadingIcon[0])
+    }
+    if (this.isFilter()) {
+      children.push(
+        h(
+          'span',
+          {
+            class: {
+              'mdc-chip__checkmark': true
+            }
+          },
+          [
+            h(
+              'svg',
+              {
+                class: {
+                  'mdc-chip__checkmark-svg': true
+                },
+                attrs: {
+                  viewBox: '-2 -3 30 30'
+                }
+              },
+              [
+                h('path', {
+                  class: {
+                    'mdc-chip__checkmark-path': true
+                  },
+                  attrs: {
+                    fill: 'none',
+                    stroke: 'black',
+                    d: 'M1.73,12.91 8.1,19.28 22.79,4.59'
+                  }
+                })
+              ]
+            )
+          ]
+        )
+      )
+    }
+    // default slots
+    children.push(
+      h(
+        'span',
+        {
+          attrs: {
+            role: 'gridcell'
+          }
+        },
+        [
+          h(
+            'span',
+            {
+              class: {
+                'mdc-chip__primary-action': true
+              },
+              attrs: {
+                role: this.isFilter()
+                  ? 'checkbox'
+                  : this.isChoice()
+                    ? 'radio'
+                    : 'button',
+                tabindex: '0',
+                'aria-checked':
+                  this.isFilter() || this.isChoice()
+                    ? String(this.defaultsToBeSelected)
+                    : false
+              }
+            },
+            [
+              h(
+                'span',
+                {
+                  class: {
+                    'mdc-chip__text': true
+                  }
+                },
+                this.$scopedSlots.default()
+              )
+            ]
+          )
+        ]
+      )
+    )
+    const trailingIcon = this.$scopedSlots.trailingIcon
+      ? this.$scopedSlots
+        .trailingIcon()
+        .filter(i => i.text == null && !i.isComment)
+      : null
+    if (trailingIcon != null && trailingIcon.length > 0 && this.isInput()) {
+      if (trailingIcon[0].data.class == null) trailingIcon[0].data.class = {}
+      trailingIcon[0].data.class['mdc-chip__icon'] = true
+      trailingIcon[0].data.class['mdc-chip__icon--trailing'] = true
+      if (trailingIcon[0].data.attrs == null) trailingIcon[0].data.attrs = {}
+      trailingIcon[0].data.attrs.tabindex = '-1'
+      trailingIcon[0].data.attrs.role = 'button'
+      children.push(
+        h('span', { attrs: { role: 'gridcell' } }, [trailingIcon[0]])
+      )
+    }
+    return h('div', data, children)
   }
 }
 </script>

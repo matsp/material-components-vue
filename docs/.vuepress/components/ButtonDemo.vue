@@ -10,7 +10,7 @@
       >
         <m-icon
           v-if="checkboxProps[0].value"
-          slot="headingIcon"
+          slot="leadingIcon"
           icon="cloud"
         />
         Button
@@ -39,7 +39,7 @@ export default {
         { prop: 'outlined', value: false }
       ],
       checkboxProps: [
-        { prop: 'headingIcon', value: false },
+        { prop: 'leadingIcon', value: false },
         { prop: 'disabled', value: false },
         { prop: 'trailingIcon', value: false },
         { prop: 'ripple', value: true }

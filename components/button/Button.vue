@@ -39,16 +39,6 @@ export default {
       default: false
     }
   },
-  computed: {
-    classes () {
-      return {
-        'mdc-button': true,
-        'mdc-button--raised': this.raised,
-        'mdc-button--unelevated': this.unelevated,
-        'mdc-button--outlined': this.outlined
-      }
-    }
-  },
   watch: {
     unbounded (value) {
       if (this.ripple) {
@@ -96,7 +86,12 @@ export default {
   render (h) {
     let tag = 'button'
     const data = {
-      class: this.classes,
+      class: {
+        'mdc-button': true,
+        'mdc-button--raised': this.raised,
+        'mdc-button--unelevated': this.unelevated,
+        'mdc-button--outlined': this.outlined
+      },
       attrs: this.$attrs,
       on: this.$listeners
     }
@@ -109,20 +104,20 @@ export default {
         'mdc-button__ripple': true
       }
     })]
-    const headingIcon = this.$scopedSlots.headingIcon ? this.$scopedSlots.headingIcon() : null
-    if (headingIcon != null && headingIcon.length > 0) {
-      if (headingIcon[0].data.class == null) headingIcon[0].data.class = {}
-      headingIcon[0].data.class['mdc-button__icon'] = true
-      if (headingIcon[0].data.attrs == null) headingIcon[0].data.attrs = {}
-      headingIcon[0].data.attrs['aria-hidden'] = 'true'
-      children.push(headingIcon[0])
+    const leadingIcon = this.$scopedSlots.leadingIcon ? this.$scopedSlots.leadingIcon().filter(i => i.text == null && !i.isComment) : null
+    if (leadingIcon != null && leadingIcon.length > 0) {
+      if (leadingIcon[0].data.class == null) leadingIcon[0].data.class = {}
+      leadingIcon[0].data.class['mdc-button__icon'] = true
+      if (leadingIcon[0].data.attrs == null) leadingIcon[0].data.attrs = {}
+      leadingIcon[0].data.attrs['aria-hidden'] = 'true'
+      children.push(leadingIcon[0])
     }
     children.push(h('span', {
       class: {
         'mdc-button__label': true
       }
     }, this.$scopedSlots.default()))
-    const trailingIcon = this.$scopedSlots.trailingIcon ? this.$scopedSlots.trailingIcon() : null
+    const trailingIcon = this.$scopedSlots.trailingIcon ? this.$scopedSlots.trailingIcon().filter(i => i.text == null && !i.isComment) : null
     if (trailingIcon != null && trailingIcon.length > 0) {
       if (trailingIcon[0].data.class == null) trailingIcon[0].data.class = {}
       trailingIcon[0].data.class['mdc-button__icon'] = true

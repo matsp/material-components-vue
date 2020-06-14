@@ -3,6 +3,7 @@ import './styles.scss'
 import Button from '../../components/button'
 import IconButton from '../../components/icon-button'
 import Card from '../../components/card'
+import Chips from '../../components/chips'
 import Radio from '../../components/radio'
 import FormField from '../../components/form-field'
 import Checkbox from '../../components/checkbox'
@@ -25,4 +26,5 @@ export default ({
   Vue.use(LayoutGrid)
   Vue.use(Typography)
   Vue.use(Icon)
+  Vue.use(Chips)
 }

@@ -118,7 +118,7 @@ export default {
       if (typeof this.mdcCheckbox === 'object' && typeof this.mdcCheckbox.destroy === 'function') {
         this.mdcCheckbox.destroy()
         if (typeof this.formFieldInputAssigning === 'function') {
-          this.formFieldInputAssigning(undefined)
+          this.formFieldInputAssigning(null)
         }
         this.mdcCheckbox = null
       }
