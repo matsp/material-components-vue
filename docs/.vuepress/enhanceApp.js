@@ -4,6 +4,7 @@ import Button from '../../components/button'
 import IconButton from '../../components/icon-button'
 import Card from '../../components/card'
 import Chips from '../../components/chips'
+import CircularProgress from '../../components/circular-progress'
 import Radio from '../../components/radio'
 import FormField from '../../components/form-field'
 import Checkbox from '../../components/checkbox'
@@ -27,4 +28,5 @@ export default ({
   Vue.use(Typography)
   Vue.use(Icon)
   Vue.use(Chips)
+  Vue.use(CircularProgress)
 }
