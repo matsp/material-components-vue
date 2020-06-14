@@ -9,37 +9,40 @@
         :progress="progress"
       />
     </ComponentSection>
-    <ComponentProps :radioProps="radioProps" :checkboxProps="checkboxProps" />
+    <ComponentProps
+      :radio-props="radioProps"
+      :checkbox-props="checkboxProps"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       radioProps: [
-        { prop: "large", value: true },
-        { prop: "medium", value: false },
-        { prop: "small", value: false }
+        { prop: 'large', value: true },
+        { prop: 'medium', value: false },
+        { prop: 'small', value: false }
       ],
       checkboxProps: [
-        { prop: "determinate", value: true },
-        { prop: "0.01", value: false },
-        { prop: "0.02", value: false },
-        { prop: "0.04", value: false },
-        { prop: "0.08", value: false },
-        { prop: "0.16", value: false },
-        { prop: "0.32", value: false },
-        { prop: "0.64", value: false }
+        { prop: 'determinate', value: true },
+        { prop: '0.01', value: false },
+        { prop: '0.02', value: false },
+        { prop: '0.04', value: false },
+        { prop: '0.08', value: false },
+        { prop: '0.16', value: false },
+        { prop: '0.32', value: false },
+        { prop: '0.64', value: false }
       ]
-    };
+    }
   },
   computed: {
-    progress() {
+    progress () {
       return this.checkboxProps
         .slice(1)
         .reduce((a, b) => (a += b.prop * b.value), 0)
     }
   }
-};
+}
 </script>

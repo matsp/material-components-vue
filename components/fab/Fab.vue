@@ -1,39 +1,3 @@
-<template>
-  <button
-    v-if="href.length === 0"
-    :class="classes"
-    class="mdc-fab"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
-    <slot name="icon" />
-    <span
-      v-show="extended"
-      class="mdc-fab__label"
-    >
-      <slot />
-    </span>
-    <slot name="trailingIcon" />
-  </button>
-  <a
-    v-else
-    :href="href"
-    :class="classes"
-    class="mdc-fab"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
-    <slot name="icon" />
-    <span
-      v-show="extended"
-      class="mdc-fab__label"
-    >
-      <slot />
-    </span>
-    <slot name="trailingIcon" />
-  </a>
-</template>
-
 <script>
 import { MDCRipple } from '@material/ripple'
 
@@ -43,10 +7,6 @@ export default {
   mixins: [baseComponentMixin, themeClassMixin],
   props: {
     mini: {
-      type: Boolean,
-      default: false
-    },
-    absoluteRight: {
       type: Boolean,
       default: false
     },
@@ -61,78 +21,99 @@ export default {
     href: {
       type: String,
       default: ''
-    }
-  },
-  data () {
-    return {
-      mdcRipple: undefined,
-      slotObserver: undefined,
-      extended: false
-    }
-  },
-  computed: {
-    classes () {
-      return {
-        'mdc-fab--mini': this.mini,
-        'mdc-fab--absolute-right': this.absoluteRight,
-        'mdc-fab--exited': this.exited,
-        'mdc-fab--extended': this.extended
-      }
+    },
+    unbounded: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
-    classes () {
-      this.reInstantiateRipple()
-    },
-    ripple () {
-      this.reInstantiateRipple()
+    unbounded (value) {
+      if (this.ripple) {
+        this.mdcRipple.unbounded = value
+      }
     }
   },
   mounted () {
-    this.updateSlot()
-    this.slotObserver = new MutationObserver(() => this.updateSlot())
-    this.slotObserver.observe(this.$el, {
-      childList: true,
-      subtree: true,
-      characterData: true
-    })
-    if (this.ripple) this.mdcRipple = MDCRipple.attachTo(this.$el)
+    this.instantiate()
+  },
+  activated () {
+    this.instantiate()
+  },
+  beforeUpdate () {
+    this.destroy()
+  },
+  updated () {
+    if (this.ripple) {
+      this.instantiate()
+    }
   },
   beforeDestroy () {
-    if (this.mdcRipple) {
-      this.mdcRipple.destroy()
-    }
-    this.slotObserver.disconnect()
+    this.destroy()
+  },
+  deactivated () {
+    this.destroy()
   },
   methods: {
-    updateSlot () {
-      if (this.$slots.icon) {
-        this.$slots.icon.map(n => {
-          if (n.elm instanceof Element) n.elm.classList.add('mdc-fab__icon')
-        })
-      }
-      if (this.$slots.trailingIcon) {
-        this.$slots.trailingIcon.map(n => {
-          if (n.elm instanceof Element) n.elm.classList.add('mdc-fab__icon')
-        })
-      }
-      this.extended = false
-      if (this.$slots.default) {
-        this.$slots.default.map(n => {
-          if (n.elm instanceof Element || n.text.trim().length > 0) this.extended = true
-        })
+    instantiate () {
+      if (this.ripple && this.mdcRipple == null) {
+        this.mdcRipple = MDCRipple.attachTo(this.$el)
+        this.mdcRipple.unbounded = this.unbounded
       }
     },
-    reInstantiateRipple () {
-      if (this.mdcRipple instanceof MDCRipple) {
+    destroy () {
+      if (this.mdcRipple != null && typeof this.mdcRipple === 'object' && typeof this.mdcRipple.destroy === 'function') {
         this.mdcRipple.destroy()
-      }
-      if (this.ripple) {
-        MDCRipple.attachTo(this.$el)
-      } else {
-        this.mdcRipple = undefined
+        this.mdcRipple = null
       }
     }
+  },
+  render (h) {
+    let defaultSlot, extended
+    if (this.$scopedSlots.default) {
+      defaultSlot = this.$scopedSlots.default().filter(v => !v.isComment && (v.text == null || v.text.trim() !== ''))
+      extended = defaultSlot.length > 0
+    }
+    const data = {
+      staticClass: 'mdc-fab',
+      class: {
+        'mdc-fab--mini': this.mini,
+        'mdc-fab--exited': this.exited,
+        'mdc-fab--extended': extended
+      },
+      attrs: {
+        ...this.$attrs
+      },
+      on: {
+        ...this.$listeners
+      }
+    }
+    let tag = 'button'
+    if (this.href !== '') {
+      tag = 'a'
+      data.attrs.href = this.href
+    }
+    const children = [[h('div', {
+      staticClass: 'mdc-fab__ripple'
+    })]]
+    const icon = this.$scopedSlots.icon ? this.$scopedSlots.icon().filter(i => (i.text == null || i.text.trim() === '') && !i.isComment) : null
+    if (icon != null && icon.length > 0) {
+      if (icon[0].data.class == null) icon[0].data.class = {}
+      icon[0].data.class['mdc-fab__icon'] = true
+      children.push(icon[0])
+    }
+    if (extended) {
+      children.push(h('span', {
+        staticClass: 'mdc-fab__label'
+      }, defaultSlot))
+    }
+    const trailingIcon = this.$scopedSlots.trailingIcon ? this.$scopedSlots.trailingIcon().filter(i => (i.text == null || i.text.trim() === '') && !i.isComment) : null
+    if (trailingIcon != null && trailingIcon.length > 0) {
+      if (trailingIcon[0].data.class == null) trailingIcon[0].data.class = {}
+      trailingIcon[0].data.class['mdc-fab__icon'] = true
+      children.push(trailingIcon[0])
+    }
+    return h(tag, data, children)
   }
 }
 </script>

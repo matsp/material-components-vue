@@ -1,15 +1,17 @@
 <template>
-<div>
-  <ComponentSection>
-    <m-checkbox
-      v-model="checkboxProps[2].value"
-      :indeterminate="checkboxProps[1].value"
-      :disabled="checkboxProps[0].value"/>
-  </ComponentSection>
-  <ComponentProps
-    :radioProps="radioProps"
-    :checkboxProps="checkboxProps"/>
-</div>
+  <div>
+    <ComponentSection>
+      <m-checkbox
+        v-model="checkboxProps[2].value"
+        :indeterminate="checkboxProps[1].value"
+        :disabled="checkboxProps[0].value"
+      />
+    </ComponentSection>
+    <ComponentProps
+      :radio-props="radioProps"
+      :checkbox-props="checkboxProps"
+    />
+  </div>
 </template>
 
 <script>

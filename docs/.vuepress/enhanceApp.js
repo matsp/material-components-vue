@@ -11,6 +11,7 @@ import Checkbox from '../../components/checkbox'
 import LayoutGrid from '../../components/layout-grid'
 import Typography from '../../components/typography'
 import Icon from '../../components/icon'
+import Fab from '../../components/fab'
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -29,4 +30,5 @@ export default ({
   Vue.use(Icon)
   Vue.use(Chips)
   Vue.use(CircularProgress)
+  Vue.use(Fab)
 }

@@ -100,11 +100,9 @@ export default {
       data.attrs.href = this.href
     }
     const children = [h('div', {
-      class: {
-        'mdc-button__ripple': true
-      }
+      staticClass: 'mdc-button__ripple'
     })]
-    const leadingIcon = this.$scopedSlots.leadingIcon ? this.$scopedSlots.leadingIcon().filter(i => i.text == null && !i.isComment) : null
+    const leadingIcon = this.$scopedSlots.leadingIcon ? this.$scopedSlots.leadingIcon().filter(i => (i.text == null || i.text.trim() === '') && !i.isComment) : null
     if (leadingIcon != null && leadingIcon.length > 0) {
       if (leadingIcon[0].data.class == null) leadingIcon[0].data.class = {}
       leadingIcon[0].data.class['mdc-button__icon'] = true
@@ -117,7 +115,7 @@ export default {
         'mdc-button__label': true
       }
     }, this.$scopedSlots.default()))
-    const trailingIcon = this.$scopedSlots.trailingIcon ? this.$scopedSlots.trailingIcon().filter(i => i.text == null && !i.isComment) : null
+    const trailingIcon = this.$scopedSlots.trailingIcon ? this.$scopedSlots.trailingIcon().filter(i => (i.text == null || i.text.trim() === '') && !i.isComment) : null
     if (trailingIcon != null && trailingIcon.length > 0) {
       if (trailingIcon[0].data.class == null) trailingIcon[0].data.class = {}
       trailingIcon[0].data.class['mdc-button__icon'] = true
