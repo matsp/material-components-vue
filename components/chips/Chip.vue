@@ -1,6 +1,7 @@
 <script>
 import { baseComponentMixin, themeClassMixin } from '../base'
 import { MDCChip } from '@material/chips'
+import destroyHelper from '../../utils/destroyHelper'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -50,20 +51,25 @@ export default {
     }
   },
   mounted () {
-    if (this.getChipInstance == null) {
-      this.instantiateItself()
-    } else {
+    if (this.getChipInstance) {
       this.getChipInstance(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
     }
   },
   activated () {
-    if (this.getChipInstance == null) {
-      this.instantiateItself()
-    } else {
+    if (this.getChipInstance) {
       this.getChipInstance(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
     }
   },
   updated () {
+    if (this.getChipInstance) {
+      this.getChipInstance(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
+    }
     this.preventReRender = false
   },
   deactivated () {
@@ -91,10 +97,7 @@ export default {
       this.mdcChip = instance
     },
     destroy () {
-      if (this.mdcChip != null && typeof this.mdcChip.destroy === 'function') {
-        this.mdcChip.destroy()
-        this.mdcChip = null
-      }
+      destroyHelper(this, 'mdcChip')
     },
     onInteraction (e) {
       this.$emit('interaction', e.detail)
@@ -123,8 +126,8 @@ export default {
         'mdc-chip': true
       },
       attrs: {
-        ...this.$attrs,
-        role: 'row'
+        role: 'row',
+        ...this.$attrs
       },
       on: {
         ...this.$listeners,

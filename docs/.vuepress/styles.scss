@@ -13,6 +13,13 @@ $mdc-theme-background: #ffffff;
 @use "@material/chips/mdc-chips";
 @use "@material/circular-progress/mdc-circular-progress";
 @use "@material/fab/mdc-fab";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/textfield/mdc-text-field";
+@use "@material/textfield/helper-text/mdc-text-field-helper-text";
+@use "@material/textfield/character-counter/mdc-text-field-character-counter";
+@use "@material/textfield/icon/mdc-text-field-icon";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/line-ripple/mdc-line-ripple";
 
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500"); */
 /* @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */

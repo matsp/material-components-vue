@@ -9,9 +9,13 @@ import Radio from '../../components/radio'
 import FormField from '../../components/form-field'
 import Checkbox from '../../components/checkbox'
 import LayoutGrid from '../../components/layout-grid'
+import TextField from '../../components/text-field'
 import Typography from '../../components/typography'
 import Icon from '../../components/icon'
 import Fab from '../../components/fab'
+import LineRipple from '../../components/line-ripple'
+import NotchedOutline from '../../components/notched-outline'
+import FloatingLabel from '../../components/floating-label'
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -31,4 +35,8 @@ export default ({
   Vue.use(Chips)
   Vue.use(CircularProgress)
   Vue.use(Fab)
+  Vue.use(TextField)
+  Vue.use(LineRipple)
+  Vue.use(NotchedOutline)
+  Vue.use(FloatingLabel)
 }

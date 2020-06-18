@@ -1,2 +1,4 @@
-@import "@material/textfield/mdc-text-field";
-@import "@material/textfield/helper-text/mdc-text-field-helper-text";
+@use "@material/textfield/mdc-text-field";
+@use "@material/textfield/helper-text/mdc-text-field-helper-text";
+@use "@material/textfield/character-counter/mdc-text-field-character-counter";
+@use "@material/textfield/icon/mdc-text-field-icon";

@@ -1,14 +1,12 @@
 <template>
-  <div
-    class="mdc-line-ripple"
-    @_init="onParentInit"
-  />
+  <span class="mdc-line-ripple" />
 </template>
 
 <script>
 import { MDCLineRipple } from '@material/line-ripple'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
+import destroyHelper from '../../utils/destroyHelper'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -18,49 +16,65 @@ export default {
     }
   },
   props: {
-    activate: {
-      type: Boolean,
-      default: true
-    },
     rippleCenter: {
       type: Number,
       default: null
     }
   },
-  data () {
-    return {
-      mdcLineRipple: undefined
-    }
-  },
   watch: {
-    activate (val) {
-      val ? this.mdcLineRipple.activate() : this.mdcLineRipple.deactivate()
-    },
-    rippleCenter () {
-      this.setRippleCenter(this.rippleCenter)
+    rippleCenter (xCoordinate) {
+      if (this.mdcLineRipple) {
+        this.mdcLineRipple.setRippleCenter(xCoordinate)
+      }
     }
   },
   mounted () {
-    if (!(this.getLineRipple instanceof Function)) { // can not be init by parent
-      this.mdcLineRipple = MDCLineRipple.attachTo(this.$el)
-      if (this.rippleCenter) this.setRippleCenter(this.rippleCenter)
+    if (this.getLineRipple) {
+      this.getLineRipple(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
     }
+  },
+  activated () {
+    if (this.getLineRipple) {
+      this.getLineRipple(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
+    }
+  },
+  updated () {
+    if (this.getLineRipple) {
+      this.getLineRipple(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
+    }
+  },
+  deactivated () {
+    this.destroy()
   },
   beforeDestroy () {
-    if (this.mdcLineRipple instanceof MDCLineRipple) {
-      this.mdcLineRipple.destroy()
-    }
+    this.destroy()
   },
   methods: {
-    setRippleCenter (xCoordinate) {
-      this.mdcLineRipple.setRippleCenter(xCoordinate)
+    instantiateItself () {
+      if (this.mdcLineRipple == null) {
+        this.mdcLineRipple = MDCLineRipple.attachTo(this.$el)
+      }
     },
-    onParentInit () {
-      const lineRipple = this.getLineRipple()
-      if (lineRipple instanceof MDCLineRipple) {
-        if (this.mdcLineRipple instanceof MDCLineRipple) this.mdcLineRipple.destroy()
-        this.mdcLineRipple = lineRipple
-        if (this.rippleCenter) this.setRippleCenter(this.rippleCenter)
+    instantiateCallback (instance) {
+      this.mdcLineRipple = instance
+    },
+    destroy () {
+      destroyHelper(this, 'mdcLineRipple')
+    },
+    activate () {
+      if (this.mdcLineRipple) {
+        this.mdcLineRipple.activate()
+      }
+    },
+    deactivate () {
+      if (this.mdcLineRipple) {
+        this.mdcLineRipple.deactivate()
       }
     }
   }

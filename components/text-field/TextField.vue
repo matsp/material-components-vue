@@ -1,56 +1,13 @@
-<template>
-  <div
-    :class="classes"
-    class="mdc-text-field"
-  >
-    <slot name="leadingIcon" />
-    <slot
-      v-if="textarea"
-      name="characterCounter"
-    />
-    <input
-      v-if="!textarea"
-      :value="value"
-      class="mdc-text-field__input"
-      v-bind="$attrs"
-      @input="$emit('model', $event.target.value)"
-      v-on="$listeners"
-    >
-    <textarea
-      v-if="textarea"
-      :value="value"
-      class="mdc-text-field__input"
-      v-bind="$attrs"
-      @input="$emit('model', $event.target.value)"
-      v-on="$listeners"
-    />
-    <div
-      v-if="textarea || outlined"
-      class="mdc-notched-outline"
-    >
-      <div class="mdc-notched-outline__leading" />
-      <div
-        v-if="$slots.default"
-        class="mdc-notched-outline__notch"
-      >
-        <slot />
-      </div>
-      <div class="mdc-notched-outline__trailing" />
-    </div>
-    <slot v-if="$slots.default && !textarea && !outlined" />
-    <slot name="trailingIcon" />
-    <slot
-      v-if="!outlined"
-      name="bottomLine"
-    />
-  </div>
-</template>
-
 <script>
 import { MDCTextField } from '@material/textfield'
 
+import classMatchInVnodesPredicate from '../../utils/classMatchInVnodesPredicate'
+import destroyHelper from '../../utils/destroyHelper'
+
 import { baseComponentMixin, themeClassMixin } from '../base'
-import { MDCComponent } from '@material/base/component'
+
+import NotchedOutline from '../notched-outline/NotchedOutline'
+import FloatingLabel from '../floating-label/FloatingLabel'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -62,11 +19,7 @@ export default {
     return {
       getLabel: this.getLabel,
       getLineRipple: this.getLineRipple,
-      getOutline: this.getOutline,
-      getHelperText: this.getHelperText,
-      getCharacterCounter: this.getCharacterCounter,
-      getLeadingIcon: this.getLeadingIcon,
-      getTrailingIcon: this.getTrailingIcon
+      getOutline: this.getOutline
     }
   },
   props: {
@@ -79,18 +32,6 @@ export default {
       default: false
     },
     fullWidth: {
-      type: Boolean,
-      default: false
-    },
-    outlined: {
-      type: Boolean,
-      default: false
-    },
-    dense: {
-      type: Boolean,
-      default: false
-    },
-    focused: {
       type: Boolean,
       default: false
     },
@@ -107,157 +48,160 @@ export default {
       default: true
     }
   },
-  data () {
-    return {
-      mdcTextField: undefined,
-      slotObserver: undefined,
-      noLabel: false,
-      hasLeadingIcon: false,
-      hasTrailingIcon: false
-    }
-  },
   computed: {
-    classes () {
-      return {
-        'mdc-text-field--fullwidth': this.fullWidth,
-        'mdc-text-field--with-leading-icon': this.hasLeadingIcon,
-        'mdc-text-field--with-trailing-icon': this.hasTrailingIcon,
-        'mdc-text-field--outlined': this.outlined,
-        'mdc-text-field--dense': this.dense,
-        'mdc-text-field--focused': this.focused, // won't change the actual activeElement
-        'mdc-text-field--textarea': this.textarea,
-        'mdc-text-field--no-label': this.noLabel
-      }
-    },
     inputValue () {
       return String(this.value)
     }
   },
   watch: {
-    useNativeValidation (val) {
-      this.mdcTextField.useNativeValidation = val
+    inputValue (v) {
+      // calling the instance method to insure correct animation and/or behaviors
+      this.preventReInstantiate = true
+      this.mdcTextField.value = v
     },
-    valid (val) {
-      this.mdcTextField.valid = val
+    disabled (v) {
+      this.preventReInstantiate = true
+      this.mdcTextField.disabled = v
     },
-    val (val) {
-      this.mdcTextField.value = val
+    useNativeValidation (v) {
+      this.preventReInstantiate = true
+      this.mdcTextField.useNativeValidation = v
     },
-    disabled (val) {
-      this.mdcTextField.disabled = val
-    },
-    classes () {
-      this.$nextTick(() => this.reInstantiate())
+    valid (v) {
+      this.preventReInstantiate = true
+      this.mdcTextField.valid = v
     }
+  },
+  created () {
+    this.labelMap = new WeakMap()
+    this.lineRippleMap = new WeakMap()
+    this.outlineMap = new WeakMap()
   },
   mounted () {
-    this.updateSlot()
-    this.slotObserver = new MutationObserver(() => this.updateSlot())
-    this.slotObserver.observe(this.$el, {
-      childList: true,
-      subtree: true
-    })
+    this.instantiate()
+    this.preventReInstantiate = true
+  },
+  activated () {
     this.instantiate()
   },
+  beforeUpdate () {
+    if (!this.preventReInstantiate) {
+      this.destroy()
+    }
+  },
+  updated () {
+    if (!this.preventReInstantiate) {
+      this.instantiate()
+    }
+    this.preventReInstantiate = false
+  },
+  deactivated () {
+    this.destroy()
+  },
   beforeDestroy () {
-    this.mdcTextField.destroy()
-    this.slotObserver.disconnect()
+    this.destroy()
   },
   methods: {
-    updateSlot () {
-      this.noLabel = this.$el.querySelector('.mdc-floating-label') == null
-      this.hasLeadingIcon = this.$slots.leadingIcon != null
-      this.hasTrailingIcon = this.$slots.trailingIcon != null
-
-      // to make our icons compatible with version 0.x.y
-      if (this.hasLeadingIcon) {
-        this.$slots.leadingIcon.forEach(n => {
-          if (n.elm instanceof Element) {
-            n.elm.classList.add('mdc-text-field__icon')
-          }
-        })
-      }
-      if (this.hasTrailingIcon) {
-        this.$slots.trailingIcon.forEach(n => {
-          if (n.elm instanceof Element) {
-            n.elm.classList.add('mdc-text-field__icon')
-          }
-        })
-      }
-
-      this.checkConfig()
-    },
-    reInstantiate () {
-      this.mdcTextField.destroy()
-      this.instantiate()
-    },
     instantiate () {
-      this.mdcTextField = MDCTextField.attachTo(this.$el)
-      this.mdcTextField.useNativeValidation = this.useNativeValidation
-      this.mdcTextField.valid = this.valid
-      this.mdcTextField.disabled = this.disabled
-      this.mdcTextField.value = this.inputValue
-      this.$nextTick(() => { // wait for the DOM change
-        // tell all the children that the parent is initialized
-        if (this.mdcTextField.label_ instanceof MDCComponent) {
-          this.mdcTextField.label_.emit('_init')
-        }
-        if (this.mdcTextField.outline_ instanceof MDCComponent) {
-          this.mdcTextField.outline_.emit('_init')
-        }
-        if (this.mdcTextField.lineRipple_ instanceof MDCComponent) {
-          this.mdcTextField.lineRipple_.emit('_init')
-        }
-        if (this.mdcTextField.helperText_ instanceof MDCComponent) {
-          this.mdcTextField.helperText_.emit('_init', this.mdcTextField.helperText_)
-        }
-        if (this.mdcTextField.characterCounter_ instanceof MDCComponent) {
-          this.mdcTextField.characterCounter_.emit('_init', this.mdcTextField.characterCounter_)
-        }
-        if (this.mdcTextField.leadingIcon_ instanceof MDCComponent) {
-          this.mdcTextField.leadingIcon_.emit('_init')
-        }
-        if (this.mdcTextField.trailingIcon_ instanceof MDCComponent) {
-          this.mdcTextField.trailingIcon_.emit('_init')
-        }
-      })
-    },
-    checkConfig () {
-      if (this.fullWidth && !this.noLabel && !this.textarea) {
-        console.warn(
-          'Do not use floating label with a full width text input. ' +
-          'See https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield#full-width'
-        )
-      }
-
-      if (this.fullWidth && this.outlined && !this.textarea) {
-        console.warn(
-          'Do not use outlined style on full width text input. ' +
-          'See: https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield#full-width'
-        )
+      if (this.mdcTextField == null) {
+        this.mdcTextField = MDCTextField.attachTo(this.$el)
+        if (this.mdcTextField.label_) this.labelMap.get(this.mdcTextField.label_.root_)(this.mdcTextField.label_)
+        if (this.mdcTextField.lineRipple_) this.lineRippleMap.get(this.mdcTextField.lineRipple_.root_)(this.mdcTextField.lineRipple_)
+        if (this.mdcTextField.outline_) this.outlineMap.get(this.mdcTextField.outline_.root_)(this.mdcTextField.outline_)
+        this.mdcTextField.useNativeValidation = this.useNativeValidation
+        this.mdcTextField.valid = this.valid
       }
     },
-    getLabel () {
-      return this.mdcTextField.label_
+    getLabel (el, cb) {
+      this.labelMap.set(el, cb)
     },
-    getLineRipple () {
-      return this.mdcTextField.lineRipple_
+    getLineRipple (el, cb) {
+      this.lineRippleMap.set(el, cb)
     },
-    getOutline () {
-      return this.mdcTextField.outline_
+    getOutline (el, cb) {
+      this.outlineMap.set(el, cb)
     },
-    getHelperText () {
-      return this.mdcTextField.helperText_
+    onInput (e) {
+      this.preventReInstantiate = true
+      this.$emit('model', e.target.value)
     },
-    getCharacterCounter () {
-      return this.mdcTextField.characterCounter_
-    },
-    getLeadingIcon () {
-      return this.mdcTextField.leadingIcon_
-    },
-    getTrailingIcon () {
-      return this.mdcTextField.trailingIcon_
+    destroy () {
+      destroyHelper(this, 'mdcTextField')
     }
+  },
+  render (h) {
+    const labelMatchingPredicate = (v) =>
+      classMatchInVnodesPredicate(v, 'mdc-floating-label') ||
+        (v.componentOptions && v.componentOptions.Ctor === FloatingLabel._Ctor[0]) ||
+        (v.componentOptions && v.componentOptions.tag.includes('floating-label')) ||
+        (v.tag && v.tag.includes('floating-label'))
+
+    const defaultSlot = this.$scopedSlots.default
+      ? this.$scopedSlots.default().filter(i => !i.isComment)
+      : []
+    let isOutlined = false
+    let label
+    let id
+    const outline = defaultSlot.find(v =>
+      classMatchInVnodesPredicate(v, 'mdc-notched-outline') ||
+      (v.componentOptions && v.componentOptions.Ctor === NotchedOutline._Ctor[0]) ||
+      (v.componentOptions && v.componentOptions.tag.includes('notched-outline')) ||
+      (v.tag && v.tag.includes('notched-outline'))
+    )
+    if (outline != null) {
+      isOutlined = true
+      if (outline.componentOptions) {
+        label = outline.componentOptions.children.find(labelMatchingPredicate)
+      }
+      // todo : notched outline in raw html form
+    }
+    if (!isOutlined && !this.fullWidth) {
+      label = defaultSlot.find(labelMatchingPredicate)
+      if (label && label.data && label.data.attrs && label.data.attrs.id != null) {
+        id = String(label.data.attrs.id)
+      }
+    }
+    const children = []
+    if (!isOutlined || this.fullWidth) {
+      children.push(h('span', { staticClass: 'mdc-text-field__ripple' }))
+    }
+    if (this.textarea && !this.fullWidth) {
+      children.push(
+        h('textarea', {
+          staticClass: 'mdc-text-field__input',
+          attrs: { disabled: this.disabled, 'aria-labelledby': id, ...this.$attrs },
+          on: {
+            input: this.onInput,
+            ...this.$listeners
+          }
+        }, [this.value])
+      )
+    } else {
+      children.push(h('input', {
+        staticClass: 'mdc-text-field__input',
+        attrs: { value: this.value, disabled: this.disabled, 'aria-labelledby': id, ...this.$attrs },
+        on: {
+          input: this.onInput,
+          ...this.$listeners
+        }
+      }))
+    }
+    if (!this.fullWidth && (isOutlined || label != null)) {
+      children.push(...defaultSlot)
+    }
+    if (!isOutlined && this.$scopedSlots.bottomLine) {
+      children.push(...this.$scopedSlots.bottomLine())
+    }
+    return h('label', {
+      staticClass: 'mdc-text-field',
+      class: {
+        'mdc-text-field--filled': (this.fullWidth || !isOutlined) && !this.textarea,
+        'mdc-text-field--fullwidth': this.fullWidth && !isOutlined && !this.textarea,
+        'mdc-text-field--outlined': !this.fullWidth && isOutlined,
+        'mdc-text-field--no-label': !this.fullWidth && label == null && !this.textarea,
+        'mdc-text-field--textarea': !this.fullWidth && this.textarea
+      }
+    }, children)
   }
 }
 </script>

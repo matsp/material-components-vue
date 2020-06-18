@@ -1,18 +1,16 @@
 <template>
-  <div
-    class="mdc-notched-outline"
-    @_init="onParentInit"
-  >
-    <div class="mdc-notched-outline__leading" />
-    <div class="mdc-notched-outline__notch">
+  <span class="mdc-notched-outline">
+    <span class="mdc-notched-outline__leading" />
+    <span class="mdc-notched-outline__notch">
       <slot />
-    </div>
-    <div class="mdc-notched-outline__trailing" />
-  </div>
+    </span>
+    <span class="mdc-notched-outline__trailing" />
+  </span>
 </template>
 <script>
 import { MDCNotchedOutline } from '@material/notched-outline'
 import { baseComponentMixin, themeClassMixin } from '../base'
+import destroyHelper from '../../utils/destroyHelper'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -21,27 +19,53 @@ export default {
       default: null
     }
   },
-  data () {
-    return {
-      mdcNotchedOutline: undefined
+  mounted () {
+    if (this.getOutline) {
+      this.getOutline(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
     }
   },
-  mounted () {
-    if (!(this.getOutline instanceof Function)) { // can not be init by parent
-      this.mdcNotchedOutline = MDCNotchedOutline.attachTo(this.$el)
+  activated () {
+    if (this.getOutline) {
+      this.getOutline(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
     }
+  },
+  updated () {
+    if (this.getOutline) {
+      this.getOutline(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
+    }
+  },
+  deactivated () {
+    this.destroy()
   },
   beforeDestroy () {
-    if (this.mdcNotchedOutline instanceof MDCNotchedOutline) {
-      this.mdcNotchedOutline.destroy()
-    }
+    this.destroy()
   },
   methods: {
-    onParentInit () {
-      const outline = this.getOutline()
-      if (outline instanceof MDCNotchedOutline) {
-        if (this.mdcNotchedOutline instanceof MDCNotchedOutline) this.mdcNotchedOutline.destroy()
-        this.mdcNotchedOutline = outline
+    instantiateItself () {
+      if (this.mdcNotchedOutline == null) {
+        this.mdcNotchedOutline = MDCNotchedOutline.attachTo(this.$el)
+      }
+    },
+    instantiateCallback (instance) {
+      this.mdcNotchedOutline = instance
+    },
+    destroy () {
+      destroyHelper(this, 'mdcNotchedOutline')
+    },
+    notch (notchWidth) {
+      if (this.mdcNotchedOutline) {
+        this.mdcNotchedOutline.notch(notchWidth)
+      }
+    },
+    closeNotch () {
+      if (this.mdcNotchedOutline) {
+        this.mdcNotchedOutline.closeNotch()
       }
     }
   }

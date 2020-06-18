@@ -1,18 +1,18 @@
 <template>
-  <label
+  <span
     :class="classes"
     class="mdc-floating-label"
     v-bind="$attrs"
-    @_init="onParentInit"
   >
     <slot />
-  </label>
+  </span>
 </template>
 
 <script>
 import { MDCFloatingLabel } from '@material/floating-label'
 
 import { baseComponentMixin, themeClassMixin } from '../base'
+import destroyHelper from '../../utils/destroyHelper'
 
 export default {
   mixins: [baseComponentMixin, themeClassMixin],
@@ -31,11 +31,6 @@ export default {
       default: false
     }
   },
-  data () {
-    return {
-      mdcFloatingLabel: undefined
-    }
-  },
   computed: {
     classes () {
       return {
@@ -45,22 +40,48 @@ export default {
     }
   },
   mounted () {
-    if (!(this.getLabel instanceof Function)) { // can not be init by parent
-      this.mdcFloatingLabel = MDCFloatingLabel.attachTo(this.$el)
+    if (this.getLabel) {
+      this.getLabel(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
     }
+  },
+  activated () {
+    if (this.getLabel) {
+      this.getLabel(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
+    }
+  },
+  updated () {
+    if (this.getLabel) {
+      this.getLabel(this.$el, this.instantiateCallback)
+    } else {
+      this.instantiateItself()
+    }
+  },
+  deactivated () {
+    this.destroy()
   },
   beforeDestroy () {
-    if (this.mdcFloatingLabel instanceof MDCFloatingLabel) {
-      this.mdcFloatingLabel.destroy()
-    }
+    this.destroy()
   },
   methods: {
-    onParentInit () {
-      const label = this.getLabel()
-      if (label instanceof MDCFloatingLabel) {
-        if (this.mdcFloatingLabel instanceof MDCFloatingLabel) this.mdcFloatingLabel.destroy()
-        this.mdcFloatingLabel = label
+    getWidth () {
+      if (this.mdcFloatingLabel) {
+        return this.mdcFloatingLabel.getWidth()
       }
+    },
+    instantiateItself () {
+      if (this.mdcFloatingLabel == null) {
+        this.mdcFloatingLabel = MDCFloatingLabel.attachTo(this.$el)
+      }
+    },
+    instantiateCallback (instance) {
+      this.mdcFloatingLabel = instance
+    },
+    destroy () {
+      destroyHelper(this, 'mdcFloatingLabel')
     }
   }
 }

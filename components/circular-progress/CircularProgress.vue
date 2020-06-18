@@ -109,10 +109,10 @@ export default {
           'mdc-circular-progress--small': this.small
         },
         attrs: {
-          ...this.$attrs,
           role: 'progressbar',
           'aria-valuemin': '0',
-          'aria-valuemax': '1'
+          'aria-valuemax': '1',
+          ...this.$attrs
         },
         on: this.$listeners
       },
