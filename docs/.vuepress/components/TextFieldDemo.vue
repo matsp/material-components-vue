@@ -7,7 +7,7 @@
         :disabled="checkboxProps[1].value"
         :required="checkboxProps[4].value"
         :use-native-validation="checkboxProps[3].value"
-        :valid="checkboxProps[3].value"
+        :valid="checkboxProps[2].value"
         :textarea="checkboxProps[0].value"
         :full-width="radioProps[1].value"
         maxlength="10"

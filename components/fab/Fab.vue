@@ -41,12 +41,14 @@ export default {
     this.instantiate()
   },
   beforeUpdate () {
+    if (this.preventReInstantiate) return
     this.destroy()
   },
   updated () {
     if (this.ripple) {
       this.instantiate()
     }
+    this.preventReInstantiate = false
   },
   beforeDestroy () {
     this.destroy()
@@ -113,6 +115,8 @@ export default {
       trailingIcon[0].data.class['mdc-fab__icon'] = true
       children.push(trailingIcon[0])
     }
+    if (this.extended === extended) this.preventReInstantiate = true
+    this.extended = extended
     return h(tag, data, children)
   }
 }
