@@ -28,7 +28,8 @@
     "release": "npm run build && npm run build:min && standard-version",
     "test": "cross-env NODE_ENV=testing jest",
     "test:watch": "npm run test -- --watch",
-    "test:updateSnapshot": "npm run test -- --updateSnapshot"
+    "test:updateSnapshot": "npm run test -- --updateSnapshot",
+    "prepare": "npm run build:min"
   },
   "dependencies": {
     "material-components-web": "3.2.0"
