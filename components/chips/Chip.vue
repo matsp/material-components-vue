@@ -148,7 +148,7 @@ export default {
     const leadingIcon = this.$scopedSlots.leadingIcon
       ? this.$scopedSlots
         .leadingIcon()
-        .filter(i => (i.text == null || i.text.trim() === '') && !i.isComment)
+        .filter(i => i.text == null && !i.isComment)
       : null
     if (leadingIcon != null && leadingIcon.length > 0) {
       if (leadingIcon[0].data.class == null) leadingIcon[0].data.class = {}
@@ -245,7 +245,7 @@ export default {
     const trailingIcon = this.$scopedSlots.trailingIcon
       ? this.$scopedSlots
         .trailingIcon()
-        .filter(i => (i.text == null || i.text.trim() === '') && !i.isComment)
+        .filter(i => i.text == null && !i.isComment)
       : null
     if (trailingIcon != null && trailingIcon.length > 0 && this.isInput()) {
       if (trailingIcon[0].data.class == null) trailingIcon[0].data.class = {}

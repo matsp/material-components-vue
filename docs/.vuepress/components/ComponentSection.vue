@@ -1,6 +1,6 @@
 <template>
   <section
-    :style="{ 'flex-direction': flexDirection }"
+    :style="{ 'flex-direction': flexDirection, 'align-items': this.centeringContents ? 'center' : 'normal', 'justify-content': this.centeringContents ? 'center': 'normal' }"
     class="compSection"
   >
     <slot />
@@ -13,6 +13,10 @@ export default {
     flexDirection: {
       type: String,
       default: 'row'
+    },
+    centeringContents: {
+      type: Boolean,
+      default: true
     }
   }
 }
@@ -21,8 +25,6 @@ export default {
 <style>
 .compSection {
   display: flex;
-  align-items: center;
-  justify-content: center;
   /* height: 200px; */
   /* min-height: 400px; */
   height: auto;

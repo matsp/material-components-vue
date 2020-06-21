@@ -98,7 +98,7 @@ export default {
     const children = [[h('div', {
       staticClass: 'mdc-fab__ripple'
     })]]
-    const icon = this.$scopedSlots.icon ? this.$scopedSlots.icon().filter(i => (i.text == null || i.text.trim() === '') && !i.isComment) : null
+    const icon = this.$scopedSlots.icon ? this.$scopedSlots.icon().filter(i => i.text == null && !i.isComment) : null
     if (icon != null && icon.length > 0) {
       if (icon[0].data.class == null) icon[0].data.class = {}
       icon[0].data.class['mdc-fab__icon'] = true
@@ -109,7 +109,7 @@ export default {
         staticClass: 'mdc-fab__label'
       }, defaultSlot))
     }
-    const trailingIcon = this.$scopedSlots.trailingIcon ? this.$scopedSlots.trailingIcon().filter(i => (i.text == null || i.text.trim() === '') && !i.isComment) : null
+    const trailingIcon = this.$scopedSlots.trailingIcon ? this.$scopedSlots.trailingIcon().filter(i => i.text == null && !i.isComment) : null
     if (trailingIcon != null && trailingIcon.length > 0) {
       if (trailingIcon[0].data.class == null) trailingIcon[0].data.class = {}
       trailingIcon[0].data.class['mdc-fab__icon'] = true
