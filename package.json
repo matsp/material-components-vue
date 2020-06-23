@@ -81,7 +81,7 @@
     "uglifyjs-webpack-plugin": "2.2.0",
     "url-loader": "4.1.0",
     "vue-jest": "3.0.5",
-    "vue-loader": "15.9.2",
+    "vue-loader": "15.9.3",
     "vuepress": "1.5.2",
     "webpack": "4.43.0",
     "webpack-cli": "3.3.12",
