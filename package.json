@@ -83,7 +83,7 @@
     "vue-jest": "3.0.5",
     "vue-loader": "15.9.2",
     "vuepress": "1.5.2",
-    "webpack": "4.43.0",
+    "webpack": "4.44.1",
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.11.0",
     "webpack-merge": "4.2.2"
